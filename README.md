@@ -32,7 +32,7 @@ General goal is to make code readable and easy to understand without overwhelm a
 
 ## Requirements
 
-* iOS 10+
+* iOS 11+
 * Xcode 10.0+
 * Swift 4.2+
 
