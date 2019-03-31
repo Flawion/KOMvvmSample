@@ -1,0 +1,695 @@
+{
+    "error": "OK",
+    "limit": 12,
+    "offset": 12,
+    "number_of_page_results": 12,
+    "number_of_total_results": 53075,
+    "status_code": 1,
+    "results": [
+        {
+            "aliases": "DOA6",
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68876\/",
+            "date_added": "2018-06-08 07:44:24",
+            "date_last_updated": "2019-03-06 18:44:21",
+            "deck": "Dead or Alive returns for its sixth main entry in the franchise with several new features and mechanics.",
+            "description": "<h2>Overview<\/h2><p>...<\/p><h2>New Features<\/h2><h3>Break Gauge System<\/h3><p>For the first time in series history, DOA6 features a special meter. The meter can be used to execute two new special attacks.<\/p><ul><li>Break Blow - A devastating super attack unique to each fighter.<\/li><li>Break Hold - A <a href=\"\/parrying\/3015-2485\/\" data-ref-id=\"3015-2485\">parry<\/a> that works regardless of the height or type of attack.<\/li><\/ul><h3>Fatal Rush<\/h3><p>To help newer players get into the series, this auto-combo system has been added to the game.<\/p><h3>Character Customization<\/h3><p>Another first for the series, players can <a href=\"\/customizable-characters\/3015-155\/\" data-ref-id=\"3015-155\">customize<\/a> the fighters' outfits and accessories.<\/p><h2>Modes<\/h2><h3>Story<\/h3><p>Play through the game's story through the viewpoints of various characters along the way.<\/p><h3>DOA Quest<\/h3><p>Win fights while completing specific tasks in the process.<\/p><h3>Fight<\/h3><ul><li>Versus<\/li><li>Arcade<\/li><li>Time Attack<\/li><li>Survival<\/li><\/ul><h3>Training<\/h3><ul><li>Free Training<\/li><li>Tutorial<\/li><li>Command Training<\/li><li>Combo Challenge<\/li><\/ul><h3>Online<\/h3><ul><li>Ranked Match<\/li><li>Lobby Match<\/li><\/ul><h3>DOA Central<\/h3><ul><li>Wardrobe<\/li><li>Database<\/li><li>Theater<\/li><li>Music<\/li><li>Library<\/li><\/ul><p> <\/p><h2>Roster<\/h2><p>The DOA6 roster features over twenty returning fighters as well as two new ones.<\/p><ul><li><a href=\"\/diego\/3005-37285\/\" data-ref-id=\"3005-37285\">Diego<\/a> - A Mexican fighter who hones his skills on the streets of <a href=\"\/new-york-city\/3035-109\/\" data-ref-id=\"3035-109\">New York City<\/a>.<\/li><li><a href=\"\/nico\/3005-38951\/\" data-ref-id=\"3005-38951\">NiCO<\/a> - A scientist with electric gloves and a Malaysian silat fighting style.<\/li><\/ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-68876",
+            "id": 68876,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3049557-box_doa6.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3049557-box_doa6.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3049557-box_doa6.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3049557-box_doa6.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3049557-box_doa6.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3049557-box_doa6.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3049557-box_doa6.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3049557-box_doa6.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3049557-box_doa6.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68876\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 111
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68876\/?filter=image_tag%3ACharacter+Renders",
+                    "name": "Character Renders",
+                    "total": 26
+                }
+            ],
+            "name": "Dead or Alive 6",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-84\/",
+                    "id": 84,
+                    "name": "Arcade",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/arcade\/3045-84\/",
+                    "abbreviation": "ARC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/dead-or-alive-6\/3030-68876\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68669\/",
+            "date_added": "2018-05-24 15:53:30",
+            "date_last_updated": "2019-03-04 14:36:11",
+            "deck": "A 2D, run and gun shooter.\n\n",
+            "description": "<h2>Overview<\/h2><p>Creepy Road is an action game developed and published by Groovy Milk for PlayStation 4, Nintendo Switch, and Xbox One.<\/p><p>The PC and Mac versions of the game were developed by Groovy Milk and co-published by Groovy Milk and GrabTheGames.<\/p><h2>System Requirements<\/h2><h3>PC<\/h3><table data-max-width=\"true\"><thead><tr><th scope=\"col\">PC Minimum<\/th><th scope=\"col\">PC Recommended<\/th><\/tr><\/thead><tbody><tr><td><ul><li>Operating System: Windows XP, Vista, Windows 7 , Windows 8, Windows 10<\/li><li>Processor: Intel i3 or AMD equivalent<\/li><li>Memory: 4 GB RAM<\/li><li>Graphics: ATI or Nvidia Videocard with at least 256MB, or Intel GMA 950 or newer<\/li><li>DirectX: Version 9.0<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><td><ul><li>Operating System: Windows XP, Vista, Windows 7 , Windows 8, Windows 10<\/li><li>Processor: Intel i5 or AMD equivalent<\/li><li>Memory: 8 GB RAM<\/li><li>Graphics: GeForce GTX 550 Ti or Radeon HD 6770<\/li><li>DirectX: Version 11<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><\/tr><\/tbody><\/table><p> <\/p><h3>Mac<\/h3><table data-max-width=\"true\"><thead><tr><th scope=\"col\">Mac Minimum<\/th><th scope=\"col\">Mac Recommended<\/th><\/tr><\/thead><tbody><tr><td><ul><li>Operating System: OS X version Leopard 10.5.8, Snow Leopard 10.6.3 or later.<\/li><li>Processor: Intel Core Duo<\/li><li>Memory: 4 GB RAM<\/li><li>Graphics: ATI or NVIDIA Videocard with at least 256MB or higher.<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><td><ul><li>Operating System: OS X version Lion 10.7 or later.<\/li><li>Processor: Any Processor with 2 Cores<\/li><li>Memory: 8 GB RAM<\/li><li>Graphics: ATI or NVIDIA Videocard with at least 512MB or higher.<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><\/tr><\/tbody><\/table><h2>External Links<\/h2><ul><li><a href=\"http:\/\/groovymilk.com\/#gameBanner\" data-target=\"true\" data-nofollow=\"true\" target=\"_blank\" rel=\"noopener nofollow\">Creepy Road Official Site<\/a><\/li><\/ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-68669",
+            "id": 68669,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3081868-box_cr.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3081868-box_cr.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3081868-box_cr.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3081868-box_cr.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3081868-box_cr.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3081868-box_cr.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3081868-box_cr.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3081868-box_cr.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3081868-box_cr.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68669\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 2
+                }
+            ],
+            "name": "Creepy Road",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/creepy-road\/3030-68669\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71782\/",
+            "date_added": "2019-01-15 15:29:09",
+            "date_last_updated": "2019-01-17 16:03:54",
+            "deck": "Halzae: Heroes of Divinity is a multiplayer online battle arena game with the distinction of choosing his spells in addition to his hero.",
+            "description": "<p>Halzae: Heroes of Divinity is a dynamic and competitive multiplayer online battle arena developed by the french company Saltclock Studio. Halzae let players fight for themselves or as a team from 2 to 8 players in deathmatch, team deathmatch, hardpoint and capture the flag. Each player chooses his hero and his spells.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-71782",
+            "id": 71782,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3075501-affiche_halzae.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3075501-affiche_halzae.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3075501-affiche_halzae.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3075501-affiche_halzae.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3075501-affiche_halzae.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3075501-affiche_halzae.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3075501-affiche_halzae.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3075501-affiche_halzae.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3075501-affiche_halzae.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71782\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Halzae: Heroes of Divinity",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/halzae-heroes-of-divinity\/3030-71782\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71288\/",
+            "date_added": "2018-12-06 15:56:58",
+            "date_last_updated": "2018-12-08 11:55:33",
+            "deck": "Beat Champion is a VR rhythm game",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-71288",
+            "id": 71288,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067739-twitch_art.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067739-twitch_art.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067739-twitch_art.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067739-twitch_art.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067739-twitch_art.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067739-twitch_art.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067739-twitch_art.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067739-twitch_art.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067739-twitch_art.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71288\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Beat Champion",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/beat-champion\/3030-71288\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72317\/",
+            "date_added": "2019-02-28 16:01:23",
+            "date_last_updated": "2019-03-02 06:44:49",
+            "deck": "Rust Racers 2D is a multiplayer melee brawler developed & published by Nethash AB.",
+            "description": "<p>Rust Racers 2D is a light-hearted melee brawler based around hauling ass across structurally unsound platforms pushing and smashing other players off the grid.<\/p><p>The first iteration of Rust Racers was a modification for the popular sandbox game Garry's Mod in 2016.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72317",
+            "id": 72317,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3084081-rr2d%20facebook%20banner.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3084081-rr2d%20facebook%20banner.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3084081-rr2d%20facebook%20banner.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3084081-rr2d%20facebook%20banner.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3084081-rr2d%20facebook%20banner.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3084081-rr2d%20facebook%20banner.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3084081-rr2d%20facebook%20banner.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3084081-rr2d%20facebook%20banner.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3084081-rr2d%20facebook%20banner.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72317\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Rust Racers 2D",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/rust-racers-2d\/3030-72317\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-45441\/",
+            "date_added": "2014-02-17 04:46:40",
+            "date_last_updated": "2019-03-03 19:20:15",
+            "deck": "Intruder is a Squad-Based First-Person Stealth Shooter with deadly gunplay, interactive environments, and spatial audio.",
+            "description": "<h2>Overview<\/h2><p><strong>Intruder<\/strong> is a stealth-orientated multi-player first-person shooter for the PC. It has a focus on in-game communication between players, real-world tactics, and team cooperation.<\/p><p>It is currently in Early Access and can be purchased from the company's website.<\/p><p>Currently the game operates on dedicated servers which are hosted by the game's developers. Private servers are not available as of today's build.<\/p><h2>Communication<\/h2><p>Part of Intruder's core gameplay is based around in-game communication between players. Each player is given a radio which can be used to communicate with other members on their team. They can also chat in close-quarters using the game's spatial voice chat. Dead players are unable to communicate except with other dead players.<\/p><p> <\/p><h4>Spatial Voice Chat<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\"><img alt=\"The voice intensity bar turns green and moves up and down according to current voice intensity (volume). \" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694478-voiceintensitybar2.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The voice intensity bar turns green and moves up and down according to current voice intensity (volume). <\/figcaption><\/figure><p>By default the player may simply speak into the microphone for nearby players to hear him. The voice is added to the environment of the game to create a realistic communication experience. This means that the enemy team may also be able to hear you if they are close enough. The game also senses when you are speaking loud or quietly and will adjust the distance that your voice travels based on this (this can be viewed with a bar on the left side of the hud while talking).<\/p><p> <\/p><h4>Radio Communication<\/h4><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\"><img alt=\"The hand radio creates tension if an enemy is near and the player needs to notify his teammates.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694480-intruderradio1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The hand radio creates tension if an enemy is near and the player needs to notify his teammates.<\/figcaption><\/figure><p>When a player is out of range of their teammates, they may take out a hand radio and use it to communicate with teammates Just like a real radio, the player must hold down the button (with left-click) to speak and then let go to hear a reply. The other teammates will hear the player's voice (with added radio static effects) whether they have their radio out or not, but must in-turn switch to their radio in order to reply. This can increase the tension as the player needs to put away their weapon temporarily when the radio is out. When talking into a radio, the spatial voice chat is still in effect. This means that enemies might hear the player while talking into the radio if the enemy is close by.<\/p><h2>Objective<\/h2><p>The objective of Intruder is different depending on the team you choose to play on. On each map (currently: 2) there are two briefcases which must be defended by the guards. The intruders must kill all of the guards or reach the suitcase and extract it safely to one of two extraction zones. The guards must kill all intruders in order to win the round. Currently there is no time limit for the intruders to take the package(s).<\/p><p>Intruder has only two maps at the moment, and the most played and furthest along in development is the 'Riverside' map. This map features 4 variations. A day map, a night map, and 2 alternate spawns for the intelligence briefcases and teams. In order to switch maps in-game you must join that map's corresponding server on the master server list. Maps currently do not change by themselves.<\/p><p> <\/p><h2>Combat, Physics and Gameplay Quirks<\/h2><p>Intruder has a large array of weapons and gadgets for the player to choose from. Both the guards and intruders currently start with the same loadout at the beginning of each round, and there are a select-few weapons and items hidden around the map for players to pickup.<\/p><h3><ins>Opening Doors<\/ins><\/h3><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\"><img alt=\"The SMG is normally the choice of the guard\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\"><noscript><img alt=\"The SMG is normally the choice of the guard\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>The SMG is normally the choice of the guard<\/figcaption><\/figure><p>Intruder's system for opening doors involves using the mouse-wheel while hovering over a door and scrolling to open. Doors can be opened fairly quickly by scrolling quickly, but this also allows players to scroll slowly so they can peek through the cracks of the door or avoid being heard and seen.<\/p><p>At the beginning of each round random doors around the level will be locked. This requires a player to use a lock-pick to open the door, which is one of the gadgets given to all players at the beginning of the game.<\/p><h3><ins>Balance, Energy, and HP<\/ins><\/h3><p>Intruder features a unique system for combat which utilizes three bars that the player can see on the bottom left of his screen.<\/p><p>The 'Balance' bar drains with movement and when firing a gun or being knocked down. The lower the balance, the easier it is to be knocked down by various forces, most commonly a gunshot or explosion. When knocked down the player goes into a ragdoll for a few seconds and must hit the jump key to get back up. The player may also, quite humorously, 'trip' over knee-high objects and go into a ragdoll as well. This normally occurs when trying to jump over a railing. If the player were to trip and then hit the floor with his head, that player most likely will die. Hitting any object, while in ragdoll, will cause damage to the player depending on the force of the impact.<\/p><p>The Energy bar ties into the player's Balance bar by draining when running too much, firing a gun too often, or jumping long distances. This bar can slow the player down but isn't as noticeable as a drained Balance or HP bar.<\/p><p>The HP bar simply shows the player's remaining health points. It's also an indicator of whether or not the player may be bleeding, which leaves blood stains on the map and could accidentally reveal their location.<\/p><h3><ins>Weapons<\/ins><\/h3><p>Every player starts with these two weapons and are able to use both.<\/p><h4>The SMG<\/h4><p>The primary weapon. Capable of 3 firing modes, semi-automatic, 3-round bursts, fully-automatic. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. The preferred weapon for Guards. <\/p><h4>The Pistol<\/h4><p>The secondary weapon. Suppressed and efficient, shots can only be heard in a close proximity. The preferred weapon for Intruders. <\/p><p> <\/p><h3><ins>Gadgets<\/ins><\/h3><p>Each player starts with a select-few gadgets. These include a radio (see communication section), a camera arm, decoy placement, smoke grenade, confusion grenade, frag grenade, motion detector, small sticky bomb and a lock-pick.<\/p><h4>Camera Stick<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\"><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\"><noscript><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.<\/figcaption><\/figure><p>The camera stick is a semi-long pole with a camera on the end that can be used to check around corners, inside doors, or in small cracks. It creates a Picture-in-Picture in the top right corner of the screen which shows the camera's current view. Players mostly use this device to check for enemies around a corner without risking being shot or seen. Currently, other players do not see the camera fixture on the end of the pole which allows it to be concealed if used correctly.<\/p><h4>Decoy Placement<\/h4><p>The decoy placement can be used to deploy a cardboard cut-out of an intruder or guard (depending on player's current team) which can trick enemy players into shooting at it. It appears in-game as a standing player with the sniper rifle in a firing position.<\/p><h4>Grenades<\/h4><p>The smoke grenade creates a cloud of smoke which can conceal a semi-large area or offer a distraction. Players can not see while inside of the smoke and players outside of the smoke can not see into it. The gas grenade creates a small cloud of mist which, if walked into by an enemy player, blurs the player's screen and inverts his looking controls in order to throw off their aim. Leaving the area of the grenade will cause the effects to subside after a short period of time. The concussion grenade creates an explosion which can kill or knock a player down.<\/p><h4>Motion Detector<\/h4><p>The motion detector can be placed on a wall, ceiling or floor and will beep loudly for the player that set it if another player walks in front of it. Currently only players can set off the motion detector, which means opening doors or falling objects will not. Each player starts with three motion detectors and there is no indication for which motion detector is going off, so it is advised you place them all around the same area or you may be confused. It is also worth noting that both friendly and enemy players can set off your motion detector.<\/p><h4>Remote Charge<\/h4><p>The Remote Charge can be placed on walls or floors. Each player has 4 remote charges which can all be detonated simultaneously by right-clicking with the remote charge or camera stick equipped. The remote charges do not do much damage, but can be used to throw a player off balance or even across a room. Players will often place remote charges on one side of the map and then detonate them later as a decoy. They are rarely used to kill players due to their low amount of damage.<\/p><h4>Lock-pick<\/h4><p>The lock-pick is used to pick the locks on locked doors. Left-clicking on a locked door will open a small window with a view of the lock-keys which you must line up in order to unlock the door. This typically takes the average player around 5 to 15 seconds to complete, which can be an opportune time for an enemy to strike. Doors which are locked are random and usually affect a small percentage of doors each round. Doors which have items behind them or briefcases tend to lock the most often.<\/p><h3><ins>Pick-ups<\/ins><\/h3><p>There are items that players have to look around the map to use. The most useful pick-up is the sniper rifle.<\/p><h4>Sniper<\/h4><p>A weapon able to be picked up. Equipped with a scope. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. Deals hefty damage and knocks over upright targets.<\/p><h4>Beanbag Shotgun<\/h4><p>A weapon able to be picked up. Shoots non-lethal beanbags that knock over targets and deal minimal damage.<\/p><h4>Binoculars<\/h4><p>A tool used to spot enemies at a distance.<\/p><h4>Riot Shield<\/h4><p>Capable of deflecting bullets. Cannot be used while prone.<\/p><h4>Red Dot Sights<\/h4><p>An attachment for the SMG, useful for a wider view while aiming down sights.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-45441",
+            "id": 45441,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2601922-2601921-1322350963-intru.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2601922-2601921-1322350963-intru.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2601922-2601921-1322350963-intru.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2601922-2601921-1322350963-intru.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2601922-2601921-1322350963-intru.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2601922-2601921-1322350963-intru.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2601922-2601921-1322350963-intru.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2601922-2601921-1322350963-intru.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2601922-2601921-1322350963-intru.png",
+                "image_tags": null
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 12
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AGameplay",
+                    "name": "Gameplay",
+                    "total": 10
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AStealth",
+                    "name": "Stealth",
+                    "total": 10
+                }
+            ],
+            "name": "Intruder",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/intruder\/3030-45441\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-48025\/",
+            "date_added": "2014-10-09 16:47:16",
+            "date_last_updated": "2018-11-22 12:56:55",
+            "deck": "Due Process is a tactical shooter in the vein of SWAT and Rainbow Six.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-48025",
+            "id": 48025,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2690424-bluelogo.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2690424-bluelogo.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2690424-bluelogo.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2690424-bluelogo.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2690424-bluelogo.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2690424-bluelogo.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2690424-bluelogo.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2690424-bluelogo.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2690424-bluelogo.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 10
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+East+2018",
+                    "name": "PAX East 2018",
+                    "total": 2
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+Prime+2014",
+                    "name": "PAX Prime 2014",
+                    "total": 2
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+Prime+2015",
+                    "name": "PAX Prime 2015",
+                    "total": 2
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+West+2018",
+                    "name": "PAX West 2018",
+                    "total": 2
+                }
+            ],
+            "name": "Due Process",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/due-process\/3030-48025\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-70099\/",
+            "date_added": "2018-08-28 21:24:48",
+            "date_last_updated": "2019-03-04 14:30:53",
+            "deck": "Multiplayer puzzle game",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-70099",
+            "id": 70099,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3081867-box_ts.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3081867-box_ts.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3081867-box_ts.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3081867-box_ts.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3081867-box_ts.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3081867-box_ts.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3081867-box_ts.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3081867-box_ts.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3081867-box_ts.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70099\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 5
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70099\/?filter=image_tag%3APAX+West+2018",
+                    "name": "PAX West 2018",
+                    "total": 3
+                }
+            ],
+            "name": "Treasure Stack",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/treasure-stack\/3030-70099\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-70626\/",
+            "date_added": "2018-10-14 13:12:52",
+            "date_last_updated": "2018-10-14 13:16:35",
+            "deck": null,
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-70626",
+            "id": 70626,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3055795-fe19.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3055795-fe19.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3055795-fe19.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3055795-fe19.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3055795-fe19.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3055795-fe19.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3055795-fe19.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3055795-fe19.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3055795-fe19.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70626\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Farm Expert 2019",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/farm-expert-2019\/3030-70626\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-66803\/",
+            "date_added": "2018-03-03 08:56:18",
+            "date_last_updated": "2019-03-04 14:32:08",
+            "deck": "Tardy",
+            "description": "<p>This is a quest about a bone head who suddenly finds himself in the space, amidst dozens of schizophrenic devices, in the middle of the war, with no crew, special skills and no idea how to deal with all these.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-66803",
+            "id": 66803,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3003142-main_capsule_1.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3003142-main_capsule_1.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3003142-main_capsule_1.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3003142-main_capsule_1.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3003142-main_capsule_1.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3003142-main_capsule_1.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3003142-main_capsule_1.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3003142-main_capsule_1.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3003142-main_capsule_1.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+
+            ],
+            "name": "Tardy",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/tardy\/3030-66803\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72185\/",
+            "date_added": "2019-02-15 18:02:47",
+            "date_last_updated": "2019-03-04 14:35:19",
+            "deck": "Klondike Solitaire for Nintendo Switch is fashionable way to spend some time relaxing. Then everybody is clear on the rules - to build stacks of cards in descending order and alternating color. Perfect game to escape from hectic daily routine.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72185",
+            "id": 72185,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3080963-horizontalheaderimage.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3080963-horizontalheaderimage.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3080963-horizontalheaderimage.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3080963-horizontalheaderimage.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3080963-horizontalheaderimage.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3080963-horizontalheaderimage.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3080963-horizontalheaderimage.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3080963-horizontalheaderimage.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3080963-horizontalheaderimage.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72185\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Klondike Solitaire ",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/klondike-solitaire\/3030-72185\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71418\/",
+            "date_added": "2018-12-18 18:34:23",
+            "date_last_updated": "2019-03-02 18:16:29",
+            "deck": "Control a settlement of humans and guide them through 10,000 years of human prehistory.",
+            "description": "<h2>Overview<\/h2><p>Dawn of Man is a survival \/ city builder that has you starting out establishing a small Stone Age village. Players must hunt for animals, gather resources, and prepare stockpiles to survive the hostile winters. As the settlement expands, discover new technologies that will help support larger populations and defend against more frequent raider attacks as you advance toward the Iron Age.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-71418",
+            "id": 71418,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3069933-dom_cover.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3069933-dom_cover.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3069933-dom_cover.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3069933-dom_cover.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3069933-dom_cover.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3069933-dom_cover.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3069933-dom_cover.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3069933-dom_cover.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3069933-dom_cover.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71418\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Dawn of Man",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/dawn-of-man\/3030-71418\/"
+        }
+    ],
+    "version": "1.0"
+}

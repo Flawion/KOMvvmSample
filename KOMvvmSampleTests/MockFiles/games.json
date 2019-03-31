@@ -1,0 +1,655 @@
+{
+    "error": "OK",
+    "limit": 12,
+    "offset": 0,
+    "number_of_page_results": 12,
+    "number_of_total_results": 53075,
+    "status_code": 1,
+    "results": [
+        {
+            "aliases": "DMC5",
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68910\/",
+            "date_added": "2018-06-10 14:11:12",
+            "date_last_updated": "2019-03-07 08:28:38",
+            "deck": "Set several years after Devil May Cry 4. which was released a decade prior, the series returns with three playable characters including the original and recurring protagonist, Dante and the protagonist of the fourth installment, Nero.",
+            "description": "<h2>Overview<\/h2><p>Devil May Cry 5 is the 5th main title of the <a href=\"https:\/\/www.giantbomb.com\/devil-may-cry\/3025-147\/\" data-ref-id=\"3025-147\">Devil May Cry franchise<\/a>. As with the preceeding four titles it is a <a href=\"\/hack-and-slash\/3015-469\/\" data-ref-id=\"3015-469\">hack and slash<\/a> character action game. It is the first Capcom developed DMC game since 2008.<\/p><h2>Characters<\/h2><p><strong><a href=\"\/dante\/3005-309\/\" data-ref-id=\"3005-309\">Dante<\/a><\/strong> - <a href=\"\/character-models-based-on-actual-people\/3015-3714\/\" data-ref-id=\"3015-3714\">Character model based on model<\/a> Adam Cowie - <a href=\"\/motion-capture-animation\/3015-5882\/\" data-ref-id=\"3015-5882\">Mocapped<\/a> &amp; <a href=\"\/voice-acting\/3015-1413\/\" data-ref-id=\"3015-1413\">voice acted<\/a> by <a href=\"\/reuben-langdon\/3040-40654\/\" data-ref-id=\"3040-40654\">Reuben Langdon<\/a>. Pre-release information describes Dante's quest in DMC5 as trying to get revenge for the murder of his mother as a child and the control <a href=\"\/mundus\/3005-3323\/\" data-ref-id=\"3005-3323\">Mundus<\/a> had over <a href=\"\/vergil\/3005-1804\/\" data-ref-id=\"3005-1804\">his brother<\/a> as \"Nelo Angelo\" in <a href=\"\/devil-may-cry\/3030-13072\/\" data-ref-id=\"3030-13072\">the first game<\/a>. As with previous games Dante acquires new weapons as the game progresses, once again starting with the <a href=\"\/rebellion-sword\/3055-522\/\" data-ref-id=\"3055-522\">Rebellion sword<\/a>.<\/p><p><strong><a href=\"\/nero\/3005-662\/\" data-ref-id=\"3005-662\">Nero<\/a><\/strong> - Character model based on model Karlo Baker - Mocapped &amp; voice acted by <a href=\"https:\/\/www.giantbomb.com\/johnny-yong-bosch\/3040-89888\/\">Johnny Yong Bosch<\/a>. Following the events of his debut in <a href=\"\/devil-may-cry-4\/3030-6681\/\" data-ref-id=\"3030-6681\">DMC4<\/a>, Nero is working independently as a demon hunter with the Devil May Cry branding. Nero fights with his <a href=\"\/red-queen-sword\/3055-112\/\" data-ref-id=\"3055-112\">Red Queen sword<\/a> &amp; <a href=\"\/blue-rose\/3055-192\/\" data-ref-id=\"3055-192\">Blue Rose revolver gun<\/a>. His demonic Devil Bringer arm is replaced with multiple Devil Breaker robotic arms which he acquires throughout the game.<\/p><p><strong><a href=\"\/v\/3005-39514\/\" data-ref-id=\"3005-39514\">V<\/a><\/strong> - Character model based on model Owen Hamze - Mocapped &amp; voice acted by Brian Hanford. The new 3rd playable protagonist who can summon demons based on enemies from the <a href=\"\/devil-may-cry\/3030-13072\/\" data-ref-id=\"3030-13072\">first Devil Cry May<\/a> to fight for him. The three demons being Griffon, a bird which fights with long-range electric attacks, Shadow, a cat that fights by manipulating its body into spikes and V's devil trigger summon, Nightmare, a lumbering demon that matches a lot of DMC5's bosses in size.<\/p><ul><li>(See Also - Devil May Cry 1 bosses <a href=\"\/griffon\/3005-25411\/\" data-ref-id=\"3005-25411\">Griffon<\/a> &amp; <a href=\"\/nightmare\/3005-25412\/\" data-ref-id=\"3005-25412\">Nightmare<\/a>.)<\/li><\/ul><p><a href=\"\/trish\/3005-1881\/\" data-ref-id=\"3005-1881\"><strong>Trish<\/strong><\/a> - Character model based on model Ariana Diamant - Mocapped &amp; voice acted by <a href=\"\/wendee-lee\/3040-21161\/\" data-ref-id=\"3040-21161\">Wendee Lee<\/a>. Trish returns with the <a href=\"\/sparda\/3055-954\/\" data-ref-id=\"3055-954\">Sparda sword<\/a> in hand continuing her role of assisting Dante.<\/p><p><a href=\"\/lady\/3005-855\/\" data-ref-id=\"3005-855\"><strong>Lady<\/strong><\/a> - Character model based on model Andrea Tivadar - Mocapped &amp; voice acted by <a href=\"\/kate-higgins\/3040-85312\/\" data-ref-id=\"3040-85312\">Kate Higgins<\/a>. Demon hunter Lady also returns with her signature <a href=\"\/kalina-ann\/3055-6223\/\" data-ref-id=\"3055-6223\">Kalina Ann rocket launcher<\/a> to team up with Dante &amp; Trish on another big job.<\/p><p><a href=\"\/nico\/3005-37088\/\" data-ref-id=\"3005-37088\"><strong>Nico<\/strong><\/a> - New character Nico is the granddaughter of Nell Goldstein, the gunsmith who created Dante's guns <a href=\"\/ebony-ivory\/3055-788\/\" data-ref-id=\"3055-788\">Ebony &amp; Ivory<\/a>. Nico has dreams of being a legendary craftswoman &amp; weapons maker like her grandmother &amp; his formed a partnership with Nero, making &amp; selling her Devil Breaker arms to him. She drives her van to Nero's locations during missions, functioning as a mobile base of operations.<\/p><h2>Story<\/h2><figure data-align=\"left\" data-size=\"small\" data-ref-id=\"1300-3028646\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg\" data-ratio=\"1\" data-width=\"2048\" data-embed-type=\"image\" style=\"width: 2048px\"><a class=\"fluid-height\" style=\"padding-bottom:100.0%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg\" data-ref-id=\"1300-3028646\"><img alt=\"Along with the Devil Breaker System featuring a range of bionic arms, Nero returns with his sword \"Red Queen\" and his revolver \"Blue Rose\". \" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_small\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg 2048w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg 1920w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_small\/0\/7772\/3028646-nibellion_2018-jun-10+5.jpg 640w\" sizes=\"(max-width: 640px) 100vw, 640px\" data-width=\"640\"><\/a><figcaption>Along with the Devil Breaker System featuring a range of bionic arms, Nero returns with his sword \"Red Queen\" and his revolver \"Blue Rose\". <\/figcaption><\/figure><p>The game's story is the furthest in the DMC timeline, chronologically following the <a href=\"\/devil-may-cry-3-dantes-awakening\/3030-890\/\" data-ref-id=\"3030-890\">3rd<\/a>, <a href=\"\/devil-may-cry\/3030-13072\/\" data-ref-id=\"3030-13072\">1st<\/a>, <a href=\"\/devil-may-cry-2\/3030-16741\/\" data-ref-id=\"3030-16741\">2nd<\/a> and <a href=\"\/devil-may-cry-4\/3030-6681\/\" data-ref-id=\"3030-6681\">4th game<\/a>. There is an invasion of demons in Red Grave City following the spawning of a demon tree there and <a href=\"\/nero\/3005-662\/\" data-ref-id=\"3005-662\">Nero<\/a> returns as a playable character from the fourth game with his iconic Devil Bringer arm being replaced by a bionic Devil Breaker following a bloody encounter with a mysterious foe.<\/p><p>Nero now runs as a separate branch of Devil May Cry, a demon-hunting business while <a href=\"\/dante\/3005-309\/\" data-ref-id=\"3005-309\">Dante<\/a>, his superior is also seen in the initial trailer for the game on a motorcycle and expected to be along with Nero as two of the three confirmed playable characters.<\/p><p>The third character, <a href=\"\/v\/3005-39514\/\" data-ref-id=\"3005-39514\">V<\/a>, teams up with Dante &amp; Nero to stop the events unfolding in Red Grave City, his origin &amp; motives are unknown.<\/p><h2>Development<\/h2><p>With full development following 2015's <a href=\"\/devil-may-cry-4-special-edition\/3030-48439\/\" data-ref-id=\"3030-48439\">Devil May Cry 4: Special Edition<\/a>, DMC5 was announced at <a href=\"\/e3-2018\/3015-9042\/\" data-ref-id=\"3015-9042\">E3 2018<\/a> at Microsoft's Press Conference. It marks a return to the original <a href=\"\/devil-may-cry\/3025-147\/\" data-ref-id=\"3025-147\">Devil May Cry<\/a> universe which last had a full instalment in 2008 with <a href=\"\/devil-may-cry-4\/3030-6681\/\" data-ref-id=\"3030-6681\">Devil May Cry 4<\/a>. This game marks the return of <a href=\"\/hideaki-itsuno\/3040-40227\/\" data-ref-id=\"3040-40227\">Hideaki Itsuno<\/a> as the director, who also led <a href=\"\/devil-may-cry-2\/3030-16741\/\" data-ref-id=\"3030-16741\">Devil May Cry 2<\/a>, <a href=\"\/devil-may-cry-3-dantes-awakening\/3030-890\/\" data-ref-id=\"3030-890\">Devil May Cry 3<\/a> and 4 along with their upgraded versions. It is reported that many staff members from prior Itsuno-directed projects are returning.<\/p><p>The game has been confirmed to be running on the Capcom's <a href=\"\/re-engine\/3015-8789\/\" data-ref-id=\"3015-8789\">RE Engine<\/a> as the 2019 <a href=\"\/resident-evil-2\/3030-50601\/\" data-ref-id=\"3030-50601\">Resident Evil 2<\/a> remake and 2017's <a href=\"\/resident-evil-7-biohazard\/3030-54231\/\" data-ref-id=\"3030-54231\">Resident Evil 7<\/a> rather than Capcom's <a href=\"\/mt-framework\/3015-2059\/\" data-ref-id=\"3015-2059\">MT Framework<\/a> which was used for DMC4, <a href=\"\/dragons-dogma\/3025-2510\/\" data-ref-id=\"3025-2510\">Dragon's Dogma<\/a> (also directed by Itsuno) and 2018's <a href=\"\/monster-hunter-world\/3030-59924\/\" data-ref-id=\"3030-59924\">Monster Hunter: World<\/a>. This came with a focus on photo-realism but the game aims to maintain the smooth 60 frames-per-second that the series is known for.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-68910",
+            "id": 68910,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3027479-box_dmc5.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3027479-box_dmc5.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3027479-box_dmc5.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3027479-box_dmc5.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3027479-box_dmc5.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3027479-box_dmc5.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3027479-box_dmc5.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3027479-box_dmc5.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3027479-box_dmc5.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68910\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 52
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68910\/?filter=image_tag%3Ae3+2018",
+                    "name": "e3 2018",
+                    "total": 4
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68910\/?filter=image_tag%3APAX+West+2018",
+                    "name": "PAX West 2018",
+                    "total": 5
+                }
+            ],
+            "name": "Devil May Cry 5",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-08 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/devil-may-cry-5\/3030-68910\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72152\/",
+            "date_added": "2019-02-13 16:50:10",
+            "date_last_updated": "2019-02-17 14:07:02",
+            "deck": "Audica is a VR rhythm shooter for the Oculus Rift and Steam VR, made by Harmonix Music Systems. ",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72152",
+            "id": 72152,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2853576-gblogo.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2853576-gblogo.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2853576-gblogo.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2853576-gblogo.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2853576-gblogo.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2853576-gblogo.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2853576-gblogo.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2853576-gblogo.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2853576-gblogo.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72152\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Audica",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-07 00:00:00",
+            "platforms": null,
+            "site_detail_url": "https:\/\/www.giantbomb.com\/audica\/3030-72152\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-61459\/",
+            "date_added": "2017-09-19 03:57:02",
+            "date_last_updated": "2019-03-06 01:46:28",
+            "deck": "Left Alive is a survival-action shooter by Square Enix that is set in the world of the Front Mission series.",
+            "description": "<h2>Overview<\/h2><p>Left Alive is a survival third-person shooter developed by <a href=\"\/square-enix\/3010-104\/\" data-ref-id=\"3010-104\">Square Enix<\/a> for the <a href=\"\/playstation-4\/3045-146\/\" data-ref-id=\"3045-146\">PlayStation 4<\/a> and <a href=\"\/pc\/3045-94\/\" data-ref-id=\"3045-94\">PC<\/a>. The title is a spin-off to the <a href=\"\/front-mission\/3025-748\/\" data-ref-id=\"3025-748\">Front Mission<\/a> franchise and takes place in the year 2127, placing it between <a href=\"\/front-mission-5-scars-of-the-war\/3030-13524\/\" data-ref-id=\"3030-13524\">Front Mission 5<\/a> and <a href=\"\/front-mission-evolved\/3030-26008\/\" data-ref-id=\"3030-26008\">Front Mission Evolved<\/a>. The game follows three protagonists who are trapped in a Russian city called Novo Slava during \"The One Day Incident,\" a conflict that marks the beginning of a larger war. Caught in the middle of this battle, the protagonists must find a way to survive through stealth, setting traps, crafting materials, hijacking enemy mechs (known as Wanzers), and direct combat. How the player reaches their objective is open-ended but depending on the methods used and the path taken by the player, the story will be affected in a number of ways.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-61459",
+            "id": 61459,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2965004-left-alive-09-19-17-2-1200x1514.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-61459\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 6
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-61459\/?filter=image_tag%3AScreenshots",
+                    "name": "Screenshots",
+                    "total": 5
+                }
+            ],
+            "name": "Left Alive",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/left-alive\/3030-61459\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-65656\/",
+            "date_added": "2018-01-22 16:37:40",
+            "date_last_updated": "2019-03-04 14:38:59",
+            "deck": "Unknown Fate is a first-person story-driven action adventure game in development by Marslit Games.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-65656",
+            "id": 65656,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2994377-unknown-fate.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2994377-unknown-fate.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2994377-unknown-fate.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2994377-unknown-fate.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2994377-unknown-fate.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2994377-unknown-fate.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2994377-unknown-fate.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2994377-unknown-fate.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2994377-unknown-fate.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+
+            ],
+            "name": "Unknown Fate",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/unknown-fate\/3030-65656\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72380\/",
+            "date_added": "2019-03-05 14:48:45",
+            "date_last_updated": "2019-03-05 17:39:02",
+            "deck": "Sellswords : Ashen Company ",
+            "description": "<p>Sellswords : Ashen Company is a Medieval Action RTS. The key feature is it's unique blend between Third Person Action and RTS.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72380",
+            "id": 72380,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3085012-cover.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3085012-cover.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3085012-cover.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3085012-cover.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3085012-cover.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3085012-cover.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3085012-cover.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3085012-cover.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3085012-cover.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72380\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Sellswords: Ashen Company",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": null,
+            "site_detail_url": "https:\/\/www.giantbomb.com\/sellswords-ashen-company\/3030-72380\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72396\/",
+            "date_added": "2019-03-07 17:54:25",
+            "date_last_updated": "2019-03-07 18:16:30",
+            "deck": "A strategy focused idle game with a classic computer visual style.",
+            "description": "<h2>Overview<\/h2><p>Territory Idle is a strategy idle game developed and published by <a href=\"\/aleksandr-golovkin\/3010-14812\/\" data-ref-id=\"3010-14812\">Aleksandr Golovkin<\/a> for <a href=\"\/pc\/3045-94\/\" data-ref-id=\"3045-94\">PC<\/a>.<\/p><h2>System Requirements<\/h2><h3>PC Minimum<\/h3><ul><li>Operating System: Windows XP, Vista, 7, 8, or 10<\/li><li>Processor: 2 GHz+<\/li><li>Memory: 512 MB RAM<\/li><li>Graphics: 128MB<\/li><li>DirectX: Version 9.0c<\/li><li>Storage: 50 MB available space<\/li><\/ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72396",
+            "id": 72396,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3085253-header.jpg",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3085253-header.jpg",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3085253-header.jpg",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3085253-header.jpg",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3085253-header.jpg",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3085253-header.jpg",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3085253-header.jpg",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3085253-header.jpg",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3085253-header.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72396\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 13
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72396\/?filter=image_tag%3AOfficial+Screenshots+%28Steam+Store%29",
+                    "name": "Official Screenshots (Steam Store)",
+                    "total": 12
+                }
+            ],
+            "name": "Territory Idle",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/territory-idle\/3030-72396\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72156\/",
+            "date_added": "2019-02-13 21:26:25",
+            "date_last_updated": "2019-02-13 21:27:27",
+            "deck": "The 2019 outing of the official game series of Major League Baseball.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72156",
+            "id": 72156,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3080799-box_rbi19.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3080799-box_rbi19.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3080799-box_rbi19.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3080799-box_rbi19.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3080799-box_rbi19.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3080799-box_rbi19.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3080799-box_rbi19.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3080799-box_rbi19.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3080799-box_rbi19.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72156\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "R.B.I. Baseball 19",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-96\/",
+                    "id": 96,
+                    "name": "iPhone",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/iphone\/3045-96\/",
+                    "abbreviation": "IPHN"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-123\/",
+                    "id": 123,
+                    "name": "Android",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/android\/3045-123\/",
+                    "abbreviation": "ANDR"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/rbi-baseball-19\/3030-72156\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71423\/",
+            "date_added": "2018-12-19 09:31:50",
+            "date_last_updated": "2019-02-24 07:56:49",
+            "deck": "First Person investigative thriller.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-71423",
+            "id": 71423,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3082458-box_to.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3082458-box_to.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3082458-box_to.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3082458-box_to.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3082458-box_to.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3082458-box_to.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3082458-box_to.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3082458-box_to.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3082458-box_to.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71423\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 2
+                }
+            ],
+            "name": "The Occupation",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-05 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+                    "abbreviation": "PS4"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/the-occupation\/3030-71423\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72234\/",
+            "date_added": "2019-02-21 06:51:10",
+            "date_last_updated": "2019-02-24 14:54:22",
+            "deck": "Super Climb Up is a game by developer Electric Prune Juice, releasing on March 2nd, 2019 for Windows PC.",
+            "description": "<p>Super Climb Up is a game by developer Electric Prune Juice, releasing on March 2nd, 2019 for Windows PC. It is a platforming game originally inspired by the game Ice Climber, with the idea of expanding on and improving the mechanics set forth in it.<\/p><p>In the game, the goal is to climb to the top of every stage, bring the flag there, and collect hidden items along the way, all as fast as possible. There are 60 stages, across four areas, as well as some bonus stages awarded for collecting all of the items and playing each stage quickly.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-72234",
+            "id": 72234,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3082536-7067259268-ktwFm.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3082536-7067259268-ktwFm.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3082536-7067259268-ktwFm.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3082536-7067259268-ktwFm.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3082536-7067259268-ktwFm.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3082536-7067259268-ktwFm.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3082536-7067259268-ktwFm.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3082536-7067259268-ktwFm.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3082536-7067259268-ktwFm.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72234\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Super Climb Up",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-02 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/super-climb-up\/3030-72234\/"
+        },
+        {
+            "aliases": "SMT5\r\nSMTV\r\nShin Megami Tensei 5\r\nShin Megami Tensei: Brand New Title",
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-62285\/",
+            "date_added": "2017-10-24 15:33:19",
+            "date_last_updated": "2019-03-02 07:01:25",
+            "deck": "For the 25th anniversary of the Shin Megami Tensei series, Shin Megami Tensei V was revealed (after being previously announced as SMT HD Project) for release on Nintendo Switch, running on Unreal Engine 4.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-62285",
+            "id": 62285,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2979246-shin-megami-tensei-v_2017_11-29-17_004.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-62285\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 2
+                }
+            ],
+            "name": "Shin Megami Tensei V",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-02 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+                    "id": 157,
+                    "name": "Nintendo Switch",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+                    "abbreviation": "NSW"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/shin-megami-tensei-v\/3030-62285\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71288\/",
+            "date_added": "2018-12-06 15:56:58",
+            "date_last_updated": "2018-12-08 11:55:33",
+            "deck": "Beat Champion is a VR rhythm game",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-71288",
+            "id": 71288,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067739-twitch_art.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067739-twitch_art.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067739-twitch_art.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067739-twitch_art.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067739-twitch_art.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067739-twitch_art.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067739-twitch_art.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067739-twitch_art.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067739-twitch_art.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71288\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "Beat Champion",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/beat-champion\/3030-71288\/"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-45441\/",
+            "date_added": "2014-02-17 04:46:40",
+            "date_last_updated": "2019-03-03 19:20:15",
+            "deck": "Intruder is a Squad-Based First-Person Stealth Shooter with deadly gunplay, interactive environments, and spatial audio.",
+            "description": "<h2>Overview<\/h2><p><strong>Intruder<\/strong> is a stealth-orientated multi-player first-person shooter for the PC. It has a focus on in-game communication between players, real-world tactics, and team cooperation.<\/p><p>It is currently in Early Access and can be purchased from the company's website.<\/p><p>Currently the game operates on dedicated servers which are hosted by the game's developers. Private servers are not available as of today's build.<\/p><h2>Communication<\/h2><p>Part of Intruder's core gameplay is based around in-game communication between players. Each player is given a radio which can be used to communicate with other members on their team. They can also chat in close-quarters using the game's spatial voice chat. Dead players are unable to communicate except with other dead players.<\/p><p> <\/p><h4>Spatial Voice Chat<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\"><img alt=\"The voice intensity bar turns green and moves up and down according to current voice intensity (volume). \" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694478-voiceintensitybar2.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The voice intensity bar turns green and moves up and down according to current voice intensity (volume). <\/figcaption><\/figure><p>By default the player may simply speak into the microphone for nearby players to hear him. The voice is added to the environment of the game to create a realistic communication experience. This means that the enemy team may also be able to hear you if they are close enough. The game also senses when you are speaking loud or quietly and will adjust the distance that your voice travels based on this (this can be viewed with a bar on the left side of the hud while talking).<\/p><p> <\/p><h4>Radio Communication<\/h4><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\"><img alt=\"The hand radio creates tension if an enemy is near and the player needs to notify his teammates.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694480-intruderradio1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The hand radio creates tension if an enemy is near and the player needs to notify his teammates.<\/figcaption><\/figure><p>When a player is out of range of their teammates, they may take out a hand radio and use it to communicate with teammates Just like a real radio, the player must hold down the button (with left-click) to speak and then let go to hear a reply. The other teammates will hear the player's voice (with added radio static effects) whether they have their radio out or not, but must in-turn switch to their radio in order to reply. This can increase the tension as the player needs to put away their weapon temporarily when the radio is out. When talking into a radio, the spatial voice chat is still in effect. This means that enemies might hear the player while talking into the radio if the enemy is close by.<\/p><h2>Objective<\/h2><p>The objective of Intruder is different depending on the team you choose to play on. On each map (currently: 2) there are two briefcases which must be defended by the guards. The intruders must kill all of the guards or reach the suitcase and extract it safely to one of two extraction zones. The guards must kill all intruders in order to win the round. Currently there is no time limit for the intruders to take the package(s).<\/p><p>Intruder has only two maps at the moment, and the most played and furthest along in development is the 'Riverside' map. This map features 4 variations. A day map, a night map, and 2 alternate spawns for the intelligence briefcases and teams. In order to switch maps in-game you must join that map's corresponding server on the master server list. Maps currently do not change by themselves.<\/p><p> <\/p><h2>Combat, Physics and Gameplay Quirks<\/h2><p>Intruder has a large array of weapons and gadgets for the player to choose from. Both the guards and intruders currently start with the same loadout at the beginning of each round, and there are a select-few weapons and items hidden around the map for players to pickup.<\/p><h3><ins>Opening Doors<\/ins><\/h3><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\"><img alt=\"The SMG is normally the choice of the guard\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\"><noscript><img alt=\"The SMG is normally the choice of the guard\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>The SMG is normally the choice of the guard<\/figcaption><\/figure><p>Intruder's system for opening doors involves using the mouse-wheel while hovering over a door and scrolling to open. Doors can be opened fairly quickly by scrolling quickly, but this also allows players to scroll slowly so they can peek through the cracks of the door or avoid being heard and seen.<\/p><p>At the beginning of each round random doors around the level will be locked. This requires a player to use a lock-pick to open the door, which is one of the gadgets given to all players at the beginning of the game.<\/p><h3><ins>Balance, Energy, and HP<\/ins><\/h3><p>Intruder features a unique system for combat which utilizes three bars that the player can see on the bottom left of his screen.<\/p><p>The 'Balance' bar drains with movement and when firing a gun or being knocked down. The lower the balance, the easier it is to be knocked down by various forces, most commonly a gunshot or explosion. When knocked down the player goes into a ragdoll for a few seconds and must hit the jump key to get back up. The player may also, quite humorously, 'trip' over knee-high objects and go into a ragdoll as well. This normally occurs when trying to jump over a railing. If the player were to trip and then hit the floor with his head, that player most likely will die. Hitting any object, while in ragdoll, will cause damage to the player depending on the force of the impact.<\/p><p>The Energy bar ties into the player's Balance bar by draining when running too much, firing a gun too often, or jumping long distances. This bar can slow the player down but isn't as noticeable as a drained Balance or HP bar.<\/p><p>The HP bar simply shows the player's remaining health points. It's also an indicator of whether or not the player may be bleeding, which leaves blood stains on the map and could accidentally reveal their location.<\/p><h3><ins>Weapons<\/ins><\/h3><p>Every player starts with these two weapons and are able to use both.<\/p><h4>The SMG<\/h4><p>The primary weapon. Capable of 3 firing modes, semi-automatic, 3-round bursts, fully-automatic. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. The preferred weapon for Guards. <\/p><h4>The Pistol<\/h4><p>The secondary weapon. Suppressed and efficient, shots can only be heard in a close proximity. The preferred weapon for Intruders. <\/p><p> <\/p><h3><ins>Gadgets<\/ins><\/h3><p>Each player starts with a select-few gadgets. These include a radio (see communication section), a camera arm, decoy placement, smoke grenade, confusion grenade, frag grenade, motion detector, small sticky bomb and a lock-pick.<\/p><h4>Camera Stick<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\"><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\"><noscript><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.<\/figcaption><\/figure><p>The camera stick is a semi-long pole with a camera on the end that can be used to check around corners, inside doors, or in small cracks. It creates a Picture-in-Picture in the top right corner of the screen which shows the camera's current view. Players mostly use this device to check for enemies around a corner without risking being shot or seen. Currently, other players do not see the camera fixture on the end of the pole which allows it to be concealed if used correctly.<\/p><h4>Decoy Placement<\/h4><p>The decoy placement can be used to deploy a cardboard cut-out of an intruder or guard (depending on player's current team) which can trick enemy players into shooting at it. It appears in-game as a standing player with the sniper rifle in a firing position.<\/p><h4>Grenades<\/h4><p>The smoke grenade creates a cloud of smoke which can conceal a semi-large area or offer a distraction. Players can not see while inside of the smoke and players outside of the smoke can not see into it. The gas grenade creates a small cloud of mist which, if walked into by an enemy player, blurs the player's screen and inverts his looking controls in order to throw off their aim. Leaving the area of the grenade will cause the effects to subside after a short period of time. The concussion grenade creates an explosion which can kill or knock a player down.<\/p><h4>Motion Detector<\/h4><p>The motion detector can be placed on a wall, ceiling or floor and will beep loudly for the player that set it if another player walks in front of it. Currently only players can set off the motion detector, which means opening doors or falling objects will not. Each player starts with three motion detectors and there is no indication for which motion detector is going off, so it is advised you place them all around the same area or you may be confused. It is also worth noting that both friendly and enemy players can set off your motion detector.<\/p><h4>Remote Charge<\/h4><p>The Remote Charge can be placed on walls or floors. Each player has 4 remote charges which can all be detonated simultaneously by right-clicking with the remote charge or camera stick equipped. The remote charges do not do much damage, but can be used to throw a player off balance or even across a room. Players will often place remote charges on one side of the map and then detonate them later as a decoy. They are rarely used to kill players due to their low amount of damage.<\/p><h4>Lock-pick<\/h4><p>The lock-pick is used to pick the locks on locked doors. Left-clicking on a locked door will open a small window with a view of the lock-keys which you must line up in order to unlock the door. This typically takes the average player around 5 to 15 seconds to complete, which can be an opportune time for an enemy to strike. Doors which are locked are random and usually affect a small percentage of doors each round. Doors which have items behind them or briefcases tend to lock the most often.<\/p><h3><ins>Pick-ups<\/ins><\/h3><p>There are items that players have to look around the map to use. The most useful pick-up is the sniper rifle.<\/p><h4>Sniper<\/h4><p>A weapon able to be picked up. Equipped with a scope. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. Deals hefty damage and knocks over upright targets.<\/p><h4>Beanbag Shotgun<\/h4><p>A weapon able to be picked up. Shoots non-lethal beanbags that knock over targets and deal minimal damage.<\/p><h4>Binoculars<\/h4><p>A tool used to spot enemies at a distance.<\/p><h4>Riot Shield<\/h4><p>Capable of deflecting bullets. Cannot be used while prone.<\/p><h4>Red Dot Sights<\/h4><p>An attachment for the SMG, useful for a wider view while aiming down sights.<\/p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-45441",
+            "id": 45441,
+            "image": {
+                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2601922-2601921-1322350963-intru.png",
+                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2601922-2601921-1322350963-intru.png",
+                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2601922-2601921-1322350963-intru.png",
+                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2601922-2601921-1322350963-intru.png",
+                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2601922-2601921-1322350963-intru.png",
+                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2601922-2601921-1322350963-intru.png",
+                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2601922-2601921-1322350963-intru.png",
+                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2601922-2601921-1322350963-intru.png",
+                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2601922-2601921-1322350963-intru.png",
+                "image_tags": null
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AAll+Images",
+                    "name": "All Images",
+                    "total": 12
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AGameplay",
+                    "name": "Gameplay",
+                    "total": 10
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AStealth",
+                    "name": "Stealth",
+                    "total": 10
+                }
+            ],
+            "name": "Intruder",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-01 00:00:00",
+            "platforms": [
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https:\/\/www.giantbomb.com\/intruder\/3030-45441\/"
+        }
+    ],
+    "version": "1.0"
+}

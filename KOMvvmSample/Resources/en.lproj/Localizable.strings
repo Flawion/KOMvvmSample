@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings
+  KOMvvmSample
+
+  Created by Kuba Ostrowski on 04/02/2019.
+  
+*/
+
+//State views
+"loading_title" = "Loading..";
+"error_title" = "Connection error";
+"error_refresh_btt_title" = "Refresh";
+"empty_title" = "No games found :(";
+
+//GamesViewController
+"games_bar_title" = "Games";
+"games_search_bar_placeholder" = "Search games";
+
+//GamesFiltersViewController
+"games_filters_bar_title" = "Games filtering";
+
+//GameDetailsViewController
+"game_details_unspecified_platforms" = "Unspecified platforms";
+"game_details_release_date" = "Released";
+"game_details_items_overview" = "Overview";
+"game_details_items_reviews" = "Reviews - not implemented";
+"game_details_items_videos" = "Videos - not implemented";
+"game_details_items_images" = "Images";
+"game_details_info_unspecified" = "Unspecified";
+
+//GameImagesViewController
+"game_images_bar_title" = "Images";
+
+//ImageViewerViewController
+"image_viewer_bar_title" = "Image Viewer";
+
+//GameFilters
+"games_filters_sorting" = "Sorting";
+"games_filters_platforms" = "Platforms";
+"games_filters_release_from" = "Release from";
+"games_filters_release_to" = "Release to";
+"games_filters_undefined_value" = "Undefined";
+"games_filters_sorting_date_added_asc" = "New additions ascending";
+"games_filters_sorting_date_added_desc" = "New additions descending";
+"games_filters_sorting_name_asc" = "Alphabetical ascending";
+"games_filters_sorting_name_desc" = "Alphabetical descending";
+"games_filters_sorting_release_date_asc" = "Release date ascending";
+"games_filters_sorting_release_date_desc" = "Release date descending";
+"games_filters_picker_done_button" = "Done";
+"games_filters_picker_cancel_button" = "Cancel";
+"games_filters_max_platforms" = "(Select up to %d platforms)";
+
+//Message prompt
+"msg_ok" = "OK";
+"msg_error_title" = "Error";
+
+//Errors
+"error_connection" = "Connection error";
+"error_validation" = "Connection error or invalid data";
+"error_api_key" = "Insert your apiKey in:\nApplication -> ApplicationSettings -> ApiSettings -> apiKey\n\nYou can grab it from here:\nhttps://www.giantbomb.com/api";

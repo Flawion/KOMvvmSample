@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GamesFilterViewCell" id="KGk-i7-Jjw" userLabel="GamesFilterViewCell" customClass="GamesFilterViewCell" customModule="KOMvvmSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-R6-aUu" userLabel="InnerContentView">
+                        <rect key="frame" x="12" y="12" width="234" height="45.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Sorting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztf-Fz-dCL" customClass="CellTitleLabel" customModule="KOMvvmSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date descending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9w-Yi-cjE" customClass="BaseLabel" customModule="KOMvvmSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="21" width="234" height="24.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U9w-Yi-cjE" secondAttribute="trailing" id="Be1-gG-J3T"/>
+                            <constraint firstAttribute="trailing" secondItem="Ztf-Fz-dCL" secondAttribute="trailing" id="QOH-TM-im5"/>
+                            <constraint firstItem="U9w-Yi-cjE" firstAttribute="leading" secondItem="zAb-R6-aUu" secondAttribute="leading" id="YmO-82-9O0"/>
+                            <constraint firstItem="Ztf-Fz-dCL" firstAttribute="top" secondItem="zAb-R6-aUu" secondAttribute="top" id="abC-XU-KQj"/>
+                            <constraint firstAttribute="bottom" secondItem="U9w-Yi-cjE" secondAttribute="bottom" id="iJf-8O-1GJ"/>
+                            <constraint firstItem="Ztf-Fz-dCL" firstAttribute="bottom" secondItem="U9w-Yi-cjE" secondAttribute="top" id="lJN-XP-277"/>
+                            <constraint firstItem="Ztf-Fz-dCL" firstAttribute="leading" secondItem="zAb-R6-aUu" secondAttribute="leading" id="y7C-tI-7k9"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTm-sk-tVo" customClass="IconButton" customModule="KOMvvmSample" customModuleProvider="target">
+                        <rect key="frame" x="248" y="17" width="36" height="36"/>
+                        <state key="normal" image="clear"/>
+                        <connections>
+                            <action selector="clearButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ePm-e6-ro4"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="jUz-Fk-s3E">
+                        <rect key="frame" x="284" y="17" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="G2y-Cx-uBE"/>
+                            <constraint firstAttribute="height" constant="36" id="Isu-fd-XvI"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maD-Ea-Pa2" userLabel="BottomLine" customClass="SeparatorLineView" customModule="KOMvvmSample" customModuleProvider="target">
+                        <rect key="frame" x="8" y="68.5" width="312" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Uj0-fB-XPQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9ke-0u-Yqy"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="zAb-R6-aUu" secondAttribute="bottom" constant="12" id="2uY-pd-PHx"/>
+                    <constraint firstItem="YTm-sk-tVo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8x1-yP-z90"/>
+                    <constraint firstItem="YTm-sk-tVo" firstAttribute="leading" secondItem="zAb-R6-aUu" secondAttribute="trailing" constant="2" id="BaR-I5-6sb"/>
+                    <constraint firstItem="zAb-R6-aUu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="QUY-HZ-2bc"/>
+                    <constraint firstAttribute="bottom" secondItem="maD-Ea-Pa2" secondAttribute="bottom" id="QjL-k5-0e4"/>
+                    <constraint firstItem="jUz-Fk-s3E" firstAttribute="leading" secondItem="YTm-sk-tVo" secondAttribute="trailing" id="R3G-F7-y0Z"/>
+                    <constraint firstAttribute="trailing" secondItem="maD-Ea-Pa2" secondAttribute="trailing" id="UN4-lm-A81"/>
+                    <constraint firstItem="jUz-Fk-s3E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Y3r-1f-exT"/>
+                    <constraint firstItem="zAb-R6-aUu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="hYS-Xv-5GH"/>
+                    <constraint firstAttribute="trailing" secondItem="jUz-Fk-s3E" secondAttribute="trailing" id="v8d-Ct-B4f"/>
+                    <constraint firstItem="maD-Ea-Pa2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xhA-by-zw2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <inset key="separatorInset" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="bottomLine" destination="maD-Ea-Pa2" id="WQT-Ng-5m7"/>
+                <outlet property="clearButton" destination="YTm-sk-tVo" id="5l7-bv-pY5"/>
+                <outlet property="nameLabel" destination="Ztf-Fz-dCL" id="0xc-FA-jIu"/>
+                <outlet property="selectedOptionsLabel" destination="U9w-Yi-cjE" id="NBY-hO-lev"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clear" width="36" height="36"/>
+        <image name="downArrow" width="36" height="36"/>
+    </resources>
+</document>

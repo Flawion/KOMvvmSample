@@ -1,0 +1,55 @@
+PODS:
+  - Alamofire (4.7.3)
+  - KOControls (1.0.1)
+  - RxAlamofire (4.3.0):
+    - RxAlamofire/Core (= 4.3.0)
+  - RxAlamofire/Core (4.3.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - SDWebImage (4.4.4):
+    - SDWebImage/Core (= 4.4.4)
+  - SDWebImage/Core (4.4.4)
+  - SwiftLint (0.30.1)
+  - UIScrollView-InfiniteScroll (1.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - KOControls (~> 1.0)
+  - RxAlamofire (~> 4.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SDWebImage (~> 4.0)
+  - SwiftLint (~> 0.30)
+  - UIScrollView-InfiniteScroll (~> 1.1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - KOControls
+    - RxAlamofire
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - SDWebImage
+    - SwiftLint
+    - UIScrollView-InfiniteScroll
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  KOControls: ed329bf7a9ca97d64368eaad8643daa0b26bd69f
+  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SDWebImage: c00ec18ab25d10e5ffac109b0f78d1b4341c9691
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
+
+PODFILE CHECKSUM: 9c876f2609880ae2978a56f87293089f7320f516
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlatformViewCell" id="KGk-i7-Jjw" customClass="PlatformViewCell" customModule="KOMvvmSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="432" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="432" height="95.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TP8-Ys-cn4">
+                        <rect key="frame" x="8" y="8" width="80" height="80"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="MNN-4z-nCl"/>
+                            <constraint firstAttribute="width" constant="80" id="Ndi-lw-3iq"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-rw-Hbw" userLabel="ContentView">
+                        <rect key="frame" x="96" y="2" width="328" height="91.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Max Payne" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YA3-cK-9gG" customClass="CellTitleLabel" customModule="KOMvvmSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="8" width="328" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBL-DT-0Gm" customClass="BaseLabel" customModule="KOMvvmSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="30.5" width="328" height="53"/>
+                                <string key="text">The long-awaited third Max Payne game finally arrived in May 2012, courtesy of Rockstar Vancouver. Eight years after the end of Ma Eight years after the end of Ma</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wBL-DT-0Gm" secondAttribute="trailing" id="7X8-Tc-43d"/>
+                            <constraint firstItem="wBL-DT-0Gm" firstAttribute="leading" secondItem="Hkf-rw-Hbw" secondAttribute="leading" id="Ldo-Yw-eYK"/>
+                            <constraint firstItem="YA3-cK-9gG" firstAttribute="top" secondItem="Hkf-rw-Hbw" secondAttribute="top" constant="8" id="N4l-gD-oLY"/>
+                            <constraint firstAttribute="trailing" secondItem="YA3-cK-9gG" secondAttribute="trailing" id="g46-bW-I7D"/>
+                            <constraint firstItem="wBL-DT-0Gm" firstAttribute="bottom" secondItem="Hkf-rw-Hbw" secondAttribute="bottom" constant="-8" id="hRW-Yg-kjz"/>
+                            <constraint firstItem="wBL-DT-0Gm" firstAttribute="top" secondItem="YA3-cK-9gG" secondAttribute="bottom" constant="2" id="m3G-3x-tS9"/>
+                            <constraint firstItem="YA3-cK-9gG" firstAttribute="leading" secondItem="Hkf-rw-Hbw" secondAttribute="leading" id="xgq-yF-Umt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hdn-qQ-9Ag"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUR-K1-csm" userLabel="BottomLine" customClass="SeparatorLineView" customModule="KOMvvmSample" customModuleProvider="target">
+                        <rect key="frame" x="8" y="93.5" width="424" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="57g-e3-ozk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HpW-uy-8SJ"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Hkf-rw-Hbw" secondAttribute="bottom" constant="2" id="GSC-o6-xa5"/>
+                    <constraint firstItem="Hkf-rw-Hbw" firstAttribute="leading" secondItem="TP8-Ys-cn4" secondAttribute="trailing" constant="8" id="QlI-MA-sef"/>
+                    <constraint firstItem="TP8-Ys-cn4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="R6w-K2-ccu"/>
+                    <constraint firstAttribute="trailing" secondItem="dUR-K1-csm" secondAttribute="trailing" id="WD4-wj-1bH"/>
+                    <constraint firstAttribute="bottom" secondItem="dUR-K1-csm" secondAttribute="bottom" constant="1" id="aeg-3x-eWW"/>
+                    <constraint firstAttribute="trailing" secondItem="Hkf-rw-Hbw" secondAttribute="trailing" constant="8" id="csu-fx-04W"/>
+                    <constraint firstItem="Hkf-rw-Hbw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="dIQ-2f-056"/>
+                    <constraint firstItem="TP8-Ys-cn4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="enF-21-GnQ"/>
+                    <constraint firstItem="TP8-Ys-cn4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="8" id="vNj-6S-gN1"/>
+                    <constraint firstItem="dUR-K1-csm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zbE-j8-khd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descLabel" destination="wBL-DT-0Gm" id="S3r-Us-Mc5"/>
+                <outlet property="platformImageView" destination="TP8-Ys-cn4" id="ZvN-Mv-fQL"/>
+                <outlet property="titleLabel" destination="YA3-cK-9gG" id="tLm-A5-jlI"/>
+            </connections>
+            <point key="canvasLocation" x="166.40000000000001" y="70.164917541229386"/>
+        </tableViewCell>
+    </objects>
+</document>
