@@ -3,12 +3,13 @@
 KOMvvmSample is a proposition of mvvm architecture, that can be used in your own project. Example is based on [GiantBomb](https://www.giantbomb.com/api) api.
 
 <p align="center">
-<img src="ReadmeImages/GamesList.png" width="500">
-<img src="ReadmeImages/GamesCollection.png" width="500">
+<img src="ReadmeImages/GamesList.png" width="250">
+<img src="ReadmeImages/GamesCollection.png" width="250">
+
 </p>
 <p align="center">
-<img src="ReadmeImages/GamesFilters.png" width="500">
-<img src="ReadmeImages/GameDetails.png" width="500">
+<img src="ReadmeImages/GamesFilters.png" width="250">
+<img src="ReadmeImages/GameDetails.png" width="250">
 </p>
 
 ## Goals
