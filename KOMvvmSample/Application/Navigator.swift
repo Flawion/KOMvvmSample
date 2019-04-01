@@ -95,4 +95,8 @@ final class Navigator {
     func pushGameImages(_ images: [ImageModel], onNavigationController: UINavigationController?, animated: Bool = true) {
         push(viewController: GameImagesViewController(images: images), onNavigationController: onNavigationController, animated: animated)
     }
+
+    func pushImageViewer(image: ImageModel, onNavigationController: UINavigationController?, animated: Bool = true) {
+        push(viewController: ImageViewerViewController(image: image), onNavigationController: onNavigationController, animated: animated)
+    }
 }
