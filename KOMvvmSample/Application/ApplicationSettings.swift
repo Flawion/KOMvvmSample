@@ -30,6 +30,8 @@ final class ApplicationSettings {
 
 extension ApplicationSettings {
     class ApiSettings {
+
+        // Insert your api key here
         static var apiKey: String {
             return ""
         }
