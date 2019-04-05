@@ -63,7 +63,9 @@ The main advantages of mvvm are:
 ## FAQ
 
 1. Why RxSwift? - RxSwifts handles all connections between data and controls on the screen. So you don’t need to create own presentation behavior. RxSwift has a lot of filtering methods and really simple sequence mechanisms with the possibility of changing threads between part of sequence. 
-2. Why you don’t use SnapKit? - In this project the one of goals is to use only the keys frameworks. So I writed a simple extension to manage constraints.
+2. Why you don’t use SnapKit? - In this project the one of goals is to use only the keys frameworks. So I wrote a simple extension to manage constraints.
+3. Why you don't generate views for controllers? - Building views manually is more flexible than by generator, because you can better separate views from each other. You aren't depending on the controls outlets. All constraints and properties are directly set in the views code in once place, so you have the better control over them. It's easier to resolve conflicts between code versions instead of xib files. Of course there are some disadvantages of this idea, it take more time to create views and if you want to have different layout on the different screens sizes you must manually change constraints depending on the traits collections instead of use size classes in xib files.
+
 
 ## License
 
