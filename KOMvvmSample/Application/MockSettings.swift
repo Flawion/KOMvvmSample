@@ -51,6 +51,10 @@ class MockSettings {
         return 157
     }
 
+    static func isFirstFileteredGameMatch(_ game: GameModel) -> Bool {
+        return game.name == "Mass Effect"
+    }
+    
     static func isFileteredGamesMatchFilters(_ games: [GameModel]) -> Bool {
         guard games.count > 0 else {
             return false
@@ -97,9 +101,5 @@ class MockSettings {
 
     private static func isFilteredGameReleaseDateIsInFilteredRange(_ releaseDate: Date) -> Bool {
         return (releaseDate >= filtedGamesFromDate &&  releaseDate <= filtedGamesToDate)
-    }
-
-    static func isFirstFileteredGameMatch(_ game: GameModel) -> Bool {
-        return game.name == "Mass Effect"
     }
 }

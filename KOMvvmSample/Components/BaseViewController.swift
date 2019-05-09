@@ -64,6 +64,14 @@ class BaseViewController: UIViewController {
         }
     }
 
+    private func addBarBackButton() {
+        navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(named: "backArrow")?.withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(barBackButtonClicked)), animated: false)
+    }
+    
+    @objc func barBackButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func createBarTitleView(withTitle title: String) {
         let barTitleLabel = createBarTitleLabel(withTitle: title)
         navigationItem.titleView = barTitleLabel
@@ -82,14 +90,6 @@ class BaseViewController: UIViewController {
         return barTitleLabel
     }
 
-    private func addBarBackButton() {
-        navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(named: "backArrow")?.withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(barBackButtonClicked)), animated: false)
-    }
-
-    @objc func barBackButtonClicked() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     // MARK: Initializing data state views functions, can be override to match to the specific layout
     func initializeLoadingView() -> BaseStateView {
         let loadingView = LoadingView()

@@ -34,17 +34,14 @@ final class URLBuilder {
     }
     
     func build(components: [String], apiAddress: String? = nil, apiVersion: String? = nil) -> URL? {
-        //create base url address
         guard var url = URL(string: apiAddress ?? defaultApiAddress) else {
             return nil
         }
-    
-        //append version
+
         if let version = apiVersion ?? defaultApiVersion {
             url.appendPathComponent(version)
         }
-        
-        //append components
+
         for component in components {
             url.appendPathComponent(component)
         }

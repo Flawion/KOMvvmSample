@@ -30,10 +30,14 @@ import RxCocoa
 final class GamesFiltersViewModel: BaseViewModel {
     // MARK: Variables
     private let savedFiltersSubject: PublishSubject<[GamesFilters: String]> = PublishSubject<[GamesFilters: String]>()
-    private let filtersVar: BehaviorRelay<[GamesFilterModel]>
+    private let filtersVar: BehaviorRelay<[GamesFilterModel]> = BehaviorRelay<[GamesFilterModel]>(value: [])
 
     private(set) var availableSortingOptions: [GamesFilterModel]!
 
+    var availableSortingOptionsDisplayValues: [String] {
+        return availableSortingOptions.compactMap({ $0.displayValue })
+    }
+    
     var filtersObser: Observable<[GamesFilterModel]> {
         return filtersVar.asObservable()
     }
@@ -44,8 +48,13 @@ final class GamesFiltersViewModel: BaseViewModel {
     
     // MARK: Functions
     init(currentFilters: [GamesFilters: String]) {
+        super.init()
 
-        //creates filters collection
+        createFiltersCollection(fromCurrentFilters: currentFilters)
+        createAvailableSortingOptions()
+    }
+
+    private func createFiltersCollection(fromCurrentFilters currentFilters: [GamesFilters: String]) {
         let filterReleaseDateFrom = GamesFilterModel(filter: .originalReleaseDateFrom, value: "")
         let filterReleaseDateTo = GamesFilterModel(filter: .originalReleaseDateTo, value: "")
         let filters = [
@@ -54,34 +63,30 @@ final class GamesFiltersViewModel: BaseViewModel {
             filterReleaseDateFrom,
             filterReleaseDateTo
         ]
-
+        
         for currentFilter in currentFilters {
-            //parses originalReleaseDate to two separate keys
             if currentFilter.key == .originalReleaseDate && !currentFilter.value.isEmpty {
-                let datesInString = currentFilter.value.split(separator: "|")
-                if datesInString.count >= 2 {
-                    filterReleaseDateFrom.value = String(datesInString[0])
-                    filterReleaseDateTo.value = String(datesInString[1])
-                } else if currentFilter.value.starts(with: "|") {
-                    filterReleaseDateTo.value = String(datesInString[0])
-                } else {
-                    filterReleaseDateFrom.value = String(datesInString[0])
-                }
+                parseFilterOriginalReleaseDate(value: currentFilter.value, andUpdateFilterReleaseDateFrom: filterReleaseDateFrom, filterReleaseDateTo: filterReleaseDateTo)
             } else if let filter = filters.first(where: { $0.filter == currentFilter.key }) {
                 filter.value = currentFilter.value
             }
         }
-
-        self.filtersVar = BehaviorRelay<[GamesFilterModel]>(value: filters)
-        super.init()
-
-        //refreshes display value for filters
-        for filter in filters {
-            refreshDisplayValue(filter)
-        }
-        createAvailableSortingOptions()
+        refreshDisplayValue(forFilters: filters)
+        filtersVar.accept(filters)
     }
-
+    
+    private func parseFilterOriginalReleaseDate(value: String, andUpdateFilterReleaseDateFrom filterReleaseDateFrom: GamesFilterModel, filterReleaseDateTo: GamesFilterModel) {
+        let datesInString = value.split(separator: "|")
+        if datesInString.count >= 2 {
+            filterReleaseDateFrom.value = String(datesInString[0])
+            filterReleaseDateTo.value = String(datesInString[1])
+        } else if value.starts(with: "|") {
+            filterReleaseDateTo.value = String(datesInString[0])
+        } else {
+            filterReleaseDateFrom.value = String(datesInString[0])
+        }
+    }
+    
     private func createAvailableSortingOptions() {
         availableSortingOptions = [
             GamesFilterModel(filter: .sorting, value: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.desc.rawValue)),
@@ -92,33 +97,8 @@ final class GamesFiltersViewModel: BaseViewModel {
             GamesFilterModel(filter: .sorting, value: String(format: "%@:%@", GamesSortingOptions.dateAdded.rawValue, GamesSortingDirections.asc.rawValue))
         ]
         for availableSortingOption in availableSortingOptions {
-            refreshSortingDisplayValue(availableSortingOption)
+            refreshSortingDisplayValue(forFilter: availableSortingOption)
         }
-    }
-
-    func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel? {
-        guard indexPath.count < filtersVar.value.count else {
-            return nil
-        }
-        return filtersVar.value[indexPath.row]
-    }
-
-    func saveFilters() {
-        var filters: [GamesFilters: String] = [:]
-
-        var dateValueFrom: String = ""
-        var dateValueTo: String = ""
-        for filter in filtersVar.value {
-            if filter.filter == GamesFilters.originalReleaseDateFrom {
-                dateValueFrom = filter.value
-            } else if filter.filter == GamesFilters.originalReleaseDateTo {
-                dateValueTo = filter.value
-            } else {
-                filters[filter.filter] = filter.value
-            }
-        }
-        filters[GamesFilters.originalReleaseDate] = Utils.shared.filterDateRangeValue(from: dateValueFrom, to: dateValueTo)
-        savedFiltersSubject.onNext(filters)
     }
 
     // MARK: Platform functions
@@ -138,7 +118,7 @@ final class GamesFiltersViewModel: BaseViewModel {
 
     func selectPlatforms(atIndexes indexes: [IndexPath]?, forFilter filter: GamesFilterModel) {
         defer {
-            refreshDisplayValue(filter)
+            refreshDisplayValue(forFilter: filter)
         }
 
         guard let indexes = indexes else {
@@ -156,23 +136,49 @@ final class GamesFiltersViewModel: BaseViewModel {
         filter.value = value
     }
 
+    // MARK: Filters
+    func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel? {
+        guard indexPath.count < filtersVar.value.count else {
+            return nil
+        }
+        return filtersVar.value[indexPath.row]
+    }
+    
+    func saveFilters() {
+        var filters: [GamesFilters: String] = [:]
+        
+        var dateValueFrom: String = ""
+        var dateValueTo: String = ""
+        for filter in filtersVar.value {
+            if filter.filter == GamesFilters.originalReleaseDateFrom {
+                dateValueFrom = filter.value
+            } else if filter.filter == GamesFilters.originalReleaseDateTo {
+                dateValueTo = filter.value
+            } else {
+                filters[filter.filter] = filter.value
+            }
+        }
+        filters[GamesFilters.originalReleaseDate] = Utils.shared.filterDateRangeValue(from: dateValueFrom, to: dateValueTo)
+        savedFiltersSubject.onNext(filters)
+    }
+    
     // MARK: Functions of refreshing filters display value
-    func refreshDisplayValue(_ filter: GamesFilterModel) {
+    func refreshDisplayValue(forFilter filter: GamesFilterModel) {
         switch filter.filter {
         case .sorting:
-             refreshSortingDisplayValue(filter)
+            refreshSortingDisplayValue(forFilter: filter)
 
         case .originalReleaseDateTo, .originalReleaseDateFrom:
-            refreshOriginalReleaseDateDisplayValue(filter)
+            refreshOriginalReleaseDateDisplayValue(forFilter: filter)
 
         case .platforms:
-            refreshPlatformsDisplayValue(filter)
+            refreshPlatformsDisplayValue(forFilter: filter)
         default:
             break
         }
     }
 
-    private func refreshPlatformsDisplayValue(_ filter: GamesFilterModel) {
+    private func refreshPlatformsDisplayValue(forFilter filter: GamesFilterModel) {
         var displayValue = ""
         let platformsIds = filter.value.split(separator: "|")
         for platformId in platformsIds {
@@ -186,11 +192,11 @@ final class GamesFiltersViewModel: BaseViewModel {
         filter.displayValue = displayValue
     }
 
-    private func refreshOriginalReleaseDateDisplayValue(_ filter: GamesFilterModel) {
+    private func refreshOriginalReleaseDateDisplayValue(forFilter filter: GamesFilterModel) {
         filter.displayValue = filter.value
     }
 
-    private func refreshSortingDisplayValue(_ filter: GamesFilterModel) {
+    private func refreshSortingDisplayValue(forFilter filter: GamesFilterModel) {
         guard let sortingOptions = filter.getSortingOptionsFromValue() else {
             return
         }
@@ -203,6 +209,12 @@ final class GamesFiltersViewModel: BaseViewModel {
             filter.displayValue = (isAscending ? "games_filters_sorting_name_asc" : "games_filters_sorting_name_desc").localized
         case .originalReleaseDate:
             filter.displayValue = (isAscending ? "games_filters_sorting_release_date_asc" : "games_filters_sorting_release_date_desc").localized
+        }
+    }
+    
+    private func refreshDisplayValue(forFilters filters: [GamesFilterModel]) {
+        for filter in filters {
+            refreshDisplayValue(forFilter: filter)
         }
     }
 }

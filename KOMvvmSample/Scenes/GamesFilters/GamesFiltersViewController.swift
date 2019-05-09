@@ -87,15 +87,12 @@ extension GamesFiltersViewController: GamesFiltersViewControllerProtocol {
         switch filter.filter {
         case .sorting:
             pickSortingOption(forFilter: filter, refreshCellFunc: refreshCellFunc)
-            return
 
         case .originalReleaseDateFrom, .originalReleaseDateTo:
             pickOriginalReleaseDate(forFilter: filter, refreshCellFunc: refreshCellFunc)
-            return
 
         case .platforms:
-            pickPlatforms(forFilter: filter, refreshCellFunc: refreshCellFunc)
-            return
+            refreshPlatforms(showPickerForFilter: filter, refreshCellFunc: refreshCellFunc)
 
         default:
             return
@@ -105,40 +102,87 @@ extension GamesFiltersViewController: GamesFiltersViewControllerProtocol {
 
  // MARK: - Filters pickers
 extension GamesFiltersViewController {
-
-    private func pickPlatforms(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+    // MARK: Pick sorting option
+    private func pickSortingOption(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        let viewLoadedAction = KODialogActionModel(title: filter.filter.localizable, action: { [weak self] (dialogViewController) in
+            self?.initializeSortingOptionsPickerViewController(dialogViewController as! KOOptionsPickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+        })
+        _ = presentOptionsPicker(withOptions: [viewModel.availableSortingOptionsDisplayValues], viewLoadedAction: viewLoadedAction)
+    }
+    
+    private func initializeSortingOptionsPickerViewController(_ optionsPickerViewController: KOOptionsPickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        let currentSelectedSortingOptionIndex = viewModel.availableSortingOptions.firstIndex(where: { $0.value == filter.value }) ?? 0
+    
+        optionsPickerViewController.optionsPicker.selectRow(currentSelectedSortingOptionIndex, inComponent: 0, animated: false)
+        optionsPickerViewController.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self](optionsPicker: KOOptionsPickerViewController) in
+            self?.pickSortingOption(fromOptionsPickerViewController: optionsPicker, forFilter: filter, refreshCellFunc: refreshCellFunc)
+        })
+        optionsPickerViewController.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
+    }
+    
+    private func pickSortingOption(fromOptionsPickerViewController optionsPickerViewController: KOOptionsPickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        let selectedSortingOptionIndex = optionsPickerViewController.optionsPicker.selectedRow(inComponent: 0)
+        let selectedSortingOption = viewModel.availableSortingOptions[selectedSortingOptionIndex]
+        filter.value = selectedSortingOption.value
+        filter.displayValue = selectedSortingOption.displayValue
+        refreshCellFunc()
+    }
+    
+    // MARK: Pick original release date
+    private func pickOriginalReleaseDate(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        _ = presentDatePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable, action: { [weak self] (dialogViewController) in
+            self?.initializeOriginalReleaseDatePickerViewController(dialogViewController as! KODatePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+        }))
+    }
+    
+    private func initializeOriginalReleaseDatePickerViewController(_ datePickerViewController: KODatePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        if let selectedDate = Utils.shared.filterDate(forValue: filter.value) {
+            datePickerViewController.datePicker.date = selectedDate
+        }
+        datePickerViewController.datePicker.datePickerMode = .date
+        datePickerViewController.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self] (datePicker: KODatePickerViewController) in
+            self?.pickOriginalReleaseDate(fromDatePickerViewController: datePicker, forFilter: filter, refreshCellFunc: refreshCellFunc)
+        })
+        datePickerViewController.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
+    }
+    
+    private func pickOriginalReleaseDate(fromDatePickerViewController datePickerViewController: KODatePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        filter.value = Utils.shared.filterDateValue(forDate: datePickerViewController.datePicker.date)
+        viewModel.refreshDisplayValue(forFilter: filter)
+        refreshCellFunc()
+    }
+    
+    // MARK: Pick platforms
+    private func refreshPlatforms(showPickerForFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
         refreshPlatformsDisposeBag = DisposeBag()
-
         waitForRefreshPlatformsVar.accept(true)
-        //refreshes platforms data
+        
         PlatformsService.shared.refreshPlatformsObser
-            //checks if error appears
             .catchError({ [weak self](error) -> Observable<Bool> in
                 self?.showError(message: error.localizedDescription)
                 return Observable<Bool>.just(false)
             })
             .subscribe(onNext: { [weak self](isAvailable) in
-                guard let self = self else {
-                    return
-                }
-                self.waitForRefreshPlatformsVar.accept(false)
-                guard isAvailable else {
-                    return
-                }
-                //shows platforms picker
-                _ = self.presentItemsTablePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable + "\n\(String(format: "games_filters_max_platforms".localized, self.platformsSelectedLimit))", action: { [weak self](dialogViewController) in
-                    guard let self = self, let itemsTablePicker = dialogViewController as? KOItemsTablePickerViewController else {
-                        return
-                    }
-                    self.configurePlatformsPicker(itemsTablePicker, forFilter: filter, refreshCellFunc: refreshCellFunc)
-                }), postInit: { (dialogViewController) in
-                    dialogViewController.contentHeight = 260
-                })
+                self?.refreshPlatformsCompleted(isAvailable: isAvailable, showPickerForFilter: filter, refreshCellFunc: refreshCellFunc)
             }).disposed(by: refreshPlatformsDisposeBag)
     }
+    
+    private func refreshPlatformsCompleted(isAvailable: Bool, showPickerForFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        waitForRefreshPlatformsVar.accept(false)
+        guard isAvailable else {
+            return
+        }
+        pickPlatforms(forFilter: filter, refreshCellFunc: refreshCellFunc)
+    }
+    
+    private func pickPlatforms(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        _ = presentItemsTablePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable + "\n\(String(format: "games_filters_max_platforms".localized, self.platformsSelectedLimit))", action: { [weak self](dialogViewController) in
+            self?.initializePlatformsPicker(dialogViewController as! KOItemsTablePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+        }))
+    }
 
-    private func configurePlatformsPicker(_ itemsTablePicker: KOItemsTablePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        //configures platforms picker
+    private func initializePlatformsPicker(_ itemsTablePicker: KOItemsTablePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
+        itemsTablePicker.mainView.contentHeight = 260
         itemsTablePicker.itemsTable.allowsMultipleSelection = true
         itemsTablePicker.itemsTable.separatorStyle = .none
         itemsTablePicker.itemsTable.rowHeight = PlatformViewCell.prefferedListHeight
@@ -149,22 +193,19 @@ extension GamesFiltersViewController {
         })
         itemsTablePicker.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
 
-        bindPlatformsPickerData(itemsTablePicker)
-
-        //sets selected platforms
-        if let selectedIndexes = viewModel.selectedIndexes(forPlatformsFilter: filter) {
-            for selectedIndex in selectedIndexes {
-                itemsTablePicker.itemsTable.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
-            }
-        }
+        bindPlatformsData(toItemsTablePicker: itemsTablePicker)
+        bindPlatformsItemsSelected(fromItemsTablePicker: itemsTablePicker)
+        setSelectedPlatforms(forItemsTablePicker: itemsTablePicker, filter: filter)
     }
-
-    private func bindPlatformsPickerData(_ itemsTablePicker: KOItemsTablePickerViewController) {
+    
+    private func bindPlatformsData(toItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController) {
         PlatformsService.shared.platformsObser.bind(to: itemsTablePicker.itemsTable.rx.items(cellIdentifier: self.platformCellReuseIdentifier)) { _, model, cell in
             (cell as? PlatformViewCell)?.platform = model
             }
             .disposed(by: refreshPlatformsDisposeBag)
-
+    }
+    
+    private func bindPlatformsItemsSelected(fromItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController) {
         //checks if user select more than count limit, simply will deselect platform above the limit
         itemsTablePicker.itemsTable.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self, itemsTablePicker.itemsTable.indexPathsForSelectedRows?.count ?? 0 > self.platformsSelectedLimit else {
@@ -173,50 +214,13 @@ extension GamesFiltersViewController {
             itemsTablePicker.itemsTable.deselectRow(at: indexPath, animated: true)
         }).disposed(by: refreshPlatformsDisposeBag)
     }
-
-    private func pickOriginalReleaseDate(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        _ = presentDatePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable, action: { [weak self] (dialogViewController) in
-            guard let datePicker = dialogViewController as? KODatePickerViewController else {
-                return
-            }
-            if let selectedDate = Utils.shared.filterDate(forValue: filter.value) {
-                datePicker.datePicker.date = selectedDate
-            }
-            datePicker.datePicker.datePickerMode = .date
-            datePicker.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self] (datePicker: KODatePickerViewController) in
-                guard let viewModel = self?.viewModel else {
-                    return
-                }
-                filter.value = Utils.shared.filterDateValue(forDate: datePicker.datePicker.date)
-                viewModel.refreshDisplayValue(filter)
-                refreshCellFunc()
-            })
-            datePicker.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
-        }))
-    }
-
-    private func pickSortingOption(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        //gets current parameters
-        let sortingOptionsDisplayValues = viewModel.availableSortingOptions.compactMap({ $0.displayValue })
-        let currentSelectedSortingOptionIndex = viewModel.availableSortingOptions.firstIndex(where: { $0.value == filter.value }) ?? 0
-
-        //shows picker
-        _ = presentOptionsPicker(withOptions: [sortingOptionsDisplayValues], viewLoadedAction: KODialogActionModel(title: filter.filter.localizable, action: { (dialogViewController) in
-
-            (dialogViewController as! KOOptionsPickerViewController).optionsPicker.selectRow(currentSelectedSortingOptionIndex, inComponent: 0, animated: false)
-            dialogViewController.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self](optionsPicker: KOOptionsPickerViewController) in
-                guard let self = self else {
-                    return
-                }
-                //sets new value
-                let selectedSortingOptionIndex = optionsPicker.optionsPicker.selectedRow(inComponent: 0)
-                let selectedSortingOption = self.viewModel.availableSortingOptions[selectedSortingOptionIndex]
-                filter.value = selectedSortingOption.value
-                filter.displayValue = selectedSortingOption.displayValue
-                refreshCellFunc()
-            })
-            dialogViewController.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
-
-        }))
+    
+    private func setSelectedPlatforms(forItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController, filter: GamesFilterModel) {
+        guard let selectedIndexes = viewModel.selectedIndexes(forPlatformsFilter: filter) else {
+            return
+        }
+        for selectedIndex in selectedIndexes {
+            itemsTablePicker.itemsTable.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
+        }
     }
 }

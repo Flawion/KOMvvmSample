@@ -39,23 +39,32 @@ final class GamesFilterViewCell: BaseTableViewCell {
 
     weak var filter: GamesFilterModel? {
         didSet {
-            //sets filter data
-            nameLabel.text = filter?.filter.localizable
-            if let displayValue = filter?.displayValue, !displayValue.isEmpty {
-                selectedOptionsLabel.text = displayValue
-            } else {
-                selectedOptionsLabel.text = "games_filters_undefined_value".localized
-            }
-
-            //show/hide clear button for all filter except sorting
-            if let filter = filter, filter.filter != .sorting {
-                clearButton.isHidden = filter.value.isEmpty
-            } else {
-                clearButton.isHidden = true
-            }
+            refreshFilter()
         }
     }
 
+    private func refreshFilter() {
+        refreshDisplayTexts()
+        refreshClearButtonVisibility()
+    }
+    
+    private func refreshDisplayTexts() {
+        nameLabel.text = filter?.filter.localizable
+        if let displayValue = filter?.displayValue, !displayValue.isEmpty {
+            selectedOptionsLabel.text = displayValue
+        } else {
+            selectedOptionsLabel.text = "games_filters_undefined_value".localized
+        }
+    }
+    
+    private func refreshClearButtonVisibility() {
+        guard let filter = filter, filter.filter != .sorting  else {
+            clearButton.isHidden = true
+            return
+        }
+        clearButton.isHidden = filter.value.isEmpty
+    }
+    
     @IBAction func clearButtonClicked(_ sender: Any) {
         guard let filter = filter else {
             return

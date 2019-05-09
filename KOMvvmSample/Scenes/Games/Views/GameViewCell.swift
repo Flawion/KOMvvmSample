@@ -57,36 +57,14 @@ final class GameViewCell: BaseCollectionViewCell {
 
     var isListLayout: Bool = true {
         didSet {
-            if isListLayout {
-                imageWidthConst.priority = UILayoutPriority(999)
-                imageTrailingToContentConst.priority = UILayoutPriority(999)
-                imageTrailingToCellConst.priority = UILayoutPriority(1)
-                contentLeadingToCellConst.priority = UILayoutPriority(1)
-                collectionContentView.isHidden = true
-                listContentView.isHidden = false
-            } else {
-                imageWidthConst.priority = UILayoutPriority(1)
-                imageTrailingToContentConst.priority = UILayoutPriority(1)
-                imageTrailingToCellConst.priority = UILayoutPriority(999)
-                contentLeadingToCellConst.priority = UILayoutPriority(999)
-                collectionContentView.isHidden = false
-                listContentView.isHidden = true
-            }
+            isListLayout ? changeLayoutToList() : changeLayoutToCollection()
             layoutIfNeeded()
         }
     }
 
     weak var game: GameModel? {
         didSet {
-            titleLabel.text = game?.name
-            collectionTitleLabel.text = game?.name
-            descLabel.text = game?.deck
-            imageView.image = nil
-            if let image = game?.image?.mediumUrl {
-                imageView.setImageFade(url: image)
-            } else {
-                imageView.sd_cancelCurrentImageLoad()
-            }
+           refreshGame()
         }
     }
 
@@ -94,6 +72,36 @@ final class GameViewCell: BaseCollectionViewCell {
         super.layoutSubviews()
         if let superView = superview {
             isListLayout = bounds.width == superView.bounds.width
+        }
+    }
+    
+    private func changeLayoutToList() {
+        imageWidthConst.priority = UILayoutPriority(999)
+        imageTrailingToContentConst.priority = UILayoutPriority(999)
+        imageTrailingToCellConst.priority = UILayoutPriority(1)
+        contentLeadingToCellConst.priority = UILayoutPriority(1)
+        collectionContentView.isHidden = true
+        listContentView.isHidden = false
+    }
+    
+    private func changeLayoutToCollection() {
+        imageWidthConst.priority = UILayoutPriority(1)
+        imageTrailingToContentConst.priority = UILayoutPriority(1)
+        imageTrailingToCellConst.priority = UILayoutPriority(999)
+        contentLeadingToCellConst.priority = UILayoutPriority(999)
+        collectionContentView.isHidden = false
+        listContentView.isHidden = true
+    }
+    
+    private func refreshGame() {
+        titleLabel.text = game?.name
+        collectionTitleLabel.text = game?.name
+        descLabel.text = game?.deck
+        imageView.image = nil
+        if let image = game?.image?.mediumUrl {
+            imageView.setImageFade(url: image)
+        } else {
+            imageView.sd_cancelCurrentImageLoad()
         }
     }
 }

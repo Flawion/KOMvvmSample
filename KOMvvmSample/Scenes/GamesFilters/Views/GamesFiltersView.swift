@@ -123,7 +123,7 @@ final class GamesFiltersView: UIView {
 extension GamesFiltersView: GamesFilterViewCellDelegate {
     func gamesFilter(viewCell: UITableViewCell, clearFilter: GamesFilterModel) {
         clearFilter.value = ""
-        controllerProtocol?.viewModel.refreshDisplayValue(clearFilter)
+        controllerProtocol?.viewModel.refreshDisplayValue(forFilter: clearFilter)
         if let indexPath = filtersTableView.indexPath(for: viewCell) {
             filtersTableView.reloadRows(at: [indexPath], with: .none)
         }

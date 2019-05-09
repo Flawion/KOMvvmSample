@@ -29,14 +29,14 @@ import RxSwift
 
 extension ObservableType {
     //chain ends working on this method and continue after next onNext ;)
-    public func catchErrorContinueAfterOnNext(handler: @escaping (Error) throws -> Void) -> RxSwift.Observable<Self.E> {
+    func catchErrorContinueAfterOnNext(handler: @escaping (Error) throws -> Void) -> RxSwift.Observable<Self.E> {
         return self.catchError { error in
             try handler(error)
             return Observable.error(error)
             }.retry()
     }
 
-    public func doOnce(_ handler: @escaping (Self.E?, Error?) -> Void) -> RxSwift.Observable<Self.E> {
+    func doOnce(_ handler: @escaping (Self.E?, Error?) -> Void) -> RxSwift.Observable<Self.E> {
         let invokeOnce = InvokeOnceParamOrError({ (object, error) in
             handler(object, error)
         })

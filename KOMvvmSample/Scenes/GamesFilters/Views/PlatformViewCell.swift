@@ -36,13 +36,17 @@ final class PlatformViewCell: BaseTableViewCell {
 
     weak var platform: PlatformModel? {
         didSet {
-            titleLabel.text = platform?.name
-            descLabel.text = platform?.deck
-            if let image = platform?.image?.mediumUrl {
-                platformImageView.setImageFade(url: image)
-            } else {
-                platformImageView.sd_cancelCurrentImageLoad()
-            }
+            refreshPlatform()
+        }
+    }
+    
+    private func refreshPlatform() {
+        titleLabel.text = platform?.name
+        descLabel.text = platform?.deck
+        if let image = platform?.image?.mediumUrl {
+            platformImageView.setImageFade(url: image)
+        } else {
+            platformImageView.sd_cancelCurrentImageLoad()
         }
     }
 }

@@ -38,11 +38,15 @@ final class GameImageViewCell: BaseCollectionViewCell {
 
     weak var image: ImageModel? {
         didSet {
-            if let image = image?.mediumUrl {
-                imageView.setImageFade(url: image)
-            } else {
-                imageView.sd_cancelCurrentImageLoad()
-            }
+           refreshImage()
+        }
+    }
+    
+    private func refreshImage() {
+        if let image = image?.mediumUrl {
+            imageView.setImageFade(url: image)
+        } else {
+            imageView.sd_cancelCurrentImageLoad()
         }
     }
 }

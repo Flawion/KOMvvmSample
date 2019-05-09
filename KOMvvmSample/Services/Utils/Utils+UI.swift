@@ -36,7 +36,7 @@ extension Utils {
         return scrollView
     }
 
-    func createHorizontalContentOfViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIView {
+    private func createHorizontalContentOfViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIView {
         let contentView = UIView()
 
         if createOnlyEmptyViewIfNeed(contentView: contentView, viewCount: viewCount, createEmptyView: createEmptyView) {

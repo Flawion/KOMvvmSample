@@ -29,10 +29,10 @@ import RxCocoa
 
 class BaseStateView: UIView {
     // MARK: Variables
-    var isActiveVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
     //public
+    var isActiveVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     var manageBlockingAllUserInteraction: Bool = false
     
     var isActiveDriver: Driver<Bool> {

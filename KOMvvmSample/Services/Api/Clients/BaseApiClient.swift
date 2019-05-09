@@ -54,9 +54,6 @@ class BaseApiClient {
         return nil
     }
     
-    /// Session manager for all reuqests
-    ///
-    /// - Returns: session manager
     func createSessionManager() -> SessionManager {
         return SessionManager()
     }
@@ -112,11 +109,38 @@ class BaseApiClient {
         })
     }
     
-    func throwError(forResponse response: HTTPURLResponse, data: Any?, originalError: Error)throws {
+    private func throwError(forResponse response: HTTPURLResponse, data: Any?, originalError: Error)throws {
         throw ApiErrorContainer(response: response, data: data, originalError: originalError)
     }
     
     // MARK: Api mock requests
+    func responseMockMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
+        let dataResponse = requestMockData(parameters: parameters, delay: delay)
+            .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
+                guard let self = self else {
+                    return (response, data, nil)
+                }
+                let mappedData: MapTo? = try self.map(response: response, data: data, mapper: mapper)
+                return (response, data, mappedData)
+            })
+            .doOnce ({ (response, error) in
+                LogService.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
+            })
+            .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
+                return (response, mappedData)
+            })
+        
+        return validate(responseData: dataResponse, ifNeed: validateResponse)
+    }
+    
+    func responseMockData(parameters: ApiRequestParameters, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
+        let dataResponse = requestMockData(parameters: parameters, delay: delay)
+            .doOnce ({ (response, error) in
+                LogService.shared.log(response?.0, data: response?.1, error: error)
+            })
+        return validate(responseData: dataResponse, ifNeed: validateResponse)
+    }
+    
     private func requestMockData(parameters: ApiRequestParameters, delay: Double = 0.1) -> Observable<(HTTPURLResponse, Data)> {
         var responseStatusCode = mockErrorStatusCode
         
@@ -132,27 +156,15 @@ class BaseApiClient {
         return Observable<(HTTPURLResponse, Data)>.just((response, data)).delay(delay, scheduler: MainScheduler.instance)
     }
     
-    func responseMockData(parameters: ApiRequestParameters, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
-        let dataResponse = requestMockData(parameters: parameters, delay: delay)
-            .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, error: error)
-            })
-        return validate(responseData: dataResponse, ifNeed: validateResponse)
-    }
-    
-    func responseMockMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
-        let dataResponse = requestMockData(parameters: parameters, delay: delay)
+    // MARK: Api requests in session
+    func responseMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
+        let dataResponse = self.requestData(parameters: parameters)
+            .responseData()
             .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
                 guard let self = self else {
                     return (response, data, nil)
                 }
-                
-                var mappedData: MapTo?
-                do {
-                    mappedData = try (mapper ?? self.defaultDataMapper()).mapTo(data: data)
-                } catch {
-                    try self.throwError(forResponse: response, data: data, originalError: error)
-                }
+                let mappedData: MapTo? = try self.map(response: response, data: data, mapper: mapper)
                 return (response, data, mappedData)
             })
             .doOnce ({ (response, error) in
@@ -165,35 +177,6 @@ class BaseApiClient {
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
     
-    // MARK: Api requests in session
-    private func requestData(parameters: ApiRequestParameters) -> Observable<DataRequest> {
-        var requestHeaders = createDefaultHeaders() ?? [:]
-        var requestParameters = createDefaultParameters() ?? [:]
-
-        //adds additionals headers
-        if let additionalsHeaders = parameters.headers {
-            for header in additionalsHeaders {
-                requestHeaders[header.key] = header.value
-            }
-        }
-
-        //adds additionals parameters
-        if let additionalsParameters = parameters.parameters {
-            for parameter in additionalsParameters {
-                requestParameters[parameter.key] = parameter.value
-            }
-        }
-
-        //gets properly encoding
-        let requestEncoding: ParameterEncoding = parameters.encoding ?? defaultEncoding(forMethod: parameters.method)
-
-        //makes a request
-        return sessionManager.rx.request(parameters.method, parameters.url, parameters: requestParameters, encoding: requestEncoding, headers: requestHeaders).do(onNext: { (dataRequest) in
-            LogService.shared.log(dataRequest)
-        })
-
-    }
-
     func responseData(parameters: ApiRequestParameters, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
         let dataResponse = self.requestData(parameters: parameters)
             .responseData()
@@ -203,29 +186,48 @@ class BaseApiClient {
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
     
-    func responseMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
-        let dataResponse = self.requestData(parameters: parameters)
-            .responseData()
-            .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
-                guard let self = self else {
-                    return (response, data, nil)
-                }
-                
-                var mappedData: MapTo?
-                do {
-                    mappedData = try (mapper ?? self.defaultDataMapper()).mapTo(data: data)
-                } catch {
-                    try self.throwError(forResponse: response, data: data, originalError: error)
-                }
-                return (response, data, mappedData)
-            })
-            .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
-            })
-            .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
-                return (response, mappedData)
-            })
+    private func requestData(parameters: ApiRequestParameters) -> Observable<DataRequest> {
+        let requestHeaders = createRequestHeaders(withHeaders: parameters.headers)
+        let requestParameters = createRequestParameters(withParamters: parameters.parameters)
         
-        return validate(responseData: dataResponse, ifNeed: validateResponse)
+        //gets properly encoding
+        let requestEncoding: ParameterEncoding = parameters.encoding ?? defaultEncoding(forMethod: parameters.method)
+
+        //makes a request
+        return sessionManager.rx.request(parameters.method, parameters.url, parameters: requestParameters, encoding: requestEncoding, headers: requestHeaders).do(onNext: { (dataRequest) in
+            LogService.shared.log(dataRequest)
+        })
+    }
+    
+    private func createRequestHeaders(withHeaders headers: [String: String]?) -> [String: String] {
+        var requestHeaders = createDefaultHeaders() ?? [:]
+        guard let headers = headers else {
+            return requestHeaders
+        }
+        for header in headers {
+            requestHeaders[header.key] = header.value
+        }
+        return requestHeaders
+    }
+    
+    private func createRequestParameters(withParamters parameters: [String: Any]?) -> [String: Any] {
+        var requestParameters = createDefaultParameters() ?? [:]
+        guard let parameters = parameters else {
+            return requestParameters
+        }
+        for parameter in parameters {
+            requestParameters[parameter.key] = parameter.value
+        }
+        return requestParameters
+    }
+    
+    private func map<MapTo: Codable>(response: HTTPURLResponse, data: Data, mapper: ApiDataMapperProtocol?) throws -> MapTo? {
+        var mappedData: MapTo?
+        do {
+            mappedData = try (mapper ?? self.defaultDataMapper()).mapTo(data: data)
+        } catch {
+            try self.throwError(forResponse: response, data: data, originalError: error)
+        }
+        return mappedData
     }
 }

@@ -25,7 +25,7 @@
 
 import Foundation
 
-class BaseResponseModel<ResultsType: Codable> : Codable {
+class BaseResponseModel<ResultsType: Codable>: Codable {
     enum CodingKeys: String, CodingKey {
         case error
         case limit

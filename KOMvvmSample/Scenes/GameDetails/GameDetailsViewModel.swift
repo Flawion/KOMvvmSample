@@ -72,30 +72,49 @@ final class GameDetailsViewModel: BaseViewModel {
         generateGameDetailItems()
     }
 
+    // MARK: Game details items
+    func gameDetailsItem(forIndexPath indexPath: IndexPath) -> GameDetailsItemModel? {
+        let gameDetailsItems = self.gameDetailsItems
+        guard indexPath.row < gameDetailsItems.count else {
+            return nil
+        }
+        return gameDetailsItems[indexPath.row]
+    }
+    
     private func generateGameDetailItems() {
-        Observable<[GameDetailsItemModel]>.combineLatest(gameVar.asObservable(), gameDetailsVar.asObservable()) { (game, gameDetails) -> [GameDetailsItemModel] in
+        Observable<[GameDetailsItemModel]>.combineLatest(gameVar.asObservable(), gameDetailsVar.asObservable()) { [weak self] (game, gameDetails) -> [GameDetailsItemModel] in
             var detailsItems: [GameDetailsItemModel] = []
             if !(game.description?.isEmpty ?? true) {
                 detailsItems.append(GameDetailsItemModel(item: .overview, contentSize: 0))
             }
 
-            guard let gameDetails = gameDetails else {
+            guard let gameDetails = gameDetails, let self = self else {
                 return detailsItems
             }
-            if let reviews = gameDetails.reviews, reviews.count > 0 {
-                detailsItems.append(GameDetailsItemModel(item: .reviews, contentSize: reviews.count))
-            }
-            if let videos = gameDetails.videos, videos.count > 0 {
-                detailsItems.append(GameDetailsItemModel(item: .videos, contentSize: videos.count))
-            }
-            if let images = gameDetails.images, images.count > 0 {
-                detailsItems.append(GameDetailsItemModel(item: .images, contentSize: images.count))
-            }
+            
+            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.reviews, itemType: .reviews)
+            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.videos, itemType: .videos)
+            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.images, itemType: .images)
 
             return detailsItems
         }.bind(to: gameDetailsItemsVar).disposed(by: disposeBag)
     }
+    
+    private func appendDetailsItem(_ detailsItems: inout [GameDetailsItemModel], ifResourcesExists resources: [AnyObject]?, itemType: GameDetailsItems) {
+        guard let resources = resources, resources.count > 0 else {
+            return
+        }
+        detailsItems.append(GameDetailsItemModel(item: itemType, contentSize: resources.count))
+    }
 
+    // MARK: Download game details
+    func downloadGameDetailsIfNeed(refresh: Bool = false) {
+        guard refresh || dataState == .error || gameDetails == nil else {
+            return
+        }
+        downloadGameDetails()
+    }
+    
     private func downloadGameDetails() {
         dataState = .loading
 
@@ -116,21 +135,5 @@ final class GameDetailsViewModel: BaseViewModel {
                 self.gameDetailsVar.accept(gameDetails)
                 self.dataState = .none
             }).disposed(by: gameDetailsDisposeBag)
-    }
-
-    // MARK: Public functions
-    func gameDetailsItem(forIndexPath indexPath: IndexPath) -> GameDetailsItemModel? {
-        let gameDetailsItems = self.gameDetailsItems
-        guard indexPath.row < gameDetailsItems.count else {
-            return nil
-        }
-        return gameDetailsItems[indexPath.row]
-    }
-
-    func downloadGameDetailsIfNeed(refresh: Bool = false) {
-        guard refresh || dataState == .error || gameDetails == nil else {
-            return
-        }
-        downloadGameDetails()
     }
 }

@@ -1,20 +1,18 @@
 PODS:
-  - Alamofire (4.7.3)
-  - KOControls (1.0.1)
-  - RxAlamofire (4.3.0):
-    - RxAlamofire/Core (= 4.3.0)
-  - RxAlamofire/Core (4.3.0):
-    - Alamofire (~> 4.5)
-    - RxSwift (~> 4)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
-  - SDWebImage (4.4.4):
-    - SDWebImage/Core (= 4.4.4)
-  - SDWebImage/Core (4.4.4)
-  - SwiftLint (0.30.1)
+  - Alamofire (4.8.2)
+  - KOControls (1.2)
+  - RxAlamofire (4.4.1):
+    - RxAlamofire/Core (= 4.4.1)
+  - RxAlamofire/Core (4.4.1):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 4.5)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - SwiftLint (0.32.0)
   - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
@@ -32,7 +30,6 @@ SPEC REPOS:
     - Alamofire
     - KOControls
     - RxAlamofire
-    - RxAtomic
     - RxCocoa
     - RxSwift
     - SDWebImage
@@ -40,14 +37,13 @@ SPEC REPOS:
     - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  KOControls: ed329bf7a9ca97d64368eaad8643daa0b26bd69f
-  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
-  SDWebImage: c00ec18ab25d10e5ffac109b0f78d1b4341c9691
-  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  KOControls: c4d6a9de48df37ed6726b490457698d2ff5c08f5
+  RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
 PODFILE CHECKSUM: 9c876f2609880ae2978a56f87293089f7320f516

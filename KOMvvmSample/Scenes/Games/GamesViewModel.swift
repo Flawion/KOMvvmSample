@@ -51,15 +51,22 @@ final class GamesViewModel: BaseViewModel {
     }
 
     // MARK: Searching games functions
-    //private
-    private func searchGames(offset: Int = 0) {
-        searchDisposeBag = DisposeBag()
-        dataState = offset <= 0 ? .loading : .loadingMore
-
-        //resets old data
-        if offset == 0 {
-            clearGames()
+    func searchMoreGames() {
+        guard canDownloadMoreResults else {
+            return
         }
+        searchGames(offset: gamesOffset)
+    }
+    
+    func searchGamesIfNeed(refresh: Bool = false) {
+        guard refresh || isDataError || gamesVar.value.count <= 0 else {
+            return
+        }
+        searchGames()
+    }
+    
+    private func searchGames(offset: Int = 0) {
+        prepareForSearchingGames(offset: offset)
 
         //downloads new games results
         ApiClientService.giantBomb.searchGames(offset: offset, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
@@ -68,7 +75,6 @@ final class GamesViewModel: BaseViewModel {
                     return
                 }
 
-                //checks if error appears
                 if let error = event.error {
                     self.showSearchError(error)
                     return
@@ -82,23 +88,31 @@ final class GamesViewModel: BaseViewModel {
                 self.checkIsGameListEmpty()
             }).disposed(by: searchDisposeBag)
     }
-
-    //public
-    func searchGamesIfNeed(refresh: Bool = false) {
-        guard refresh || isDataError || gamesVar.value.count <= 0 else {
-            return
-        }
-        searchGames()
+    
+    private func prepareForSearchingGames(offset: Int = 0) {
+        searchDisposeBag = DisposeBag()
+        dataState = isLoadingMoreItems(offset: offset) ? .loadingMore : .loading
+        clearGamesDataIfNeed(offset: offset)
     }
-
-    func searchMoreGames() {
-        guard canDownloadMoreResults else {
-            return
-        }
-        searchGames(offset: gamesOffset)
+    
+    private func isLoadingMoreItems(offset: Int = 0) -> Bool {
+        return offset > 0
     }
-
+    
     // MARK: Games collection functions
+    func game(atIndexPath indexPath: IndexPath) -> GameModel? {
+        guard indexPath.row < gamesVar.value.count else {
+            return nil
+        }
+        return gamesVar.value[indexPath.row]
+    }
+    
+    private func clearGamesDataIfNeed(offset: Int) {
+        if offset == 0 {
+            clearGames()
+        }
+    }
+    
     private func clearGames() {
         gamesVar.accept([])
         gamesOffset = 0
@@ -114,13 +128,6 @@ final class GamesViewModel: BaseViewModel {
 
     private func checkIsGameListEmpty() {
         dataState = gamesVar.value.count > 0 ? .none : .empty
-    }
-
-    func game(atIndexPath indexPath: IndexPath) -> GameModel? {
-        guard indexPath.row < gamesVar.value.count else {
-            return nil
-        }
-        return gamesVar.value[indexPath.row]
     }
 
     // MARK: Change game filters

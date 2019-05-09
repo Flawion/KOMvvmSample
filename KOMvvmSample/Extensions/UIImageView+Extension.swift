@@ -27,7 +27,7 @@ import Foundation
 import SDWebImage
 
 extension UIImageView {
-    public func setImageFade(image: UIImage, duration: TimeInterval = 0.25, renderingMode: UIImage.RenderingMode = UIImage.RenderingMode.automatic, completion: (() -> Void)? = nil) {
+    func setImageFade(image: UIImage, duration: TimeInterval = 0.25, renderingMode: UIImage.RenderingMode = UIImage.RenderingMode.automatic, completion: (() -> Void)? = nil) {
         alpha = 0
         UIView.transition(with: self, duration: duration, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { [weak self] () -> Void in
             guard let self = self else {
@@ -38,7 +38,7 @@ extension UIImageView {
             }, completion: nil)
     }
 
-    public func setImageFade(url: URL, placeholderImage: UIImage? = nil, duration: TimeInterval = 0.25, onlyNotCached: Bool = true, renderingMode: UIImage.RenderingMode = UIImage.RenderingMode.automatic, completion: (() -> Void)? = nil) {
+    func setImageFade(url: URL, placeholderImage: UIImage? = nil, duration: TimeInterval = 0.25, onlyNotCached: Bool = true, renderingMode: UIImage.RenderingMode = UIImage.RenderingMode.automatic, completion: (() -> Void)? = nil) {
         self.sd_setImage(with: url, placeholderImage: placeholderImage, options: [], completed: { [weak self] (image, _, cacheType, _) -> Void in
             self?.setImageFade(image: image, cacheType: cacheType, placeholderImage: placeholderImage, duration: duration, onlyNotCached: onlyNotCached, renderingMode: renderingMode, completion: completion)
         })

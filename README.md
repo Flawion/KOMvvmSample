@@ -44,7 +44,7 @@ The main advantages of mvvm are:
 
 1. Logic and views are separated.
 2. Views can be easily replaced. 
-3. Unit tests should coverage only a logic in ViewModels.
+3. It is easy to test business logic and output variables from ViewModels.
 4. Presentation behavior will be handled by RxSwift or some types of bindings. So you don’t need to create it by yourself.
     
 ## Architecture parts

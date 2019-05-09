@@ -46,16 +46,6 @@ final class ImageViewerViewController: BaseViewController {
         initialize()
     }
     
-    override func initializeLoadingView() -> BaseStateView {
-        let imageViewerLoadingView = ImageViewerLoadingView()
-        _ = view.addAutoLayoutSubview(imageViewerLoadingView)
-        guard let imageUrl = viewModel.image.mediumUrl else {
-            return imageViewerLoadingView
-        }
-        imageViewerLoadingView.placeholderImageView.setImageFade(url: imageUrl)
-        return imageViewerLoadingView
-    }
-    
     private func initialize() {
         initializeView()
         initializeImageViewerView()
@@ -77,6 +67,16 @@ final class ImageViewerViewController: BaseViewController {
         (errorView as! ErrorView).refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
             self?.imageViewerView.refreshImageData()
         }).disposed(by: disposeBag)
+    }
+    
+    override func initializeLoadingView() -> BaseStateView {
+        let imageViewerLoadingView = ImageViewerLoadingView()
+        _ = view.addAutoLayoutSubview(imageViewerLoadingView)
+        guard let imageUrl = viewModel.image.mediumUrl else {
+            return imageViewerLoadingView
+        }
+        imageViewerLoadingView.placeholderImageView.setImageFade(url: imageUrl)
+        return imageViewerLoadingView
     }
 }
 

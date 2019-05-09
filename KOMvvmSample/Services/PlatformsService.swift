@@ -58,7 +58,6 @@ final class PlatformsService {
     var refreshPlatformsObser: Observable<Bool> {
         loadFromDataService()
 
-        //if all cached just return
         if allPlatformsCached {
             return Observable<Bool>.just(platformsVar.value.count > 0)
         }
@@ -85,52 +84,61 @@ final class PlatformsService {
 
     private func redownloadAllPlatfroms() -> Observable<Bool> {
         guard let sharedObser = downloadPlatformsUntilAllSharedObser else {
-            isDownloadingVar.accept(true)
-            downloadPlatformsUntilAllSharedObser = downloadPlatformsUntilAll(startOffset: platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
-                .doOnce({ [unowned self] _, _  in
-                    self.downloadPlatformsUntilAllSharedObser = nil
-                    self.isDownloadingVar.accept(false)
-                }).share()
-            return downloadPlatformsUntilAllSharedObser!
+            return startDownloadPlatformsUntilAll()
         }
         return sharedObser
+    }
+    
+    private func startDownloadPlatformsUntilAll() -> Observable<Bool> {
+        isDownloadingVar.accept(true)
+        downloadPlatformsUntilAllSharedObser = downloadPlatformsUntilAll(startOffset: platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
+            .doOnce({ [unowned self] _, _  in
+                self.downloadPlatformsUntilAllSharedObser = nil
+                self.isDownloadingVar.accept(false)
+            }).share()
+        return downloadPlatformsUntilAllSharedObser!
     }
 
     private func downloadPlatformsUntilAll(startOffset: Int, limit: Int) -> Observable<Bool> {
         //gets a part of platforms from one request
         return ApiClientService.giantBomb.platforms(offset: startOffset, limit: limit)
-            .flatMapLatest({ [unowned self](result, data)  -> Observable<Bool>  in
+            .flatMapLatest({ [unowned self](result, data) -> Observable<Bool>  in
                 guard let responseData = data else {
                     throw ApiErrorContainer(response: result, data: data, originalError: ApiErrors.validation)
                 }
 
-                //gets all results from request
-                if let platforms = responseData.results {
-                    var cachedPlatforms = self.platformsVar.value
-                    cachedPlatforms.append(contentsOf: platforms)
-                    self.platformsVar.accept(cachedPlatforms)
-                }
-
-                //checks if get all platfroms
-                guard self.platformsVar.value.count >= responseData.numberOfTotalResults else {
-                    //gets next part
-                    return self.downloadPlatformsUntilAll(startOffset: self.platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
-                }
-                self.downloadAllPlatformsCompleted()
-                return Observable<Bool>.just(self.platformsVar.value.count > 0)
+                self.storePlatforms(responseData.results)
+                return self.downloadNextPlatformsOrComplete(numberOfTotalResults: responseData.numberOfTotalResults)
             })
     }
+    
+    private func storePlatforms(_ platforms: [PlatformModel]?) {
+        guard let platforms = platforms else {
+            return
+        }
+        var cachedPlatforms = platformsVar.value
+        cachedPlatforms.append(contentsOf: platforms)
+        platformsVar.accept(cachedPlatforms)
+    }
+    
+    private func downloadNextPlatformsOrComplete(numberOfTotalResults: Int) -> Observable<Bool> {
+        guard platformsVar.value.count >= numberOfTotalResults else {
+            return self.downloadPlatformsUntilAll(startOffset: self.platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
+        }
+        self.downloadAllPlatformsCompleted()
+        return Observable<Bool>.just(self.platformsVar.value.count > 0)
+    }
 
+    private func downloadAllPlatformsCompleted() {
+        allPlatformsCached = true
+        DataService.shared.platforms = platformsVar.value
+    }
+    
     private func loadFromDataService() {
         guard !allPlatformsCached, let savePlatformsDate = DataService.shared.savePlatformsDate, Calendar.current.dateComponents([.minute], from: savePlatformsDate, to: Date()).minute ?? 0 < ApplicationSettings.Platforms.cacheOnDiscForMinutes, let platforms = DataService.shared.platforms, platforms.count > 0 else {
             return
         }
         allPlatformsCached = true
         platformsVar.accept(platforms)
-    }
-
-    private func downloadAllPlatformsCompleted() {
-        allPlatformsCached = true
-        DataService.shared.platforms = platformsVar.value
     }
 }
