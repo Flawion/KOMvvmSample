@@ -862,7 +862,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KOControls/KOControls.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -885,7 +885,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78CBEED3186086D971955EB6 /* [CP] Check Pods Manifest.lock */ = {
@@ -912,7 +912,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KOControls/KOControls.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -935,7 +935,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDE4D0630A7A43E0E67BAB21 /* [CP] Check Pods Manifest.lock */ = {
