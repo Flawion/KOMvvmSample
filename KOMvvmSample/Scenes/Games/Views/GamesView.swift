@@ -78,7 +78,7 @@ final class GamesView: UIView {
         gamesCollectionView.register(UINib(nibName: "GameViewCell", bundle: nil), forCellWithReuseIdentifier: gameCellReuseIdentifier)
         gamesCollectionView.backgroundColor = UIColor.Theme.gamesCollectionBackground
         gamesCollectionView.alwaysBounceVertical = true
-        _ = addSafeAutoLayoutSubview(gamesCollectionView, overrideAnchors: OverrideAnchors(top: topAnchor))
+        _ = addSafeAutoLayoutSubview(gamesCollectionView, overrideAnchors: AnchorsContainer(top: topAnchor))
 
         self.gamesCollectionView = gamesCollectionView
         bindGamesCollectionData()

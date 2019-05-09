@@ -29,12 +29,7 @@ class BaseButton: UIButton {
 
     override var isHighlighted: Bool {
         didSet {
-            UIView.animate(withDuration: 0.25, animations: { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                self.alpha = self.isHighlighted ? 0.5 : 1.0
-                })
+            runHighlightedAnimation()
         }
     }
 
@@ -56,5 +51,14 @@ class BaseButton: UIButton {
     //to override
     func initialize() {
 
+    }
+
+    private func runHighlightedAnimation() {
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.alpha = self.isHighlighted ? 0.5 : 1.0
+        })
     }
 }

@@ -50,6 +50,7 @@ final class GamesFiltersView: UIView {
 
     private func initialize() {
         initializeSaveView()
+        initializeSaveButton()
         initializeFiltersTableView()
     }
 
@@ -57,10 +58,12 @@ final class GamesFiltersView: UIView {
         let saveView = UIView()
         _ = addSafeAutoLayoutSubview(saveView, toAddConstraints: [.left, .right, .bottom])
         self.saveView = saveView
+    }
 
+    private func initializeSaveButton() {
         let saveButton = ConfirmButton()
         saveButton.setTitle("Save filters", for: .normal)
-        _ = saveView.addAutoLayoutSubview(saveButton, insets: UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12), priorities: [.useForAll: 999])
+        _ = saveView.addAutoLayoutSubview(saveButton, settings: AddAutoLayoutSubviewSettings(insets: UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12), priorities: [.useForAll: 999]))
         saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
     }
 
@@ -76,15 +79,15 @@ final class GamesFiltersView: UIView {
         let filtersTableView = UITableView()
         filtersTableView.separatorStyle = .none
         filtersTableView.register(UINib(nibName: "GamesFilterViewCell", bundle: nil), forCellReuseIdentifier: gameFilterCellReuseIdentifier)
-        _ = addSafeAutoLayoutSubview(filtersTableView, overrideAnchors: OverrideAnchors(top: topAnchor, bottom: saveView.topAnchor))
+        _ = addSafeAutoLayoutSubview(filtersTableView, overrideAnchors: AnchorsContainer(top: topAnchor, bottom: saveView.topAnchor))
         filtersTableView.tableFooterView = UIView()
         self.filtersTableView = filtersTableView
 
+        bindFiltersItemSelected()
         bindFiltersTableData()
     }
 
-    private func bindFiltersTableData() {
-        //binds item selected
+    private func bindFiltersItemSelected() {
         filtersTableView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self else {
                 return
@@ -93,7 +96,9 @@ final class GamesFiltersView: UIView {
             self.filtersTableView.deselectRow(at: indexPath, animated: true)
         }).disposed(by: disposeBag)
 
-        //binds data
+    }
+
+    private func bindFiltersTableData() {
         controllerProtocol?.viewModel.filtersObser.bind(to: filtersTableView.rx.items(cellIdentifier: gameFilterCellReuseIdentifier)) { [weak self] _, model, cell in
             let gamesFilterViewCell = cell as! GamesFilterViewCell
             gamesFilterViewCell.filter = model

@@ -66,7 +66,7 @@ final class GameImagesView: UIView {
         collectionView.register(UINib(nibName: "GameImageViewCell", bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)
         collectionView.backgroundColor = UIColor.Theme.gamesCollectionBackground
         collectionView.alwaysBounceVertical = true
-        _ = addSafeAutoLayoutSubview(collectionView, overrideAnchors: OverrideAnchors(top: topAnchor))
+        _ = addSafeAutoLayoutSubview(collectionView, overrideAnchors: AnchorsContainer(top: topAnchor))
 
         self.collectionView = collectionView
         bindCollectionData()

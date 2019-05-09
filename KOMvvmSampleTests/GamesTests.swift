@@ -100,7 +100,7 @@ final class GamesTests: XCTestCase {
             XCTAssertNil(error)
         }
 
-        XCTAssertTrue(MockSettings.checkIfFileteredGamesMatchFilters(gamesViewModel.games))
+        XCTAssertTrue(MockSettings.isFileteredGamesMatchFilters(gamesViewModel.games))
         XCTAssertEqual(gamesViewModel.dataState, .none)
     }
 
@@ -112,7 +112,7 @@ final class GamesTests: XCTestCase {
             XCTAssert(false)
             return
         }
-        XCTAssertTrue(MockSettings.checkIfFirstFileteredGameMatch(game))
+        XCTAssertTrue(MockSettings.isFirstFileteredGameMatch(game))
     }
 
     func testErrorDownloadGames() {

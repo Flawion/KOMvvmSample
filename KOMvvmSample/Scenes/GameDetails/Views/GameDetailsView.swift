@@ -85,7 +85,7 @@ final class GameDetailsView: UIView {
         let detailsItemsTableView = UITableView()
         detailsItemsTableView.rowHeight = GameDetailsItemViewCell.prefferedHeight
         detailsItemsTableView.register(UINib(nibName: "GameDetailsItemViewCell", bundle: nil), forCellReuseIdentifier: detailsItemCellReuseIdentifier)
-        _ = addSafeAutoLayoutSubview(detailsItemsTableView, overrideAnchors: OverrideAnchors(top: topAnchor))
+        _ = addSafeAutoLayoutSubview(detailsItemsTableView, overrideAnchors: AnchorsContainer(top: topAnchor))
         self.detailsItemsTableView = detailsItemsTableView
         bindGameDetailsItems()
     }

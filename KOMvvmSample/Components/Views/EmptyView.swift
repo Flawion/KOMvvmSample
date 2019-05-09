@@ -31,7 +31,7 @@ class EmptyView: BaseStateView {
         let emptyLabel = BaseLabel()
         emptyLabel.textAlignment = .center
         emptyLabel.text = "empty_title".localized
-        _ = addAutoLayoutSubview(emptyLabel, insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12))
+        _ = addAutoLayoutSubview(emptyLabel, settings: AddAutoLayoutSubviewSettings(insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)))
     }
 
 }

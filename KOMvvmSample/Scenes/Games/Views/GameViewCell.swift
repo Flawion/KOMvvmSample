@@ -83,7 +83,7 @@ final class GameViewCell: BaseCollectionViewCell {
             descLabel.text = game?.deck
             imageView.image = nil
             if let image = game?.image?.mediumUrl {
-                imageView.sd_setImageFade(url: image)
+                imageView.setImageFade(url: image)
             } else {
                 imageView.sd_cancelCurrentImageLoad()
             }

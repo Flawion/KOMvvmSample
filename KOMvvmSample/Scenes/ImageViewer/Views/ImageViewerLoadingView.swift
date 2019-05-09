@@ -36,10 +36,12 @@ final class ImageViewerLoadingView: BaseStateView {
     }
     
     override func startActive() {
+        super.startActive()
         loadingView.isActive = true
     }
     
     override func stopActive() {
+        super.stopActive()
         loadingView.isActive = false
     }
     

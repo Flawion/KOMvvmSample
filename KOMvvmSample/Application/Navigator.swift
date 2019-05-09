@@ -56,12 +56,14 @@ final class Navigator {
         guard let window = window else {
             return
         }
-        
-        //creates views
-        let gameNavBarController = UINavigationController(rootViewController: GamesViewController())
-        gameNavBarController.navigationBar.tintColor = UIColor.Theme.barTint
-        gameNavBarController.navigationBar.backgroundColor = UIColor.Theme.barBackground
-        window.rootViewController = gameNavBarController
+        window.rootViewController = createMainNavigationController()
+    }
+
+    private func createMainNavigationController() -> UINavigationController {
+        let mainNavigationController = UINavigationController(rootViewController: GamesViewController())
+        mainNavigationController.navigationBar.tintColor = UIColor.Theme.barTint
+        mainNavigationController.navigationBar.backgroundColor = UIColor.Theme.barBackground
+        return mainNavigationController
     }
     
     // MARK: Actions

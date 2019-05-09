@@ -26,11 +26,17 @@
 import UIKit
 
 class LoadingView: BaseStateView {
+    private weak var viewContainer: UIView!
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private weak var titleLabel: BaseLabel!
     
     override func createView() {
-        //crates centered container view
+        createContainerView()
+        createActivityIndicatorView()
+        createTitleLabel()
+    }
+
+    private func createContainerView() {
         let viewContainer = UIView()
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         addSubview(viewContainer)
@@ -38,27 +44,38 @@ class LoadingView: BaseStateView {
             viewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
             viewContainer.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
-        
-        //creates indicator of loading
+        self.viewContainer = viewContainer
+    }
+
+    private func createActivityIndicatorView() {
         let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicatorView.color = UIColor.Theme.loadingActivityIndicator
         _ = viewContainer.addAutoLayoutSubview(activityIndicatorView, toAddConstraints: [.top, .left, .right])
         self.activityIndicatorView = activityIndicatorView
-        
-        //creates loading text
+    }
+
+    private func createTitleLabel() {
         let titleLabel = BaseLabel()
         titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         titleLabel.text = "loading_title".localized
-        _ = viewContainer.addAutoLayoutSubview(titleLabel, overrideAnchors: OverrideAnchors(top: activityIndicatorView.bottomAnchor), insets: UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0))
+        _ = viewContainer.addAutoLayoutSubview(titleLabel, settings: createAddAutoLayoutSubviewSettingsForTitleLabel())
         self.titleLabel = titleLabel
+    }
 
+    private func createAddAutoLayoutSubviewSettingsForTitleLabel() -> AddAutoLayoutSubviewSettings {
+        var addAutoLayoutSubviewSettings = AddAutoLayoutSubviewSettings()
+        addAutoLayoutSubviewSettings.overrideAnchors = AnchorsContainer(top: activityIndicatorView.bottomAnchor)
+        addAutoLayoutSubviewSettings.insets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        return addAutoLayoutSubviewSettings
     }
     
     override func startActive() {
+        super.startActive()
         activityIndicatorView.startAnimating()
     }
     
     override func stopActive() {
+        super.stopActive()
         activityIndicatorView.stopAnimating()
     }
 }

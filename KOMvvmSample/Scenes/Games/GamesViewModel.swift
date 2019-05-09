@@ -99,7 +99,6 @@ final class GamesViewModel: BaseViewModel {
     }
 
     // MARK: Games collection functions
-    //private
     private func clearGames() {
         gamesVar.accept([])
         gamesOffset = 0
@@ -116,42 +115,52 @@ final class GamesViewModel: BaseViewModel {
     private func checkIsGameListEmpty() {
         dataState = gamesVar.value.count > 0 ? .none : .empty
     }
-    
-    //public
-    func changeGameFilters(_ gameFilters: [GamesFilters: String?]) {
-        var needToReload = false
-        
-        //checks if need to reload
-        for gameFilter in gameFilters {
-            let newValue = gameFilter.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
-            if let currentFilter = self.gamesFilters[gameFilter.key] {
-                if currentFilter != newValue {
-                    //refreshes filter
-                    if newValue.isEmpty {
-                        self.gamesFilters.removeValue(forKey: gameFilter.key)
-                    } else {
-                        self.gamesFilters[gameFilter.key] = newValue
-                    }
-                    needToReload = true
-                }
-            } else if !newValue.isEmpty {
-                self.gamesFilters[gameFilter.key] = newValue
-                needToReload = true
-            }
-        }
-        
-        guard needToReload else {
-            return
-        }
-        searchGamesIfNeed(refresh: true)
-    }
-    
     func game(atIndexPath indexPath: IndexPath) -> GameModel? {
         guard indexPath.row < gamesVar.value.count else {
             return nil
         }
         return gamesVar.value[indexPath.row]
+    }
+
+    // MARK: Change game filters
+    func changeGameFilters(_ gameFilters: [GamesFilters: String?]) {
+        guard updateGamesFilters(gameFilters) else {
+            return
+        }
+        searchGamesIfNeed(refresh: true)
+    }
+
+    private func updateGamesFilters(_ gameFilters: [GamesFilters: String?]) -> Bool {
+        var updated: Bool = false
+        for gameFilter in gameFilters {
+            if updateGameFilter(gameFilter) {
+                updated = true
+            }
+        }
+        return updated
+    }
+
+    private func updateGameFilter(_ gameFilter: (key: GamesFilters, value: String?)) -> Bool {
+        let newValue = gameFilter.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        if let currentFilter = self.gamesFilters[gameFilter.key] {
+            if currentFilter != newValue {
+                changeGameFilterValue(withKey: gameFilter.key, toValue: newValue)
+                return true
+            }
+        } else if !newValue.isEmpty {
+            self.gamesFilters[gameFilter.key] = newValue
+            return true
+        }
+        return false
+    }
+
+    private func changeGameFilterValue(withKey key: GamesFilters, toValue value: String) {
+        if value.isEmpty {
+            self.gamesFilters.removeValue(forKey: key)
+        } else {
+            self.gamesFilters[key] = value
+        }
     }
 
     // MARK: Other functions

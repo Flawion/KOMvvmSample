@@ -39,7 +39,7 @@ final class PlatformViewCell: BaseTableViewCell {
             titleLabel.text = platform?.name
             descLabel.text = platform?.deck
             if let image = platform?.image?.mediumUrl {
-                platformImageView.sd_setImageFade(url: image)
+                platformImageView.setImageFade(url: image)
             } else {
                 platformImageView.sd_cancelCurrentImageLoad()
             }

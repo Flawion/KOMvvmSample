@@ -59,17 +59,17 @@ final class GameDetailsViewController: BaseViewController {
     
     private func initializeGameDetailsView() {
         let gameDetailView = GameDetailsView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(gameDetailView, overrideAnchors: OverrideAnchors(top: view.topAnchor))
+        _ = view.addAutoLayoutSubview(gameDetailView, overrideAnchors: AnchorsContainer(top: view.topAnchor))
         self.gameDetailsView = gameDetailView
     }
     
-    override func createLoadingView() -> BaseStateView {
+    override func initializeLoadingView() -> BaseStateView {
         let loadingView = LoadingView()
         gameDetailsView.addViewToDetailsFooter(loadingView)
         return loadingView
     }
     
-    override func createErrorView() -> BaseStateView {
+    override func initializeErrorView() -> BaseStateView {
         let errorView = ErrorView()
         errorView.refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
             self?.viewModel.downloadGameDetailsIfNeed(refresh: true)

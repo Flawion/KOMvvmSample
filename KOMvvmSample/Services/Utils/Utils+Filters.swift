@@ -36,7 +36,7 @@ extension Utils {
     func gamesFiltersString(fromFilters filters: [GamesFilters: String]) -> String {
         var filtersString = ""
 
-        //gets filters in order
+        //order is important to match the url in mockupDataContainer
         addGameFilterIfExsists(fromFilters: filters, filter: .name, toString: &filtersString)
         addGameFilterIfExsists(fromFilters: filters, filter: .platforms, toString: &filtersString)
         addGameFilterIfExsists(fromFilters: filters, filter: .originalReleaseDate, toString: &filtersString)

@@ -51,35 +51,55 @@ class MockSettings {
         return 157
     }
 
-    static func checkIfFileteredGamesMatchFilters(_ games: [GameModel]) -> Bool {
+    static func isFileteredGamesMatchFilters(_ games: [GameModel]) -> Bool {
         guard games.count > 0 else {
             return false
         }
 
-        let prevGame: GameModel? = nil
+        var prevGame: GameModel?
         for game in games {
-            //checks name
-            if !game.name.lowercased().contains("mass effect") {
+            if !isFileteredGameMatchFilter(game, prevGame: prevGame) {
                 return false
             }
-            if let orginalReleaseDate = game.originalReleaseDate {
-                //prev games relase date should be smaller than
-                if let prevGame = prevGame, let prevOriginalReleaseDate = prevGame.originalReleaseDate {
-                    if prevOriginalReleaseDate > orginalReleaseDate {
-                        return false
-                    }
-                }
-
-                //checks relase date range
-                if !(orginalReleaseDate >= filtedGamesFromDate &&  orginalReleaseDate <= filtedGamesToDate) {
-                    return false
-                }
-            }
+            prevGame = game
         }
         return true
     }
 
-    static func checkIfFirstFileteredGameMatch(_ game: GameModel) -> Bool {
+    private static func isFileteredGameMatchFilter(_ game: GameModel, prevGame: GameModel?) -> Bool {
+        guard isFileteredGameMatchName(game) else {
+            return false
+        }
+        return isFilteredGameMatchReleaseData(game, prevGame: prevGame)
+    }
+
+    private static func isFileteredGameMatchName(_ game: GameModel) -> Bool {
+        return game.name.lowercased().contains("mass effect")
+    }
+
+    private static func isFilteredGameMatchReleaseData(_ game: GameModel, prevGame: GameModel?) -> Bool {
+        guard let releaseDate = game.originalReleaseDate else {
+            return false
+        }
+
+        return isFilteredGameReleaseDate(releaseDate, isGreaterThanInPreviouslyGame: prevGame) && isFilteredGameReleaseDateIsInFilteredRange(releaseDate)
+    }
+
+    private static func isFilteredGameReleaseDate(_ releaseDate: Date, isGreaterThanInPreviouslyGame prevGame: GameModel?) -> Bool {
+        guard let prevGame = prevGame else {
+            return true
+        }
+        guard let prevReleaseDate = prevGame.originalReleaseDate else {
+            return false
+        }
+        return releaseDate > prevReleaseDate
+    }
+
+    private static func isFilteredGameReleaseDateIsInFilteredRange(_ releaseDate: Date) -> Bool {
+        return (releaseDate >= filtedGamesFromDate &&  releaseDate <= filtedGamesToDate)
+    }
+
+    static func isFirstFileteredGameMatch(_ game: GameModel) -> Bool {
         return game.name == "Mass Effect"
     }
 }

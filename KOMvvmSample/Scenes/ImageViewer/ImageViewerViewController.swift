@@ -46,13 +46,13 @@ final class ImageViewerViewController: BaseViewController {
         initialize()
     }
     
-    override func createLoadingView() -> BaseStateView {
+    override func initializeLoadingView() -> BaseStateView {
         let imageViewerLoadingView = ImageViewerLoadingView()
         _ = view.addAutoLayoutSubview(imageViewerLoadingView)
         guard let imageUrl = viewModel.image.mediumUrl else {
             return imageViewerLoadingView
         }
-        imageViewerLoadingView.placeholderImageView.sd_setImageFade(url: imageUrl)
+        imageViewerLoadingView.placeholderImageView.setImageFade(url: imageUrl)
         return imageViewerLoadingView
     }
     

@@ -26,6 +26,13 @@
 import Foundation
 import Alamofire
 
+enum LogDataModes {
+    case simplified
+    case simplifiedAboveLimit
+    case full
+    case none
+}
+
 final class LogService {
     // MARK: Variables
     private let startRequestSymbol = "🔜"
@@ -160,6 +167,56 @@ extension LogService {
         return String(format: "%@Headers: %@", headersSymbol, headers)
     }
 
+    private func dataToLog(_ data: Data?, mappedData: LogDataRecudible? = nil, encoding: String.Encoding = .utf8) -> String? {
+        guard logDataMode != .none, let data = data else {
+            return nil
+        }
+
+        var dataStr = String(format: "%@Data: ", dataSymbol)
+
+        switch logDataMode {
+        case .simplified:
+            dataStr += dataToLogSimplified(mappedData: mappedData)
+
+        case .simplifiedAboveLimit:
+           dataStr += dataToLogSimplifiedAboveLimit(data: data, mappedData: mappedData, encoding: encoding)
+
+        case .full:
+            dataStr += dataToLogFull(data: data, orginalDataBytes: data.count, encoding: encoding)
+
+        default:
+            return nil
+        }
+        return dataStr
+    }
+
+    private func dataToLogSimplified(mappedData: LogDataRecudible?) -> String {
+        return mappedData?.reducedLogData() ?? "not null"
+    }
+
+    private func dataToLogSimplifiedAboveLimit(data: Data, mappedData: LogDataRecudible? = nil, encoding: String.Encoding) -> String {
+        let orginalDataBytes = data.count
+        guard data.count > logDataSimplifiedAboveLimit else {
+            return dataToLogFull(data: data, orginalDataBytes: orginalDataBytes, encoding: encoding)
+        }
+        if let reducedData = mappedData?.reducedLogData() {
+            return String(format: "%@%@", reducedData, infoAboutReducedLogData(dataBytes: data.count))
+        }
+        return dataToLogFull(data: data.subdata(in: data.startIndex ..< data.startIndex.advanced(by: logDataSimplifiedAboveLimit)), orginalDataBytes: orginalDataBytes, encoding: encoding)
+    }
+
+    private func dataToLogFull(data: Data, orginalDataBytes: Int, encoding: String.Encoding) -> String {
+        guard let dataEncoded = String(data: data, encoding: encoding) else {
+            return "not null, \(encoding) encoding error"
+        }
+
+        var dataStr: String = dataEncoded
+        if orginalDataBytes > data.count {
+            dataStr += infoAboutReducedLogData(dataBytes: orginalDataBytes)
+        }
+        return dataStr
+    }
+
     private func infoAboutReducedLogData(dataBytes: Int) -> String {
         switch logDataMode {
         case .simplified:
@@ -171,48 +228,6 @@ extension LogService {
         default:
             return ""
         }
-    }
-    
-    private func dataToLog(_ data: Data?, mappedData: LogDataRecudible? = nil, encoding: String.Encoding = .utf8) -> String? {
-        guard logDataMode != .none, var data = data else {
-            return nil
-        }
-    
-        let dataBytes = data.count
-        var dataStr = String(format: "%@Data: ", dataSymbol)
-        var dataReduced: Bool = false
-        
-        switch logDataMode {
-        case .simplified:
-            dataStr += mappedData?.reducedLogData() ?? "not null"
-            
-        case .simplifiedAboveLimit:
-            if dataBytes > logDataSimplifiedAboveLimit {
-                if let reducedData = mappedData?.reducedLogData() {
-                    dataStr += String(format: "%@%@", reducedData, infoAboutReducedLogData(dataBytes: dataBytes))
-                } else {
-                    data = data.subdata(in: data.startIndex ..< data.startIndex.advanced(by: logDataSimplifiedAboveLimit))
-                    dataReduced = true
-                    fallthrough
-                }
-            } else {
-              fallthrough
-            }
-            
-        case .full:
-            if let dataEncoded = String(data: data, encoding: encoding) {
-                dataStr += dataEncoded
-                if dataReduced {
-                    dataStr += infoAboutReducedLogData(dataBytes: dataBytes)
-                }
-            } else {
-                dataStr += "not null, \(encoding) encoding error"
-            }
-            
-        default:
-            return nil
-        }
-        return dataStr
     }
 
     private func errorToLog(_ error: Error?) -> String? {

@@ -33,7 +33,7 @@ class BaseStateView: UIView {
     private let disposeBag = DisposeBag()
     
     //public
-    var blockWholeInteraction: Bool = false
+    var manageBlockingAllUserInteraction: Bool = false
     
     var isActiveDriver: Driver<Bool> {
         return isActiveVar.asDriver()
@@ -70,30 +70,41 @@ class BaseStateView: UIView {
     }
     
     private func createBindings() {
-        //binds view alpha
+        bindIsActiveToViewAlpha()
+        bindIsActiveToView()
+    }
+
+    private func bindIsActiveToViewAlpha() {
         isActiveVar.asDriver().map({$0 ? 1.0 : 0})
             .drive(self.rx.alpha)
             .disposed(by: disposeBag)
-        
-        //start/stop active
+    }
+
+    private func bindIsActiveToView() {
         isActiveVar.asDriver().drive(
             onNext: { [weak self] isActive in
-                guard let self = self else {
-                    return
-                }
-                if isActive {
-                    //always show on top
-                    if let superview = self.superview {
-                        superview.bringSubviewToFront(self)
-                    }
-                    if self.blockWholeInteraction {
-                        Navigator.shared.blockAllUserInteraction = !isActive
-                    }
-                    self.startActive()
-                } else {
-                    self.stopActive()
-                }
+                self?.refreshIsActive(isActive)
+
         }).disposed(by: disposeBag)
+    }
+
+    private func refreshIsActive(_ isActive: Bool) {
+        guard isActive else {
+            stopActive()
+            return
+        }
+        startActive()
+    }
+
+    private func showViewOnTop() {
+        superview?.bringSubviewToFront(self)
+    }
+
+    private func refreshBlockingAllUserInteraction() {
+        guard manageBlockingAllUserInteraction else {
+            return
+        }
+        Navigator.shared.blockAllUserInteraction = !isActive
     }
     
     // MARK: To override
@@ -102,10 +113,11 @@ class BaseStateView: UIView {
     }
     
     func startActive() {
-        //to override
+        showViewOnTop()
+        refreshBlockingAllUserInteraction()
     }
     
     func stopActive() {
-        //to override
+        refreshBlockingAllUserInteraction()
     }
 }

@@ -93,6 +93,10 @@ final class GamesViewController: BaseViewController {
         definesPresentationContext = true
         self.searchController = searchController
 
+        bindSearchBarToGamesFilters()
+    }
+
+    private func bindSearchBarToGamesFilters() {
         Driver<Void>.merge([
             searchController.searchBar.rx.cancelButtonClicked.asDriver().map({ () }),
             searchController.searchBar.rx.text.asDriver(onErrorJustReturn: nil).map({ _ in () })

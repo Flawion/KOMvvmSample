@@ -69,7 +69,7 @@ final class GameDetailsFooterView: UIView {
 
     private func createInfoView(forResources resources: [ResourceModel]?, withTitle title: String) -> UIView {
         let infoView = UIView()
-        _ = addAutoLayoutSubview(infoView, toAddConstraints: [.left, .right], insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12))
+        _ = addAutoLayoutSubview(infoView, settings: createAddAutoLayoutSubviewSettings(forInfoView: infoView))
 
         let subtitleLabel = createSubtitleInfoLabel(withTitle: title, parent: infoView)
         let infoLabel = createInfoLabel(withInfo: getInfo(fromResources: resources), parent: infoView)
@@ -77,6 +77,13 @@ final class GameDetailsFooterView: UIView {
         infoView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subtitle]-2-[info]|", options: [], metrics: nil, views: ["subtitle": subtitleLabel, "info": infoLabel]))
 
         return infoView
+    }
+
+    private func createAddAutoLayoutSubviewSettings(forInfoView infoView: UIView) -> AddAutoLayoutSubviewSettings {
+        var addAutoLayoutSubviewSettings = AddAutoLayoutSubviewSettings()
+        addAutoLayoutSubviewSettings.toAddConstraints = [.left, .right]
+        addAutoLayoutSubviewSettings.insets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        return addAutoLayoutSubviewSettings
     }
 
     private func createSubtitleInfoLabel(withTitle title: String, parent: UIView) -> UILabel {
