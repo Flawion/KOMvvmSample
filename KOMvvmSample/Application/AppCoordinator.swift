@@ -1,5 +1,5 @@
 //
-//  Navigator.swift
+//  AppCoordinator.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,12 +25,17 @@
 
 import UIKit
 
-final class Navigator {
+protocol SceneBuilderProtocol {
+    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController
+}
+
+final class AppCoordinator {
     // MARK: Variables
     static let shared = {
-        return Navigator()
+        return AppCoordinator()
     }()
     
+    private let serviceLocator: ServiceLocator
     private var window: UIWindow?
 
     /// Blocking all user interaction on UIWindow can be used in animation
@@ -44,15 +49,25 @@ final class Navigator {
     }
     
     // MARK: Initialization
-    private init() {}
+    private init() {
+        serviceLocator = ServiceLocator()
+        registerServices()
+    }
+
+    private func registerServices() {
+        serviceLocator.register(withBuilder: GiantBombClientServiceBuilder())
+        serviceLocator.register(withBuilder: DataStoreServiceBuilder())
+        serviceLocator.register(withBuilder: PlatformsServiceBuilder())
+    }
     
+    // MARK: Initialize first scene
     func initializeScene() {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        createFirstScene()
+        createMainScene()
     }
     
-    private func createFirstScene() {
+    private func createMainScene() {
         guard let window = window else {
             return
         }
@@ -60,45 +75,32 @@ final class Navigator {
     }
 
     private func createMainNavigationController() -> UINavigationController {
-        let mainNavigationController = UINavigationController(rootViewController: GamesViewController())
+        let mainNavigationController = UINavigationController(rootViewController: createMainSceneViewController())
         mainNavigationController.navigationBar.tintColor = UIColor.Theme.barTint
         mainNavigationController.navigationBar.backgroundColor = UIColor.Theme.barBackground
         return mainNavigationController
     }
-    
+
+    private func createMainSceneViewController() -> UIViewController {
+        return GamesSceneBuilder().createScene(withServiceLocator: serviceLocator)
+    }
+
     // MARK: Actions
     func openLink(_ url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     // MARK: Push new view controllers
-    private func push(viewController: UIViewController, onNavigationController: UINavigationController?, animated: Bool = true) {
+    func push(scene: SceneBuilderProtocol, onNavigationController: UINavigationController?, animated: Bool = true) -> UIViewController? {
+        let newSceneViewController = scene.createScene(withServiceLocator: serviceLocator)
+        return push(viewController: newSceneViewController, onNavigationController: onNavigationController, animated: animated) ? newSceneViewController : nil
+    }
+
+    private func push(viewController: UIViewController, onNavigationController: UINavigationController?, animated: Bool = true) -> Bool {
         guard let onNavigationController = onNavigationController else {
-            return
+            return false
         }
         onNavigationController.pushViewController(viewController, animated: animated)
-    }
-
-    //public
-    func pushGameDetail(forGame game: GameModel, onNavigationController: UINavigationController?, animated: Bool = true) {
-        push(viewController: GameDetailsViewController(game: game), onNavigationController: onNavigationController, animated: animated)
-    }
-
-    func pushGamesFilters(currentFilters: [GamesFilters: String], onNavigationController: UINavigationController?, animated: Bool = true) -> GamesFiltersViewControllerProtocol {
-        let gamesFilters = GamesFiltersViewController(currentFilters: currentFilters)
-        push(viewController: gamesFilters, onNavigationController: onNavigationController)
-        return gamesFilters
-    }
-
-    func pushWebView(barTitle: String, html: String, onNavigationController: UINavigationController?, animated: Bool = true) {
-        push(viewController: WebViewController(barTitle: barTitle, html: html), onNavigationController: onNavigationController)
-    }
-
-    func pushGameImages(_ images: [ImageModel], onNavigationController: UINavigationController?, animated: Bool = true) {
-        push(viewController: GameImagesViewController(images: images), onNavigationController: onNavigationController, animated: animated)
-    }
-
-    func pushImageViewer(image: ImageModel, onNavigationController: UINavigationController?, animated: Bool = true) {
-        push(viewController: ImageViewerViewController(image: image), onNavigationController: onNavigationController, animated: animated)
+        return true
     }
 }

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  GiantBombClientServiceProtocol.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -23,13 +23,19 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
+import RxSwift
 
-@UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppCoordinator.shared.initializeScene()
-        return true
+protocol GiantBombClientServiceProtocol: NSObjectProtocol {
+    func gameDetails(forGuid guid: String) -> Observable<(HTTPURLResponse, BaseResponseModel<GameDetailsModel>?)>
+
+    func searchGames(offset: Int, limit: Int, filters: String, sorting: String) -> Observable<(HTTPURLResponse, BaseResponseModel<[GameModel]>?)>
+
+    func platforms(offset: Int, limit: Int, sorting: String) -> Observable<(HTTPURLResponse, BaseResponseModel<[PlatformModel]>?)>
+}
+
+extension GiantBombClientServiceProtocol {
+    func platforms(offset: Int, limit: Int, sorting: String = "name:asc") -> Observable<(HTTPURLResponse, BaseResponseModel<[PlatformModel]>?)> {
+        return platforms(offset: offset, limit: limit, sorting: sorting)
     }
 }

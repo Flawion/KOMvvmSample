@@ -28,10 +28,10 @@ import UIKit
 final class GameDetailsViewController: BaseViewController {
     private weak var gameDetailsView: GameDetailsView!
     
-    private(set) var viewModel: GameDetailsViewModel
+    let viewModel: GameDetailsViewModel
 
-    init(game: GameModel) {
-        viewModel = GameDetailsViewModel(game: game)
+    init(viewModel: GameDetailsViewModel) {
+        self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -84,13 +84,13 @@ extension GameDetailsViewController: GameDetailsViewControllerProtocol {
     func goToDetailsItem(_ detailsItem: GameDetailsItemModel) {
         switch detailsItem.item {
         case .overview:
-            Navigator.shared.pushWebView(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? "", onNavigationController: navigationController)
+            _ = AppCoordinator.shared.push(scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""), onNavigationController: navigationController)
 
         case .images:
             guard let images = viewModel.gameDetails?.images else {
                 return
             }
-            Navigator.shared.pushGameImages(images, onNavigationController: navigationController)
+            _ = AppCoordinator.shared.push(scene: GameImagesSceneBuilder(images: images), onNavigationController: navigationController)
 
         default:
             break

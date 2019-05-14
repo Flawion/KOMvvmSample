@@ -27,60 +27,45 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class PlatformsService {
-    // MARK: Variables
-    static let shared = {
-        return PlatformsService()
-    }()
-    
-    /// Creates instance of class for unit tests
-    static var test: PlatformsService {
-        return PlatformsService()
+final class PlatformsServiceBuilder: ServiceBuilder<PlatformsServiceProtocol> {
+    override func createService<PlatformsServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> PlatformsServiceProtocol {
+        return PlatformsService(giantBombClient: serviceLocator.get()!, dataStore: serviceLocator.get()!) as! PlatformsServiceProtocol
     }
+}
 
+protocol PlatformsServiceProtocol: NSObject {
+    var isDownloadingDriver: Driver<Bool> { get }
+    var isDownloading: Bool { get }
+
+    /// Refreshes platforms and returns "true" if they are available
+    var refreshPlatformsObser: Observable<Bool> { get }
+
+    /// Always use 'refreshPlatformsObser' or 'refreshPlatforms' before this variable, to fill the data
+    var platformsObser: Observable<[PlatformModel]> { get }
+
+    /// Always use 'refreshPlatformsObser' or 'refreshPlatforms' before this variable, to fill the data
+    var platforms: [PlatformModel] { get }
+
+    func refreshPlatforms()
+}
+
+// MARK: - PlatformsService
+final class PlatformsService: NSObject {
+    // MARK: Variables
+    private var giantBombClient: GiantBombClientServiceProtocol!
+    private var dataStore: DataStoreServiceProtocol!
     private var downloadPlatformsUntilAllSharedObser: Observable<Bool>?
-
     private var platformsVar: BehaviorRelay<[PlatformModel]> =  BehaviorRelay<[PlatformModel]>(value: [])
     private var allPlatformsCached: Bool = false
     private var refreshPlatformsDisposeBag: DisposeBag!
 
     private var isDownloadingVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
 
-    var isDownloadingDriver: Driver<Bool> {
-        return isDownloadingVar.asDriver()
+    // MARK: Functions
+    init(giantBombClient: GiantBombClientServiceProtocol, dataStore: DataStoreServiceProtocol) {
+        self.giantBombClient = giantBombClient
+        self.dataStore = dataStore
     }
-    
-    var isDownloading: Bool {
-        return isDownloadingVar.value
-    }
-
-    /// Refreshes platforms and returns "true" if they are available
-    var refreshPlatformsObser: Observable<Bool> {
-        loadFromDataService()
-
-        if allPlatformsCached {
-            return Observable<Bool>.just(platformsVar.value.count > 0)
-        }
-        return redownloadAllPlatfroms()
-    }
-
-    /// Always use 'refreshPlatformsObser' or 'refreshPlatforms' before this variable, to fill the data
-    var platformsObser: Observable<[PlatformModel]> {
-        return platformsVar.asObservable()
-    }
-
-    /// Always use 'refreshPlatformsObser' or 'refreshPlatforms' before this variable, to fill the data
-    var platforms: [PlatformModel] {
-        return platformsVar.value
-    }
-
-    func refreshPlatforms() {
-        refreshPlatformsDisposeBag = DisposeBag()
-        refreshPlatformsObser.subscribe().disposed(by: refreshPlatformsDisposeBag!)
-    }
-
-    // MARK: Private functions
-    private init() {}
 
     private func redownloadAllPlatfroms() -> Observable<Bool> {
         guard let sharedObser = downloadPlatformsUntilAllSharedObser else {
@@ -92,7 +77,10 @@ final class PlatformsService {
     private func startDownloadPlatformsUntilAll() -> Observable<Bool> {
         isDownloadingVar.accept(true)
         downloadPlatformsUntilAllSharedObser = downloadPlatformsUntilAll(startOffset: platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
-            .doOnce({ [unowned self] _, _  in
+            .doOnce({ [weak self] _, _  in
+                guard let self = self else {
+                    return
+                }
                 self.downloadPlatformsUntilAllSharedObser = nil
                 self.isDownloadingVar.accept(false)
             }).share()
@@ -101,9 +89,9 @@ final class PlatformsService {
 
     private func downloadPlatformsUntilAll(startOffset: Int, limit: Int) -> Observable<Bool> {
         //gets a part of platforms from one request
-        return ApiClientService.giantBomb.platforms(offset: startOffset, limit: limit)
-            .flatMapLatest({ [unowned self](result, data) -> Observable<Bool>  in
-                guard let responseData = data else {
+        return giantBombClient.platforms(offset: startOffset, limit: limit)
+            .flatMapLatest({ [weak self](result, data) -> Observable<Bool>  in
+                guard let self = self, let responseData = data else {
                     throw ApiErrorContainer(response: result, data: data, originalError: ApiErrors.validation)
                 }
 
@@ -131,14 +119,47 @@ final class PlatformsService {
 
     private func downloadAllPlatformsCompleted() {
         allPlatformsCached = true
-        DataService.shared.platforms = platformsVar.value
+        dataStore.platforms = platformsVar.value
     }
     
     private func loadFromDataService() {
-        guard !allPlatformsCached, let savePlatformsDate = DataService.shared.savePlatformsDate, Calendar.current.dateComponents([.minute], from: savePlatformsDate, to: Date()).minute ?? 0 < ApplicationSettings.Platforms.cacheOnDiscForMinutes, let platforms = DataService.shared.platforms, platforms.count > 0 else {
+        guard !allPlatformsCached, let savePlatformsDate = dataStore.savePlatformsDate, Calendar.current.dateComponents([.minute], from: savePlatformsDate, to: Date()).minute ?? 0 < ApplicationSettings.Platforms.cacheOnDiscForMinutes, let platforms = dataStore.platforms, platforms.count > 0 else {
             return
         }
         allPlatformsCached = true
         platformsVar.accept(platforms)
+    }
+}
+
+// MARK: - PlatformsServiceProtocol
+extension PlatformsService: PlatformsServiceProtocol {
+    var isDownloadingDriver: Driver<Bool> {
+        return isDownloadingVar.asDriver()
+    }
+
+    var isDownloading: Bool {
+        return isDownloadingVar.value
+    }
+
+    var refreshPlatformsObser: Observable<Bool> {
+        loadFromDataService()
+
+        if allPlatformsCached {
+            return Observable<Bool>.just(platformsVar.value.count > 0)
+        }
+        return redownloadAllPlatfroms()
+    }
+
+    var platformsObser: Observable<[PlatformModel]> {
+        return platformsVar.asObservable()
+    }
+
+    var platforms: [PlatformModel] {
+        return platformsVar.value
+    }
+
+    func refreshPlatforms() {
+        refreshPlatformsDisposeBag = DisposeBag()
+        refreshPlatformsObser.subscribe().disposed(by: refreshPlatformsDisposeBag!)
     }
 }

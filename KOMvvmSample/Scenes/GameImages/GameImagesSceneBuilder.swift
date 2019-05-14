@@ -1,5 +1,5 @@
 //
-//  Utils+Devices.swift
+//  GameImagesSceneBuilder.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,16 +25,15 @@
 
 import Foundation
 
-extension Utils {
-    var isSmallDevice: Bool {
-        return UIScreen.main.bounds.width < DevicesScreenWidth.normal.rawValue
+final class GameImagesSceneBuilder: SceneBuilderProtocol {
+    private let images: [ImageModel]
+
+    init(images: [ImageModel]) {
+        self.images = images
     }
 
-    var isNormalDevice: Bool {
-        return DevicesScreenWidth.normal.rawValue ..< DevicesScreenWidth.large.rawValue ~= UIScreen.main.bounds.width
-    }
-
-    var isLargeDevice: Bool {
-        return UIScreen.main.bounds.width >= DevicesScreenWidth.large.rawValue
+    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel = GameImagesViewModel(images: images)
+        return GameImagesViewController(viewModel: viewModel)
     }
 }

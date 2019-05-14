@@ -1,5 +1,5 @@
 //
-//  DataService.swift
+//  DataStoreService.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,36 +25,26 @@
 
 import Foundation
 
-final class DataService {
+final class DataStoreServiceBuilder: ServiceBuilder<DataStoreServiceProtocol> {
+    override func createService<DataStoreServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> DataStoreServiceProtocol {
+        return DataStoreService() as! DataStoreServiceProtocol
+    }
+}
+
+protocol DataStoreServiceProtocol: NSObject {
+    var platforms: [PlatformModel]? {get set}
+    var savePlatformsDate: Date? {get }
+}
+
+// MARK: - DataStoreService
+final class DataStoreService: NSObject {
     // MARK: - Variables
     private let fileDirectoryURL: URL = try! FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
     private let platformsKey: String = "platformsKey"
     private let savePlatformsDateKey: String = "savePlatformsDateKey"
 
-    //public
-    static let shared = {
-        return DataService()
-    }()
-
-    // MARK: Contained data
-    var platforms: [PlatformModel]? {
-        get {
-            return loadObjectFromFile(forKey: platformsKey)
-        }
-        set {
-            _ = saveObjectToFile(newValue, forKey: platformsKey)
-            setSavePlatformsDate(newValue != nil ? Date() : nil)
-        }
-    }
-
-    var savePlatformsDate: Date? {
-        return UserDefaults.standard.object(forKey: savePlatformsDateKey) as? Date
-    }
-
     // MARK: - Private helpers functions
-    private init() {}
-
     private func setSavePlatformsDate(_ date: Date?) {
         UserDefaults.standard.set(date, forKey: savePlatformsDateKey)
     }
@@ -134,5 +124,22 @@ final class DataService {
 
     private func containsKey(_ key: String) -> Bool {
         return UserDefaults.standard.dictionaryRepresentation().keys.contains(key)
+    }
+}
+
+// MARK: - DataStoreServiceProtocol
+extension DataStoreService: DataStoreServiceProtocol {
+    var platforms: [PlatformModel]? {
+        get {
+            return loadObjectFromFile(forKey: platformsKey)
+        }
+        set {
+            _ = saveObjectToFile(newValue, forKey: platformsKey)
+            setSavePlatformsDate(newValue != nil ? Date() : nil)
+        }
+    }
+
+    var savePlatformsDate: Date? {
+        return UserDefaults.standard.object(forKey: savePlatformsDateKey) as? Date
     }
 }

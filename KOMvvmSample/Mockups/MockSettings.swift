@@ -26,7 +26,7 @@
 import Foundation
 
 /// Used for sets settings of mock data in MockClient or unit tests
-class MockSettings {
+final class MockSettings {
     static var responseDelay: Double {
         return 0.1
     }

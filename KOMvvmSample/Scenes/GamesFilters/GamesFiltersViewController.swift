@@ -40,8 +40,8 @@ final class GamesFiltersViewController: BaseViewController {
     let viewModel: GamesFiltersViewModel
 
     // MARK: View controller functions
-    init(currentFilters: [GamesFilters: String]) {
-        viewModel = GamesFiltersViewModel(currentFilters: currentFilters)
+    init(viewModel: GamesFiltersViewModel) {
+        self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,7 +71,7 @@ final class GamesFiltersViewController: BaseViewController {
     
     private func initializePlatformsDownloadIndicator() {
         loadingView.backgroundColor = UIColor.Theme.viewControllerBackground
-        Driver<Bool>.combineLatest(waitForRefreshPlatformsVar.asDriver(), PlatformsService.shared.isDownloadingDriver, resultSelector: { (waitForRefreshPlatforms, isDownloadingPlatforms) -> Bool in
+        Driver<Bool>.combineLatest(waitForRefreshPlatformsVar.asDriver(), viewModel.platformsService.isDownloadingDriver, resultSelector: { (waitForRefreshPlatforms, isDownloadingPlatforms) -> Bool in
             return waitForRefreshPlatforms && isDownloadingPlatforms
             }).drive(loadingView.isActiveVar).disposed(by: disposeBag)
     }
@@ -157,7 +157,7 @@ extension GamesFiltersViewController {
         refreshPlatformsDisposeBag = DisposeBag()
         waitForRefreshPlatformsVar.accept(true)
         
-        PlatformsService.shared.refreshPlatformsObser
+        viewModel.platformsService.refreshPlatformsObser
             .catchError({ [weak self](error) -> Observable<Bool> in
                 self?.showError(message: error.localizedDescription)
                 return Observable<Bool>.just(false)
@@ -199,7 +199,7 @@ extension GamesFiltersViewController {
     }
     
     private func bindPlatformsData(toItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController) {
-        PlatformsService.shared.platformsObser.bind(to: itemsTablePicker.itemsTable.rx.items(cellIdentifier: self.platformCellReuseIdentifier)) { _, model, cell in
+        viewModel.platformsService.platformsObser.bind(to: itemsTablePicker.itemsTable.rx.items(cellIdentifier: self.platformCellReuseIdentifier)) { _, model, cell in
             (cell as? PlatformViewCell)?.platform = model
             }
             .disposed(by: refreshPlatformsDisposeBag)

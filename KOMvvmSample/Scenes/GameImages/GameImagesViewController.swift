@@ -32,8 +32,8 @@ final class GameImagesViewController: BaseViewController {
     let viewModel: GameImagesViewModel
 
     // MARK: Initializations
-    init(images: [ImageModel]) {
-        viewModel = GameImagesViewModel(images: images)
+    init(viewModel: GameImagesViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -66,6 +66,6 @@ final class GameImagesViewController: BaseViewController {
 
 extension GameImagesViewController: GameImagesViewControllerProtocol {
     func goToImageViewer(forImage image: ImageModel) {
-        Navigator.shared.pushImageViewer(image: image, onNavigationController: navigationController)
+        _ = AppCoordinator.shared.push(scene: ImageViewerSceneBuilder(image: image), onNavigationController: navigationController)
     }
 }

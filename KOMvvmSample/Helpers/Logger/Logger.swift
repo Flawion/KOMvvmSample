@@ -1,5 +1,5 @@
 //
-//  LogService.swift
+//  Logger.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -33,7 +33,7 @@ enum LogDataModes {
     case none
 }
 
-final class LogService {
+final class Logger {
     // MARK: Variables
     private let startRequestSymbol = "🔜"
     private let endRequestSymbol = "🔚"
@@ -46,7 +46,7 @@ final class LogService {
     private let logDataSimplifiedAboveLimit: Int = 12000
 
     static let shared = {
-        return LogService()
+        return Logger()
     }()
 
     // MARK: Functions
@@ -132,7 +132,7 @@ final class LogService {
 }
 
 // MARK: - Data to log string
-extension LogService {
+extension Logger {
     private var statusCodeSymbolSuccess: String {
         return "💚"
     }

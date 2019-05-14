@@ -31,8 +31,8 @@ final class ImageViewerViewController: BaseViewController {
     let viewModel: ImageViewerViewModel
     
     // MARK: Initialization
-    init(image: ImageModel) {
-        viewModel = ImageViewerViewModel(image: image)
+    init(viewModel: ImageViewerViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }

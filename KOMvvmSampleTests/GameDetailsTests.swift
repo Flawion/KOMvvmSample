@@ -30,30 +30,35 @@ import RxCocoa
 @testable import KOMvvmSample
 
 final class GameDetailsTests: XCTestCase {
-    var gameDetailsViewModel: GameDetailsViewModel!
-    var disposeBag: DisposeBag!
+    private var mockedServices: MockedServices!
+    private var gameDetailsViewModel: GameDetailsViewModel!
+    private var disposeBag: DisposeBag!
 
     override func setUp() {
         super.setUp()
-        ApiClientService.setMockClient(forBundle: Bundle(for: type(of: self)))
-
-        //gets game model for tests
-        let filters = MockSettings.filteredGamesFilters
-        let data = ApiClientService.giantBomb.mockDataContainer.loadMockData(forRequestParameters: ApiClientService.giantBomb.parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters)))
-        guard let gameData = data, let games: BaseResponseModel<[GameModel]>? = try? ApiClientService.giantBomb.defaultDataMapper().mapTo(data: gameData), let firstGame =  games?.results?.first else {
-            XCTAssert(false)
+        
+        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        initializeTestScene()
+    }
+    
+    private func initializeTestScene() {
+        guard let firstGame = getFirstGameFromMockData() else {
             return
         }
-
-        gameDetailsViewModel = GameDetailsViewModel(game: firstGame)
+        gameDetailsViewModel = (GameDetailsSceneBuilder(game: firstGame).createScene(withServiceLocator: mockedServices.locator) as! GameDetailsViewController).viewModel
         disposeBag = DisposeBag()
     }
-
-    override func tearDown() {
-        ApiClientService.giantBomb.mockSimulateFail = false
-        super.tearDown()
+    
+    private func getFirstGameFromMockData() -> GameModel? {
+        let filters = MockSettings.filteredGamesFilters
+        let data = mockedServices.giantBombMockClient.mockDataContainer.loadMockData(forRequestParameters: mockedServices.giantBombMockClient.parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters)))
+        guard let gameData = data, let games: BaseResponseModel<[GameModel]>? = try? mockedServices.giantBombMockClient.defaultDataMapper().mapTo(data: gameData), let firstGame =  games?.results?.first else {
+            XCTAssert(false)
+            return nil
+        }
+        return firstGame
     }
-
+    
     func testDownloadGameDetails() {
         let promiseGameDetails = expectation(description: "Game details returned")
         promiseGameDetails.expectedFulfillmentCount = 2
@@ -83,7 +88,7 @@ final class GameDetailsTests: XCTestCase {
     }
 
     func testErrorDownloadGameDetails() {
-        ApiClientService.giantBomb.mockSimulateFail = true
+        mockedServices.giantBombMockClient.mockSimulateFail = true
         let promiseError = expectation(description: "Error returned")
 
         //try to download game details
@@ -103,7 +108,7 @@ final class GameDetailsTests: XCTestCase {
     func testRefreshDownloadGameDetails() {
         testErrorDownloadGameDetails()
         disposeBag = DisposeBag()
-        ApiClientService.giantBomb.mockSimulateFail = false
+        mockedServices.giantBombMockClient.mockSimulateFail = false
 
         //then
         testDownloadGameDetails()

@@ -29,7 +29,7 @@ import RxSwift
 import RxAlamofire
 
 /// Base client that need to be inhertited by targets api
-class BaseApiClient {
+class BaseApiClient: NSObject {
     // MARK: Variables
     private(set) var urlBuilder: URLBuilder!
     private(set) var sessionManager: SessionManager!
@@ -40,7 +40,8 @@ class BaseApiClient {
     var mockErrorStatusCode: Int = 500
     var mockErrorData: Data = Data()
 
-    init() {
+    override init() {
+        super.init()
         urlBuilder = URLBuilder(apiAddress: apiAddress, apiVersion: apiVersion)
         sessionManager = createSessionManager()
     }
@@ -90,10 +91,10 @@ class BaseApiClient {
     // MARK: Validations of request and data
     func validate(response: HTTPURLResponse, data: Any?)throws {
         if !(200 ... 299 ~= response.statusCode) || data == nil {
-            LogService.shared.logValidateFailure(response)
+            Logger.shared.logValidateFailure(response)
             try throwError(forResponse: response, data: data, originalError: ApiErrors.validation)
         } else {
-            LogService.shared.logValidateSucccess(response)
+            Logger.shared.logValidateSucccess(response)
         }
     }
     
@@ -124,7 +125,7 @@ class BaseApiClient {
                 return (response, data, mappedData)
             })
             .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
+                Logger.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
             })
             .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
                 return (response, mappedData)
@@ -136,7 +137,7 @@ class BaseApiClient {
     func responseMockData(parameters: ApiRequestParameters, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
         let dataResponse = requestMockData(parameters: parameters, delay: delay)
             .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, error: error)
+                Logger.shared.log(response?.0, data: response?.1, error: error)
             })
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
@@ -168,7 +169,7 @@ class BaseApiClient {
                 return (response, data, mappedData)
             })
             .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
+                Logger.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
             })
             .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
                 return (response, mappedData)
@@ -181,7 +182,7 @@ class BaseApiClient {
         let dataResponse = self.requestData(parameters: parameters)
             .responseData()
             .doOnce ({ (response, error) in
-                LogService.shared.log(response?.0, data: response?.1, error: error)
+                Logger.shared.log(response?.0, data: response?.1, error: error)
             })
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
@@ -195,7 +196,7 @@ class BaseApiClient {
 
         //makes a request
         return sessionManager.rx.request(parameters.method, parameters.url, parameters: requestParameters, encoding: requestEncoding, headers: requestHeaders).do(onNext: { (dataRequest) in
-            LogService.shared.log(dataRequest)
+            Logger.shared.log(dataRequest)
         })
     }
     

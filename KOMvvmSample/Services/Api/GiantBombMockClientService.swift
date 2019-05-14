@@ -28,10 +28,24 @@ import Alamofire
 import RxSwift
 import RxAlamofire
 
+final class GiantBombMockClientServiceBuilder: ServiceBuilder<GiantBombClientServiceProtocol> {
+    private let loadDataFromBundleIdentifier: String?
+
+    init(loadDataFromBundleIdentifier: String?) {
+        self.loadDataFromBundleIdentifier = loadDataFromBundleIdentifier
+    }
+    
+    override func createService<GiantBombClientServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> GiantBombClientServiceProtocol {
+        let clientService = GiantBombMockClientService()
+        clientService.mockDataContainer.loadDataFromBundleIdentifier = loadDataFromBundleIdentifier
+        return clientService as! GiantBombClientServiceProtocol
+    }
+}
+
 // MARK: - Mock client registers the fake data
 
 /// Used in unit tests
-final class GiantBombMockClient: BaseGiantBombClient {
+final class GiantBombMockClientService: BaseGiantBombClient {
     override init() {
         super.init()
         
@@ -83,7 +97,7 @@ final class GiantBombMockClient: BaseGiantBombClient {
 }
 
 // MARK: - GiantBombClientProtocol
-extension GiantBombMockClient: GiantBombClientProtocol {
+extension GiantBombMockClientService: GiantBombClientServiceProtocol {
     func gameDetails(forGuid guid: String) -> Observable<(HTTPURLResponse, BaseResponseModel<GameDetailsModel>?)> {
         return responseMockMapped(parameters: parametersForGameDetails(forGuid: guid))
     }

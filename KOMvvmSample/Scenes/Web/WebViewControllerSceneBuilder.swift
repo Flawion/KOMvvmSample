@@ -1,5 +1,5 @@
 //
-//  DevicesScreenWidth.swift
+//  WebViewControllerSceneBuilder.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,8 +25,16 @@
 
 import Foundation
 
-enum DevicesScreenWidth: CGFloat {
-    case small = 320
-    case normal = 375
-    case large = 414
+final class WebViewControllerSceneBuilder: SceneBuilderProtocol {
+    private let barTitle: String
+    private var html: String
+
+    init(barTitle: String, html: String) {
+        self.barTitle = barTitle
+        self.html = html
+    }
+
+    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+        return WebViewController(barTitle: barTitle, html: html)
+    }
 }

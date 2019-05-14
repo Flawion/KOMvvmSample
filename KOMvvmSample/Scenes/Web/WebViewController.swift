@@ -112,7 +112,7 @@ extension WebViewController: WKNavigationDelegate {
 
         guard let url = url else {
             decisionHandler(.cancel)
-            Navigator.shared.openLink(requestUrl)
+            AppCoordinator.shared.openLink(requestUrl)
             return
         }
 
@@ -120,7 +120,7 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.allow)
         } else {
             decisionHandler(.cancel)
-            Navigator.shared.openLink(url)
+            AppCoordinator.shared.openLink(url)
         }
     }
 }

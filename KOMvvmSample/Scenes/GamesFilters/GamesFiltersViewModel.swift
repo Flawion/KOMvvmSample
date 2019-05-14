@@ -32,6 +32,7 @@ final class GamesFiltersViewModel: BaseViewModel {
     private let savedFiltersSubject: PublishSubject<[GamesFilters: String]> = PublishSubject<[GamesFilters: String]>()
     private let filtersVar: BehaviorRelay<[GamesFilterModel]> = BehaviorRelay<[GamesFilterModel]>(value: [])
 
+    private(set) var platformsService: PlatformsServiceProtocol!
     private(set) var availableSortingOptions: [GamesFilterModel]!
 
     var availableSortingOptionsDisplayValues: [String] {
@@ -47,7 +48,8 @@ final class GamesFiltersViewModel: BaseViewModel {
     }
     
     // MARK: Functions
-    init(currentFilters: [GamesFilters: String]) {
+    init(platformsService: PlatformsServiceProtocol, currentFilters: [GamesFilters: String]) {
+        self.platformsService = platformsService
         super.init()
 
         createFiltersCollection(fromCurrentFilters: currentFilters)
@@ -103,13 +105,13 @@ final class GamesFiltersViewModel: BaseViewModel {
 
     // MARK: Platform functions
     func selectedIndexes(forPlatformsFilter filter: GamesFilterModel) -> [IndexPath]? {
-        guard !filter.value.isEmpty, PlatformsService.shared.platforms.count > 0 else {
+        guard !filter.value.isEmpty, platformsService.platforms.count > 0 else {
             return nil
         }
         var indexPathes: [IndexPath] = []
         let platformsIds = filter.value.split(separator: "|")
         for platformId in platformsIds {
-            if let platformIndex = PlatformsService.shared.platforms.firstIndex(where: {"\($0.id)" == platformId}) {
+            if let platformIndex = platformsService.platforms.firstIndex(where: {"\($0.id)" == platformId}) {
                 indexPathes.append(IndexPath(row: platformIndex, section: 0))
             }
         }
@@ -127,11 +129,11 @@ final class GamesFiltersViewModel: BaseViewModel {
 
         //refreshes filter value
         var value: String = ""
-        for index in indexes where index.row < PlatformsService.shared.platforms.count {
+        for index in indexes where index.row < platformsService.platforms.count {
             if !value.isEmpty {
                 value += "|"
             }
-            value += "\(PlatformsService.shared.platforms[index.row].id)"
+            value += "\(platformsService.platforms[index.row].id)"
         }
         filter.value = value
     }
@@ -182,7 +184,7 @@ final class GamesFiltersViewModel: BaseViewModel {
         var displayValue = ""
         let platformsIds = filter.value.split(separator: "|")
         for platformId in platformsIds {
-            if let platform = PlatformsService.shared.platforms.first(where: {"\($0.id)" == platformId}) {
+            if let platform = platformsService.platforms.first(where: {"\($0.id)" == platformId}) {
                 if !displayValue.isEmpty {
                     displayValue += ", "
                 }

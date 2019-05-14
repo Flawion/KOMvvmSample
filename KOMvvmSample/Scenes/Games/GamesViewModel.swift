@@ -29,6 +29,8 @@ import RxCocoa
 final class GamesViewModel: BaseViewModel {
     // MARK: Variables
     //private
+    private var giantBombClient: GiantBombClientServiceProtocol!
+    
     private var gamesOffset: Int = 0
     private var gamesTotalResults: Int = 0
     private var gamesVar: BehaviorRelay<[GameModel]> = BehaviorRelay<[GameModel]>(value: [])
@@ -50,6 +52,11 @@ final class GamesViewModel: BaseViewModel {
         return gamesOffset < gamesTotalResults
     }
 
+    init(giantBombClient: GiantBombClientServiceProtocol) {
+        super.init()
+        self.giantBombClient = giantBombClient
+    }
+
     // MARK: Searching games functions
     func searchMoreGames() {
         guard canDownloadMoreResults else {
@@ -69,7 +76,7 @@ final class GamesViewModel: BaseViewModel {
         prepareForSearchingGames(offset: offset)
 
         //downloads new games results
-        ApiClientService.giantBomb.searchGames(offset: offset, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
+        giantBombClient.searchGames(offset: offset, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
             .subscribe({ [weak self] event in
                 guard let self = self, !event.isCompleted else {
                     return

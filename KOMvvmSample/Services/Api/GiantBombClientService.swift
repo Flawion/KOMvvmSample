@@ -1,5 +1,5 @@
 //
-//  GiantBombClient.swift
+//  GiantBombClientService.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -28,11 +28,17 @@ import Alamofire
 import RxSwift
 import RxAlamofire
 
-final class GiantBombClient: BaseGiantBombClient {
+final class GiantBombClientServiceBuilder: ServiceBuilder<GiantBombClientServiceProtocol> {
+    override func createService<GiantBombClientServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> GiantBombClientServiceProtocol {
+        return GiantBombClientService() as! GiantBombClientServiceProtocol
+    }
+}
+
+final class GiantBombClientService: BaseGiantBombClient {
 }
 
 // MARK: GiantBombClientProtocol
-extension GiantBombClient: GiantBombClientProtocol {
+extension GiantBombClientService: GiantBombClientServiceProtocol {
     func gameDetails(forGuid guid: String) -> Observable<(HTTPURLResponse, BaseResponseModel<GameDetailsModel>?)> {
         return responseMapped(parameters: parametersForGameDetails(forGuid: guid))
     }

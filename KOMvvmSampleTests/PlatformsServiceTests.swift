@@ -29,23 +29,27 @@ import RxCocoa
 
 @testable import KOMvvmSample
 
-class PlatformsServiceTests: XCTestCase {
-
-    var platformsService: PlatformsService!
-    var disposeBag: DisposeBag!
+final class PlatformsServiceTests: XCTestCase {
+    private var mockedServices: MockedServices!
+    private var platformsService: PlatformsServiceProtocol!
+    private var dataStoreService: DataStoreServiceProtocol!
+    private var disposeBag: DisposeBag!
     
     override func setUp() {
         super.setUp()
-        ApiClientService.setMockClient(forBundle: Bundle(for: type(of: self)))
-        platformsService = PlatformsService.test
-        //delete platforms cache
-        DataService.shared.platforms = nil
-        disposeBag = DisposeBag()
+        
+        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        initializeTestScene()
     }
     
-    override func tearDown() {
-        ApiClientService.giantBomb.mockSimulateFail = false
-        super.tearDown()
+    private func initializeTestScene() {
+        let platformsService: PlatformsServiceProtocol = mockedServices.locator.get()!
+        self.platformsService = platformsService
+        //delete platforms cache
+        let dataStoreService: DataStoreServiceProtocol = mockedServices.locator.get()!
+        self.dataStoreService = dataStoreService
+        dataStoreService.platforms = nil
+        disposeBag = DisposeBag()
     }
 
     func testDownloadPlatforms() {
@@ -69,7 +73,7 @@ class PlatformsServiceTests: XCTestCase {
         testDownloadPlatforms()
         
         //get cached platforms
-        guard let platforms = DataService.shared.platforms else {
+        guard let platforms = dataStoreService.platforms else {
             XCTAssert(false, "platforms aren't cached")
             return
         }

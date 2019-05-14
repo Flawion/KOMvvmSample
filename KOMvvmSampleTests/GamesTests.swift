@@ -30,19 +30,20 @@ import RxCocoa
 @testable import KOMvvmSample
 
 final class GamesTests: XCTestCase {
-    var gamesViewModel: GamesViewModel!
-    var disposeBag: DisposeBag!
+    private var mockedServices: MockedServices!
+    private var gamesViewModel: GamesViewModel!
+    private var disposeBag: DisposeBag!
 
     override func setUp() {
         super.setUp()
-        ApiClientService.setMockClient(forBundle: Bundle(for: type(of: self)))
-        gamesViewModel = GamesViewModel()
-        disposeBag = DisposeBag()
+        
+        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        initializeTestScene()
     }
-
-    override func tearDown() {
-        ApiClientService.giantBomb.mockSimulateFail = false
-        super.tearDown()
+    
+    private func initializeTestScene() {
+        gamesViewModel = (GamesSceneBuilder().createScene(withServiceLocator: mockedServices.locator) as! GamesViewController).viewModel
+        disposeBag = DisposeBag()
     }
 
     func testDownloadGames() {
@@ -116,7 +117,7 @@ final class GamesTests: XCTestCase {
     }
 
     func testErrorDownloadGames() {
-        ApiClientService.giantBomb.mockSimulateFail = true
+        mockedServices.giantBombMockClient.mockSimulateFail = true
         let promiseErrorGames = expectation(description: "Error games returned")
 
         //try to download games with default filters
@@ -137,7 +138,7 @@ final class GamesTests: XCTestCase {
         testDownloadGames()
         disposeBag = DisposeBag()
 
-        ApiClientService.giantBomb.mockSimulateFail = true
+        mockedServices.giantBombMockClient.mockSimulateFail = true
         let promiseErrorMoreGames = expectation(description: "Error more games returned")
 
         //try to download more games
@@ -158,7 +159,7 @@ final class GamesTests: XCTestCase {
     func testRefreshDownloadGames() {
         testErrorDownloadGames()
         disposeBag = DisposeBag()
-        ApiClientService.giantBomb.mockSimulateFail = false
+        mockedServices.giantBombMockClient.mockSimulateFail = false
 
         //then
         testDownloadGames()

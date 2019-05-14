@@ -1,5 +1,5 @@
 //
-//  ApiClientService.swift
+//  GameDetailsSceneBuilder.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,26 +25,15 @@
 
 import Foundation
 
-/// Returns right implementation of ApiClient
-final class ApiClientService {
-    private static var isMockClientUsed: Bool = false
+final class GameDetailsSceneBuilder: SceneBuilderProtocol {
+    private let game: GameModel
 
-    /// ApiClient that will be used by the application
-    private(set) static var giantBomb: (BaseGiantBombClient & GiantBombClientProtocol) = {
-        return GiantBombClient()
-    }()
+    init(game: GameModel) {
+        self.game = game
+    }
 
-    private init() { }
-
-    /// Change ApiClient to mock version
-    ///
-    /// - Parameter bundle: bundle of unit test that contains mock files
-    static func setMockClient(forBundle bundle: Bundle) {
-        guard !isMockClientUsed else {
-            return
-        }
-        ApiClientService.giantBomb = GiantBombMockClient()
-        ApiClientService.giantBomb.mockDataContainer.loadDataFromBundleIdentifier = bundle.bundleIdentifier
-        isMockClientUsed = true
+    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel =  GameDetailsViewModel(giantBombClient: serviceLocator.get()!, game: game)
+        return GameDetailsViewController(viewModel: viewModel)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  GiantBombClientProtocol.swift
+//  Utils+Devices.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -24,18 +24,23 @@
 //
 
 import Foundation
-import RxSwift
 
-protocol GiantBombClientProtocol {
-    func gameDetails(forGuid guid: String) -> Observable<(HTTPURLResponse, BaseResponseModel<GameDetailsModel>?)>
-
-    func searchGames(offset: Int, limit: Int, filters: String, sorting: String) -> Observable<(HTTPURLResponse, BaseResponseModel<[GameModel]>?)>
-
-    func platforms(offset: Int, limit: Int, sorting: String) -> Observable<(HTTPURLResponse, BaseResponseModel<[PlatformModel]>?)>
+enum DevicesScreenWidth: CGFloat {
+    case small = 320
+    case normal = 375
+    case large = 414
 }
 
-extension GiantBombClientProtocol {
-    func platforms(offset: Int, limit: Int, sorting: String = "name:asc") -> Observable<(HTTPURLResponse, BaseResponseModel<[PlatformModel]>?)> {
-        return platforms(offset: offset, limit: limit, sorting: sorting)
+extension Utils {
+    var isSmallDevice: Bool {
+        return UIScreen.main.bounds.width < DevicesScreenWidth.normal.rawValue
+    }
+
+    var isNormalDevice: Bool {
+        return DevicesScreenWidth.normal.rawValue ..< DevicesScreenWidth.large.rawValue ~= UIScreen.main.bounds.width
+    }
+
+    var isLargeDevice: Bool {
+        return UIScreen.main.bounds.width >= DevicesScreenWidth.large.rawValue
     }
 }

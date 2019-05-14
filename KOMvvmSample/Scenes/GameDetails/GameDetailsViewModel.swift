@@ -29,6 +29,8 @@ import RxCocoa
 
 final class GameDetailsViewModel: BaseViewModel {
     // MARK: Variables
+    private var giantBombClient: GiantBombClientServiceProtocol!
+
     private let gameVar: BehaviorRelay<GameModel>
     private let gameDetailsVar: BehaviorRelay<GameDetailsModel?> = BehaviorRelay<GameDetailsModel?>(value: nil)
     private let gameDetailsItemsVar: BehaviorRelay<[GameDetailsItemModel]> = BehaviorRelay<[GameDetailsItemModel]>(value: [])
@@ -65,7 +67,8 @@ final class GameDetailsViewModel: BaseViewModel {
     }
 
     // MARK: Functions
-    init(game: GameModel) {
+    init(giantBombClient: GiantBombClientServiceProtocol, game: GameModel) {
+        self.giantBombClient = giantBombClient
         gameVar = BehaviorRelay<GameModel>(value: game)
         super.init()
 
@@ -119,7 +122,7 @@ final class GameDetailsViewModel: BaseViewModel {
         dataState = .loading
 
         gameDetailsDisposeBag = DisposeBag()
-        ApiClientService.giantBomb.gameDetails(forGuid: game.guid)
+        giantBombClient.gameDetails(forGuid: game.guid)
             .subscribe({ [weak self] event in
                 guard let self = self, !event.isCompleted else {
                     return

@@ -33,9 +33,18 @@ final class GamesViewController: BaseViewController {
     private weak var gamesView: GamesView!
     private weak var searchController: UISearchController!
 
-    let viewModel: GamesViewModel = GamesViewModel()
+    let viewModel: GamesViewModel
 
     // MARK: View controller functions
+    init(viewModel: GamesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -116,7 +125,7 @@ final class GamesViewController: BaseViewController {
     }
 
     @objc private func goToGamesFilter() {
-        let gamesFiltersControllerProtocol = Navigator.shared.pushGamesFilters(currentFilters: viewModel.gamesFilters, onNavigationController: navigationController)
+        let gamesFiltersControllerProtocol = AppCoordinator.shared.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController) as! GamesFiltersViewControllerProtocol
         gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
             self?.viewModel.changeGameFilters(savedFilters)
         }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
@@ -134,6 +143,6 @@ extension GamesViewController: GamesViewControllerProtocol {
     }
 
     func goToGameDetail(_ game: GameModel) {
-        Navigator.shared.pushGameDetail(forGame: game, onNavigationController: navigationController)
+        _ = AppCoordinator.shared.push(scene: GameDetailsSceneBuilder(game: game), onNavigationController: navigationController)
     }
 }

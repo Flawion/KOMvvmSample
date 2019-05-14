@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  GamesFiltersSceneBuilder.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -23,13 +23,17 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-@UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppCoordinator.shared.initializeScene()
-        return true
+final class GamesFiltersSceneBuilder: SceneBuilderProtocol {
+    private let currentFilters: [GamesFilters: String]
+
+    init(currentFilters: [GamesFilters: String]) {
+        self.currentFilters = currentFilters
+    }
+
+    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel = GamesFiltersViewModel(platformsService: serviceLocator.get()!, currentFilters: currentFilters)
+        return GamesFiltersViewController(viewModel: viewModel)
     }
 }
