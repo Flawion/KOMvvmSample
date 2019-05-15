@@ -27,9 +27,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class PlatformsServiceBuilder: ServiceBuilder<PlatformsServiceProtocol> {
-    override func createService<PlatformsServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> PlatformsServiceProtocol {
-        return PlatformsService(giantBombClient: serviceLocator.get()!, dataStore: serviceLocator.get()!) as! PlatformsServiceProtocol
+final class PlatformsServiceBuilder: ServiceBuilderProtocol {
+    var type: ServiceTypes {
+        return .platforms
+    }
+
+    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
+        guard let giantBombClient: GiantBombClientServiceProtocol = serviceLocator.get(type: .giantBombApiClient), let dataStore: DataStoreServiceProtocol = serviceLocator.get(type: .dataStore) else {
+            fatalError("PlatformsServiceBuilder can't get services")
+        }
+        return PlatformsService(giantBombClient: giantBombClient, dataStore: dataStore)
     }
 }
 
@@ -159,6 +166,9 @@ extension PlatformsService: PlatformsServiceProtocol {
     }
 
     func refreshPlatforms() {
+        guard !isDownloading else {
+            return
+        }
         refreshPlatformsDisposeBag = DisposeBag()
         refreshPlatformsObser.subscribe().disposed(by: refreshPlatformsDisposeBag!)
     }

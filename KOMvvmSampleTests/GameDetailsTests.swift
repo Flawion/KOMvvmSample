@@ -37,7 +37,7 @@ final class GameDetailsTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        mockedServices = MockedServices()
         initializeTestScene()
     }
     

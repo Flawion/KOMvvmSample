@@ -33,7 +33,10 @@ final class GamesFiltersSceneBuilder: SceneBuilderProtocol {
     }
 
     func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
-        let viewModel = GamesFiltersViewModel(platformsService: serviceLocator.get()!, currentFilters: currentFilters)
+        guard let platformsService: PlatformsServiceProtocol = serviceLocator.get(type: .platforms) else {
+            fatalError("GamesFiltersSceneBuilder can't get platformsService service")
+        }
+        let viewModel = GamesFiltersViewModel(platformsService: platformsService, currentFilters: currentFilters)
         return GamesFiltersViewController(viewModel: viewModel)
     }
 }

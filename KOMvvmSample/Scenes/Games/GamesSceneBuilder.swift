@@ -27,7 +27,11 @@ import Foundation
 
 final class GamesSceneBuilder: SceneBuilderProtocol {
     func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
-        let viewModel = GamesViewModel(giantBombClient: serviceLocator.get()!)
+        guard let giantBombClient: GiantBombClientServiceProtocol = serviceLocator.get(type: .giantBombApiClient) else {
+            fatalError("GamesSceneBuilder can't get giantBombApiClient service")
+        }
+
+        let viewModel = GamesViewModel(giantBombClient: giantBombClient)
         return GamesViewController(viewModel: viewModel)
     }
 }

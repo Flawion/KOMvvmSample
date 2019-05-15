@@ -35,6 +35,10 @@ extension ApplicationSettings {
         static var apiKey: String {
             return ""
         }
+
+        static var giantBombAddress: String {
+            return "https://www.giantbomb.com"
+        }
     }
 
     class Games {

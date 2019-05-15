@@ -49,16 +49,18 @@ The main advantages of mvvm are:
     
 ## Architecture parts
     
-1. Extensions - Extensions of common used types like UIView or String.
-2. Components - Components that was used in code. Buttons, labels and different kinds of views. Creating the defaults types of views are key to create easily application themes mechanism. All default views should use theme colors and fonts from "Resources" part of architecture.
-3. Services - Services used in app to do some specific actions. Each of them should has only one responsibility like: managing the data files, managing the api connections etc.
-4. Scenes - Different scenes of application. Each scene should be constructed from: 
-    1. Controller - Controller of scene, that makes available scene logic and some actions to the its views by protocol.
-    2. ControllerProtocol - Logic and list of controller actions that can be used from views in scene.
-    3. ViewModel - Separated logic of whole scene.
-    4. View - Views that can use logic and some actions from the controller by protocol.
-5. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).
-6. Application - All stuff connected with the application settings or navigation over the scenes.
+1. Components - Components that was used in code. Buttons, labels and different kinds of views. Creating the defaults types of views are key to create easily application themes mechanism. All default views should use theme colors and fonts from "Resources" part of architecture.
+2. Extensions - Extensions of common used types like UIView or String.
+3. Helpers - Shared utils that help app to work properly and prevent code repetition.
+4. Services - Services used in app to do some specific actions. Each of them should has only one responsibility like: managing the data files, managing the api connections etc. They are managed by ServiceLocator that is stored in AppCoordinator. Scene can have the references to the services by dependency injection in the initialization in SceneBuilder.
+5. Scenes - Different scenes of application. Each scene should be constructed from: 
+    1. SceneBuilder - Class that builds the whole scene, creates the viewModel with the references to the services and passes it the the sceneViewController.
+    2. Controller - Controller of scene, that makes available scene logic and some actions to the its views by protocol.
+    3. ControllerProtocol - Logic and list of controller actions that can be used from views in scene.
+    4. ViewModel - Separated logic of whole scene.
+    5. View - Views that can use logic and some actions from the controller by protocol.
+6. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).
+7. Application - All stuff connected with the application settings or navigation over the scenes.
 
 ## FAQ
 

@@ -28,72 +28,19 @@ import Alamofire
 import RxSwift
 import RxAlamofire
 
-final class GiantBombMockClientServiceBuilder: ServiceBuilder<GiantBombClientServiceProtocol> {
-    private let loadDataFromBundleIdentifier: String?
-
-    init(loadDataFromBundleIdentifier: String?) {
-        self.loadDataFromBundleIdentifier = loadDataFromBundleIdentifier
+final class GiantBombMockClientServiceBuilder: ServiceBuilderProtocol {
+    var type: ServiceTypes {
+        return .giantBombApiClient
     }
     
-    override func createService<GiantBombClientServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> GiantBombClientServiceProtocol {
-        let clientService = GiantBombMockClientService()
-        clientService.mockDataContainer.loadDataFromBundleIdentifier = loadDataFromBundleIdentifier
-        return clientService as! GiantBombClientServiceProtocol
+    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
+        return GiantBombMockClientService()
     }
 }
 
-// MARK: - Mock client registers the fake data
-
 /// Used in unit tests
 final class GiantBombMockClientService: BaseGiantBombClient {
-    override init() {
-        super.init()
-        
-        registerMockData()
-    }
 
-    // MARK: Register mock data
-    private func registerMockData() {
-        registerMockGamesData()
-        registerMockMoreGamesData()
-        registerMockFilteredGamesData()
-        registerMockPlatformsData()
-        registerMockMorePlatformsData()
-        registerMockGameDetailsData()
-    }
-    
-    private func registerMockGamesData() {
-        let filters = ApplicationSettings.Games.defaultFilters
-        let parameters = parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
-        mockDataContainer.register(mockData: ApiMockData(fileName: "games", fileType: "json", requestParameters: parameters))
-    }
-    
-    private func registerMockMoreGamesData() {
-        let filters = ApplicationSettings.Games.defaultFilters
-        let parameters = parametersForSearchGames(offset: ApplicationSettings.Games.limitPerRequest, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
-        mockDataContainer.register(mockData: ApiMockData(fileName: "moregames", fileType: "json", requestParameters: parameters))
-    }
-    
-    private func registerMockFilteredGamesData() {
-        let filters = MockSettings.filteredGamesFilters
-        let parameters = parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
-        mockDataContainer.register(mockData: ApiMockData(fileName: "filteredgames", fileType: "json", requestParameters: parameters))
-    }
-    
-    private func registerMockPlatformsData() {
-        let parameters = parametersForPlatforms(offset: 0, limit: ApplicationSettings.Platforms.limitPerRequest)
-        mockDataContainer.register(mockData: ApiMockData(fileName: "platforms", fileType: "json", requestParameters: parameters))
-    }
-    
-    private func registerMockMorePlatformsData() {
-        let parameters = parametersForPlatforms(offset: ApplicationSettings.Platforms.limitPerRequest, limit: ApplicationSettings.Platforms.limitPerRequest)
-        mockDataContainer.register(mockData: ApiMockData(fileName: "moreplatforms", fileType: "json", requestParameters: parameters))
-    }
-    
-    private func registerMockGameDetailsData() {
-        let parameters = parametersForGameDetails(forGuid: "3030-16909")
-        mockDataContainer.register(mockData: ApiMockData(fileName: "gamedetails", fileType: "json", requestParameters: parameters))
-    }
 }
 
 // MARK: - GiantBombClientProtocol

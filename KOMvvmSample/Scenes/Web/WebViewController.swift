@@ -105,11 +105,14 @@ extension WebViewController: WKNavigationDelegate {
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-        guard let requestUrl = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
+        guard var requestUrl = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
             decisionHandler(.allow)
             return
         }
 
+        if requestUrl.host == nil, let newUrl = URL(string: ApplicationSettings.ApiSettings.giantBombAddress + requestUrl.absoluteString) {
+            requestUrl = newUrl
+        }
         guard let url = url else {
             decisionHandler(.cancel)
             AppCoordinator.shared.openLink(requestUrl)

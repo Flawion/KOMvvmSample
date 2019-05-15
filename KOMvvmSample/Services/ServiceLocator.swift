@@ -25,45 +25,44 @@
 
 import Foundation
 
-class ServiceBuilder<Type: Any> {
-    func createService<Type: Any>(withServiceLocator serviceLocator: ServiceLocator) -> Type {
-        fatalError("createService has not been implemented")
-    }
+protocol ServiceBuilderProtocol {
+    var type: ServiceTypes { get }
+
+    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any
+}
+
+enum ServiceTypes {
+    case giantBombApiClient
+    case dataStore
+    case platforms
 }
 
 final class ServiceLocator {
-    private var builderForServices: [String: Any] = [:]
-    private var services: [String: Any?] = [:]
+    private var builderForServices: [ServiceTypes: Any] = [:]
+    private var services: [ServiceTypes: Any?] = [:]
 
-    func register<Type: Any>(withBuilder builder: ServiceBuilder<Type>) {
-        let typeName = self.typeName(Type.self)
-        builderForServices[typeName] = builder
-        services[typeName] = nil
+    func register(withBuilder builder: ServiceBuilderProtocol) {
+        builderForServices[builder.type] = builder
+        services[builder.type] = nil
     }
 
-    func get<Type: Any>() -> Type? {
-        let typeName = self.typeName(Type.self)
-        guard services[typeName] == nil else {
-            return services[typeName] as? Type
+    func get<ReturnType>(type: ServiceTypes) -> ReturnType? {
+        guard services[type] == nil else {
+            return services[type] as? ReturnType
         }
 
         //lazy loading
-        return tryToCreateAndReturnService(withTypeName: typeName)
+        return tryToCreateAndReturnService(withType: type) as? ReturnType
 
     }
 
-    private func typeName(_ type: Any.Type) -> String {
-        let name = "\(type)"
-        return name
-    }
-
-    private func tryToCreateAndReturnService<Type: Any>(withTypeName typeName: String) -> Type? {
-        guard let builder = builderForServices[typeName] as? ServiceBuilder<Type> else {
+    private func tryToCreateAndReturnService(withType type: ServiceTypes) -> Any? {
+        guard let builder = builderForServices[type] as? ServiceBuilderProtocol else {
             return nil
         }
-        let newService: Type = builder.createService(withServiceLocator: self)
-        services[typeName] = newService
-        builderForServices[typeName] = nil
+        let newService = builder.createService(withServiceLocator: self)
+        services[type] = newService
+        builderForServices[type] = nil
         return newService
     }
 }

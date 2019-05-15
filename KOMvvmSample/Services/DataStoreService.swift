@@ -25,9 +25,13 @@
 
 import Foundation
 
-final class DataStoreServiceBuilder: ServiceBuilder<DataStoreServiceProtocol> {
-    override func createService<DataStoreServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> DataStoreServiceProtocol {
-        return DataStoreService() as! DataStoreServiceProtocol
+final class DataStoreServiceBuilder: ServiceBuilderProtocol {
+    var type: ServiceTypes {
+        return .dataStore
+    }
+
+    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
+        return DataStoreService()
     }
 }
 

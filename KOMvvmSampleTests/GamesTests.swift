@@ -37,7 +37,7 @@ final class GamesTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        mockedServices = MockedServices()
         initializeTestScene()
     }
     
@@ -101,7 +101,7 @@ final class GamesTests: XCTestCase {
             XCTAssertNil(error)
         }
 
-        XCTAssertTrue(MockSettings.isFileteredGamesMatchFilters(gamesViewModel.games))
+        MockSettings.isFileteredGamesMatchFilters(gamesViewModel.games)
         XCTAssertEqual(gamesViewModel.dataState, .none)
     }
 
@@ -113,7 +113,7 @@ final class GamesTests: XCTestCase {
             XCTAssert(false)
             return
         }
-        XCTAssertTrue(MockSettings.isFirstFileteredGameMatch(game))
+        MockSettings.isFirstFileteredGameMatch(game)
     }
 
     func testErrorDownloadGames() {

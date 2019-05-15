@@ -58,6 +58,11 @@ final class GamesFiltersViewController: BaseViewController {
         initializePlatformsDownloadIndicator()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.platformsService.refreshPlatforms()
+    }
+
     private func initializeView() {
         definesPresentationContext = true
         prepareNavigationBar(withTitle: "games_filters_bar_title".localized)

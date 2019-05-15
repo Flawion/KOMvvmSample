@@ -38,15 +38,15 @@ final class PlatformsServiceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mockedServices = MockedServices(forBundle: Bundle(for: type(of: self)))
+        mockedServices = MockedServices()
         initializeTestScene()
     }
     
     private func initializeTestScene() {
-        let platformsService: PlatformsServiceProtocol = mockedServices.locator.get()!
+        let platformsService: PlatformsServiceProtocol = mockedServices.locator.get(type: .platforms)!
         self.platformsService = platformsService
         //delete platforms cache
-        let dataStoreService: DataStoreServiceProtocol = mockedServices.locator.get()!
+        let dataStoreService: DataStoreServiceProtocol = mockedServices.locator.get(type: .dataStore)!
         self.dataStoreService = dataStoreService
         dataStoreService.platforms = nil
         disposeBag = DisposeBag()

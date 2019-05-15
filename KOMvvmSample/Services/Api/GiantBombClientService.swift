@@ -28,13 +28,18 @@ import Alamofire
 import RxSwift
 import RxAlamofire
 
-final class GiantBombClientServiceBuilder: ServiceBuilder<GiantBombClientServiceProtocol> {
-    override func createService<GiantBombClientServiceProtocol>(withServiceLocator serviceLocator: ServiceLocator) -> GiantBombClientServiceProtocol {
-        return GiantBombClientService() as! GiantBombClientServiceProtocol
+final class GiantBombClientServiceBuilder: ServiceBuilderProtocol {
+    var type: ServiceTypes {
+        return .giantBombApiClient
+    }
+
+    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
+        return GiantBombClientService()
     }
 }
 
 final class GiantBombClientService: BaseGiantBombClient {
+    
 }
 
 // MARK: GiantBombClientProtocol

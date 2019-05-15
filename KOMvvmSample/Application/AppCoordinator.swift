@@ -29,6 +29,7 @@ protocol SceneBuilderProtocol {
     func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController
 }
 
+/// Class that navigate between different scenes and contains all services in local instance of ServiceLocator.
 final class AppCoordinator {
     // MARK: Variables
     static let shared = {

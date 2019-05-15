@@ -36,7 +36,7 @@ enum GiantBombURLComponents: String {
 
 class BaseGiantBombClient: BaseApiClient {
     override var apiAddress: String {
-        return "https://www.giantbomb.com/api"
+        return ApplicationSettings.ApiSettings.giantBombAddress + "/api"
     }
 
     override func createDefaultHeaders() -> [String: String]? {
