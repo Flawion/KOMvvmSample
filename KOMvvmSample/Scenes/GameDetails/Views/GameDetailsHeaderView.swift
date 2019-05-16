@@ -38,7 +38,9 @@ final class GameDetailsHeaderView: UIView {
     private weak var infoView: GameDetailsHeaderInfoView!
 
     private let disposeBag: DisposeBag = DisposeBag()
-    
+
+    var needToResizeHeaderSubject: PublishSubject<Void> = PublishSubject<Void>()
+
     // MARK: Initialization functions
     init(controllerProtocol: GameDetailsViewControllerProtocol?) {
         self.controllerProtocol = controllerProtocol
@@ -114,8 +116,10 @@ final class GameDetailsHeaderView: UIView {
         }
 
         let heightRatio = image.size.height / image.size.width
-        imageLogoHeightConst.constant = imageLogoWidth * heightRatio
+        let imageHeight = imageLogoWidth * heightRatio
+        imageLogoHeightConst.constant = imageHeight
         layoutIfNeeded()
+        needToResizeHeaderSubject.onNext(())
     }
     
     private func initializeInfoView() {

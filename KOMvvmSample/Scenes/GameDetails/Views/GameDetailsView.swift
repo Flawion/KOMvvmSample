@@ -70,6 +70,13 @@ final class GameDetailsView: UIView {
         detailsHeaderView = GameDetailsHeaderView(controllerProtocol: controllerProtocol)
         detailsHeaderWidthConst = detailsHeaderView.widthAnchor.constraint(equalToConstant: bounds.width).withPriority(999)
         detailsHeaderView.addConstraint(detailsHeaderWidthConst)
+        bindNeedToResizeHeaderSubject()
+    }
+
+    private func bindNeedToResizeHeaderSubject() {
+        detailsHeaderView.needToResizeHeaderSubject.subscribe(onNext: { [weak self] in
+            self?.resizeDetailsHeaderView()
+        }).disposed(by: disposeBag)
     }
     
     private func initializeDetailsFooterView() {

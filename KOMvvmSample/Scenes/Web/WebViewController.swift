@@ -65,7 +65,6 @@ final class WebViewController: BaseViewController {
     private func initialize() {
         initializeView()
         initializeWebView()
-        bindLoading()
         loadData()
     }
 
@@ -80,21 +79,21 @@ final class WebViewController: BaseViewController {
         self.webView = webView
     }
 
-    private func bindLoading() {
-        //show/hide actualization when loading
-        let isLoadingDrive = webView.rx.observe(Bool.self, "loading")
-            .asDriver(onErrorJustReturn: false)
-
-        isLoadingDrive.map({($0 ?? false)})
-            .drive(loadingView.isActiveVar).disposed(by: disposeBag)
-    }
-
     private func loadData() {
+        showLoadingView()
         if let html = html {
             webView.loadHTMLString(html, baseURL: nil)
         } else if let url = url {
             webView.load(URLRequest(url: url))
         }
+    }
+
+    private func showLoadingView() {
+        loadingView.isActive = true
+    }
+
+    private func hideLoadingView() {
+        loadingView.isActive = false
     }
 }
 
@@ -126,4 +125,21 @@ extension WebViewController: WKNavigationDelegate {
             AppCoordinator.shared.openLink(url)
         }
     }
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        hideLoadingView()
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        hideLoadingView()
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hideLoadingView()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        hideLoadingView()
+    }
+
 }
