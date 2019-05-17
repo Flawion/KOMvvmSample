@@ -68,7 +68,6 @@ final class GamesView: UIView {
     }
 
     // MARK: Games collection functions
-    //private
     private func initializeGamesCollectionView() {
         gamesListLayout = UICollectionViewFlowLayout()
         gamesCollectionLayout = UICollectionViewFlowLayout()
@@ -81,11 +80,16 @@ final class GamesView: UIView {
         _ = addSafeAutoLayoutSubview(gamesCollectionView, overrideAnchors: AnchorsContainer(top: topAnchor))
 
         self.gamesCollectionView = gamesCollectionView
-        bindGamesCollectionData()
+        bindGamesCollection()
     }
 
-    private func bindGamesCollectionData() {
-        //binds item selected
+    private func bindGamesCollection() {
+        bindGamesCollectionItemSelected()
+        bindGamesCollectionData()
+        bindGamesCollectionBottomInsetToKeyboardHeight()
+    }
+
+    private func bindGamesCollectionItemSelected() {
         gamesCollectionView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self else {
                 return
@@ -93,14 +97,16 @@ final class GamesView: UIView {
             self.goToGameDetail(atIndexPath: indexPath)
             self.gamesCollectionView.deselectItem(at: indexPath, animated: true)
         }).disposed(by: disposeBag)
+    }
 
-        //binds data
+    private func bindGamesCollectionData() {
         controllerProtocol?.viewModel.gameObser.bind(to: gamesCollectionView.rx.items(cellIdentifier: gameCellReuseIdentifier)) { _, model, cell in
             (cell as! GameViewCell).game = model
             }
             .disposed(by: disposeBag)
+    }
 
-        //binds keyboard height to collection inset
+    private func bindGamesCollectionBottomInsetToKeyboardHeight() {
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             .subscribe(onNext: { [weak self] notification in
                 guard let self = self, let userInfo = notification.userInfo,
@@ -122,19 +128,25 @@ final class GamesView: UIView {
     }
     
     private func resizeGamesCollectionView() {
-        let size = gamesCollectionView.bounds.size
+        let collectionSize = gamesCollectionView.bounds.size
         
-        guard size.width > 0 && size.height > 0 && size != gamesCollectionViewSize else {
+        guard collectionSize.width > 0 && collectionSize.height > 0 && collectionSize != gamesCollectionViewSize else {
             return
         }
 
-        //resizes list layout
+        resizeGamesListLayout(collectionSize: collectionSize)
+        resizeGamesCollectionLayout(collectionSize: collectionSize)
+        gamesCollectionViewSize = collectionSize
+    }
+
+    private func resizeGamesListLayout(collectionSize size: CGSize) {
         gamesListLayout.sectionInset = UIEdgeInsets.zero
         gamesListLayout.minimumLineSpacing = 0
         gamesListLayout.itemSize = CGSize(width: size.width, height: GameViewCell.prefferedListHeight)
         gamesListLayout.invalidateLayout()
+    }
 
-        //resizes collection layout
+    private func resizeGamesCollectionLayout(collectionSize size: CGSize) {
         let itemMinWidth: Double = Double(GameViewCell.prefferedCollectionWidth)
         let inset: CGFloat = 4
         let itemMargin = 2.0
@@ -150,8 +162,6 @@ final class GamesView: UIView {
         gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + Double(GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth))
         gamesCollectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         gamesCollectionLayout.invalidateLayout()
-
-        gamesCollectionViewSize = size
     }
 
     // MARK: Infinity scrolling functions

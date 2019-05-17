@@ -98,13 +98,18 @@ final class GameDetailsView: UIView {
     }
 
     private func bindGameDetailsItems() {
-        //binds data
+        bindGameDetailsItemsData()
+        bindGameDetailsItemSelected()
+    }
+
+    private func bindGameDetailsItemsData() {
         controllerProtocol?.viewModel.gameDetailsItemsObser.bind(to: detailsItemsTableView.rx.items(cellIdentifier: detailsItemCellReuseIdentifier)) { _, model, cell in
             (cell as! GameDetailsItemViewCell).gameDetailsItem = model
             }
             .disposed(by: disposeBag)
+    }
 
-        //binds item selected
+    private func bindGameDetailsItemSelected() {
         detailsItemsTableView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self else {
                 return
