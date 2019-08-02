@@ -43,10 +43,18 @@ protocol DataStoreServiceProtocol: NSObject {
 // MARK: - DataStoreService
 final class DataStoreService: NSObject {
     // MARK: - Variables
-    private let fileDirectoryURL: URL = try! FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    private let fileDirectoryURL: URL
 
     private let platformsKey: String = "platformsKey"
     private let savePlatformsDateKey: String = "savePlatformsDateKey"
+
+    override init() {
+        do {
+            fileDirectoryURL = try FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
 
     // MARK: - Private helpers functions
     private func setSavePlatformsDate(_ date: Date?) {

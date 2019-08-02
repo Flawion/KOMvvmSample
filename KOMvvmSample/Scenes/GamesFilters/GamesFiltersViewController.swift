@@ -50,17 +50,20 @@ final class GamesFiltersViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        initializeView()
-        initializeGamesFiltersView()
-        initializePlatformsDownloadIndicator()
+    override func loadView() {
+        let gamesFiltersView = GamesFiltersView(controllerProtocol: self)
+        view = gamesFiltersView
+        self.gamesFiltersView = gamesFiltersView
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.platformsService.refreshPlatforms()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initialize()
+    }
+
+    private func initialize() {
+        initializeView()
+        initializePlatformsDownloadIndicator()
     }
 
     private func initializeView() {
@@ -68,17 +71,16 @@ final class GamesFiltersViewController: BaseViewController {
         prepareNavigationBar(withTitle: "games_filters_bar_title".localized)
     }
 
-    private func initializeGamesFiltersView() {
-        let gamesFiltersView = GamesFiltersView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(gamesFiltersView)
-        self.gamesFiltersView = gamesFiltersView
-    }
-    
     private func initializePlatformsDownloadIndicator() {
         loadingView.backgroundColor = UIColor.Theme.viewControllerBackground
         Driver<Bool>.combineLatest(waitForRefreshPlatformsVar.asDriver(), viewModel.platformsService.isDownloadingDriver, resultSelector: { (waitForRefreshPlatforms, isDownloadingPlatforms) -> Bool in
             return waitForRefreshPlatforms && isDownloadingPlatforms
-            }).drive(loadingView.isActiveVar).disposed(by: disposeBag)
+        }).drive(loadingView.isActiveVar).disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.platformsService.refreshPlatforms()
     }
 }
 
@@ -110,7 +112,10 @@ extension GamesFiltersViewController {
     // MARK: Pick sorting option
     private func pickSortingOption(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
         let viewLoadedAction = KODialogActionModel(title: filter.filter.localizable, action: { [weak self] (dialogViewController) in
-            self?.initializeSortingOptionsPickerViewController(dialogViewController as! KOOptionsPickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+            guard let optionsPickerViewController = dialogViewController as? KOOptionsPickerViewController else {
+                fatalError("cast failed KOOptionsPickerViewController")
+            }
+            self?.initializeSortingOptionsPickerViewController(optionsPickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
         })
         _ = presentOptionsPicker(withOptions: [viewModel.availableSortingOptionsDisplayValues], viewLoadedAction: viewLoadedAction)
     }
@@ -136,7 +141,10 @@ extension GamesFiltersViewController {
     // MARK: Pick original release date
     private func pickOriginalReleaseDate(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
         _ = presentDatePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable, action: { [weak self] (dialogViewController) in
-            self?.initializeOriginalReleaseDatePickerViewController(dialogViewController as! KODatePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+            guard let datePickerViewController = dialogViewController as? KODatePickerViewController else {
+                fatalError("cast failed KODatePickerViewController")
+            }
+            self?.initializeOriginalReleaseDatePickerViewController(datePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
         }))
     }
     
@@ -182,7 +190,10 @@ extension GamesFiltersViewController {
     
     private func pickPlatforms(forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
         _ = presentItemsTablePicker(viewLoadedAction: KODialogActionModel(title: filter.filter.localizable + "\n\(String(format: "games_filters_max_platforms".localized, self.platformsSelectedLimit))", action: { [weak self](dialogViewController) in
-            self?.initializePlatformsPicker(dialogViewController as! KOItemsTablePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
+            guard let itemsTablePickerViewController = dialogViewController as? KOItemsTablePickerViewController else {
+                fatalError("cast failed KOItemsTablePickerViewController")
+            }
+            self?.initializePlatformsPicker(itemsTablePickerViewController, forFilter: filter, refreshCellFunc: refreshCellFunc)
         }))
     }
 

@@ -49,19 +49,12 @@ final class GameImagesView: UIView {
         initialize()
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        resizeGamesCollectionView()
-    }
-
     private func initialize() {
         initializeCollectionView()
     }
 
     // MARK: Game images collection functions
-    //private
     private func initializeCollectionView() {
-        //creates collection view
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.register(UINib(nibName: "GameImageViewCell", bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)
         collectionView.backgroundColor = UIColor.Theme.gamesCollectionBackground
@@ -69,16 +62,22 @@ final class GameImagesView: UIView {
         _ = addSafeAutoLayoutSubview(collectionView, overrideAnchors: AnchorsContainer(top: topAnchor))
 
         self.collectionView = collectionView
+        bindCollection()
+    }
+
+    private func bindCollection() {
         bindCollectionData()
+        bindCollectionItemSelected()
     }
 
     private func bindCollectionData() {
-        //binds data
         controllerProtocol?.viewModel.imagesObser.bind(to: collectionView.rx.items(cellIdentifier: cellReuseIdentifier)) { _, model, cell in
-            (cell as! GameImageViewCell).image = model
+            (cell as? GameImageViewCell)?.image = model
             }
             .disposed(by: disposeBag)
-        
+    }
+
+    private func bindCollectionItemSelected() {
         collectionView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self else {
                 return
@@ -86,6 +85,18 @@ final class GameImagesView: UIView {
             self.goToImageViewer(forImageAtIndexPath: indexPath)
             self.collectionView.deselectItem(at: indexPath, animated: true)
         }).disposed(by: disposeBag)
+    }
+
+    private func goToImageViewer(forImageAtIndexPath indexPath: IndexPath) {
+        guard let controllerProtocol = controllerProtocol, let image = controllerProtocol.viewModel.getImage(forIndexPath: indexPath) else {
+            return
+        }
+        controllerProtocol.goToImageViewer(forImage: image)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        resizeGamesCollectionView()
     }
 
     private func resizeGamesCollectionView() {
@@ -113,12 +124,5 @@ final class GameImagesView: UIView {
         collectionLayout.invalidateLayout()
 
         collectionViewSize = size
-    }
-    
-    private func goToImageViewer(forImageAtIndexPath indexPath: IndexPath) {
-        guard let controllerProtocol = controllerProtocol, let image = controllerProtocol.viewModel.getImage(forIndexPath: indexPath) else {
-            return
-        }
-        controllerProtocol.goToImageViewer(forImage: image)
     }
 }

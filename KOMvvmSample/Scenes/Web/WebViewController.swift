@@ -56,6 +56,13 @@ final class WebViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        let webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+        self.webView = webView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,19 +71,11 @@ final class WebViewController: BaseViewController {
 
     private func initialize() {
         initializeView()
-        initializeWebView()
         loadData()
     }
 
     private func initializeView() {
         prepareNavigationBar(withTitle: barTitle)
-    }
-    
-    private func initializeWebView() {
-        let webView = WKWebView()
-        webView.navigationDelegate = self
-        _ = view.addSafeAutoLayoutSubview(webView)
-        self.webView = webView
     }
 
     private func loadData() {

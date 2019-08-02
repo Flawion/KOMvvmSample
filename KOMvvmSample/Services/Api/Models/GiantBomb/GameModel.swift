@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class GameModel: Codable {
+struct GameModel: Codable {
     enum CodingKeys: String, CodingKey {
         case aliases
         case apiDetailUrl = "api_detail_url"
@@ -72,7 +72,14 @@ final class GameModel: Codable {
 }
 
 extension GameModel {
-    var originalReleaseDateString: String? {
+    var orginalOrExpectedReleaseDateString: String? {
+        guard let originalReleaseDateString = originalReleaseDateString else {
+            return expectedReleaseDateString
+        }
+        return originalReleaseDateString
+    }
+
+    private var originalReleaseDateString: String? {
         guard let originalReleaseDate = originalReleaseDate else {
             return nil
         }
@@ -81,6 +88,34 @@ extension GameModel {
         formatter.locale = Locale(identifier: "en-US")
         formatter.dateFormat = "MMMM dd, yyyy"
         let dateString = formatter.string(from: originalReleaseDate)
-        return String(format: "%@ %@", "game_details_release_date".localized, dateString)
+        return String(format: "%@\n%@", "game_details_release_date".localized, dateString)
+    }
+
+    private var expectedReleaseDateString: String? {
+        var stringFormatString = ""
+        if expectedReleaseMonth != nil {
+            stringFormatString += "MMMM"
+        }
+        if expectedReleaseDay != nil {
+            if !stringFormatString.isEmpty {
+                stringFormatString += " "
+            }
+            stringFormatString += "dd"
+        }
+        if expectedReleaseYear != nil {
+            if !stringFormatString.isEmpty {
+                stringFormatString += ", "
+            }
+            stringFormatString += "yyyy"
+        }
+
+        guard !stringFormatString.isEmpty, let date = DateComponents(calendar: Calendar.current, year: expectedReleaseYear, month: expectedReleaseMonth, day: expectedReleaseDay).date else {
+            return nil
+        }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en-US")
+        formatter.dateFormat = stringFormatString
+        let dateString = formatter.string(from: date)
+        return String(format: "%@\n%@", "game_details_expected_release_date".localized, dateString)
     }
 }

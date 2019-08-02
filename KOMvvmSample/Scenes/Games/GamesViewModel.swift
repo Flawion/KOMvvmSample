@@ -65,17 +65,46 @@ final class GamesViewModel: BaseViewModel {
         searchGames(offset: gamesOffset)
     }
     
-    func searchGamesIfNeed(refresh: Bool = false) {
-        guard refresh || isDataError || gamesVar.value.count <= 0 else {
+    func searchGamesIfNeed(forceRefresh: Bool = false) {
+        guard forceRefresh || isNeedToSearchGames else {
             return
         }
         searchGames()
     }
+
+    private var isNeedToSearchGames: Bool {
+        return isDataError || gamesVar.value.count <= 0
+    }
     
     private func searchGames(offset: Int = 0) {
         prepareForSearchingGames(offset: offset)
+        requestSearchGames(offset: offset)
+    }
 
-        //downloads new games results
+    private func prepareForSearchingGames(offset: Int = 0) {
+        searchDisposeBag = DisposeBag()
+        dataState = isSearchingMoreGames(offset: offset) ? .loadingMore : .loading
+        clearGamesDataIfNeed(offset: offset)
+    }
+
+    private func isSearchingMoreGames(offset: Int = 0) -> Bool {
+        return offset > 0
+    }
+
+    private func clearGamesDataIfNeed(offset: Int) {
+        guard !isSearchingMoreGames(offset: offset) else {
+            return
+        }
+        clearGames()
+    }
+
+    private func clearGames() {
+        gamesVar.accept([])
+        gamesOffset = 0
+        gamesTotalResults = 0
+    }
+
+    private func requestSearchGames(offset: Int = 0) {
         giantBombClient.searchGames(offset: offset, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
             .subscribe({ [weak self] event in
                 guard let self = self, !event.isCompleted else {
@@ -95,35 +124,19 @@ final class GamesViewModel: BaseViewModel {
                 self.checkIsGameListEmpty()
             }).disposed(by: searchDisposeBag)
     }
-    
-    private func prepareForSearchingGames(offset: Int = 0) {
-        searchDisposeBag = DisposeBag()
-        dataState = isLoadingMoreItems(offset: offset) ? .loadingMore : .loading
-        clearGamesDataIfNeed(offset: offset)
-    }
-    
-    private func isLoadingMoreItems(offset: Int = 0) -> Bool {
-        return offset > 0
-    }
-    
-    // MARK: Games collection functions
-    func game(atIndexPath indexPath: IndexPath) -> GameModel? {
-        guard indexPath.row < gamesVar.value.count else {
-            return nil
-        }
-        return gamesVar.value[indexPath.row]
-    }
-    
-    private func clearGamesDataIfNeed(offset: Int) {
-        if offset == 0 {
-            clearGames()
+
+    private func showSearchError(_ error: Error) {
+        //if it's the first search block whole screen with refresh message
+        if gamesOffset == 0 {
+            dataState = .error
+        } else { //else show message only
+            raiseError(error)
+            checkIsGameListEmpty()
         }
     }
-    
-    private func clearGames() {
-        gamesVar.accept([])
-        gamesOffset = 0
-        gamesTotalResults = 0
+
+    private func checkIsGameListEmpty() {
+        dataState = gamesVar.value.count > 0 ? .none : .empty
     }
 
     private func addNewGames(_ newGames: [GameModel]) {
@@ -133,8 +146,11 @@ final class GamesViewModel: BaseViewModel {
         gamesOffset = refreshedGames.count
     }
 
-    private func checkIsGameListEmpty() {
-        dataState = gamesVar.value.count > 0 ? .none : .empty
+    func game(atIndexPath indexPath: IndexPath) -> GameModel? {
+        guard indexPath.row < gamesVar.value.count else {
+            return nil
+        }
+        return gamesVar.value[indexPath.row]
     }
 
     // MARK: Change game filters
@@ -142,9 +158,10 @@ final class GamesViewModel: BaseViewModel {
         guard updateGamesFilters(gameFilters) else {
             return
         }
-        searchGamesIfNeed(refresh: true)
+        searchGamesIfNeed(forceRefresh: true)
     }
 
+    /// returns is need to refresh games
     private func updateGamesFilters(_ gameFilters: [GamesFilters: String?]) -> Bool {
         var updated: Bool = false
         for gameFilter in gameFilters {
@@ -174,17 +191,6 @@ final class GamesViewModel: BaseViewModel {
             self.gamesFilters.removeValue(forKey: key)
         } else {
             self.gamesFilters[key] = value
-        }
-    }
-
-    // MARK: Other functions
-    private func showSearchError(_ error: Error) {
-        //if it's the first search block whole screen with refresh message
-        if gamesOffset == 0 {
-            dataState = .error
-        } else { //else show message only
-            raiseError(error)
-            checkIsGameListEmpty()
         }
     }
 }

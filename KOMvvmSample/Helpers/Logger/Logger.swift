@@ -35,8 +35,8 @@ enum LogDataModes {
 
 final class Logger {
     // MARK: Variables
-    private let startRequestSymbol = "🔜"
-    private let endRequestSymbol = "🔚"
+    private let startRequestSymbol = "➡️"
+    private let endRequestSymbol = "⬅️"
     private let errorSymbol = "❗️"
     private let validationSuccessSymbol = "✅"
     private let validationFailureSymbol = "⛔️"
@@ -68,7 +68,7 @@ final class Logger {
         guard let urlRequest = request.request else {
             return
         }
-        var logStr: [String] = [String(format: "%@Start request", startRequestSymbol)]
+        var logStr: [Any] = [String(format: "%@Start request", startRequestSymbol)]
         logStr.appendIfNotNull([
             urlToLog(urlRequest.url),
             headersToLog(urlRequest.allHTTPHeaderFields),
@@ -87,7 +87,7 @@ final class Logger {
         let response = response ?? apiError?.response
         let data = data ?? (apiError?.data as? Data)
 
-        var logStr: [String] = [String(format: "%@End request", endRequestSymbol)]
+        var logStr: [Any] = [String(format: "%@End request", endRequestSymbol)]
         logStr.appendIfNotNull([
             urlToLog(response?.url),
             headersToLog(response?.allHeaderFields),
@@ -160,14 +160,15 @@ extension Logger {
         return String(format: "%@URL: %@", urlSymbol, url)
     }
 
-    private func headersToLog(_ headers: [AnyHashable: Any]?) -> String? {
+    private func headersToLog(_ headers: [AnyHashable: Any]?) -> NSString? {
         guard let headers = headers, headers.count > 0 else {
             return nil
         }
-        return String(format: "%@Headers: %@", headersSymbol, headers)
+        // NSString remove special chars - so it is need to be used here to create more readable logs
+        return NSString(format: "%@Headers: %@", headersSymbol, headers)
     }
 
-    private func dataToLog(_ data: Data?, mappedData: LogDataRecudible? = nil, encoding: String.Encoding = .utf8) -> String? {
+    private func dataToLog(_ data: Data?, mappedData: LogDataRecudible? = nil, encoding: String.Encoding = .utf8) -> NSString? {
         guard logDataMode != .none, let data = data else {
             return nil
         }
@@ -187,7 +188,8 @@ extension Logger {
         default:
             return nil
         }
-        return dataStr
+        // NSString remove special chars - so it is need to be used here to create more readable logs
+        return NSString(string: dataStr)
     }
 
     private func dataToLogSimplified(mappedData: LogDataRecudible?) -> String {

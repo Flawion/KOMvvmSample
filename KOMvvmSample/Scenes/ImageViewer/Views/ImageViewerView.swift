@@ -59,12 +59,7 @@ final class ImageViewerView: UIView {
         initializeImageView()
         initializeZoomTapGesture()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        refreshImageIfBoundsChnaged()
-    }
-    
+
     private func initializeScrollView() {
         let scrollView = UIScrollView()
         scrollView.delegate = self
@@ -72,7 +67,7 @@ final class ImageViewerView: UIView {
         _ = addAutoLayoutSubview(scrollView)
         self.scrollView = scrollView
     }
-    
+
     private func initializeImageView() {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -80,23 +75,10 @@ final class ImageViewerView: UIView {
         imageLeftConst = constraints.left
         imageTopConst = constraints.top
         self.imageView = imageView
-        
+
         refreshImageData()
     }
-    
-    private func initializeZoomTapGesture() {
-        let zoomTapGesture = UITapGestureRecognizer(target: self, action: #selector(zoomTapGestureTap(gesture:)))
-        zoomTapGesture.numberOfTapsRequired = 2
-        scrollView.addGestureRecognizer(zoomTapGesture)
-    }
-    
-    @objc private func zoomTapGestureTap(gesture: UITapGestureRecognizer) {
-        guard imageToDocumentSizeRatio > 0, scrollView.zoomScale != imageToDocumentSizeRatio  else {
-            return
-        }
-        scrollView.setZoomScale(imageToDocumentSizeRatio, animated: true)
-    }
-    
+
     func refreshImageData() {
         guard let controllerProtocol = controllerProtocol, let imageUrl = controllerProtocol.viewModel.image.original else {
             return
@@ -115,41 +97,23 @@ final class ImageViewerView: UIView {
             self.refreshImage()
         }
     }
-    
-    // MARK: Photo mode functions
-    private func refreshPhotoMode() {
-        guard imageToDocumentSizeRatio > 0 else {
+
+    private func initializeZoomTapGesture() {
+        let zoomTapGesture = UITapGestureRecognizer(target: self, action: #selector(zoomTapGestureTap(gesture:)))
+        zoomTapGesture.numberOfTapsRequired = 2
+        scrollView.addGestureRecognizer(zoomTapGesture)
+    }
+
+    @objc private func zoomTapGestureTap(gesture: UITapGestureRecognizer) {
+        guard imageToDocumentSizeRatio > 0, scrollView.zoomScale != imageToDocumentSizeRatio  else {
             return
         }
-        scrollView.zoomScale <= imageToDocumentSizeRatio ? turnOffPhotoMode() : turnOnPhotoMode()
+        scrollView.setZoomScale(imageToDocumentSizeRatio, animated: true)
     }
     
-    private func turnOnPhotoMode() {
-        guard !isPhotoModeOn else {
-            return
-        }
-        isPhotoModeOn = true
-        UIView.animate(withDuration: 0.4, animations: { [weak self] in
-            guard let self = self else {
-                return
-            }
-            self.backgroundColor = UIColor.black
-        })
-        controllerProtocol?.turnOnPhotoMode()
-    }
-    
-    private func turnOffPhotoMode() {
-        guard isPhotoModeOn else {
-            return
-        }
-        isPhotoModeOn = false
-        UIView.animate(withDuration: 0.4, animations: { [weak self] in
-            guard let self = self else {
-                return
-            }
-            self.backgroundColor = UIColor.Theme.viewControllerBackground
-        })
-        controllerProtocol?.turnOffPhotoMode()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        refreshImageIfBoundsChnaged()
     }
     
     // MARK: Refresh image function
@@ -190,6 +154,42 @@ final class ImageViewerView: UIView {
         widthOffset = max(0, widthOffset)
         imageLeftConst.constant = widthOffset
         scrollView.layoutIfNeeded()
+    }
+
+    // MARK: Photo mode functions
+    private func refreshPhotoMode() {
+        guard imageToDocumentSizeRatio > 0 else {
+            return
+        }
+        scrollView.zoomScale <= imageToDocumentSizeRatio ? turnOffPhotoMode() : turnOnPhotoMode()
+    }
+
+    private func turnOnPhotoMode() {
+        guard !isPhotoModeOn else {
+            return
+        }
+        isPhotoModeOn = true
+        UIView.animate(withDuration: 0.4, animations: { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.backgroundColor = UIColor.black
+        })
+        controllerProtocol?.turnOnPhotoMode()
+    }
+
+    private func turnOffPhotoMode() {
+        guard isPhotoModeOn else {
+            return
+        }
+        isPhotoModeOn = false
+        UIView.animate(withDuration: 0.4, animations: { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.backgroundColor = UIColor.Theme.viewControllerBackground
+        })
+        controllerProtocol?.turnOffPhotoMode()
     }
 }
 

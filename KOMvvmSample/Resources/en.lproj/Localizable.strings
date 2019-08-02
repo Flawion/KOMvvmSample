@@ -9,7 +9,7 @@
 //State views
 "loading_title" = "Loading..";
 "error_title" = "Connection error";
-"error_refresh_btt_title" = "Refresh";
+"error_refresh_button_title" = "Refresh";
 "empty_title" = "No games found :(";
 
 //GamesViewController
@@ -21,6 +21,7 @@
 
 //GameDetailsViewController
 "game_details_unspecified_platforms" = "Unspecified platforms";
+"game_details_expected_release_date" = "Expected release";
 "game_details_release_date" = "Released";
 "game_details_items_overview" = "Overview";
 "game_details_items_reviews" = "Reviews - not implemented";

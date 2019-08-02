@@ -29,12 +29,25 @@ final class ImageViewerLoadingView: BaseStateView {
     private(set) weak var placeholderImageView: UIImageView!
     private weak var loadingView: LoadingView!
     
-    // MARK: Overrided functions
     override func createView() {
         initializePlaceholderImage()
         initializeLoadingView()
     }
-    
+
+    private func initializePlaceholderImage() {
+        let placeholderImageView = UIImageView()
+        placeholderImageView.contentMode = .scaleAspectFit
+        _ = addAutoLayoutSubview(placeholderImageView)
+        self.placeholderImageView = placeholderImageView
+    }
+
+    private func initializeLoadingView() {
+        let loadingView = LoadingView()
+        loadingView.backgroundColor = UIColor.Theme.imageViewerLoadingBackground
+        _ = addAutoLayoutSubview(loadingView)
+        self.loadingView = loadingView
+    }
+
     override func startActive() {
         super.startActive()
         loadingView.isActive = true
@@ -43,20 +56,5 @@ final class ImageViewerLoadingView: BaseStateView {
     override func stopActive() {
         super.stopActive()
         loadingView.isActive = false
-    }
-    
-    // MARK: Initialization
-    private func initializePlaceholderImage() {
-        let placeholderImageView = UIImageView()
-        placeholderImageView.contentMode = .scaleAspectFit
-        _ = addAutoLayoutSubview(placeholderImageView)
-        self.placeholderImageView = placeholderImageView
-    }
-    
-    private func initializeLoadingView() {
-        let loadingView = LoadingView()
-        loadingView.backgroundColor = UIColor.Theme.imageViewerLoadingBackground
-        _ = addAutoLayoutSubview(loadingView)
-        self.loadingView = loadingView
     }
 }

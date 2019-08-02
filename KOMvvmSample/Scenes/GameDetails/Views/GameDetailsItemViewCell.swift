@@ -25,14 +25,14 @@
 
 import UIKit
 
-class GameDetailsItemViewCell: BaseTableViewCell {
+final class GameDetailsItemViewCell: BaseTableViewCell {
     @IBOutlet weak var titleLabel: CellTitleLabel!
 
     static var prefferedHeight: CGFloat {
         return 44
     }
 
-    weak var gameDetailsItem: GameDetailsItemModel? {
+    var gameDetailsItem: GameDetailsItemModel? {
         didSet {
             titleLabel.text = gameDetailsItem?.localizedName
         }

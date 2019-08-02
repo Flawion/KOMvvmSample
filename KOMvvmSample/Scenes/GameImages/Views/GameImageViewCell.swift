@@ -36,7 +36,7 @@ final class GameImageViewCell: BaseCollectionViewCell {
         return 160
     }
 
-    weak var image: ImageModel? {
+    var image: ImageModel? {
         didSet {
            refreshImage()
         }

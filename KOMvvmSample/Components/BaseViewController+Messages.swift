@@ -27,16 +27,46 @@ import UIKit
 import RxSwift
 
 struct MessageAction {
-    var id: Int
-    var title: String
+    let id: Int
+    let title: String
+    let isDefaultAction: Bool
 
-    ///Is it deafault action
-    var isPrefered: Bool = false
-
-    init(id: Int, title: String, isPrefered: Bool = false) {
+    init(id: Int, title: String, isDefaultAction: Bool = false) {
         self.id = id
         self.title = title
-        self.isPrefered = isPrefered
+        self.isDefaultAction = isDefaultAction
+    }
+}
+
+struct MessageActions {
+    let cancelAction: MessageAction?
+    let destructiveAction: MessageAction?
+    let otherActions: [MessageAction]?
+
+    var isEmpty: Bool {
+        return cancelAction == nil && destructiveAction == nil && otherActions == nil
+    }
+
+    init(cancelAction: MessageAction? = nil, destructiveAction: MessageAction? = nil, otherActions: [MessageAction]? = nil) {
+        self.cancelAction = cancelAction
+        self.destructiveAction = destructiveAction
+        self.otherActions = otherActions
+    }
+}
+
+struct MessagePopoverSettings {
+    let view: UIView?
+    let rect: CGRect?
+    let barButton: UIBarButtonItem?
+
+    var isPopoverPresentation: Bool {
+        return (view != nil && rect != nil) || barButton != nil
+    }
+
+    init(view: UIView? = nil, rect: CGRect? = nil, barButton: UIBarButtonItem? = nil) {
+        self.view = view
+        self.rect = rect
+        self.barButton = barButton
     }
 }
 
@@ -61,9 +91,9 @@ extension BaseViewController {
         message.observable.subscribe().disposed(by: disposeBag ?? message.alertController.disposeBag)
     }
 
-    func showMessage(title: String? = nil, message: String?, cancelBttAction: MessageAction? = nil, destructiveBttAction: MessageAction? = nil, otherBttsActions: [MessageAction]? = nil, popoverView: UIView? = nil, popoverRect: CGRect? = nil, popoverBarBtt: UIBarButtonItem? = nil) -> (observable: Observable<Int>, alertController: DisposableAlertController) {
+    func showMessage(title: String? = nil, message: String?, actions: MessageActions? = nil, popoverSettings: MessagePopoverSettings? = nil) -> (observable: Observable<Int>, alertController: DisposableAlertController) {
 
-        let isPopoverPresentation = self.isPopoverPresentation(popoverView: popoverView, popoverRect: popoverRect, popoverBarBtt: popoverBarBtt)
+        let isPopoverPresentation = popoverSettings?.isPopoverPresentation ?? false
         let alertController = DisposableAlertController(title: title, message: message, preferredStyle: isPopoverPresentation ? .actionSheet : .alert)
 
         let observable = Observable<Int>.create({ [weak self] observer in
@@ -72,8 +102,8 @@ extension BaseViewController {
                 return Disposables.create()
             }
 
-            self.fillAlertController(alertController, observer: observer, cancelBttAction: cancelBttAction, destructiveBttAction: destructiveBttAction, otherBttsActions: otherBttsActions)
-            self.presentAlertController(alertController, popoverView: popoverView, popoverRect: popoverRect, popoverBarBtt: popoverBarBtt)
+            self.fillAlertController(alertController, observer: observer, actions: actions)
+            self.presentAlertController(alertController, popoverSettings: popoverSettings)
 
             return Disposables.create {
                 alertController.dismiss(animated: false, completion: nil)
@@ -86,21 +116,21 @@ extension BaseViewController {
         return (popoverView != nil && popoverRect != nil) || popoverBarBtt != nil
     }
 
-    private func fillAlertController(_ alertController: UIAlertController, observer: AnyObserver<Int>, cancelBttAction: MessageAction? = nil, destructiveBttAction: MessageAction? = nil, otherBttsActions: [MessageAction]? = nil) {
-        let cancelTempBtt = self.createDefaultCanceMesasgeActionIfThereAreNoButtons(cancelBttAction: cancelBttAction, destructiveBttAction: destructiveBttAction, otherBttsActions: otherBttsActions)
-        self.addMessageActionIfNotNull(cancelTempBtt, withAlertStyle: .cancel, toAlertController: alertController, observer: observer)
-        self.addMessageActionIfNotNull(destructiveBttAction, withAlertStyle: .destructive, toAlertController: alertController, observer: observer)
-        self.addOtherButtonsIfNotNull(otherBttsActions: otherBttsActions, toAlertController: alertController, observer: observer)
+    private func fillAlertController(_ alertController: UIAlertController, observer: AnyObserver<Int>, actions: MessageActions? = nil) {
+        let finalCancelAction = self.createDefaultCanceMesasgeActionIfNeed(actions: actions)
+        self.addIfNotNull(messageAction: finalCancelAction, withAlertStyle: .cancel, toAlertController: alertController, observer: observer)
+        self.addIfNotNull(messageAction: actions?.destructiveAction, withAlertStyle: .destructive, toAlertController: alertController, observer: observer)
+        self.addIfNotNull(otherActions: actions?.otherActions, toAlertController: alertController, observer: observer)
     }
 
-    private func createDefaultCanceMesasgeActionIfThereAreNoButtons(cancelBttAction: MessageAction? = nil, destructiveBttAction: MessageAction? = nil, otherBttsActions: [MessageAction]? = nil) -> MessageAction? {
-        guard cancelBttAction == nil && destructiveBttAction == nil && otherBttsActions == nil else {
-            return cancelBttAction
+    private func createDefaultCanceMesasgeActionIfNeed(actions: MessageActions?) -> MessageAction? {
+        if let actions = actions, !actions.isEmpty {
+            return actions.cancelAction
         }
         return MessageAction(id: 0, title: self.defaultMessageButtonTitle)
     }
 
-    private func addMessageActionIfNotNull(_ messageAction: MessageAction?, withAlertStyle alertStyle: UIAlertAction.Style, toAlertController alertController: UIAlertController, observer: AnyObserver<Int>) {
+    private func addIfNotNull(messageAction: MessageAction?, withAlertStyle alertStyle: UIAlertAction.Style, toAlertController alertController: UIAlertController, observer: AnyObserver<Int>) {
         guard let messageAction = messageAction else {
             return
         }
@@ -116,14 +146,14 @@ extension BaseViewController {
     }
 
     private func tryToSetPreferredAlertAction(_ action: UIAlertAction, messageAction: MessageAction, toAlertController alertController: UIAlertController) {
-        guard messageAction.isPrefered && action.style == .default else {
+        guard messageAction.isDefaultAction && action.style == .default else {
             return
         }
         alertController.preferredAction = action
     }
 
-    private func addOtherButtonsIfNotNull(otherBttsActions: [MessageAction]? = nil, toAlertController alertController: UIAlertController, observer: AnyObserver<Int>) {
-        guard let otherButtons = otherBttsActions else {
+    private func addIfNotNull(otherActions: [MessageAction]? = nil, toAlertController alertController: UIAlertController, observer: AnyObserver<Int>) {
+        guard let otherButtons = otherActions else {
             return
         }
         for otherButton in otherButtons {
@@ -131,20 +161,19 @@ extension BaseViewController {
         }
     }
 
-    private func presentAlertController(_ alertController: DisposableAlertController, popoverView: UIView? = nil, popoverRect: CGRect? = nil, popoverBarBtt: UIBarButtonItem? = nil) {
-        setPopoverSettings(forAlertController: alertController, popoverView: popoverView, popoverRect: popoverRect, popoverBarBtt: popoverBarBtt)
+    private func presentAlertController(_ alertController: DisposableAlertController, popoverSettings: MessagePopoverSettings? = nil) {
+        setPopoverSettings(forAlertController: alertController, popoverSettings: popoverSettings)
         present(alertController, animated: true, completion: nil)
     }
 
-    private func setPopoverSettings(forAlertController alertController: DisposableAlertController, popoverView: UIView? = nil, popoverRect: CGRect? = nil, popoverBarBtt: UIBarButtonItem? = nil) {
-        let isPopoverPresentation = self.isPopoverPresentation(popoverView: popoverView, popoverRect: popoverRect, popoverBarBtt: popoverBarBtt)
-        guard isPopoverPresentation, let popoverPresentation = alertController.popoverPresentationController else {
+    private func setPopoverSettings(forAlertController alertController: DisposableAlertController, popoverSettings: MessagePopoverSettings? = nil) {
+        guard let popoverSettings = popoverSettings, popoverSettings.isPopoverPresentation, let popoverPresentation = alertController.popoverPresentationController else {
             return
         }
-        popoverPresentation.barButtonItem = popoverBarBtt
-        if let popoverRect = popoverRect {
+        popoverPresentation.barButtonItem = popoverSettings.barButton
+        if let popoverRect = popoverSettings.rect {
             popoverPresentation.sourceRect = popoverRect
         }
-        popoverPresentation.sourceView = popoverView
+        popoverPresentation.sourceView = popoverSettings.view
     }
 }

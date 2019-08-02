@@ -61,6 +61,8 @@ final class GameDetailsHeaderInfoView: UIView {
 
     private func initializeReleaseDateLabel() {
         let releaseDateLabel = BaseLabel()
+        releaseDateLabel.numberOfLines = 0
+        releaseDateLabel.lineBreakMode = .byWordWrapping
         releaseDateLabel.font = UIFont.Theme.gameDetailsHeaderReleaseDateLabel
         releaseDateLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 500), for: .vertical)
         releaseDateLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .vertical)
@@ -113,7 +115,7 @@ final class GameDetailsHeaderInfoView: UIView {
             return
         }
         let gameDriverShared = controllerProtocol.viewModel.gameDriver.asSharedSequence()
-        gameDriverShared.map({$0.originalReleaseDateString}).drive(releaseDateLabel.rx.text).disposed(by: disposeBag)
+        gameDriverShared.map({$0.orginalOrExpectedReleaseDateString}).drive(releaseDateLabel.rx.text).disposed(by: disposeBag)
         gameDriverShared.map({$0.deck}).drive(deckLabel.rx.text).disposed(by: disposeBag)
     }
 }

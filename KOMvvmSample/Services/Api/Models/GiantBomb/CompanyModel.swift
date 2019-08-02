@@ -1,5 +1,5 @@
 //
-//  ApiDataMapperProtocol.swift
+//  CompanyModel.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,34 +25,14 @@
 
 import Foundation
 
-/// Developer can create his own mapper for data to parse data to xml or other formats
-protocol ApiDataMapperProtocol {
-    static var `default`: ApiDataMapperProtocol { get }
-    func mapTo<MapTo: Codable>(data: Data) throws -> MapTo?
-}
-
-final class ApiDataToJsonMapper: ApiDataMapperProtocol {
-    static var `default`: ApiDataMapperProtocol = {
-        return ApiDataToJsonMapper()
-    }()
-    
-    var dateFormatStrategy: JSONDecoder.DateDecodingStrategy = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en-US")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        return .formatted(formatter)
-    }()
-    
-    func mapTo<MapTo: Codable>(data: Data) throws -> MapTo? {
-        //create docoder
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = self.dateFormatStrategy
-        
-        //try decode data
-        var mappedData: MapTo
-        do {
-            mappedData = try jsonDecoder.decode(MapTo.self, from: data)
-        }
-        return mappedData
+struct CompanyModel: Codable {
+    enum CodingKeys: String, CodingKey {
+        case apiDetailUrl = "api_detail_url"
+        case id
+        case name
     }
+
+    let apiDetailUrl: URL?
+    let id: Int
+    let name: String
 }

@@ -42,6 +42,12 @@ final class GameImagesViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        let gameImagesView = GameImagesView(controllerProtocol: self)
+        view = gameImagesView
+        self.gameImagesView = gameImagesView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,18 +55,7 @@ final class GameImagesViewController: BaseViewController {
     }
 
     private func initialize() {
-        initializeView()
-        initializeGameImagesView()
-    }
-
-    private func initializeView() {
         prepareNavigationBar(withTitle: "game_images_bar_title".localized)
-    }
-
-    private func initializeGameImagesView() {
-        let gameImagesView = GameImagesView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(gameImagesView)
-        self.gameImagesView = gameImagesView
     }
 }
 

@@ -357,6 +357,15 @@
 			path = GiantBomb;
 			sourceTree = "<group>";
 		};
+		052B5C4D22F465EE00098F23 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				05B421D521FF2055009439A6 /* URLBuilder.swift */,
+				05982FBE223439CA00B30A45 /* ApiDataMapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		0537823F2204712C00EDCF72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,13 +396,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		056AAF0A2201AF1B00C7A131 /* ResponseModels */ = {
+		056AAF0A2201AF1B00C7A131 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0517A402223802BF00F209D3 /* GiantBomb */,
 				056AAF062201A49A00C7A131 /* BaseResponseModel.swift */,
+				0530DF6922009AAF00EAC167 /* ApiErrorContainer.swift */,
+				05982FC0223449CA00B30A45 /* ApiRequestParameters.swift */,
+				05A41DEA221AE7A600D96FE0 /* ApiErrors.swift */,
 			);
-			path = ResponseModels;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		057D55CC22326345008D0CEE /* KOMvvmSampleTests */ = {
@@ -611,12 +623,8 @@
 			children = (
 				057D55D9223274CB008D0CEE /* Clients */,
 				05FEAD5B2235B162003CCA34 /* MockData */,
-				056AAF0A2201AF1B00C7A131 /* ResponseModels */,
-				05B421D521FF2055009439A6 /* URLBuilder.swift */,
-				05982FBE223439CA00B30A45 /* ApiDataMapper.swift */,
-				0530DF6922009AAF00EAC167 /* ApiErrorContainer.swift */,
-				05A41DEA221AE7A600D96FE0 /* ApiErrors.swift */,
-				05982FC0223449CA00B30A45 /* ApiRequestParameters.swift */,
+				056AAF0A2201AF1B00C7A131 /* Models */,
+				052B5C4D22F465EE00098F23 /* Utils */,
 				057D55D722326878008D0CEE /* GiantBombClientServiceProtocol.swift */,
 				057A2F12223694C900E4A9FD /* GiantBombClientService.swift */,
 				057D55DA223274F3008D0CEE /* GiantBombMockClientService.swift */,

@@ -62,7 +62,7 @@ final class GameViewCell: BaseCollectionViewCell {
         }
     }
 
-    weak var game: GameModel? {
+    var game: GameModel? {
         didSet {
            refreshGame()
         }

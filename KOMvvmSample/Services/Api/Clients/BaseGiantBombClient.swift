@@ -56,7 +56,7 @@ class BaseGiantBombClient: BaseApiClient {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.locale = Locale(identifier: "en-US")
-        (ApiDataToJsonMapper.default as! ApiDataToJsonMapper).dateFormatStrategy = .formatted(formatter)
+        (ApiDataToJsonMapper.default as? ApiDataToJsonMapper)?.dateFormatStrategy = .formatted(formatter)
     }
     
     // MARK: Parameters for requests

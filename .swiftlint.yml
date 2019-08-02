@@ -1,9 +1,6 @@
 disabled_rules:
- - force_cast
- - force_try
  - trailing_whitespace
  - line_length
- - generic_type_name
 
 excluded:
   - Pods

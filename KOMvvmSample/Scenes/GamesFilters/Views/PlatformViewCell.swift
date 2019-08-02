@@ -34,7 +34,7 @@ final class PlatformViewCell: BaseTableViewCell {
         return 96
     }
 
-    weak var platform: PlatformModel? {
+    var platform: PlatformModel? {
         didSet {
             refreshPlatform()
         }

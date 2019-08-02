@@ -1,5 +1,5 @@
 //
-//  BaseResponseModel.swift
+//  PlatformModel.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,30 +25,44 @@
 
 import Foundation
 
-class BaseResponseModel<ResultsType: Codable>: Codable {
+struct PlatformModel: Codable {
     enum CodingKeys: String, CodingKey {
-        case error
-        case limit
-        case offset
-        case numberOfPageResults = "number_of_page_results"
-        case numberOfTotalResults = "number_of_total_results"
-        case statusCode = "status_code"
-        case version
-        case results
+        case aliases
+        case abbreviation
+        case apiDetailUrl = "api_detail_url"
+        case company
+        case dateAdded = "date_added"
+        case dateLastUpdated = "date_last_updated"
+        case deck
+        case description
+        case guid
+        case id
+        case image
+        case imageTags = "image_tags"
+        case installBase = "install_base"
+        case name
+        case onlineSupport = "online_support"
+        case originalPrice = "original_price"
+        case releaseDate = "release_date"
+        case siteDetailUrl = "site_detail_url"
     }
-    
-    let error: String
-    let limit: Int
-    let offset: Int
-    let numberOfPageResults: Int
-    let numberOfTotalResults: Int
-    let statusCode: Int
-    let version: String
-    let results: ResultsType?
-}
 
-/*extension BaseResponseModel: LogDataRecudible {
-    func reducedLogData() -> String {
-        return String(format: "%@: %d, %@: %d", CodingKeys.numberOfPageResults.rawValue, numberOfPageResults, CodingKeys.numberOfTotalResults.rawValue, numberOfTotalResults)
-    }
-}*/
+    let aliases: String?
+    let abbreviation: String?
+    let apiDetailUrl: URL?
+    let company: CompanyModel?
+    let dateAdded: Date
+    let dateLastUpdated: Date?
+    let deck: String?
+    let description: String?
+    let guid: String
+    let id: Int
+    let image: ImageModel?
+    let imageTags: [ImageTagModel]?
+    let installBase: String?
+    let name: String
+    let onlineSupport: Bool?
+    let originalPrice: String?
+    let releaseDate: Date?
+    let siteDetailUrl: URL?
+}

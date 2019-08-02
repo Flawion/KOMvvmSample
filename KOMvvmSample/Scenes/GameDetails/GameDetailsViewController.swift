@@ -40,27 +40,25 @@ final class GameDetailsViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        let gameDetailView = GameDetailsView(controllerProtocol: self)
+        view = gameDetailView
+        self.gameDetailsView = gameDetailView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
+    }
 
-        initializeView()
-        initializeGameDetailsView()
+    private func initialize() {
+        prepareNavigationBar(withTitle: viewModel.game.name)
         bindActions(toViewModel: viewModel)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.downloadGameDetailsIfNeed()
-    }
-
-    private func initializeView() {
-        prepareNavigationBar(withTitle: viewModel.game.name)
-    }
-    
-    private func initializeGameDetailsView() {
-        let gameDetailView = GameDetailsView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(gameDetailView, overrideAnchors: AnchorsContainer(top: view.topAnchor))
-        self.gameDetailsView = gameDetailView
     }
     
     override func initializeLoadingView() -> BaseStateView {
@@ -84,17 +82,26 @@ extension GameDetailsViewController: GameDetailsViewControllerProtocol {
     func goToDetailsItem(_ detailsItem: GameDetailsItemModel) {
         switch detailsItem.item {
         case .overview:
-            _ = AppCoordinator.shared.push(scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""), onNavigationController: navigationController)
+            goToOverviewDetailsItem(detailsItem)
 
         case .images:
-            guard let images = viewModel.gameDetails?.images else {
-                return
-            }
-            _ = AppCoordinator.shared.push(scene: GameImagesSceneBuilder(images: images), onNavigationController: navigationController)
+            goToImagesDetailsItem(detailsItem)
 
         default:
             break
         }
+    }
+
+    private func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel) {
+        _ = AppCoordinator.shared.push(scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""), onNavigationController: navigationController)
+    }
+
+    private func goToImagesDetailsItem(_ detailsItem: GameDetailsItemModel) {
+        guard let images = viewModel.gameDetails?.images else {
+            return
+        }
+        _ = AppCoordinator.shared.push(scene: GameImagesSceneBuilder(images: images), onNavigationController: navigationController)
+
     }
 
     func resizeDetailsFooterView() {

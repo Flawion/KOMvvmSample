@@ -75,39 +75,49 @@ final class GameDetailsViewModel: BaseViewModel {
         generateGameDetailItems()
     }
 
-    // MARK: Game details items
+    private func generateGameDetailItems() {
+        Observable<[GameDetailsItemModel]>.combineLatest(gameVar.asObservable(), gameDetailsVar.asObservable()) { [weak self] (game, gameDetails) -> [GameDetailsItemModel] in
+            var detailsItems: [GameDetailsItemModel] = []
+
+            guard let self = self else {
+                return detailsItems
+            }
+
+            self.appendOverviewToDetailsItems(&detailsItems, ifDescriptionNotEmpty: game.description)
+            self.appendToDetailsItems(&detailsItems, resourcesFromGameDetails: gameDetails)
+            return detailsItems
+            }.bind(to: gameDetailsItemsVar).disposed(by: disposeBag)
+    }
+
+    private func appendOverviewToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], ifDescriptionNotEmpty description: String?) {
+        guard !(game.description?.isEmpty ?? true) else {
+            return
+        }
+        detailsItems.append(GameDetailsItemModel(item: .overview, contentSize: 0))
+    }
+
+    private func appendToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], resourcesFromGameDetails gameDetails: GameDetailsModel?) {
+        guard let gameDetails = gameDetails else {
+            return
+        }
+        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.reviews, itemType: .reviews)
+        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.videos, itemType: .videos)
+        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.images, itemType: .images)
+    }
+
+    private func appendToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], ifResourcesExists resources: [Any]?, itemType: GameDetailsItems) {
+        guard let resources = resources, resources.count > 0 else {
+            return
+        }
+        detailsItems.append(GameDetailsItemModel(item: itemType, contentSize: resources.count))
+    }
+
     func gameDetailsItem(forIndexPath indexPath: IndexPath) -> GameDetailsItemModel? {
         let gameDetailsItems = self.gameDetailsItems
         guard indexPath.row < gameDetailsItems.count else {
             return nil
         }
         return gameDetailsItems[indexPath.row]
-    }
-    
-    private func generateGameDetailItems() {
-        Observable<[GameDetailsItemModel]>.combineLatest(gameVar.asObservable(), gameDetailsVar.asObservable()) { [weak self] (game, gameDetails) -> [GameDetailsItemModel] in
-            var detailsItems: [GameDetailsItemModel] = []
-            if !(game.description?.isEmpty ?? true) {
-                detailsItems.append(GameDetailsItemModel(item: .overview, contentSize: 0))
-            }
-
-            guard let gameDetails = gameDetails, let self = self else {
-                return detailsItems
-            }
-            
-            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.reviews, itemType: .reviews)
-            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.videos, itemType: .videos)
-            self.appendDetailsItem(&detailsItems, ifResourcesExists: gameDetails.images, itemType: .images)
-
-            return detailsItems
-        }.bind(to: gameDetailsItemsVar).disposed(by: disposeBag)
-    }
-    
-    private func appendDetailsItem(_ detailsItems: inout [GameDetailsItemModel], ifResourcesExists resources: [AnyObject]?, itemType: GameDetailsItems) {
-        guard let resources = resources, resources.count > 0 else {
-            return
-        }
-        detailsItems.append(GameDetailsItemModel(item: itemType, contentSize: resources.count))
     }
 
     // MARK: Download game details
@@ -128,13 +138,11 @@ final class GameDetailsViewModel: BaseViewModel {
                     return
                 }
 
-                //checks if error appears
                 guard event.error == nil, let gameDetails = event.element?.1?.results else {
                     self.dataState = .error
                     return
                 }
 
-                //gets game details
                 self.gameDetailsVar.accept(gameDetails)
                 self.dataState = .none
             }).disposed(by: gameDetailsDisposeBag)

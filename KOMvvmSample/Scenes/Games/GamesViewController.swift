@@ -45,49 +45,52 @@ final class GamesViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        let gamesView: GamesView = GamesView(controllerProtocol: self)
+        view = gamesView
+        self.gamesView = gamesView
+
+        gamesView.refreshChangingLayoutBarButton()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
+    }
 
+    private func initialize() {
         initializeView()
         initializeActions()
-        initializeGamesView()
         initializeSearchBar()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.searchGamesIfNeed()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //checks api key
-        if ApplicationSettings.ApiSettings.apiKey.isEmpty {
-            showError(message: "error_api_key".localized)
-        }
-    }
-    
     private func initializeView() {
         prepareNavigationBar(withTitle: "games_bar_title".localized)
         addBarFilterButton()
+    }
 
+    private func addBarFilterButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(goToGamesFilter))
+    }
+
+    @objc private func goToGamesFilter() {
+        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController) as? GamesFiltersViewControllerProtocol else {
+            fatalError("cast failed GamesFiltersViewControllerProtocol")
+        }
+        gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
+            self?.viewModel.changeGameFilters(savedFilters)
+        }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
     }
 
     private func initializeActions() {
         bindActions(toViewModel: viewModel)
-        
-        (errorView as? ErrorView)?.refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
-            self?.viewModel.searchGamesIfNeed(refresh: true)
-        }).disposed(by: disposeBag)
+        bindActionToRefreshButtonClicked()
     }
 
-    private func initializeGamesView() {
-        let gamesView: GamesView = GamesView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(gamesView)
-        self.gamesView = gamesView
-        
-        gamesView.refreshChangingLayoutBarButton()
+    private func bindActionToRefreshButtonClicked() {
+        (errorView as? ErrorView)?.refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
+            self?.viewModel.searchGamesIfNeed(forceRefresh: true)
+        }).disposed(by: disposeBag)
     }
 
     private func initializeSearchBar() {
@@ -119,16 +122,18 @@ final class GamesViewController: BaseViewController {
             }).disposed(by: disposeBag)
     }
 
-    // MARK: Bar functions
-    private func addBarFilterButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(goToGamesFilter))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.searchGamesIfNeed()
     }
-
-    @objc private func goToGamesFilter() {
-        let gamesFiltersControllerProtocol = AppCoordinator.shared.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController) as! GamesFiltersViewControllerProtocol
-        gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
-            self?.viewModel.changeGameFilters(savedFilters)
-        }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //checks api key
+        if ApplicationSettings.ApiSettings.apiKey.isEmpty {
+            showError(message: "error_api_key".localized)
+        }
     }
 }
 

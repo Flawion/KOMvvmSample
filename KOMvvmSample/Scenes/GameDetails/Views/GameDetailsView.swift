@@ -104,7 +104,7 @@ final class GameDetailsView: UIView {
 
     private func bindGameDetailsItemsData() {
         controllerProtocol?.viewModel.gameDetailsItemsObser.bind(to: detailsItemsTableView.rx.items(cellIdentifier: detailsItemCellReuseIdentifier)) { _, model, cell in
-            (cell as! GameDetailsItemViewCell).gameDetailsItem = model
+            (cell as? GameDetailsItemViewCell)?.gameDetailsItem = model
             }
             .disposed(by: disposeBag)
     }
@@ -117,6 +117,13 @@ final class GameDetailsView: UIView {
             self.goToDetailsItem(atIndexPath: indexPath)
             self.detailsItemsTableView.deselectRow(at: indexPath, animated: true)
         }).disposed(by: disposeBag)
+    }
+
+    private func goToDetailsItem(atIndexPath indexPath: IndexPath) {
+        guard let controllerProtocol = controllerProtocol, let gameDetailsItem = controllerProtocol.viewModel.gameDetailsItem(forIndexPath: indexPath) else {
+            return
+        }
+        controllerProtocol.goToDetailsItem(gameDetailsItem)
     }
 
     // MARK: Details views resizing functions
@@ -148,15 +155,6 @@ final class GameDetailsView: UIView {
         detailsItemsTableView.tableFooterView = detailsFooterView
     }
 
-    // MARK: Other functions
-    private func goToDetailsItem(atIndexPath indexPath: IndexPath) {
-        guard let controllerProtocol = controllerProtocol, let gameDetailsItem = controllerProtocol.viewModel.gameDetailsItem(forIndexPath: indexPath) else {
-            return
-        }
-        controllerProtocol.goToDetailsItem(gameDetailsItem)
-    }
-    
-    //public
     func addViewToDetailsFooter(_ view: UIView) {
         _ = detailsFooterView.addAutoLayoutSubview(view)
     }

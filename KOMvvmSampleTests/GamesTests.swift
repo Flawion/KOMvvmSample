@@ -42,7 +42,10 @@ final class GamesTests: XCTestCase {
     }
     
     private func initializeTestScene() {
-        gamesViewModel = (GamesSceneBuilder().createScene(withServiceLocator: mockedServices.locator) as! GamesViewController).viewModel
+        guard let gamesViewController = GamesSceneBuilder().createScene(withServiceLocator: mockedServices.locator) as? GamesViewController else {
+            fatalError("cast failed GamesViewController")
+        }
+        gamesViewModel = gamesViewController.viewModel
         disposeBag = DisposeBag()
     }
 

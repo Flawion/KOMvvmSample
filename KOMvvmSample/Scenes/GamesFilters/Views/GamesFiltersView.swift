@@ -100,7 +100,9 @@ final class GamesFiltersView: UIView {
 
     private func bindFiltersTableData() {
         controllerProtocol?.viewModel.filtersObser.bind(to: filtersTableView.rx.items(cellIdentifier: gameFilterCellReuseIdentifier)) { [weak self] _, model, cell in
-            let gamesFilterViewCell = cell as! GamesFilterViewCell
+            guard let gamesFilterViewCell = cell as? GamesFilterViewCell else {
+                fatalError("cast failed GamesFilterViewCell")
+            }
             gamesFilterViewCell.filter = model
             gamesFilterViewCell.delegate = self
             }

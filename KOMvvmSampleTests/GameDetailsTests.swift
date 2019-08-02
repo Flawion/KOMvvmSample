@@ -45,7 +45,10 @@ final class GameDetailsTests: XCTestCase {
         guard let firstGame = getFirstGameFromMockData() else {
             return
         }
-        gameDetailsViewModel = (GameDetailsSceneBuilder(game: firstGame).createScene(withServiceLocator: mockedServices.locator) as! GameDetailsViewController).viewModel
+        guard let gameDetailsViewController = GameDetailsSceneBuilder(game: firstGame).createScene(withServiceLocator: mockedServices.locator) as? GameDetailsViewController else {
+            fatalError("cast failed GameDetailsViewController")
+        }
+        gameDetailsViewModel = gameDetailsViewController.viewModel
         disposeBag = DisposeBag()
     }
     

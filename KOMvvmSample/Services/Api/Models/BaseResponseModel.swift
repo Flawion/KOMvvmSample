@@ -1,5 +1,5 @@
 //
-//  ResourceModel.swift
+//  BaseResponseModel.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,15 +25,30 @@
 
 import Foundation
 
-final class ResourceModel: Codable {
+struct BaseResponseModel<ResultsType: Codable>: Codable {
     enum CodingKeys: String, CodingKey {
-        case apiDetailUrl = "api_detail_url"
-        case id
-        case name
-        case siteDetailUrl = "site_detail_url"
+        case error
+        case limit
+        case offset
+        case numberOfPageResults = "number_of_page_results"
+        case numberOfTotalResults = "number_of_total_results"
+        case statusCode = "status_code"
+        case version
+        case results
     }
-    let apiDetailUrl: URL?
-    let id: Int
-    let name: String
-    let siteDetailUrl: URL?
+    
+    let error: String
+    let limit: Int
+    let offset: Int
+    let numberOfPageResults: Int
+    let numberOfTotalResults: Int
+    let statusCode: Int
+    let version: String
+    let results: ResultsType?
 }
+
+/*extension BaseResponseModel: LogDataRecudible {
+    func reducedLogData() -> String {
+        return String(format: "%@: %d, %@: %d", CodingKeys.numberOfPageResults.rawValue, numberOfPageResults, CodingKeys.numberOfTotalResults.rawValue, numberOfTotalResults)
+    }
+}*/

@@ -25,7 +25,7 @@
 
 import Foundation
 
-class EmptyView: BaseStateView {
+final class EmptyView: BaseStateView {
 
     override func createView() {
         let emptyLabel = BaseLabel()

@@ -25,8 +25,7 @@
 
 import Foundation
 
-final class GameDetailsModel: Codable {
-
+struct GameDetailsModel: Codable {
     enum CodingKeys: String, CodingKey {
         case aliases
         case apiDetailUrl = "api_detail_url"

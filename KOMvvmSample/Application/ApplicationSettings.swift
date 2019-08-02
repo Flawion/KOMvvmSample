@@ -29,7 +29,7 @@ final class ApplicationSettings {
 }
 
 extension ApplicationSettings {
-    class ApiSettings {
+    final class ApiSettings {
 
         // Insert your api key here
         static var apiKey: String {
@@ -41,7 +41,7 @@ extension ApplicationSettings {
         }
     }
 
-    class Games {
+    final class Games {
         static var defaultFilters: [GamesFilters: String] {
             return [GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.desc.rawValue), GamesFilters.originalReleaseDate: Utils.shared.filterDateRangeValue(from: nil, to: Date())]
         }
@@ -51,7 +51,7 @@ extension ApplicationSettings {
         }
     }
 
-    class Platforms {
+    final class Platforms {
         static var limitPerRequest: Int {
             return 100
         }

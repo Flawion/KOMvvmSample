@@ -55,11 +55,6 @@ final class GamesView: UIView {
         super.init(coder: aDecoder)
         initialize()
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        resizeGamesCollectionView()
-    }
     
     private func initialize() {
         initializeGamesCollectionView()
@@ -101,7 +96,7 @@ final class GamesView: UIView {
 
     private func bindGamesCollectionData() {
         controllerProtocol?.viewModel.gameObser.bind(to: gamesCollectionView.rx.items(cellIdentifier: gameCellReuseIdentifier)) { _, model, cell in
-            (cell as! GameViewCell).game = model
+            (cell as? GameViewCell)?.game = model
             }
             .disposed(by: disposeBag)
     }
@@ -125,43 +120,6 @@ final class GamesView: UIView {
     private func setGamesCollectionBottomInset(_ inset: CGFloat) {
         self.gamesCollectionView.contentInset.bottom = inset
         self.gamesCollectionView.scrollIndicatorInsets.bottom = self.gamesCollectionView.contentInset.bottom
-    }
-    
-    private func resizeGamesCollectionView() {
-        let collectionSize = gamesCollectionView.bounds.size
-        
-        guard collectionSize.width > 0 && collectionSize.height > 0 && collectionSize != gamesCollectionViewSize else {
-            return
-        }
-
-        resizeGamesListLayout(collectionSize: collectionSize)
-        resizeGamesCollectionLayout(collectionSize: collectionSize)
-        gamesCollectionViewSize = collectionSize
-    }
-
-    private func resizeGamesListLayout(collectionSize size: CGSize) {
-        gamesListLayout.sectionInset = UIEdgeInsets.zero
-        gamesListLayout.minimumLineSpacing = 0
-        gamesListLayout.itemSize = CGSize(width: size.width, height: GameViewCell.prefferedListHeight)
-        gamesListLayout.invalidateLayout()
-    }
-
-    private func resizeGamesCollectionLayout(collectionSize size: CGSize) {
-        let itemMinWidth: Double = Double(GameViewCell.prefferedCollectionWidth)
-        let inset: CGFloat = 4
-        let itemMargin = 2.0
-        let parentWidth = Double((size.width) - inset * 2)
-        let divider = max(2.0, (Double(parentWidth)) / itemMinWidth)
-        let column = floor(divider)
-        let allMargin = (itemMargin * (column - 1))
-        let itemSize = (Double(parentWidth) / column) - allMargin
-        let lineSpacing = max(4.0, ((Double(parentWidth) - allMargin) - (column * itemSize)) / column)
-
-        gamesCollectionLayout.minimumInteritemSpacing = CGFloat(itemMargin) * 2
-        gamesCollectionLayout.minimumLineSpacing = CGFloat(lineSpacing)
-        gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + Double(GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth))
-        gamesCollectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-        gamesCollectionLayout.invalidateLayout()
     }
 
     // MARK: Infinity scrolling functions
@@ -197,6 +155,10 @@ final class GamesView: UIView {
         bindGamesCollectionRefreshControlHidding()
     }
 
+    @objc private func gamesCollectionStartRefreshing() {
+        controllerProtocol?.viewModel.searchGamesIfNeed(forceRefresh: true)
+    }
+
     private func bindGamesCollectionRefreshControlHidding() {
         controllerProtocol?.viewModel.isDataLoadingDriver.drive(onNext: { [weak self] isLoading in
             guard let self = self, !isLoading, self.gamesCollectionRefreshControl.isRefreshing else {
@@ -206,8 +168,47 @@ final class GamesView: UIView {
         }).disposed(by: disposeBag)
     }
 
-    @objc private func gamesCollectionStartRefreshing() {
-        controllerProtocol?.viewModel.searchGamesIfNeed(refresh: true)
+    // MARK: Resizing functions
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        resizeGamesCollectionView()
+    }
+
+    private func resizeGamesCollectionView() {
+        let collectionSize = gamesCollectionView.bounds.size
+        
+        guard collectionSize.width > 0 && collectionSize.height > 0 && collectionSize != gamesCollectionViewSize else {
+            return
+        }
+
+        resizeGamesListLayout(collectionSize: collectionSize)
+        resizeGamesCollectionLayout(collectionSize: collectionSize)
+        gamesCollectionViewSize = collectionSize
+    }
+
+    private func resizeGamesListLayout(collectionSize size: CGSize) {
+        gamesListLayout.sectionInset = UIEdgeInsets.zero
+        gamesListLayout.minimumLineSpacing = 0
+        gamesListLayout.itemSize = CGSize(width: size.width, height: GameViewCell.prefferedListHeight)
+        gamesListLayout.invalidateLayout()
+    }
+
+    private func resizeGamesCollectionLayout(collectionSize size: CGSize) {
+        let itemMinWidth: Double = Double(GameViewCell.prefferedCollectionWidth)
+        let inset: CGFloat = 4
+        let itemMargin = 2.0
+        let parentWidth = Double((size.width) - inset * 2)
+        let divider = max(2.0, (Double(parentWidth)) / itemMinWidth)
+        let column = floor(divider)
+        let allMargin = (itemMargin * (column - 1))
+        let itemSize = (Double(parentWidth) / column) - allMargin
+        let lineSpacing = max(4.0, ((Double(parentWidth) - allMargin) - (column * itemSize)) / column)
+
+        gamesCollectionLayout.minimumInteritemSpacing = CGFloat(itemMargin) * 2
+        gamesCollectionLayout.minimumLineSpacing = CGFloat(lineSpacing)
+        gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + Double(GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth))
+        gamesCollectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        gamesCollectionLayout.invalidateLayout()
     }
 
     // MARK: Changing layout mode functions

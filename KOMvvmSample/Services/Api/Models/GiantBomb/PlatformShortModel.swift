@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class PlatformShortModel: Codable {
+struct PlatformShortModel: Codable {
     enum CodingKeys: String, CodingKey {
         case apiDetailUrl = "api_detail_url"
         case id

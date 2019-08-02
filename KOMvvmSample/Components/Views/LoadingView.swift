@@ -25,7 +25,7 @@
 
 import UIKit
 
-class LoadingView: BaseStateView {
+final class LoadingView: BaseStateView {
     private weak var viewContainer: UIView!
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private weak var titleLabel: BaseLabel!

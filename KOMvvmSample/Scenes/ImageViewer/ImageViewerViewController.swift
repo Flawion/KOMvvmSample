@@ -40,7 +40,13 @@ final class ImageViewerViewController: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    override func loadView() {
+        let imageViewerView = ImageViewerView(controllerProtocol: self)
+        view = imageViewerView
+        self.imageViewerView = imageViewerView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -48,7 +54,6 @@ final class ImageViewerViewController: BaseViewController {
     
     private func initialize() {
         initializeView()
-        initializeImageViewerView()
         bindActions(toViewModel: viewModel)
         addRefreshButtonHandler()
     }
@@ -56,15 +61,8 @@ final class ImageViewerViewController: BaseViewController {
     private func initializeView() {
         prepareNavigationBar(withTitle: "image_viewer_bar_title".localized)
     }
-    
-    private func initializeImageViewerView() {
-        let imageViewerView = ImageViewerView(controllerProtocol: self)
-        _ = view.addAutoLayoutSubview(imageViewerView)
-        self.imageViewerView = imageViewerView
-    }
-    
     private func addRefreshButtonHandler() {
-        (errorView as! ErrorView).refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
+        (errorView as? ErrorView)?.refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
             self?.imageViewerView.refreshImageData()
         }).disposed(by: disposeBag)
     }

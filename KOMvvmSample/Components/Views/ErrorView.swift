@@ -27,7 +27,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ErrorView: BaseStateView {
+final class ErrorView: BaseStateView {
     private weak var viewContainer: UIView!
     private weak var refreshButton: UIButton!
     private weak var titleLabel: BaseLabel!
@@ -62,7 +62,7 @@ class ErrorView: BaseStateView {
 
     private func createRefreshButton() {
         let refreshButton = ConfirmButton()
-        refreshButton.setTitle("error_refresh_btt_title".localized, for: .normal)
+        refreshButton.setTitle("error_refresh_button_title".localized, for: .normal)
         _ = viewContainer.addAutoLayoutSubview(refreshButton, settings: createAddAutoLayoutSubviewSettingsForRefreshButton())
         self.refreshButton = refreshButton
     }

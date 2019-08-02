@@ -1,5 +1,5 @@
 //
-//  ApiError.swift
+//  ImageTagModel.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -23,20 +23,16 @@
 //  SOFTWARE.
 //
 
-import Alamofire
+import Foundation
 
-final class ApiErrorContainer: LocalizedError {
-    let response: HTTPURLResponse
-    let data: Any?
-    let originalError: Error
-
-    var errorDescription: String {
-        return originalError.localizedDescription
+struct ImageTagModel: Codable {
+    enum CodingKeys: String, CodingKey {
+        case apiDetailUrl = "api_detail_url"
+        case name
+        case total
     }
-
-    init(response: HTTPURLResponse, data: Any?, originalError: Error) {
-        self.response = response
-        self.data = data
-        self.originalError = originalError
-    }
+    
+    let apiDetailUrl: URL?
+    let name: String?
+    let total: Int?
 }

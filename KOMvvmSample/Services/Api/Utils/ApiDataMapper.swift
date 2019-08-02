@@ -1,5 +1,5 @@
 //
-//  PlatformModel.swift
+//  ApiDataMapperProtocol.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,44 +25,34 @@
 
 import Foundation
 
-final class PlatformModel: Codable {
-    enum CodingKeys: String, CodingKey {
-        case aliases
-        case abbreviation
-        case apiDetailUrl = "api_detail_url"
-        case company
-        case dateAdded = "date_added"
-        case dateLastUpdated = "date_last_updated"
-        case deck
-        case description
-        case guid
-        case id
-        case image
-        case imageTags = "image_tags"
-        case installBase = "install_base"
-        case name
-        case onlineSupport = "online_support"
-        case originalPrice = "original_price"
-        case releaseDate = "release_date"
-        case siteDetailUrl = "site_detail_url"
-    }
+/// Developer can create his own mapper for data to parse data to xml or other formats
+protocol ApiDataMapperProtocol: AnyObject {
+    static var `default`: ApiDataMapperProtocol { get }
+    func mapTo<MapTo: Codable>(data: Data) throws -> MapTo?
+}
 
-    let aliases: String?
-    let abbreviation: String?
-    let apiDetailUrl: URL?
-    let company: CompanyModel?
-    let dateAdded: Date
-    let dateLastUpdated: Date?
-    let deck: String?
-    let description: String?
-    let guid: String
-    let id: Int
-    let image: ImageModel?
-    let imageTags: [ImageTagModel]?
-    let installBase: String?
-    let name: String
-    let onlineSupport: Bool?
-    let originalPrice: String?
-    let releaseDate: Date?
-    let siteDetailUrl: URL?
+final class ApiDataToJsonMapper: ApiDataMapperProtocol {
+    static var `default`: ApiDataMapperProtocol = {
+        return ApiDataToJsonMapper()
+    }()
+    
+    var dateFormatStrategy: JSONDecoder.DateDecodingStrategy = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en-US")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return .formatted(formatter)
+    }()
+    
+    func mapTo<MapTo: Codable>(data: Data) throws -> MapTo? {
+        //create docoder
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = self.dateFormatStrategy
+        
+        //try decode data
+        var mappedData: MapTo
+        do {
+            mappedData = try jsonDecoder.decode(MapTo.self, from: data)
+        }
+        return mappedData
+    }
 }

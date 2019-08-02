@@ -1,5 +1,5 @@
 //
-//  CompanyModel.swift
+//  ImageModel.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,14 +25,28 @@
 
 import Foundation
 
-final class CompanyModel: Codable {
+struct ImageModel: Codable {
     enum CodingKeys: String, CodingKey {
-        case apiDetailUrl = "api_detail_url"
-        case id
-        case name
+        case iconUrl = "icon_url"
+        case mediumUrl = "medium_url"
+        case screenUrl = "screen_url"
+        case screenLargeUrl = "screen_large_url"
+        case smallUrl = "small_url"
+        case superUrl = "super_url"
+        case thumbUrl = "thumb_url"
+        case tinyUrl  = "tiny_url"
+        case original
+        case imageTags = "image_tags"
     }
-
-    let apiDetailUrl: URL?
-    let id: Int
-    let name: String
+    
+    let iconUrl: URL?
+    let mediumUrl: URL?
+    let screenUrl: URL?
+    let screenLargeUrl: URL?
+    let smallUrl: URL?
+    let superUrl: URL?
+    let thumbUrl: URL?
+    let tinyUrl: URL?
+    let original: URL?
+    let imageTags: String?
 }

@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class GameDetailsItemModel {
+struct GameDetailsItemModel {
     let item: GameDetailsItems
     let contentSize: Int
 

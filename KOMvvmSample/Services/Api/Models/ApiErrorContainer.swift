@@ -1,5 +1,5 @@
 //
-//  ImageModel.swift
+//  ApiError.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -23,30 +23,20 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import Alamofire
 
-final class ImageModel: Codable {
-    enum CodingKeys: String, CodingKey {
-        case iconUrl = "icon_url"
-        case mediumUrl = "medium_url"
-        case screenUrl = "screen_url"
-        case screenLargeUrl = "screen_large_url"
-        case smallUrl = "small_url"
-        case superUrl = "super_url"
-        case thumbUrl = "thumb_url"
-        case tinyUrl  = "tiny_url"
-        case original
-        case imageTags = "image_tags"
+struct ApiErrorContainer: LocalizedError {
+    let response: HTTPURLResponse
+    let data: Any?
+    let originalError: Error
+
+    var errorDescription: String {
+        return originalError.localizedDescription
     }
-    
-    let iconUrl: URL?
-    let mediumUrl: URL?
-    let screenUrl: URL?
-    let screenLargeUrl: URL?
-    let smallUrl: URL?
-    let superUrl: URL?
-    let thumbUrl: URL?
-    let tinyUrl: URL?
-    let original: URL?
-    let imageTags: String?
+
+    init(response: HTTPURLResponse, data: Any?, originalError: Error) {
+        self.response = response
+        self.data = data
+        self.originalError = originalError
+    }
 }
