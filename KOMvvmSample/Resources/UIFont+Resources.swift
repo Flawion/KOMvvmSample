@@ -26,7 +26,7 @@
 import Foundation
 
 extension UIFont {
-    final class Theme {
+    struct Theme {
         static var baseLabel: UIFont {
             return defaultFont(forSize: 15, weight: .regular)
         }

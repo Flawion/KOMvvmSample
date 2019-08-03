@@ -61,6 +61,6 @@ final class GameImagesViewController: BaseViewController {
 
 extension GameImagesViewController: GameImagesViewControllerProtocol {
     func goToImageViewer(forImage image: ImageModel) {
-        _ = AppCoordinator.shared.push(scene: ImageViewerSceneBuilder(image: image), onNavigationController: navigationController)
+        _ = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: ImageViewerSceneBuilder(image: image))
     }
 }

@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class GameDetailsSceneBuilder: SceneBuilderProtocol {
+struct GameDetailsSceneBuilder: SceneBuilderProtocol {
     private let game: GameModel
 
     init(game: GameModel) {

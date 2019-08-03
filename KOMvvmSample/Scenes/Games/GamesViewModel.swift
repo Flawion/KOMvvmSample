@@ -38,7 +38,7 @@ final class GamesViewModel: BaseViewModel {
     private var searchDisposeBag: DisposeBag!
     
     //public
-    private(set) var gamesFilters: [GamesFilters: String] = ApplicationSettings.Games.defaultFilters
+    private(set) var gamesFilters: [GamesFilters: String] = AppSettings.Games.defaultFilters
 
     var gameObser: Observable<[GameModel]> {
         return gamesVar.asObservable()
@@ -73,7 +73,7 @@ final class GamesViewModel: BaseViewModel {
     }
 
     private var isNeedToSearchGames: Bool {
-        return isDataError || gamesVar.value.count <= 0
+        return isDataStateError || gamesVar.value.count <= 0
     }
     
     private func searchGames(offset: Int = 0) {
@@ -105,7 +105,7 @@ final class GamesViewModel: BaseViewModel {
     }
 
     private func requestSearchGames(offset: Int = 0) {
-        giantBombClient.searchGames(offset: offset, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
+        giantBombClient.searchGames(offset: offset, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
             .subscribe({ [weak self] event in
                 guard let self = self, !event.isCompleted else {
                     return

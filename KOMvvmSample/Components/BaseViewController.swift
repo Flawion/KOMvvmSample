@@ -115,9 +115,9 @@ class BaseViewController: UIViewController {
     }
 
     private func bindDataStateDrivers(toViewModel viewModel: BaseViewModel) {
-        viewModel.isDataLoadingDriver.drive(loadingView.isActiveVar).disposed(by: disposeBag)
-        viewModel.isDataEmptyDriver.drive(emptyView.isActiveVar).disposed(by: disposeBag)
-        viewModel.isDataErrorDriver.drive(errorView.isActiveVar).disposed(by: disposeBag)
+        viewModel.isDataStateLoadingDriver.drive(loadingView.isActiveVar).disposed(by: disposeBag)
+        viewModel.isDataStateEmptyDriver.drive(emptyView.isActiveVar).disposed(by: disposeBag)
+        viewModel.isDataStateErrorDriver.drive(errorView.isActiveVar).disposed(by: disposeBag)
     }
 
     private func bindRaiseErrorDriver(toViewModel viewModel: BaseViewModel) {

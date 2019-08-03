@@ -26,7 +26,7 @@
 import Foundation
 
 extension UIColor {
-    final class Theme {
+    struct Theme {
         static var viewControllerBackground: UIColor {
             return UIColor.white
         }

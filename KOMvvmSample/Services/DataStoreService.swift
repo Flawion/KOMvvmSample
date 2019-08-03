@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class DataStoreServiceBuilder: ServiceBuilderProtocol {
+struct DataStoreServiceBuilder: ServiceBuilderProtocol {
     var type: ServiceTypes {
         return .dataStore
     }

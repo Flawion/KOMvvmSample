@@ -1,5 +1,5 @@
 //
-//  ApplicationSettings.swift
+//  AppSettings.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,11 +25,11 @@
 
 import Foundation
 
-final class ApplicationSettings {
+struct AppSettings {
 }
 
-extension ApplicationSettings {
-    final class ApiSettings {
+extension AppSettings {
+    struct ApiSettings {
 
         // Insert your api key here
         static var apiKey: String {
@@ -41,7 +41,7 @@ extension ApplicationSettings {
         }
     }
 
-    final class Games {
+    struct Games {
         static var defaultFilters: [GamesFilters: String] {
             return [GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.desc.rawValue), GamesFilters.originalReleaseDate: Utils.shared.filterDateRangeValue(from: nil, to: Date())]
         }
@@ -51,7 +51,7 @@ extension ApplicationSettings {
         }
     }
 
-    final class Platforms {
+    struct Platforms {
         static var limitPerRequest: Int {
             return 100
         }

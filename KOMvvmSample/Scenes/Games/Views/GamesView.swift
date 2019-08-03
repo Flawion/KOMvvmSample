@@ -136,7 +136,7 @@ final class GamesView: UIView {
     }
 
     private func bindGamesCollectionInfinityScrollingHidding() {
-        controllerProtocol?.viewModel.isDataLoadingMoreDriver.drive(onNext: { [weak self] isLoadingMore in
+        controllerProtocol?.viewModel.isDataStateLoadingMoreDriver.drive(onNext: { [weak self] isLoadingMore in
             guard let self = self, !isLoadingMore, self.gamesCollectionView.isAnimatingInfiniteScroll else {
                 return
             }
@@ -160,7 +160,7 @@ final class GamesView: UIView {
     }
 
     private func bindGamesCollectionRefreshControlHidding() {
-        controllerProtocol?.viewModel.isDataLoadingDriver.drive(onNext: { [weak self] isLoading in
+        controllerProtocol?.viewModel.isDataStateLoadingDriver.drive(onNext: { [weak self] isLoading in
             guard let self = self, !isLoading, self.gamesCollectionRefreshControl.isRefreshing else {
                 return
             }

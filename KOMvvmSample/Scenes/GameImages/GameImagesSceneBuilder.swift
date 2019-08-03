@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class GameImagesSceneBuilder: SceneBuilderProtocol {
+struct GameImagesSceneBuilder: SceneBuilderProtocol {
     private let images: [ImageModel]
 
     init(images: [ImageModel]) {

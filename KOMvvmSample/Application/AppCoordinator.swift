@@ -91,17 +91,9 @@ final class AppCoordinator {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    // MARK: Push new view controllers
-    func push(scene: SceneBuilderProtocol, onNavigationController: UINavigationController?, animated: Bool = true) -> UIViewController? {
-        let newSceneViewController = scene.createScene(withServiceLocator: serviceLocator)
-        return push(viewController: newSceneViewController, onNavigationController: onNavigationController, animated: animated) ? newSceneViewController : nil
-    }
-
-    private func push(viewController: UIViewController, onNavigationController: UINavigationController?, animated: Bool = true) -> Bool {
-        guard let onNavigationController = onNavigationController else {
-            return false
-        }
-        onNavigationController.pushViewController(viewController, animated: animated)
-        return true
+    func transition(_ transtion: BaseSceneTransition, toScene newScene: SceneBuilderProtocol) -> UIViewController? {
+        let newSceneViewController = newScene.createScene(withServiceLocator: serviceLocator)
+        transtion.transition(toViewController: newSceneViewController)
+        return newSceneViewController
     }
 }

@@ -54,7 +54,7 @@ final class GameDetailsTests: XCTestCase {
     
     private func getFirstGameFromMockData() -> GameModel? {
         let filters = MockSettings.filteredGamesFilters
-        let data = mockedServices.giantBombMockClient.mockDataContainer.loadMockData(forRequestParameters: mockedServices.giantBombMockClient.parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters)))
+        let data = mockedServices.giantBombMockClient.mockDataContainer.loadMockData(forRequestParameters: mockedServices.giantBombMockClient.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters)))
         guard let gameData = data, let games: BaseResponseModel<[GameModel]>? = try? mockedServices.giantBombMockClient.defaultDataMapper().mapTo(data: gameData), let firstGame =  games?.results?.first else {
             XCTAssert(false)
             return nil

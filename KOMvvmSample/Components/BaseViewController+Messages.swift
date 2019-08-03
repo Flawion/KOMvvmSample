@@ -98,7 +98,7 @@ extension BaseViewController {
 
         let observable = Observable<Int>.create({ [weak self] observer in
             guard let self = self else {
-                observer.onError(ApplicationErrors.selfNotExists)
+                observer.onError(AppErrors.selfNotExists)
                 return Disposables.create()
             }
 

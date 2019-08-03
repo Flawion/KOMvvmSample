@@ -74,7 +74,7 @@ final class GamesViewController: BaseViewController {
     }
 
     @objc private func goToGamesFilter() {
-        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController) as? GamesFiltersViewControllerProtocol else {
+        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters)) as? GamesFiltersViewControllerProtocol else {
             fatalError("cast failed GamesFiltersViewControllerProtocol")
         }
         gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
@@ -131,7 +131,7 @@ final class GamesViewController: BaseViewController {
         super.viewDidAppear(animated)
         
         //checks api key
-        if ApplicationSettings.ApiSettings.apiKey.isEmpty {
+        if AppSettings.ApiSettings.apiKey.isEmpty {
             showError(message: "error_api_key".localized)
         }
     }
@@ -148,6 +148,6 @@ extension GamesViewController: GamesViewControllerProtocol {
     }
 
     func goToGameDetail(_ game: GameModel) {
-        _ = AppCoordinator.shared.push(scene: GameDetailsSceneBuilder(game: game), onNavigationController: navigationController)
+        _ = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: GameDetailsSceneBuilder(game: game))
     }
 }

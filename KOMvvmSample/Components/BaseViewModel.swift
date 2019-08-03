@@ -52,23 +52,27 @@ class BaseViewModel {
     }
 
     var raiseErrorDriver: Driver<Error> {
-        return raiseErrorSubject.asDriver(onErrorJustReturn: ApplicationErrors.driverDefault)
+        return raiseErrorSubject.asDriver(onErrorJustReturn: AppErrors.driverDefault)
     }
     
     //flags
-    var isDataLoading: Bool {
+    var isDataStateNone: Bool {
+        return dataState == .none
+    }
+    
+    var isDataStateLoading: Bool {
         return dataState == .loading
     }
     
-    var isDataLoadingMore: Bool {
+    var isDataStateLoadingMore: Bool {
         return dataState == .loading
     }
     
-    var isDataError: Bool {
+    var isDataStateError: Bool {
         return dataState == .error
     }
     
-    var isDataEmpty: Bool {
+    var isDataStateEmpty: Bool {
         return dataState == .empty
     }
     
@@ -77,19 +81,23 @@ class BaseViewModel {
         return dataStateVar.asDriver()
     }
     
-    var isDataLoadingDriver: Driver<Bool> {
+    var isDataStateNoneDriver: Driver<Bool> {
+        return dataStateDriver.map({$0 == .none})
+    }
+    
+    var isDataStateLoadingDriver: Driver<Bool> {
         return dataStateDriver.map({$0 == .loading})
     }
     
-    var isDataLoadingMoreDriver: Driver<Bool> {
+    var isDataStateLoadingMoreDriver: Driver<Bool> {
         return dataStateDriver.map({$0 == .loadingMore})
     }
     
-    var isDataErrorDriver: Driver<Bool> {
+    var isDataStateErrorDriver: Driver<Bool> {
         return dataStateDriver.map({$0 == .error})
     }
     
-    var isDataEmptyDriver: Driver<Bool> {
+    var isDataStateEmptyDriver: Driver<Bool> {
         return dataStateDriver.map({$0 == .empty})
     }
     

@@ -24,7 +24,7 @@
 //
 import Foundation
 
-final class ImageViewerSceneBuilder: SceneBuilderProtocol {
+struct ImageViewerSceneBuilder: SceneBuilderProtocol {
     private let image: ImageModel
 
     init(image: ImageModel) {

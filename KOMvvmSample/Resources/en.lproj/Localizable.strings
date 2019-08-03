@@ -58,4 +58,4 @@
 //Errors
 "error_connection" = "Connection error";
 "error_validation" = "Connection error or invalid data";
-"error_api_key" = "Insert your apiKey in:\nApplication -> ApplicationSettings -> ApiSettings -> apiKey\n\nYou can grab it from here:\nhttps://www.giantbomb.com/api";
+"error_api_key" = "Insert your apiKey in:\nApplication -> AppSettings -> ApiSettings -> apiKey\n\nYou can grab it from here:\nhttps://www.giantbomb.com/api";

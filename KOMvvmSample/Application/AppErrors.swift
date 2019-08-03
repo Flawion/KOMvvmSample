@@ -1,5 +1,5 @@
 //
-//  ApplicationErrors.swift
+//  AppErrors.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -25,7 +25,7 @@
 
 import Foundation
 
-enum ApplicationErrors: String, LocalizedError {
+enum AppErrors: String, LocalizedError {
     case selfNotExists = "error_self_not_exists"
     case driverDefault = "error_driver_default"
 

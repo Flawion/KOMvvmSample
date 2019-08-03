@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class GamesFiltersSceneBuilder: SceneBuilderProtocol {
+struct GamesFiltersSceneBuilder: SceneBuilderProtocol {
     private let currentFilters: [GamesFilters: String]
 
     init(currentFilters: [GamesFilters: String]) {

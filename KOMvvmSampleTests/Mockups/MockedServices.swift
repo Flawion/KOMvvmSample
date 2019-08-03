@@ -63,30 +63,30 @@ final class MockedServices {
     }
 
     private func registerMockGamesData() {
-        let filters = ApplicationSettings.Games.defaultFilters
-        let parameters = giantBombMockClient.parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
+        let filters = AppSettings.Games.defaultFilters
+        let parameters = giantBombMockClient.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
         giantBombMockClient.mockDataContainer.register(mockData: ApiMockData(fileName: "games", fileType: "json", requestParameters: parameters))
     }
 
     private func registerMockMoreGamesData() {
-        let filters = ApplicationSettings.Games.defaultFilters
-        let parameters = giantBombMockClient.parametersForSearchGames(offset: ApplicationSettings.Games.limitPerRequest, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
+        let filters = AppSettings.Games.defaultFilters
+        let parameters = giantBombMockClient.parametersForSearchGames(offset: AppSettings.Games.limitPerRequest, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
         giantBombMockClient.mockDataContainer.register(mockData: ApiMockData(fileName: "moregames", fileType: "json", requestParameters: parameters))
     }
 
     private func registerMockFilteredGamesData() {
         let filters = MockSettings.filteredGamesFilters
-        let parameters = giantBombMockClient.parametersForSearchGames(offset: 0, limit: ApplicationSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
+        let parameters = giantBombMockClient.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
         giantBombMockClient.mockDataContainer.register(mockData: ApiMockData(fileName: "filteredgames", fileType: "json", requestParameters: parameters))
     }
 
     private func registerMockPlatformsData() {
-        let parameters = giantBombMockClient.parametersForPlatforms(offset: 0, limit: ApplicationSettings.Platforms.limitPerRequest)
+        let parameters = giantBombMockClient.parametersForPlatforms(offset: 0, limit: AppSettings.Platforms.limitPerRequest)
         giantBombMockClient.mockDataContainer.register(mockData: ApiMockData(fileName: "platforms", fileType: "json", requestParameters: parameters))
     }
 
     private func registerMockMorePlatformsData() {
-        let parameters = giantBombMockClient.parametersForPlatforms(offset: ApplicationSettings.Platforms.limitPerRequest, limit: ApplicationSettings.Platforms.limitPerRequest)
+        let parameters = giantBombMockClient.parametersForPlatforms(offset: AppSettings.Platforms.limitPerRequest, limit: AppSettings.Platforms.limitPerRequest)
         giantBombMockClient.mockDataContainer.register(mockData: ApiMockData(fileName: "moreplatforms", fileType: "json", requestParameters: parameters))
     }
 

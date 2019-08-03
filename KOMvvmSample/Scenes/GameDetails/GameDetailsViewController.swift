@@ -93,15 +93,14 @@ extension GameDetailsViewController: GameDetailsViewControllerProtocol {
     }
 
     private func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel) {
-        _ = AppCoordinator.shared.push(scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""), onNavigationController: navigationController)
+        _ = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""))
     }
 
     private func goToImagesDetailsItem(_ detailsItem: GameDetailsItemModel) {
         guard let images = viewModel.gameDetails?.images else {
             return
         }
-        _ = AppCoordinator.shared.push(scene: GameImagesSceneBuilder(images: images), onNavigationController: navigationController)
-
+        _ = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: GameImagesSceneBuilder(images: images))
     }
 
     func resizeDetailsFooterView() {

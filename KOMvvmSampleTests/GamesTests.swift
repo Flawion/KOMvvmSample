@@ -63,7 +63,7 @@ final class GamesTests: XCTestCase {
         waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)
         }
-        XCTAssertEqual(gamesViewModel.games.count, ApplicationSettings.Games.limitPerRequest)
+        XCTAssertEqual(gamesViewModel.games.count, AppSettings.Games.limitPerRequest)
         XCTAssertEqual(gamesViewModel.dataState, .none)
     }
 
@@ -75,7 +75,7 @@ final class GamesTests: XCTestCase {
 
         //try to download more games
         XCTAssertTrue(gamesViewModel.canDownloadMoreResults)
-        gamesViewModel.gameObser.filter({$0.count > ApplicationSettings.Games.limitPerRequest}).subscribe(onNext: { _ in
+        gamesViewModel.gameObser.filter({$0.count > AppSettings.Games.limitPerRequest}).subscribe(onNext: { _ in
             promiseMoreGames.fulfill()
         }).disposed(by: disposeBag)
         gamesViewModel.searchMoreGames()
@@ -85,7 +85,7 @@ final class GamesTests: XCTestCase {
         waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)
         }
-        XCTAssertEqual(gamesViewModel.games.count, ApplicationSettings.Games.limitPerRequest * 2)
+        XCTAssertEqual(gamesViewModel.games.count, AppSettings.Games.limitPerRequest * 2)
         XCTAssertEqual(gamesViewModel.dataState, .none)
     }
 

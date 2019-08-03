@@ -25,7 +25,7 @@
 
 import Foundation
 
-final class WebViewControllerSceneBuilder: SceneBuilderProtocol {
+struct WebViewControllerSceneBuilder: SceneBuilderProtocol {
     private let barTitle: String
     private var html: String
 

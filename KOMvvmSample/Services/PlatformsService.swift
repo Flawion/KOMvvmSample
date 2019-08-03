@@ -27,7 +27,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class PlatformsServiceBuilder: ServiceBuilderProtocol {
+struct PlatformsServiceBuilder: ServiceBuilderProtocol {
     var type: ServiceTypes {
         return .platforms
     }
@@ -83,7 +83,7 @@ final class PlatformsService: NSObject {
     
     private func startDownloadPlatformsUntilAll() -> Observable<Bool> {
         isDownloadingVar.accept(true)
-        downloadPlatformsUntilAllSharedObser = downloadPlatformsUntilAll(startOffset: platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
+        downloadPlatformsUntilAllSharedObser = downloadPlatformsUntilAll(startOffset: platformsVar.value.count, limit: AppSettings.Platforms.limitPerRequest)
             .doOnce({ [weak self] _, _  in
                 guard let self = self else {
                     return
@@ -118,7 +118,7 @@ final class PlatformsService: NSObject {
     
     private func downloadNextPlatformsOrComplete(numberOfTotalResults: Int) -> Observable<Bool> {
         guard platformsVar.value.count >= numberOfTotalResults else {
-            return self.downloadPlatformsUntilAll(startOffset: self.platformsVar.value.count, limit: ApplicationSettings.Platforms.limitPerRequest)
+            return self.downloadPlatformsUntilAll(startOffset: self.platformsVar.value.count, limit: AppSettings.Platforms.limitPerRequest)
         }
         self.downloadAllPlatformsCompleted()
         return Observable<Bool>.just(self.platformsVar.value.count > 0)
@@ -130,7 +130,7 @@ final class PlatformsService: NSObject {
     }
     
     private func loadFromDataService() {
-        guard !allPlatformsCached, let savePlatformsDate = dataStore.savePlatformsDate, Calendar.current.dateComponents([.minute], from: savePlatformsDate, to: Date()).minute ?? 0 < ApplicationSettings.Platforms.cacheOnDiscForMinutes, let platforms = dataStore.platforms, platforms.count > 0 else {
+        guard !allPlatformsCached, let savePlatformsDate = dataStore.savePlatformsDate, Calendar.current.dateComponents([.minute], from: savePlatformsDate, to: Date()).minute ?? 0 < AppSettings.Platforms.cacheOnDiscForMinutes, let platforms = dataStore.platforms, platforms.count > 0 else {
             return
         }
         allPlatformsCached = true
