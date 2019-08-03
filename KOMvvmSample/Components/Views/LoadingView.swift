@@ -38,10 +38,9 @@ final class LoadingView: BaseStateView {
 
     private func createContainerView() {
         let viewContainer = UIView()
-        viewContainer.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(viewContainer)
+        _ = addAutoLayoutSubview(viewContainer, settings: AddAutoLayoutSubviewSettings(toAddConstraints: [.left, .right], operations: [.left: .equalOrGreater, .right: .equalOrLess]))
         addConstraints([
-            viewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
+            viewContainer.centerXAnchor.constraint(equalTo: centerXAnchor).withPriority(900),
             viewContainer.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         self.viewContainer = viewContainer
@@ -56,6 +55,7 @@ final class LoadingView: BaseStateView {
 
     private func createTitleLabel() {
         let titleLabel = BaseLabel()
+        titleLabel.textAlignment = .center
         titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         titleLabel.text = "loading_title".localized
         _ = viewContainer.addAutoLayoutSubview(titleLabel, settings: createAddAutoLayoutSubviewSettingsForTitleLabel())

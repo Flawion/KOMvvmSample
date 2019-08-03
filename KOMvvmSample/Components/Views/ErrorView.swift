@@ -45,9 +45,9 @@ final class ErrorView: BaseStateView {
     private func createViewContainer() {
         let viewContainer = UIView()
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(viewContainer)
+        _ = addAutoLayoutSubview(viewContainer, settings: AddAutoLayoutSubviewSettings(toAddConstraints: [.left, .right], operations: [.left: .equalOrGreater, .right: .equalOrLess]))
         addConstraints([
-            viewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
+            viewContainer.centerXAnchor.constraint(equalTo: centerXAnchor).withPriority(900),
             viewContainer.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         self.viewContainer = viewContainer
@@ -55,6 +55,7 @@ final class ErrorView: BaseStateView {
 
     private func createTitleLabel() {
         let titleLabel = BaseLabel()
+        titleLabel.textAlignment = .center
         titleLabel.text = "error_title".localized
         _ = viewContainer.addAutoLayoutSubview(titleLabel, toAddConstraints: [.left, .top, .right])
         self.titleLabel = titleLabel
