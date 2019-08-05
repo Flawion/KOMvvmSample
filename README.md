@@ -28,7 +28,7 @@ General goal is to make code readable and easy to understand without overwhelm a
 2. Install all pods
 3. Grab api key from here: https://www.giantbomb.com/api
 4. Insert your apiKey in: 
-    Application -> ApplicationSettings -> ApiSettings -> apiKey
+    Application -> ApplicationSettings -> Api -> key
     
 ## Requirements
     

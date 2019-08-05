@@ -29,10 +29,10 @@ struct AppSettings {
 }
 
 extension AppSettings {
-    struct ApiSettings {
+    struct Api {
 
         // Insert your api key here
-        static var apiKey: String {
+        static var key: String {
             return ""
         }
 

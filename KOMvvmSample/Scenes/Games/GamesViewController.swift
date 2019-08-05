@@ -131,7 +131,7 @@ final class GamesViewController: BaseViewController {
         super.viewDidAppear(animated)
         
         //checks api key
-        if AppSettings.ApiSettings.apiKey.isEmpty {
+        if AppSettings.Api.key.isEmpty {
             showError(message: "error_api_key".localized)
         }
     }

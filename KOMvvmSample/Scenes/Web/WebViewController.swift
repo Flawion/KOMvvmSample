@@ -108,7 +108,7 @@ extension WebViewController: WKNavigationDelegate {
             return
         }
 
-        if requestUrl.host == nil, let newUrl = URL(string: AppSettings.ApiSettings.giantBombAddress + requestUrl.absoluteString) {
+        if requestUrl.host == nil, let newUrl = URL(string: AppSettings.Api.giantBombAddress + requestUrl.absoluteString) {
             requestUrl = newUrl
         }
         guard let url = url else {
