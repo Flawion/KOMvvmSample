@@ -126,7 +126,7 @@ final class GamesTests: XCTestCase {
         //try to download games with default filters
         gamesViewModel.searchGamesIfNeed()
         XCTAssertEqual(gamesViewModel.dataState, .loading)
-        Observable<Int>.timer(0.5, scheduler: MainScheduler.instance)
+        Observable<Int>.timer(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in promiseErrorGames.fulfill() })
             .disposed(by: disposeBag)
 

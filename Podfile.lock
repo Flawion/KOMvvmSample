@@ -1,28 +1,31 @@
 PODS:
   - Alamofire (4.8.2)
-  - KOControls (1.2)
-  - RxAlamofire (4.4.1):
-    - RxAlamofire/Core (= 4.4.1)
-  - RxAlamofire/Core (4.4.1):
+  - KOControls (1.2.2)
+  - RxAlamofire (5.0.0):
+    - RxAlamofire/Core (= 5.0.0)
+  - RxAlamofire/Core (5.0.0):
     - Alamofire (~> 4.8)
-    - RxSwift (~> 4.5)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
-  - SwiftLint (0.32.0)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SDWebImage (5.1.0):
+    - SDWebImage/Core (= 5.1.0)
+  - SDWebImage/Core (5.1.0)
+  - SwiftLint (0.34.0)
   - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
-  - KOControls (~> 1.2)
-  - RxAlamofire (~> 4.4)
-  - RxCocoa (~> 4.4)
-  - RxSwift (~> 4.4)
-  - SDWebImage (~> 4.4)
-  - SwiftLint (~> 0.32)
+  - KOControls (~> 1.2.2)
+  - RxAlamofire (~> 5.0)
+  - RxCocoa (~> 5.0)
+  - RxSwift (~> 5.0)
+  - SDWebImage (~> 5.0)
+  - SwiftLint (~> 0.34)
   - UIScrollView-InfiniteScroll (~> 1.1.0)
 
 SPEC REPOS:
@@ -31,6 +34,7 @@ SPEC REPOS:
     - KOControls
     - RxAlamofire
     - RxCocoa
+    - RxRelay
     - RxSwift
     - SDWebImage
     - SwiftLint
@@ -38,14 +42,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  KOControls: c4d6a9de48df37ed6726b490457698d2ff5c08f5
-  RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
-  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
+  KOControls: 01abe79c6982f33c7456348e26a60b8c46a15ad7
+  RxAlamofire: e7875a012aff55345672d0f70a2a9cd6aeb0f211
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: f25adb23e0aff8fd15bb42aae5c1e472963a164a
+PODFILE CHECKSUM: ff687b8e566de778024bfb0cd10f82d034373300
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

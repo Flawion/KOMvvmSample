@@ -97,7 +97,7 @@ final class GameDetailsTests: XCTestCase {
         //try to download game details
         gameDetailsViewModel.downloadGameDetailsIfNeed()
         XCTAssertEqual(gameDetailsViewModel.dataState, .loading)
-        Observable<Int>.timer(0.5, scheduler: MainScheduler.instance)
+        Observable<Int>.timer(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in promiseError.fulfill() })
             .disposed(by: disposeBag)
 

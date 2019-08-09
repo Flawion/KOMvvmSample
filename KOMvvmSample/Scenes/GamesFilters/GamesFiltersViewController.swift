@@ -124,10 +124,10 @@ extension GamesFiltersViewController {
         let currentSelectedSortingOptionIndex = viewModel.availableSortingOptions.firstIndex(where: { $0.value == filter.value }) ?? 0
     
         optionsPickerViewController.optionsPicker.selectRow(currentSelectedSortingOptionIndex, inComponent: 0, animated: false)
-        optionsPickerViewController.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self](optionsPicker: KOOptionsPickerViewController) in
+        optionsPickerViewController.rightBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self](optionsPicker: KOOptionsPickerViewController) in
             self?.pickSortingOption(fromOptionsPickerViewController: optionsPicker, forFilter: filter, refreshCellFunc: refreshCellFunc)
         })
-        optionsPickerViewController.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
+        optionsPickerViewController.leftBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_cancel_button".localized)
     }
     
     private func pickSortingOption(fromOptionsPickerViewController optionsPickerViewController: KOOptionsPickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
@@ -153,10 +153,10 @@ extension GamesFiltersViewController {
             datePickerViewController.datePicker.date = selectedDate
         }
         datePickerViewController.datePicker.datePickerMode = .date
-        datePickerViewController.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self] (datePicker: KODatePickerViewController) in
+        datePickerViewController.rightBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_done_button".localized, action: { [weak self] (datePicker: KODatePickerViewController) in
             self?.pickOriginalReleaseDate(fromDatePickerViewController: datePicker, forFilter: filter, refreshCellFunc: refreshCellFunc)
         })
-        datePickerViewController.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
+        datePickerViewController.leftBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_cancel_button".localized)
     }
     
     private func pickOriginalReleaseDate(fromDatePickerViewController datePickerViewController: KODatePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
@@ -203,11 +203,11 @@ extension GamesFiltersViewController {
         itemsTablePicker.itemsTable.separatorStyle = .none
         itemsTablePicker.itemsTable.rowHeight = PlatformViewCell.prefferedListHeight
         itemsTablePicker.itemsTable.register(UINib(nibName: "PlatformViewCell", bundle: nil), forCellReuseIdentifier: platformCellReuseIdentifier)
-        itemsTablePicker.rightBarButtonAction = KODialogActionModel.doneAction(withTitle: "games_filters_picker_done_button".localized, action: {[weak self](itemsTablePicker: KOItemsTablePickerViewController) in
+        itemsTablePicker.rightBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_done_button".localized, action: {[weak self](itemsTablePicker: KOItemsTablePickerViewController) in
             self?.viewModel.selectPlatforms(atIndexes: itemsTablePicker.itemsTable.indexPathsForSelectedRows, forFilter: filter)
             refreshCellFunc()
         })
-        itemsTablePicker.leftBarButtonAction = KODialogActionModel.cancelAction(withTitle: "games_filters_picker_cancel_button".localized)
+        itemsTablePicker.leftBarButtonAction = KODialogActionModel.dismissAction(withTitle: "games_filters_picker_cancel_button".localized)
 
         bindPlatformsData(toItemsTablePicker: itemsTablePicker)
         bindPlatformsItemsSelected(fromItemsTablePicker: itemsTablePicker)

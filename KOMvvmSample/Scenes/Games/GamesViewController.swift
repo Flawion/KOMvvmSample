@@ -74,7 +74,7 @@ final class GamesViewController: BaseViewController {
     }
 
     @objc private func goToGamesFilter() {
-        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters)) as? GamesFiltersViewControllerProtocol else {
+        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.transition(.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController)) as? GamesFiltersViewControllerProtocol else {
             fatalError("cast failed GamesFiltersViewControllerProtocol")
         }
         gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
@@ -113,7 +113,7 @@ final class GamesViewController: BaseViewController {
             searchController.searchBar.rx.cancelButtonClicked.asDriver().map({ () }),
             searchController.searchBar.rx.text.asDriver(onErrorJustReturn: nil).map({ _ in () })
             ])
-            .debounce(0.5)
+            .debounce(.milliseconds(500))
             .drive(onNext: { [weak self] _ in
                 guard let self = self else {
                     return
@@ -148,6 +148,6 @@ extension GamesViewController: GamesViewControllerProtocol {
     }
 
     func goToGameDetail(_ game: GameModel) {
-        _ = AppCoordinator.shared.transition(.push(onNavigationController: navigationController), toScene: GameDetailsSceneBuilder(game: game))
+        _ = AppCoordinator.shared.transition(.push(scene: GameDetailsSceneBuilder(game: game), onNavigationController: navigationController))
     }
 }

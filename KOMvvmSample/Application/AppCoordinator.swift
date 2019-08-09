@@ -90,10 +90,8 @@ final class AppCoordinator {
     func openLink(_ url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    
-    func transition(_ transtion: BaseSceneTransition, toScene newScene: SceneBuilderProtocol) -> UIViewController? {
-        let newSceneViewController = newScene.createScene(withServiceLocator: serviceLocator)
-        transtion.transition(toViewController: newSceneViewController)
-        return newSceneViewController
+
+    func transition(_ transtion: BaseSceneTransition) -> Any? {
+        return transtion.transition(serviceLocator: serviceLocator)
     }
 }

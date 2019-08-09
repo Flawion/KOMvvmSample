@@ -115,8 +115,8 @@ class BaseApiClient: NSObject {
     }
     
     // MARK: Api mock requests
-    func responseMockMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
-        let dataResponse = requestMockData(parameters: parameters, delay: delay)
+    func responseMockMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, delayInMilliseconds: Int = 100, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
+        let dataResponse = requestMockData(parameters: parameters, delayInMilliseconds: delayInMilliseconds)
             .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
                 guard let self = self else {
                     return (response, data, nil)
@@ -134,15 +134,15 @@ class BaseApiClient: NSObject {
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
     
-    func responseMockData(parameters: ApiRequestParameters, delay: Double = 0.1, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
-        let dataResponse = requestMockData(parameters: parameters, delay: delay)
+    func responseMockData(parameters: ApiRequestParameters, delayInMilliseconds: Int = 100, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
+        let dataResponse = requestMockData(parameters: parameters, delayInMilliseconds: delayInMilliseconds)
             .doOnce ({ (response, error) in
                 Logger.shared.log(response?.0, data: response?.1, error: error)
             })
         return validate(responseData: dataResponse, ifNeed: validateResponse)
     }
     
-    private func requestMockData(parameters: ApiRequestParameters, delay: Double = 0.1) -> Observable<(HTTPURLResponse, Data)> {
+    private func requestMockData(parameters: ApiRequestParameters, delayInMilliseconds: Int = 100) -> Observable<(HTTPURLResponse, Data)> {
         var responseStatusCode = mockErrorStatusCode
         
         //tries to load data
@@ -154,7 +154,7 @@ class BaseApiClient: NSObject {
         
         //creates response
         let response = HTTPURLResponse(url: parameters.url, statusCode: responseStatusCode, httpVersion: nil, headerFields: nil)!
-        return Observable<(HTTPURLResponse, Data)>.just((response, data)).delay(delay, scheduler: MainScheduler.instance)
+        return Observable<(HTTPURLResponse, Data)>.just((response, data)).delay(.milliseconds(delayInMilliseconds), scheduler: MainScheduler.instance)
     }
     
     // MARK: Api requests in session

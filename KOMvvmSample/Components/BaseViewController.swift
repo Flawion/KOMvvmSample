@@ -44,11 +44,22 @@ class BaseViewController: UIViewController {
     }()
 
     // MARK: Class functions
-    override func viewWillLayoutSubviews() {
+   override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        resizeBarTitleView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async { [weak self] in
+            self?.resizeBarTitleView()
+        }
+    }
+
+    private func resizeBarTitleView() {
         (navigationItem.titleView)?.sizeToFit()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Theme.viewControllerBackground
@@ -75,7 +86,7 @@ class BaseViewController: UIViewController {
     private func createBarTitleView(withTitle title: String) {
         let barTitleLabel = createBarTitleLabel(withTitle: title)
         navigationItem.titleView = barTitleLabel
-        barTitleLabel.sizeToFit()
+        resizeBarTitleView()
     }
 
     private func createBarTitleLabel(withTitle title: String) -> UILabel {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -132,8 +132,8 @@
 		05FEAD5A2235AFD7003CCA34 /* ApiMockDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEAD592235AFD7003CCA34 /* ApiMockDataContainer.swift */; };
 		05FEAD5D2235B17A003CCA34 /* ApiMockDataMatchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEAD5C2235B17A003CCA34 /* ApiMockDataMatchOptions.swift */; };
 		05FEAD5F2235B18F003CCA34 /* ApiMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEAD5E2235B18F003CCA34 /* ApiMockData.swift */; };
-		48A73270EAAC7C6FDEFCC764 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6B91E282B54D0BE8A1CCB6 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */; };
-		7D980C280D7E99AF8255E3E8 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9DC86F9D2C4233EC2CD52E /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */; };
+		7E0A807C8A304E232E702946 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB77A9CE597759F76723AA3 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */; };
+		DD30D9EBE560DCF4D0BF4884 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BC1ED6DDE3A74B6FD80300 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +147,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01F26267111CD7BD8B4DE76A /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig"; path = "Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig"; sourceTree = "<group>"; };
 		0505605C221E0ABE0093871D /* UIColor+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Resources.swift"; sourceTree = "<group>"; };
 		0505605E221E0AE20093871D /* UIFont+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Resources.swift"; sourceTree = "<group>"; };
 		0505C0722212B21400BB2070 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -277,17 +278,11 @@
 		05FEAD592235AFD7003CCA34 /* ApiMockDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMockDataContainer.swift; sourceTree = "<group>"; };
 		05FEAD5C2235B17A003CCA34 /* ApiMockDataMatchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMockDataMatchOptions.swift; sourceTree = "<group>"; };
 		05FEAD5E2235B18F003CCA34 /* ApiMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMockData.swift; sourceTree = "<group>"; };
-		1FFBF69E8FCD956AB42FB779 /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig"; sourceTree = "<group>"; };
-		2026C21F59EF988027DABDC2 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		28B34CF27E7084F4FCF4B7DD /* Pods-KOMvvmSampleBase-KOMvvmSample.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSample.testing.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample.testing.xcconfig"; sourceTree = "<group>"; };
-		6D6B91E282B54D0BE8A1CCB6 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A23DEA904E099572B10F0477 /* Pods-KOMvvmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSample/Pods-KOMvvmSample.release.xcconfig"; sourceTree = "<group>"; };
-		B2EE949F3E2150E8DC8C1E5C /* Pods-KOMvvmSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSample/Pods-KOMvvmSample.debug.xcconfig"; sourceTree = "<group>"; };
-		B7357A32AEC6E73A5D518265 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BCE9927A24D3608CDFA3FF21 /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig"; sourceTree = "<group>"; };
-		D73D00ACC4F1C54A8E011722 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSampleTests.testing.xcconfig"; path = "Pods/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests.testing.xcconfig"; sourceTree = "<group>"; };
-		EE9DC86F9D2C4233EC2CD52E /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOMvvmSampleBase_KOMvvmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7E4ACAF0811CA2D7BC78E2F /* Pods_KOMvvmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOMvvmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		406C875A07E20ACF3861C29A /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C1DCA7C40ED55A1030AD4BE /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig"; path = "Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig"; sourceTree = "<group>"; };
+		76BC1ED6DDE3A74B6FD80300 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOMvvmSampleBase_KOMvvmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FB77A9CE597759F76723AA3 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA6341E472684763CA908CAF /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig"; path = "Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A73270EAAC7C6FDEFCC764 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework in Frameworks */,
+				7E0A807C8A304E232E702946 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D980C280D7E99AF8255E3E8 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework in Frameworks */,
+				DD30D9EBE560DCF4D0BF4884 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,8 +562,8 @@
 				05B421B121FEF5BD009439A6 /* KOMvvmSample */,
 				057D55CC22326345008D0CEE /* KOMvvmSampleTests */,
 				05B421B021FEF5BD009439A6 /* Products */,
-				A1A48D46208A6D23845B30BA /* Pods */,
-				144A1282DBABE4B4AEBAEAC2 /* Frameworks */,
+				0F673819E0A497A480469B3F /* Pods */,
+				13C6976115EE4A2A9161896B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -736,29 +731,24 @@
 			path = MockData;
 			sourceTree = "<group>";
 		};
-		144A1282DBABE4B4AEBAEAC2 /* Frameworks */ = {
+		0F673819E0A497A480469B3F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F7E4ACAF0811CA2D7BC78E2F /* Pods_KOMvvmSample.framework */,
-				EE9DC86F9D2C4233EC2CD52E /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */,
-				6D6B91E282B54D0BE8A1CCB6 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */,
+				01F26267111CD7BD8B4DE76A /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */,
+				6C1DCA7C40ED55A1030AD4BE /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */,
+				406C875A07E20ACF3861C29A /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */,
+				CA6341E472684763CA908CAF /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		A1A48D46208A6D23845B30BA /* Pods */ = {
+		13C6976115EE4A2A9161896B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2EE949F3E2150E8DC8C1E5C /* Pods-KOMvvmSample.debug.xcconfig */,
-				A23DEA904E099572B10F0477 /* Pods-KOMvvmSample.release.xcconfig */,
-				BCE9927A24D3608CDFA3FF21 /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */,
-				1FFBF69E8FCD956AB42FB779 /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */,
-				B7357A32AEC6E73A5D518265 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */,
-				2026C21F59EF988027DABDC2 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */,
-				28B34CF27E7084F4FCF4B7DD /* Pods-KOMvvmSampleBase-KOMvvmSample.testing.xcconfig */,
-				D73D00ACC4F1C54A8E011722 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.testing.xcconfig */,
+				76BC1ED6DDE3A74B6FD80300 /* Pods_KOMvvmSampleBase_KOMvvmSample.framework */,
+				8FB77A9CE597759F76723AA3 /* Pods_KOMvvmSampleBase_KOMvvmSampleTests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -768,11 +758,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 057D55D422326345008D0CEE /* Build configuration list for PBXNativeTarget "KOMvvmSampleTests" */;
 			buildPhases = (
-				FDE4D0630A7A43E0E67BAB21 /* [CP] Check Pods Manifest.lock */,
+				E07B9CB0D21E78D5CA4C7005 /* [CP] Check Pods Manifest.lock */,
 				057D55C722326345008D0CEE /* Sources */,
 				057D55C822326345008D0CEE /* Frameworks */,
 				057D55C922326345008D0CEE /* Resources */,
-				1FF91EAEE52E6D0D16CA91DD /* [CP] Embed Pods Frameworks */,
+				156296D700F8BFC242805059 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -788,12 +778,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05B421C121FEF5BF009439A6 /* Build configuration list for PBXNativeTarget "KOMvvmSample" */;
 			buildPhases = (
-				78CBEED3186086D971955EB6 /* [CP] Check Pods Manifest.lock */,
+				7851D1BA25B5BB804C381E39 /* [CP] Check Pods Manifest.lock */,
 				05B421AB21FEF5BD009439A6 /* Sources */,
 				05B421AC21FEF5BD009439A6 /* Frameworks */,
 				05B421AD21FEF5BD009439A6 /* Resources */,
-				EBBC5EB986142F5B8959382F /* [CP] Embed Pods Frameworks */,
 				0565B35522099157004B2D56 /* Run Script */,
+				36687302556068C23FFD0827 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -887,46 +877,54 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		1FF91EAEE52E6D0D16CA91DD /* [CP] Embed Pods Frameworks */ = {
+		156296D700F8BFC242805059 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/KOControls/KOControls.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KOControls.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScrollView_InfiniteScroll.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSampleTests/Pods-KOMvvmSampleBase-KOMvvmSampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78CBEED3186086D971955EB6 /* [CP] Check Pods Manifest.lock */ = {
+		36687302556068C23FFD0827 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7851D1BA25B5BB804C381E39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-KOMvvmSampleBase-KOMvvmSample-checkManifestLockResult.txt",
 			);
@@ -935,46 +933,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBBC5EB986142F5B8959382F /* [CP] Embed Pods Frameworks */ = {
+		E07B9CB0D21E78D5CA4C7005 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/KOControls/KOControls.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KOControls.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScrollView_InfiniteScroll.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KOMvvmSampleBase-KOMvvmSample/Pods-KOMvvmSampleBase-KOMvvmSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FDE4D0630A7A43E0E67BAB21 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-KOMvvmSampleBase-KOMvvmSampleTests-checkManifestLockResult.txt",
 			);
@@ -1143,12 +1115,12 @@
 /* Begin XCBuildConfiguration section */
 		057D55D222326345008D0CEE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7357A32AEC6E73A5D518265 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */;
+			baseConfigurationReference = 406C875A07E20ACF3861C29A /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KOMvvmSampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1157,7 +1129,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KOMvvmSample.app/KOMvvmSample";
 			};
@@ -1165,12 +1137,12 @@
 		};
 		057D55D322326345008D0CEE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2026C21F59EF988027DABDC2 /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */;
+			baseConfigurationReference = CA6341E472684763CA908CAF /* Pods-KOMvvmSampleBase-KOMvvmSampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KOMvvmSampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1179,7 +1151,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KOMvvmSample.app/KOMvvmSample";
 			};
@@ -1243,6 +1215,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -1297,13 +1270,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		05B421C221FEF5BF009439A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCE9927A24D3608CDFA3FF21 /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */;
+			baseConfigurationReference = 01F26267111CD7BD8B4DE76A /* Pods-KOMvvmSampleBase-KOMvvmSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1316,14 +1290,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = KOMvvmSample/KOMvvmSampleBridge.h;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		05B421C321FEF5BF009439A6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FFBF69E8FCD956AB42FB779 /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */;
+			baseConfigurationReference = 6C1DCA7C40ED55A1030AD4BE /* Pods-KOMvvmSampleBase-KOMvvmSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1336,7 +1310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = KOMvvmSample/KOMvvmSampleBridge.h;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

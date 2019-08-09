@@ -107,7 +107,7 @@ final class GameDetailsHeaderInfoView: UIView {
     }
 
     private func addInfoPanelVerticalConstraints() {
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[releaseDateLabel]-8-[infoSeparatorLine]-2-[platformsScrollView]-2-[deckLabel]|", options: [], metrics: nil, views: ["releaseDateLabel": releaseDateLabel, "infoSeparatorLine": infoSeparatorLine, "platformsScrollView": platformsScrollView, "deckLabel": deckLabel]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[releaseDateLabel]-8-[infoSeparatorLine]-2-[platformsScrollView]-2-[deckLabel]|", options: [], metrics: nil, views: ["releaseDateLabel": releaseDateLabel as Any, "infoSeparatorLine": infoSeparatorLine as Any, "platformsScrollView": platformsScrollView as Any, "deckLabel": deckLabel as Any]))
     }
 
     private func bindInfoPanelContent() {

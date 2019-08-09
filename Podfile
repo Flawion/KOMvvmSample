@@ -5,16 +5,16 @@ abstract_target 'KOMvvmSampleBase' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     
-    pod 'SwiftLint', '~> 0.32'
+    pod 'SwiftLint', '~> 0.34'
     pod 'Alamofire', '~> 4.8'
-    pod 'SDWebImage', '~> 4.4'
+    pod 'SDWebImage', '~> 5.0'
     pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
-    pod 'KOControls', '~> 1.2'
+    pod 'KOControls', '~> 1.2.2'
     
     # Rx pods
-    pod 'RxSwift', '~> 4.4'
-    pod 'RxCocoa', '~> 4.4'
-    pod 'RxAlamofire', '~> 4.4'
+    pod 'RxSwift', '~> 5.0'
+    pod 'RxCocoa', '~> 5.0'
+    pod 'RxAlamofire', '~> 5.0'
     
     # Pods for KOMvvmSample
     target 'KOMvvmSample' do
