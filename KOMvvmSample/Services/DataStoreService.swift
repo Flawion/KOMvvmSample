@@ -50,7 +50,7 @@ final class DataStoreService: NSObject {
 
     override init() {
         do {
-            fileDirectoryURL = try FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            fileDirectoryURL = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         } catch {
             fatalError(error.localizedDescription)
         }
