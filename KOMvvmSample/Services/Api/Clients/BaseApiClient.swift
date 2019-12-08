@@ -3,25 +3,7 @@
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import Foundation
 import Alamofire
@@ -117,14 +99,14 @@ class BaseApiClient: NSObject {
     // MARK: Api mock requests
     func responseMockMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, delayInMilliseconds: Int = 100, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
         let dataResponse = requestMockData(parameters: parameters, delayInMilliseconds: delayInMilliseconds)
-            .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
+            .map({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
                 guard let self = self else {
                     return (response, data, nil)
                 }
                 let mappedData: MapTo? = try self.map(response: response, data: data, mapper: mapper)
                 return (response, data, mappedData)
             })
-            .doOnce ({ (response, error) in
+            .doOnce({ (response, error) in
                 Logger.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
             })
             .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
@@ -136,7 +118,7 @@ class BaseApiClient: NSObject {
     
     func responseMockData(parameters: ApiRequestParameters, delayInMilliseconds: Int = 100, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
         let dataResponse = requestMockData(parameters: parameters, delayInMilliseconds: delayInMilliseconds)
-            .doOnce ({ (response, error) in
+            .doOnce({ (response, error) in
                 Logger.shared.log(response?.0, data: response?.1, error: error)
             })
         return validate(responseData: dataResponse, ifNeed: validateResponse)
@@ -161,14 +143,14 @@ class BaseApiClient: NSObject {
     func responseMapped<MapTo: Codable>(parameters: ApiRequestParameters, mapper: ApiDataMapperProtocol? = nil, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, MapTo?)> {
         let dataResponse = self.requestData(parameters: parameters)
             .responseData()
-            .map ({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
+            .map({ [weak self] (response: HTTPURLResponse, data: Data) -> (HTTPURLResponse, Data, MapTo?) in
                 guard let self = self else {
                     return (response, data, nil)
                 }
                 let mappedData: MapTo? = try self.map(response: response, data: data, mapper: mapper)
                 return (response, data, mappedData)
             })
-            .doOnce ({ (response, error) in
+            .doOnce({ (response, error) in
                 Logger.shared.log(response?.0, data: response?.1, mappedData: response?.2 as? LogDataRecudible, error: error)
             })
             .map({ (response: HTTPURLResponse, _: Data, mappedData: MapTo?) -> (HTTPURLResponse, MapTo?) in
@@ -181,7 +163,7 @@ class BaseApiClient: NSObject {
     func responseData(parameters: ApiRequestParameters, validate validateResponse: Bool = true) -> Observable<(HTTPURLResponse, Data)> {
         let dataResponse = self.requestData(parameters: parameters)
             .responseData()
-            .doOnce ({ (response, error) in
+            .doOnce({ (response, error) in
                 Logger.shared.log(response?.0, data: response?.1, error: error)
             })
         return validate(responseData: dataResponse, ifNeed: validateResponse)

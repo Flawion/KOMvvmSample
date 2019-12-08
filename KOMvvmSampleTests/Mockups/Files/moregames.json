@@ -1,695 +1,1461 @@
 {
-    "error": "OK",
-    "limit": 12,
-    "offset": 12,
-    "number_of_page_results": 12,
-    "number_of_total_results": 53075,
-    "status_code": 1,
-    "results": [
+  "error": "OK",
+  "limit": 24,
+  "offset": 24,
+  "number_of_page_results": 24,
+  "number_of_total_results": 55965,
+  "status_code": 1,
+  "results": [
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-60940\/",
+      "date_added": "2017-08-22 14:06:20",
+      "date_last_updated": "2019-10-22 05:29:29",
+      "deck": "Biomutant is an open-world action RPG.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-60940",
+      "id": 60940,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2958678-biomutant-7.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2958678-biomutant-7.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2958678-biomutant-7.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2958678-biomutant-7.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2958678-biomutant-7.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2958678-biomutant-7.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2958678-biomutant-7.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2958678-biomutant-7.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2958678-biomutant-7.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
         {
-            "aliases": "DOA6",
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68876\/",
-            "date_added": "2018-06-08 07:44:24",
-            "date_last_updated": "2019-03-06 18:44:21",
-            "deck": "Dead or Alive returns for its sixth main entry in the franchise with several new features and mechanics.",
-            "description": "<h2>Overview<\/h2><p>...<\/p><h2>New Features<\/h2><h3>Break Gauge System<\/h3><p>For the first time in series history, DOA6 features a special meter. The meter can be used to execute two new special attacks.<\/p><ul><li>Break Blow - A devastating super attack unique to each fighter.<\/li><li>Break Hold - A <a href=\"\/parrying\/3015-2485\/\" data-ref-id=\"3015-2485\">parry<\/a> that works regardless of the height or type of attack.<\/li><\/ul><h3>Fatal Rush<\/h3><p>To help newer players get into the series, this auto-combo system has been added to the game.<\/p><h3>Character Customization<\/h3><p>Another first for the series, players can <a href=\"\/customizable-characters\/3015-155\/\" data-ref-id=\"3015-155\">customize<\/a> the fighters' outfits and accessories.<\/p><h2>Modes<\/h2><h3>Story<\/h3><p>Play through the game's story through the viewpoints of various characters along the way.<\/p><h3>DOA Quest<\/h3><p>Win fights while completing specific tasks in the process.<\/p><h3>Fight<\/h3><ul><li>Versus<\/li><li>Arcade<\/li><li>Time Attack<\/li><li>Survival<\/li><\/ul><h3>Training<\/h3><ul><li>Free Training<\/li><li>Tutorial<\/li><li>Command Training<\/li><li>Combo Challenge<\/li><\/ul><h3>Online<\/h3><ul><li>Ranked Match<\/li><li>Lobby Match<\/li><\/ul><h3>DOA Central<\/h3><ul><li>Wardrobe<\/li><li>Database<\/li><li>Theater<\/li><li>Music<\/li><li>Library<\/li><\/ul><p> <\/p><h2>Roster<\/h2><p>The DOA6 roster features over twenty returning fighters as well as two new ones.<\/p><ul><li><a href=\"\/diego\/3005-37285\/\" data-ref-id=\"3005-37285\">Diego<\/a> - A Mexican fighter who hones his skills on the streets of <a href=\"\/new-york-city\/3035-109\/\" data-ref-id=\"3035-109\">New York City<\/a>.<\/li><li><a href=\"\/nico\/3005-38951\/\" data-ref-id=\"3005-38951\">NiCO<\/a> - A scientist with electric gloves and a Malaysian silat fighting style.<\/li><\/ul>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-68876",
-            "id": 68876,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3049557-box_doa6.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3049557-box_doa6.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3049557-box_doa6.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3049557-box_doa6.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3049557-box_doa6.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3049557-box_doa6.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3049557-box_doa6.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3049557-box_doa6.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3049557-box_doa6.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68876\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 111
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68876\/?filter=image_tag%3ACharacter+Renders",
-                    "name": "Character Renders",
-                    "total": 26
-                }
-            ],
-            "name": "Dead or Alive 6",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-84\/",
-                    "id": 84,
-                    "name": "Arcade",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/arcade\/3045-84\/",
-                    "abbreviation": "ARC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
-                    "id": 145,
-                    "name": "Xbox One",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
-                    "abbreviation": "XONE"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
-                    "id": 146,
-                    "name": "PlayStation 4",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
-                    "abbreviation": "PS4"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/dead-or-alive-6\/3030-68876\/"
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-60940\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 16
         },
         {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68669\/",
-            "date_added": "2018-05-24 15:53:30",
-            "date_last_updated": "2019-03-04 14:36:11",
-            "deck": "A 2D, run and gun shooter.\n\n",
-            "description": "<h2>Overview<\/h2><p>Creepy Road is an action game developed and published by Groovy Milk for PlayStation 4, Nintendo Switch, and Xbox One.<\/p><p>The PC and Mac versions of the game were developed by Groovy Milk and co-published by Groovy Milk and GrabTheGames.<\/p><h2>System Requirements<\/h2><h3>PC<\/h3><table data-max-width=\"true\"><thead><tr><th scope=\"col\">PC Minimum<\/th><th scope=\"col\">PC Recommended<\/th><\/tr><\/thead><tbody><tr><td><ul><li>Operating System: Windows XP, Vista, Windows 7 , Windows 8, Windows 10<\/li><li>Processor: Intel i3 or AMD equivalent<\/li><li>Memory: 4 GB RAM<\/li><li>Graphics: ATI or Nvidia Videocard with at least 256MB, or Intel GMA 950 or newer<\/li><li>DirectX: Version 9.0<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><td><ul><li>Operating System: Windows XP, Vista, Windows 7 , Windows 8, Windows 10<\/li><li>Processor: Intel i5 or AMD equivalent<\/li><li>Memory: 8 GB RAM<\/li><li>Graphics: GeForce GTX 550 Ti or Radeon HD 6770<\/li><li>DirectX: Version 11<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><\/tr><\/tbody><\/table><p> <\/p><h3>Mac<\/h3><table data-max-width=\"true\"><thead><tr><th scope=\"col\">Mac Minimum<\/th><th scope=\"col\">Mac Recommended<\/th><\/tr><\/thead><tbody><tr><td><ul><li>Operating System: OS X version Leopard 10.5.8, Snow Leopard 10.6.3 or later.<\/li><li>Processor: Intel Core Duo<\/li><li>Memory: 4 GB RAM<\/li><li>Graphics: ATI or NVIDIA Videocard with at least 256MB or higher.<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><td><ul><li>Operating System: OS X version Lion 10.7 or later.<\/li><li>Processor: Any Processor with 2 Cores<\/li><li>Memory: 8 GB RAM<\/li><li>Graphics: ATI or NVIDIA Videocard with at least 512MB or higher.<\/li><li>Storage: 5 GB available space<\/li><\/ul><\/td><\/tr><\/tbody><\/table><h2>External Links<\/h2><ul><li><a href=\"http:\/\/groovymilk.com\/#gameBanner\" data-target=\"true\" data-nofollow=\"true\" target=\"_blank\" rel=\"noopener nofollow\">Creepy Road Official Site<\/a><\/li><\/ul>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-68669",
-            "id": 68669,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3081868-box_cr.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3081868-box_cr.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3081868-box_cr.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3081868-box_cr.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3081868-box_cr.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3081868-box_cr.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3081868-box_cr.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3081868-box_cr.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3081868-box_cr.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68669\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 2
-                }
-            ],
-            "name": "Creepy Road",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
-                    "id": 17,
-                    "name": "Mac",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
-                    "abbreviation": "MAC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
-                    "id": 145,
-                    "name": "Xbox One",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
-                    "abbreviation": "XONE"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
-                    "id": 146,
-                    "name": "PlayStation 4",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
-                    "abbreviation": "PS4"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
-                    "id": 157,
-                    "name": "Nintendo Switch",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
-                    "abbreviation": "NSW"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/creepy-road\/3030-68669\/"
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-60940\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 3
         },
         {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71782\/",
-            "date_added": "2019-01-15 15:29:09",
-            "date_last_updated": "2019-01-17 16:03:54",
-            "deck": "Halzae: Heroes of Divinity is a multiplayer online battle arena game with the distinction of choosing his spells in addition to his hero.",
-            "description": "<p>Halzae: Heroes of Divinity is a dynamic and competitive multiplayer online battle arena developed by the french company Saltclock Studio. Halzae let players fight for themselves or as a team from 2 to 8 players in deathmatch, team deathmatch, hardpoint and capture the flag. Each player chooses his hero and his spells.<\/p>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-71782",
-            "id": 71782,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3075501-affiche_halzae.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3075501-affiche_halzae.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3075501-affiche_halzae.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3075501-affiche_halzae.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3075501-affiche_halzae.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3075501-affiche_halzae.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3075501-affiche_halzae.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3075501-affiche_halzae.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3075501-affiche_halzae.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71782\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Halzae: Heroes of Divinity",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/halzae-heroes-of-divinity\/3030-71782\/"
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-60940\/?filter=image_tag%3APAX+West+2017",
+          "name": "PAX West 2017",
+          "total": 2
         },
         {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71288\/",
-            "date_added": "2018-12-06 15:56:58",
-            "date_last_updated": "2018-12-08 11:55:33",
-            "deck": "Beat Champion is a VR rhythm game",
-            "description": null,
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-71288",
-            "id": 71288,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067739-twitch_art.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067739-twitch_art.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067739-twitch_art.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067739-twitch_art.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067739-twitch_art.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067739-twitch_art.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067739-twitch_art.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067739-twitch_art.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067739-twitch_art.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71288\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Beat Champion",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/beat-champion\/3030-71288\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72317\/",
-            "date_added": "2019-02-28 16:01:23",
-            "date_last_updated": "2019-03-02 06:44:49",
-            "deck": "Rust Racers 2D is a multiplayer melee brawler developed & published by Nethash AB.",
-            "description": "<p>Rust Racers 2D is a light-hearted melee brawler based around hauling ass across structurally unsound platforms pushing and smashing other players off the grid.<\/p><p>The first iteration of Rust Racers was a modification for the popular sandbox game Garry's Mod in 2016.<\/p>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-72317",
-            "id": 72317,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3084081-rr2d%20facebook%20banner.jpg",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3084081-rr2d%20facebook%20banner.jpg",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3084081-rr2d%20facebook%20banner.jpg",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3084081-rr2d%20facebook%20banner.jpg",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3084081-rr2d%20facebook%20banner.jpg",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3084081-rr2d%20facebook%20banner.jpg",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3084081-rr2d%20facebook%20banner.jpg",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3084081-rr2d%20facebook%20banner.jpg",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3084081-rr2d%20facebook%20banner.jpg",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72317\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Rust Racers 2D",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/rust-racers-2d\/3030-72317\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-45441\/",
-            "date_added": "2014-02-17 04:46:40",
-            "date_last_updated": "2019-03-03 19:20:15",
-            "deck": "Intruder is a Squad-Based First-Person Stealth Shooter with deadly gunplay, interactive environments, and spatial audio.",
-            "description": "<h2>Overview<\/h2><p><strong>Intruder<\/strong> is a stealth-orientated multi-player first-person shooter for the PC. It has a focus on in-game communication between players, real-world tactics, and team cooperation.<\/p><p>It is currently in Early Access and can be purchased from the company's website.<\/p><p>Currently the game operates on dedicated servers which are hosted by the game's developers. Private servers are not available as of today's build.<\/p><h2>Communication<\/h2><p>Part of Intruder's core gameplay is based around in-game communication between players. Each player is given a radio which can be used to communicate with other members on their team. They can also chat in close-quarters using the game's spatial voice chat. Dead players are unable to communicate except with other dead players.<\/p><p> <\/p><h4>Spatial Voice Chat<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png\" data-ref-id=\"1300-2694478\"><img alt=\"The voice intensity bar turns green and moves up and down according to current voice intensity (volume). \" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694478-voiceintensitybar2.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694478-voiceintensitybar2.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694478-voiceintensitybar2.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The voice intensity bar turns green and moves up and down according to current voice intensity (volume). <\/figcaption><\/figure><p>By default the player may simply speak into the microphone for nearby players to hear him. The voice is added to the environment of the game to create a realistic communication experience. This means that the enemy team may also be able to hear you if they are close enough. The game also senses when you are speaking loud or quietly and will adjust the distance that your voice travels based on this (this can be viewed with a bar on the left side of the hud while talking).<\/p><p> <\/p><h4>Radio Communication<\/h4><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png\" data-ref-id=\"1300-2694480\"><img alt=\"The hand radio creates tension if an enemy is near and the player needs to notify his teammates.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694480-intruderradio1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694480-intruderradio1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694480-intruderradio1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/a><figcaption>The hand radio creates tension if an enemy is near and the player needs to notify his teammates.<\/figcaption><\/figure><p>When a player is out of range of their teammates, they may take out a hand radio and use it to communicate with teammates Just like a real radio, the player must hold down the button (with left-click) to speak and then let go to hear a reply. The other teammates will hear the player's voice (with added radio static effects) whether they have their radio out or not, but must in-turn switch to their radio in order to reply. This can increase the tension as the player needs to put away their weapon temporarily when the radio is out. When talking into a radio, the spatial voice chat is still in effect. This means that enemies might hear the player while talking into the radio if the enemy is close by.<\/p><h2>Objective<\/h2><p>The objective of Intruder is different depending on the team you choose to play on. On each map (currently: 2) there are two briefcases which must be defended by the guards. The intruders must kill all of the guards or reach the suitcase and extract it safely to one of two extraction zones. The guards must kill all intruders in order to win the round. Currently there is no time limit for the intruders to take the package(s).<\/p><p>Intruder has only two maps at the moment, and the most played and furthest along in development is the 'Riverside' map. This map features 4 variations. A day map, a night map, and 2 alternate spawns for the intelligence briefcases and teams. In order to switch maps in-game you must join that map's corresponding server on the master server list. Maps currently do not change by themselves.<\/p><p> <\/p><h2>Combat, Physics and Gameplay Quirks<\/h2><p>Intruder has a large array of weapons and gadgets for the player to choose from. Both the guards and intruders currently start with the same loadout at the beginning of each round, and there are a select-few weapons and items hidden around the map for players to pickup.<\/p><h3><ins>Opening Doors<\/ins><\/h3><figure data-align=\"right\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png\" data-ref-id=\"1300-2694490\"><img alt=\"The SMG is normally the choice of the guard\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\"><noscript><img alt=\"The SMG is normally the choice of the guard\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694490-intruder_assaultrifle.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694490-intruder_assaultrifle.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694490-intruder_assaultrifle.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>The SMG is normally the choice of the guard<\/figcaption><\/figure><p>Intruder's system for opening doors involves using the mouse-wheel while hovering over a door and scrolling to open. Doors can be opened fairly quickly by scrolling quickly, but this also allows players to scroll slowly so they can peek through the cracks of the door or avoid being heard and seen.<\/p><p>At the beginning of each round random doors around the level will be locked. This requires a player to use a lock-pick to open the door, which is one of the gadgets given to all players at the beginning of the game.<\/p><h3><ins>Balance, Energy, and HP<\/ins><\/h3><p>Intruder features a unique system for combat which utilizes three bars that the player can see on the bottom left of his screen.<\/p><p>The 'Balance' bar drains with movement and when firing a gun or being knocked down. The lower the balance, the easier it is to be knocked down by various forces, most commonly a gunshot or explosion. When knocked down the player goes into a ragdoll for a few seconds and must hit the jump key to get back up. The player may also, quite humorously, 'trip' over knee-high objects and go into a ragdoll as well. This normally occurs when trying to jump over a railing. If the player were to trip and then hit the floor with his head, that player most likely will die. Hitting any object, while in ragdoll, will cause damage to the player depending on the force of the impact.<\/p><p>The Energy bar ties into the player's Balance bar by draining when running too much, firing a gun too often, or jumping long distances. This bar can slow the player down but isn't as noticeable as a drained Balance or HP bar.<\/p><p>The HP bar simply shows the player's remaining health points. It's also an indicator of whether or not the player may be bleeding, which leaves blood stains on the map and could accidentally reveal their location.<\/p><h3><ins>Weapons<\/ins><\/h3><p>Every player starts with these two weapons and are able to use both.<\/p><h4>The SMG<\/h4><p>The primary weapon. Capable of 3 firing modes, semi-automatic, 3-round bursts, fully-automatic. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. The preferred weapon for Guards. <\/p><h4>The Pistol<\/h4><p>The secondary weapon. Suppressed and efficient, shots can only be heard in a close proximity. The preferred weapon for Intruders. <\/p><p> <\/p><h3><ins>Gadgets<\/ins><\/h3><p>Each player starts with a select-few gadgets. These include a radio (see communication section), a camera arm, decoy placement, smoke grenade, confusion grenade, frag grenade, motion detector, small sticky bomb and a lock-pick.<\/p><h4>Camera Stick<\/h4><figure data-align=\"left\" data-size=\"medium\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\" data-ratio=\"0.5625\" data-width=\"1280\" data-embed-type=\"image\" style=\"width: 1280px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png\" data-ref-id=\"1300-2694498\"><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\" class=\"js-lazy-load-image\" data-src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" data-srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\"><noscript><img alt=\"Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.\" src=\"https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg\" srcset=\"https:\/\/static.giantbomb.com\/uploads\/original\/21\/216067\/2694498-intruder_cameraarm1.png 1280w, https:\/\/static.giantbomb.com\/uploads\/scale_super\/21\/216067\/2694498-intruder_cameraarm1.jpg 960w, https:\/\/static.giantbomb.com\/uploads\/scale_medium\/21\/216067\/2694498-intruder_cameraarm1.jpg 480w\" sizes=\"(max-width: 480px) 100vw, 480px\" data-width=\"480\"><\/noscript><\/a><figcaption>Slightly cracking doors and sticking the camera stick in is a useful way to clear a room without huge risk.<\/figcaption><\/figure><p>The camera stick is a semi-long pole with a camera on the end that can be used to check around corners, inside doors, or in small cracks. It creates a Picture-in-Picture in the top right corner of the screen which shows the camera's current view. Players mostly use this device to check for enemies around a corner without risking being shot or seen. Currently, other players do not see the camera fixture on the end of the pole which allows it to be concealed if used correctly.<\/p><h4>Decoy Placement<\/h4><p>The decoy placement can be used to deploy a cardboard cut-out of an intruder or guard (depending on player's current team) which can trick enemy players into shooting at it. It appears in-game as a standing player with the sniper rifle in a firing position.<\/p><h4>Grenades<\/h4><p>The smoke grenade creates a cloud of smoke which can conceal a semi-large area or offer a distraction. Players can not see while inside of the smoke and players outside of the smoke can not see into it. The gas grenade creates a small cloud of mist which, if walked into by an enemy player, blurs the player's screen and inverts his looking controls in order to throw off their aim. Leaving the area of the grenade will cause the effects to subside after a short period of time. The concussion grenade creates an explosion which can kill or knock a player down.<\/p><h4>Motion Detector<\/h4><p>The motion detector can be placed on a wall, ceiling or floor and will beep loudly for the player that set it if another player walks in front of it. Currently only players can set off the motion detector, which means opening doors or falling objects will not. Each player starts with three motion detectors and there is no indication for which motion detector is going off, so it is advised you place them all around the same area or you may be confused. It is also worth noting that both friendly and enemy players can set off your motion detector.<\/p><h4>Remote Charge<\/h4><p>The Remote Charge can be placed on walls or floors. Each player has 4 remote charges which can all be detonated simultaneously by right-clicking with the remote charge or camera stick equipped. The remote charges do not do much damage, but can be used to throw a player off balance or even across a room. Players will often place remote charges on one side of the map and then detonate them later as a decoy. They are rarely used to kill players due to their low amount of damage.<\/p><h4>Lock-pick<\/h4><p>The lock-pick is used to pick the locks on locked doors. Left-clicking on a locked door will open a small window with a view of the lock-keys which you must line up in order to unlock the door. This typically takes the average player around 5 to 15 seconds to complete, which can be an opportune time for an enemy to strike. Doors which are locked are random and usually affect a small percentage of doors each round. Doors which have items behind them or briefcases tend to lock the most often.<\/p><h3><ins>Pick-ups<\/ins><\/h3><p>There are items that players have to look around the map to use. The most useful pick-up is the sniper rifle.<\/p><h4>Sniper<\/h4><p>A weapon able to be picked up. Equipped with a scope. Loud and unsuppressed, shots can be heard across the entire map and have visible tracers. Deals hefty damage and knocks over upright targets.<\/p><h4>Beanbag Shotgun<\/h4><p>A weapon able to be picked up. Shoots non-lethal beanbags that knock over targets and deal minimal damage.<\/p><h4>Binoculars<\/h4><p>A tool used to spot enemies at a distance.<\/p><h4>Riot Shield<\/h4><p>Capable of deflecting bullets. Cannot be used while prone.<\/p><h4>Red Dot Sights<\/h4><p>An attachment for the SMG, useful for a wider view while aiming down sights.<\/p>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-45441",
-            "id": 45441,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2601922-2601921-1322350963-intru.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2601922-2601921-1322350963-intru.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2601922-2601921-1322350963-intru.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2601922-2601921-1322350963-intru.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2601922-2601921-1322350963-intru.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2601922-2601921-1322350963-intru.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2601922-2601921-1322350963-intru.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2601922-2601921-1322350963-intru.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2601922-2601921-1322350963-intru.png",
-                "image_tags": null
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 12
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AGameplay",
-                    "name": "Gameplay",
-                    "total": 10
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-45441\/?filter=image_tag%3AStealth",
-                    "name": "Stealth",
-                    "total": 10
-                }
-            ],
-            "name": "Intruder",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
-                    "id": 17,
-                    "name": "Mac",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
-                    "abbreviation": "MAC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/intruder\/3030-45441\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-48025\/",
-            "date_added": "2014-10-09 16:47:16",
-            "date_last_updated": "2018-11-22 12:56:55",
-            "deck": "Due Process is a tactical shooter in the vein of SWAT and Rainbow Six.",
-            "description": null,
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-48025",
-            "id": 48025,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2690424-bluelogo.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2690424-bluelogo.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2690424-bluelogo.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2690424-bluelogo.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2690424-bluelogo.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2690424-bluelogo.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2690424-bluelogo.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2690424-bluelogo.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2690424-bluelogo.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 10
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+East+2018",
-                    "name": "PAX East 2018",
-                    "total": 2
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+Prime+2014",
-                    "name": "PAX Prime 2014",
-                    "total": 2
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+Prime+2015",
-                    "name": "PAX Prime 2015",
-                    "total": 2
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-48025\/?filter=image_tag%3APAX+West+2018",
-                    "name": "PAX West 2018",
-                    "total": 2
-                }
-            ],
-            "name": "Due Process",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
-                    "id": 17,
-                    "name": "Mac",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
-                    "abbreviation": "MAC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/due-process\/3030-48025\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-70099\/",
-            "date_added": "2018-08-28 21:24:48",
-            "date_last_updated": "2019-03-04 14:30:53",
-            "deck": "Multiplayer puzzle game",
-            "description": null,
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-70099",
-            "id": 70099,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3081867-box_ts.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3081867-box_ts.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3081867-box_ts.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3081867-box_ts.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3081867-box_ts.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3081867-box_ts.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3081867-box_ts.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3081867-box_ts.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3081867-box_ts.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70099\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 5
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70099\/?filter=image_tag%3APAX+West+2018",
-                    "name": "PAX West 2018",
-                    "total": 3
-                }
-            ],
-            "name": "Treasure Stack",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
-                    "id": 145,
-                    "name": "Xbox One",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
-                    "abbreviation": "XONE"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
-                    "id": 157,
-                    "name": "Nintendo Switch",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
-                    "abbreviation": "NSW"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/treasure-stack\/3030-70099\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-70626\/",
-            "date_added": "2018-10-14 13:12:52",
-            "date_last_updated": "2018-10-14 13:16:35",
-            "deck": null,
-            "description": null,
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-70626",
-            "id": 70626,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3055795-fe19.jpg",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3055795-fe19.jpg",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3055795-fe19.jpg",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3055795-fe19.jpg",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3055795-fe19.jpg",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3055795-fe19.jpg",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3055795-fe19.jpg",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3055795-fe19.jpg",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3055795-fe19.jpg",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70626\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Farm Expert 2019",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
-                    "id": 157,
-                    "name": "Nintendo Switch",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
-                    "abbreviation": "NSW"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/farm-expert-2019\/3030-70626\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-66803\/",
-            "date_added": "2018-03-03 08:56:18",
-            "date_last_updated": "2019-03-04 14:32:08",
-            "deck": "Tardy",
-            "description": "<p>This is a quest about a bone head who suddenly finds himself in the space, amidst dozens of schizophrenic devices, in the middle of the war, with no crew, special skills and no idea how to deal with all these.<\/p>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-66803",
-            "id": 66803,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3003142-main_capsule_1.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3003142-main_capsule_1.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3003142-main_capsule_1.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3003142-main_capsule_1.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3003142-main_capsule_1.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3003142-main_capsule_1.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3003142-main_capsule_1.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3003142-main_capsule_1.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3003142-main_capsule_1.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-
-            ],
-            "name": "Tardy",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                },
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
-                    "id": 157,
-                    "name": "Nintendo Switch",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
-                    "abbreviation": "NSW"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/tardy\/3030-66803\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-72185\/",
-            "date_added": "2019-02-15 18:02:47",
-            "date_last_updated": "2019-03-04 14:35:19",
-            "deck": "Klondike Solitaire for Nintendo Switch is fashionable way to spend some time relaxing. Then everybody is clear on the rules - to build stacks of cards in descending order and alternating color. Perfect game to escape from hectic daily routine.",
-            "description": null,
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-72185",
-            "id": 72185,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3080963-horizontalheaderimage.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3080963-horizontalheaderimage.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3080963-horizontalheaderimage.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3080963-horizontalheaderimage.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3080963-horizontalheaderimage.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3080963-horizontalheaderimage.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3080963-horizontalheaderimage.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3080963-horizontalheaderimage.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3080963-horizontalheaderimage.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-72185\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Klondike Solitaire ",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
-                    "id": 157,
-                    "name": "Nintendo Switch",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
-                    "abbreviation": "NSW"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/klondike-solitaire\/3030-72185\/"
-        },
-        {
-            "aliases": null,
-            "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71418\/",
-            "date_added": "2018-12-18 18:34:23",
-            "date_last_updated": "2019-03-02 18:16:29",
-            "deck": "Control a settlement of humans and guide them through 10,000 years of human prehistory.",
-            "description": "<h2>Overview<\/h2><p>Dawn of Man is a survival \/ city builder that has you starting out establishing a small Stone Age village. Players must hunt for animals, gather resources, and prepare stockpiles to survive the hostile winters. As the settlement expands, discover new technologies that will help support larger populations and defend against more frequent raider attacks as you advance toward the Iron Age.<\/p>",
-            "expected_release_day": null,
-            "expected_release_month": null,
-            "expected_release_quarter": null,
-            "expected_release_year": null,
-            "guid": "3030-71418",
-            "id": 71418,
-            "image": {
-                "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3069933-dom_cover.png",
-                "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3069933-dom_cover.png",
-                "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3069933-dom_cover.png",
-                "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3069933-dom_cover.png",
-                "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3069933-dom_cover.png",
-                "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3069933-dom_cover.png",
-                "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3069933-dom_cover.png",
-                "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3069933-dom_cover.png",
-                "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3069933-dom_cover.png",
-                "image_tags": "All Images"
-            },
-            "image_tags": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71418\/?filter=image_tag%3AAll+Images",
-                    "name": "All Images",
-                    "total": 1
-                }
-            ],
-            "name": "Dawn of Man",
-            "number_of_user_reviews": 0,
-            "original_game_rating": null,
-            "original_release_date": "2019-03-01 00:00:00",
-            "platforms": [
-                {
-                    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
-                    "id": 94,
-                    "name": "PC",
-                    "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
-                    "abbreviation": "PC"
-                }
-            ],
-            "site_detail_url": "https:\/\/www.giantbomb.com\/dawn-of-man\/3030-71418\/"
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-60940\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 3
         }
-    ],
-    "version": "1.0"
+      ],
+      "name": "Biomutant",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+          "id": 145,
+          "name": "Xbox One",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+          "abbreviation": "XONE"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/biomutant\/3030-60940\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-69395\/",
+      "date_added": "2018-07-14 14:45:16",
+      "date_last_updated": "2019-11-18 14:32:20",
+      "deck": "Collapsus is a block breaking puzzle game with a gravity-defying twist",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-69395",
+      "id": 69395,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3035884-12085128_10204994027035916_14769.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3035884-12085128_10204994027035916_14769.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3035884-12085128_10204994027035916_14769.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3035884-12085128_10204994027035916_14769.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3035884-12085128_10204994027035916_14769.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3035884-12085128_10204994027035916_14769.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3035884-12085128_10204994027035916_14769.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3035884-12085128_10204994027035916_14769.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3035884-12085128_10204994027035916_14769.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-69395\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 3
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-69395\/?filter=image_tag%3APAX+East+2018",
+          "name": "PAX East 2018",
+          "total": 1
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-69395\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 1
+        }
+      ],
+      "name": "Collapsus",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+          "id": 17,
+          "name": "Mac",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+          "abbreviation": "MAC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-96\/",
+          "id": 96,
+          "name": "iPhone",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/iphone\/3045-96\/",
+          "abbreviation": "IPHN"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-121\/",
+          "id": 121,
+          "name": "iPad",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/ipad\/3045-121\/",
+          "abbreviation": "IPAD"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-123\/",
+          "id": 123,
+          "name": "Android",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/android\/3045-123\/",
+          "abbreviation": "ANDR"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-129\/",
+          "id": 129,
+          "name": "PlayStation Vita",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-vita\/3045-129\/",
+          "abbreviation": "VITA"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+          "id": 145,
+          "name": "Xbox One",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+          "abbreviation": "XONE"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-152\/",
+          "id": 152,
+          "name": "Linux",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/linux\/3045-152\/",
+          "abbreviation": "LIN"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-156\/",
+          "id": 156,
+          "name": "New Nintendo 3DS",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/new-nintendo-3ds\/3045-156\/",
+          "abbreviation": "N3DS"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/collapsus\/3030-69395\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71448\/",
+      "date_added": "2018-12-20 17:50:35",
+      "date_last_updated": "2018-12-21 10:06:21",
+      "deck": "Kingshunt is a large scale multiplayer title. 3rd person action with dynamic Tower Defense and Real-Time Strategy elements. Players take part in 5v5 objective-based matches with dozens of AI units set in a gorgeous medieval fantasy world. Utilizing Improbable's SpatialOS platform, dozens of these arena battles all take place within the same physical map, leading up to 100 players and 1,000s of AIs in total per server.  ",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71448",
+      "id": 71448,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3026329-gb_default-16_9.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3026329-gb_default-16_9.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3026329-gb_default-16_9.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3026329-gb_default-16_9.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3026329-gb_default-16_9.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3026329-gb_default-16_9.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3026329-gb_default-16_9.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3026329-gb_default-16_9.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3026329-gb_default-16_9.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71448\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 5
+        }
+      ],
+      "name": "Kingshunt",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/kingshunt\/3030-71448\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-70939\/",
+      "date_added": "2018-11-08 10:52:09",
+      "date_last_updated": "2019-04-26 06:47:35",
+      "deck": "An English compilation containing both the Sharin no Kuni visual novel and its fandisc content combined into one release for the PC and PlayStation Vita.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-70939",
+      "id": 70939,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3062011-sharin-no-kuni-the-girl-among-the-sunflowers-ps-vita-20161212.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70939\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 7
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-70939\/?filter=image_tag%3AScreenshots",
+          "name": "Screenshots",
+          "total": 5
+        }
+      ],
+      "name": "Sharin no Kuni: The Girl Among the Sunflowers",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-129\/",
+          "id": 129,
+          "name": "PlayStation Vita",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-vita\/3045-129\/",
+          "abbreviation": "VITA"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-143\/",
+          "id": 143,
+          "name": "PlayStation Network (Vita)",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-network-vita\/3045-143\/",
+          "abbreviation": "PSNV"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/sharin-no-kuni-the-girl-among-the-sunflowers\/3030-70939\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-73013\/",
+      "date_added": "2019-04-19 15:39:09",
+      "date_last_updated": "2019-11-11 14:49:22",
+      "deck": "Beyond Critical is a sci-fi party fighting game, with abilities and various game-modes. Play with friends!",
+      "description": "<p> <\/p><h2>Overview<\/h2><p>Beyond Critical is a sci-fi versus game where players use unique abilities to battle for control over a super massive black hole.<\/p><p>In this game, exploding is the goal, not the end. Players in combat will choose to either grow until they explode or to sacrifice their mass for kinetic projectiles. Players must bend space-time itself in order to win in this unique and chaotic brawler!<\/p><h2>Main Features<\/h2><ul><li><p>2 or 4 player versus game play.<\/p><\/li><li><p>Play as a team or in a free-for-all.<\/p><\/li><li><p>4 unique ability classes.<\/p><\/li><li><p>6 different color options for customization and team selection.<\/p><\/li><li><p>Beautiful visual effects are complimented by reactive sound design.<\/p><\/li><li><p>Seamless looping sound track with progressive stages.<\/p><\/li><li><p>Full Controller and TV support.<\/p><\/li><li><p>Special ultra-wide monitor support that increases the play space.<\/p><\/li><li><p>Customizable match configurations for varied play and settings.<\/p><\/li><li><p>Supports reactive RGB lighting on the PS4 DualShock 4 controller.<\/p><\/li><\/ul><h2>Ability Classes<\/h2><p><strong>Photon<\/strong><\/p><p>Lots and lots of lasers...Play as Photon and fire massive laser beams that stun enemies right in their tracks.<\/p><p><strong>Electron<\/strong><\/p><p>Control time itself...Play as Electron and slow down time for your adversaries and take the lead.<\/p><p><strong>Neutrino<\/strong><\/p><p>Speed is underrated...Play as Neutrino and fuel high reaction speeds with the ability to teleport in a flash.<\/p><p><strong>Gravitron<\/strong><\/p><p>No obstacle is too big...Play as Gravitron and push everyone around with massive bursts of energy.<\/p><h2>Details<\/h2><p>Players will battle for control over a super massive black hole. The goal is to stay on the central black hole to collect mass from it while strategically denying opponents access to it. Players must keep opponents at a distance just long enough to reach critical mass and explode, scoring a point for their team. Players have to be careful while in combat, as firing kinetic projectiles sacrifices large quantities of mass in return for larger projectiles. Reaching critical mass is the only way to score, so players should keep an eye out for micro-black holes that will give them a quick boost. The player or team with the most points at the end of the match is declared the winner.<\/p><h2>Planned Features<\/h2><ul><li><p>Free DLC version 2.0 that includes an extended soundtrack, fire-mode selection, new abilities, custom game-modes, local AI, and cross-platform multiplayer.<\/p><\/li><\/ul><h2>History<\/h2><p>Beyond Critical was originally called Singularity and was an award winning game jam title from 2017. The original game was made by Carlos Hernandez and Dalton Fox. Beyond Critical was renowned at both Shawnee State University and the OCULUS Festival. The original project was based off an abstraction of the local game jam theme \"your player wants to die\". The team decided to abstract the theme into something more unique and less senseless.<\/p><p>The project was continuously in an unfinished state for a couple of years following its original game jam demo. The game's original Python source code is available on GitHub. After some attempted reboots the project was finally brought to fruition through Dalton Fox's senior project at Shawnee State University.<\/p><h2>Links<\/h2><ul><li><a href=\"https:\/\/store.steampowered.com\/app\/960630\/Beyond_Critical\/\" data-target=\"true\" target=\"_blank\" rel=\"noopener\">Steam Page<\/a><\/li><li><a href=\"https:\/\/playcritical.com\" data-target=\"true\" target=\"_blank\" rel=\"noopener\">https:\/\/playcritical.com<\/a><\/li><li><a href=\"https:\/\/github.com\/DaltonFox\/Singularity\" data-target=\"true\" target=\"_blank\" rel=\"noopener\">Original source code<\/a><\/li><\/ul>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": null,
+      "guid": "3030-73013",
+      "id": 73013,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3094196-purplevsbluestill.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3094196-purplevsbluestill.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3094196-purplevsbluestill.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3094196-purplevsbluestill.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3094196-purplevsbluestill.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3094196-purplevsbluestill.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3094196-purplevsbluestill.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3094196-purplevsbluestill.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3094196-purplevsbluestill.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-73013\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 13
+        }
+      ],
+      "name": "Beyond Critical",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": "2019-12-01 00:00:00",
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+          "id": 145,
+          "name": "Xbox One",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+          "abbreviation": "XONE"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/beyond-critical\/3030-73013\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-64823\/",
+      "date_added": "2018-01-09 08:33:12",
+      "date_last_updated": "2019-03-09 16:44:19",
+      "deck": "An adventure game for PC.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-64823",
+      "id": 64823,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2990574-wytchwood.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2990574-wytchwood.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2990574-wytchwood.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2990574-wytchwood.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2990574-wytchwood.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2990574-wytchwood.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2990574-wytchwood.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2990574-wytchwood.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2990574-wytchwood.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-64823\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 3
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-64823\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 1
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-64823\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 1
+        }
+      ],
+      "name": "Wytchwood",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/wytchwood\/3030-64823\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71235\/",
+      "date_added": "2018-12-02 18:39:07",
+      "date_last_updated": "2019-11-26 12:11:43",
+      "deck": "3rd Eye is a 2D horror game for Nintendo Switch.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71235",
+      "id": 71235,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3066907-screen%20shot%202018-12-02%20at%209.37.08%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71235\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 3
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71235\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 2
+        }
+      ],
+      "name": "3rd Eye",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/3rd-eye\/3030-71235\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71237\/",
+      "date_added": "2018-12-02 19:05:15",
+      "date_last_updated": "2018-12-02 19:15:29",
+      "deck": "Giraffe and Annika is an action-adventure game starring an amnesic cat girl exploring an island of mysteries.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71237",
+      "id": 71237,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3066911-screen%20shot%202018-12-02%20at%2010.04.46%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71237\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 4
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71237\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 2
+        }
+      ],
+      "name": "Giraffe and Annika",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/giraffe-and-annika\/3030-71237\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71238\/",
+      "date_added": "2018-12-02 19:27:05",
+      "date_last_updated": "2018-12-02 19:28:53",
+      "deck": "Olija tells the tale of a harpoon-wielding knight attempting to escape a dangerous archipelago. ",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71238",
+      "id": 71238,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3066916-screen%20shot%202018-12-02%20at%2010.23.39%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71238\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 4
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71238\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 2
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71238\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 1
+        }
+      ],
+      "name": "Olija",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/olija\/3030-71238\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71241\/",
+      "date_added": "2018-12-03 14:58:14",
+      "date_last_updated": "2018-12-03 15:03:39",
+      "deck": "Swords of Gargantua is a multiplayer role-playing game built for VR.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71241",
+      "id": 71241,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3066991-header%20%281%29.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3066991-header%20%281%29.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3066991-header%20%281%29.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3066991-header%20%281%29.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3066991-header%20%281%29.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3066991-header%20%281%29.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3066991-header%20%281%29.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3066991-header%20%281%29.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3066991-header%20%281%29.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71241\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 3
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71241\/?filter=image_tag%3APAX+West+2018",
+          "name": "PAX West 2018",
+          "total": 2
+        }
+      ],
+      "name": "Swords of Gargantua",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/swords-of-gargantua\/3030-71241\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-64843\/",
+      "date_added": "2018-01-09 13:15:17",
+      "date_last_updated": "2019-06-26 21:30:58",
+      "deck": "An adventure\/simulation game by Meowza Games, which, according to the developer, involves \"crafting crafts, eating eats, and catting cats.\"",
+      "description": "<h2>Overview<\/h2><p>Indie single-player adventure game developed by Meowza Games (aka Brent and Brandi Kobayashi). Will be available for PC and Mac through <a href=\"\/humble-bundle\/3015-6612\/\" data-ref-id=\"3015-6612\">Humble Bundle<\/a> and <a href=\"\/steam\/3015-718\/\" data-ref-id=\"3015-718\">Steam<\/a> in 2019, with the possibility of being released on other platforms in the future.<\/p><h2>Gameplay<\/h2><p>The player-character is a young girl named Mineko who arrives at a Japanese-themed island overrun by cats. Press releases and teasers on the developers' Twitter feed indicate that gameplay will be an open-ended simulation in the genre of <a href=\"\/animal-crossing\/3025-32\/\" data-ref-id=\"3025-32\">Animal Crossing<\/a> or <a href=\"\/harvest-moon\/3025-301\/\" data-ref-id=\"3025-301\">Harvest Moon<\/a>: The player will be able to complete quests, gather and craft resources, interact with townspeople (NPCs), and sell\/buy items in the weekly Night Market.<\/p><h2>Creators<\/h2><p>Brent Kobayashi has created artwork for <a href=\"\/tiny-speck\/3010-7665\/\" data-ref-id=\"3010-7665\">Tiny Speck<\/a>'s <a href=\"\/glitch\/3030-35886\/\" data-ref-id=\"3030-35886\">Glitch<\/a> and multiple <a href=\"\/spry-fox\/3010-8230\/\" data-ref-id=\"3010-8230\">Spry Fox<\/a> games including <a href=\"\/road-not-taken\/3030-43784\/\" data-ref-id=\"3030-43784\">Road Not Taken<\/a> and <a href=\"\/alphabear\/3030-50334\/\" data-ref-id=\"3030-50334\">Alphabears.<ins> <\/ins><\/a><\/p><p>Brandi Kobayashi is an independent artist whose work can be seen on Etsy.<\/p><h2>External Links<\/h2><ul><li><a href=\"http:\/\/minekosnightmarket.com\/\" data-target=\"true\" data-nofollow=\"true\" target=\"_blank\" rel=\"noopener\">Mineko's Night Market official webpage<\/a><\/li><li>Brent Kobayashi's webpage: <a href=\"http:\/\/www.meowza.org\/\" data-target=\"true\" data-nofollow=\"true\" target=\"_blank\" rel=\"noopener\">meowza.org<\/a><\/li><li>Brandi Kobayashi's webpage: <a href=\"http:\/\/www.kukubee.com\" data-target=\"true\" data-nofollow=\"true\" target=\"_blank\" rel=\"noopener\">kukubee.com<\/a><\/li><\/ul>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-64843",
+      "id": 64843,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2990648-mineko%27s%20night%20market.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2990648-mineko%27s%20night%20market.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2990648-mineko%27s%20night%20market.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2990648-mineko%27s%20night%20market.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2990648-mineko%27s%20night%20market.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2990648-mineko%27s%20night%20market.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2990648-mineko%27s%20night%20market.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2990648-mineko%27s%20night%20market.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2990648-mineko%27s%20night%20market.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-64843\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "Mineko's Night Market",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+          "id": 17,
+          "name": "Mac",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+          "abbreviation": "MAC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/minekos-night-market\/3030-64843\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-55378\/",
+      "date_added": "2016-09-04 12:17:31",
+      "date_last_updated": "2019-11-21 07:43:47",
+      "deck": "Veterans Online is a Top-down, MOBA like shooter.",
+      "description": "<p>Veterans Online is a Free to Play, Online and Multiplayer, Top-down Shooter from the independent studio Nuked Cockroach. It can be played on PC and it is available on Steam. The game is a combination of tactical multiplayer battles. The game is fast-paced, that needs speed and accuracy.<\/p><p> <\/p><figure data-align=\"left\" data-size=\"small\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png\" data-ref-id=\"1300-2980966\" data-ratio=\"0.5625\" data-width=\"1920\" data-embed-type=\"image\" style=\"width: 1920px\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png\" data-ref-id=\"1300-2980966\"><img alt=\"No Caption Provided\" src=\"https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_small\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png\" srcset=\"https:\/\/giantbomb1.cbsistatic.com\/uploads\/original\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png 1920w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_super\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png 960w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_medium\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png 480w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_small\/32\/326665\/2980966-veterans%20online%202%20-%20copy.png 320w\" sizes=\"(max-width: 320px) 100vw, 320px\" data-width=\"320\"><\/a><\/figure><p>The game is about the war Veterans that are called again to war and service. As a player you control one of these Veterans and compete for the battlefield victory again.<\/p><p>The game has a variety of game mods: death matches, domination, capture the flag\u2026 and a unique mode that gathers both chaos, infinite shooting and tactical positioning to control objectives.<\/p><figure data-align=\"right\" data-size=\"small\" data-img-src=\"https:\/\/static.giantbomb.com\/uploads\/original\/32\/326665\/2882169-veterans-image.jpg\" data-ref-id=\"1300-2882169\" data-ratio=\"0.52447552447552\" data-width=\"1716\" data-embed-type=\"image\" style=\"width: 1716px\"><a class=\"fluid-height\" style=\"padding-bottom:52.4%\" href=\"https:\/\/static.giantbomb.com\/uploads\/original\/32\/326665\/2882169-veterans-image.jpg\" data-ref-id=\"1300-2882169\"><img alt=\"No Caption Provided\" src=\"https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_small\/32\/326665\/2882169-veterans-image.jpg\" srcset=\"https:\/\/giantbomb1.cbsistatic.com\/uploads\/original\/32\/326665\/2882169-veterans-image.jpg 1716w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_super\/32\/326665\/2882169-veterans-image.jpg 960w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_medium\/32\/326665\/2882169-veterans-image.jpg 480w, https:\/\/giantbomb1.cbsistatic.com\/uploads\/scale_small\/32\/326665\/2882169-veterans-image.jpg 320w\" sizes=\"(max-width: 320px) 100vw, 320px\" data-width=\"320\"><\/a><\/figure><p>It combines RPG and Arcade genres, and you can unlock abilities and upgrades which best suit the player play style as he progresses into Veterans Online' achievement system. Also, a customization system is available for the playable character with cosmetics that can be earned through in-game leveling or achievement.<\/p><p> <\/p><p> <\/p><p><strong>Features<\/strong><\/p><ul><li>Focus on tactics and teamwork, with a dynamic team-based player-vs-player.<\/li><li>Faction system to unlock special missions<\/li><li>Gear and abilities upgrades based on player level<\/li><li>Take pot-shots at other players<\/li><li>Tactical game play modes and different missions from flag capture, team matches and death matches<\/li><li>Customized game play to reward skilled and experienced players: e.g. performing a head shot can take time to master.<\/li><li>A Free to play game that is not pay-to-win.<\/li><\/ul>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": null,
+      "guid": "3030-55378",
+      "id": 55378,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2880760-logo-petit-360-wide.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2880760-logo-petit-360-wide.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2880760-logo-petit-360-wide.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2880760-logo-petit-360-wide.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2880760-logo-petit-360-wide.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2880760-logo-petit-360-wide.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2880760-logo-petit-360-wide.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2880760-logo-petit-360-wide.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2880760-logo-petit-360-wide.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-55378\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 13
+        }
+      ],
+      "name": "Veterans Online",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": "2019-12-01 00:00:00",
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/veterans-online\/3030-55378\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-68953\/",
+      "date_added": "2018-06-12 13:16:17",
+      "date_last_updated": "2018-12-17 16:12:29",
+      "deck": "Be the shark in this open-world RPG.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-68953",
+      "id": 68953,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3028284-screen%20shot%202018-06-12%20at%204.16.47%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-68953\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 2
+        }
+      ],
+      "name": "Maneater",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/maneater\/3030-68953\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71532\/",
+      "date_added": "2018-12-31 13:12:23",
+      "date_last_updated": "2018-12-31 13:23:52",
+      "deck": "Eternal Exodus",
+      "description": "<p>A single-player, monster-catching, Japanese-styled RPG that takes place in the afterlife.  Players can capture and fuse 150 different types of demons.<\/p>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71532",
+      "id": 71532,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3026329-gb_default-16_9.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3026329-gb_default-16_9.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3026329-gb_default-16_9.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3026329-gb_default-16_9.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3026329-gb_default-16_9.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3026329-gb_default-16_9.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3026329-gb_default-16_9.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3026329-gb_default-16_9.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3026329-gb_default-16_9.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71532\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 6
+        }
+      ],
+      "name": "Eternal Exodus",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/eternal-exodus\/3030-71532\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-46190\/",
+      "date_added": "2014-05-01 10:10:02",
+      "date_last_updated": "2019-04-26 07:59:59",
+      "deck": "As a 'foreign-exchange' human in an otherwise all-dolphin school, players must surreptitiously cheat off their classmates.",
+      "description": "<h2>Overview<\/h2><p>A game where the player controls a human in an underwater school full of <a href=\"\/dolphin\/3015-3049\/\" data-ref-id=\"3015-3049\">dolphins<\/a>. The game is set during a classroom test; to succeed, the player must sneakily peek at their classmates' answers while not being caught.<\/p><p>The game features Oculus Rift support and is set to be released via <a href=\"\/steam\/3015-718\/\" data-ref-id=\"3015-718\">Steam<\/a> for <a href=\"\/pc\/3045-94\/\" data-ref-id=\"3045-94\">PC<\/a>, <a href=\"\/mac\/3045-17\/\" data-ref-id=\"3045-17\">Mac<\/a>, and <a href=\"\/linux\/3045-152\/\" data-ref-id=\"3045-152\">Linux<\/a> in 2017.<\/p><h2>System Requirements<\/h2><h3>PC<\/h3><h4>Minimum<\/h4><ul><li><strong>OS:<\/strong> Windows XP<\/li><li><strong>Processor:<\/strong> 2Ghz<\/li><li><strong>Memory:<\/strong> 2 GB RAM<\/li><li><strong>Graphics:<\/strong> 512MB graphics card<\/li><li><strong>DirectX:<\/strong> Version 9.0c<\/li><li><strong>Hard Drive:<\/strong> 1 GB available space<\/li><li><strong>Sound Card:<\/strong> Any<\/li><\/ul><h3>Mac<\/h3><h4>Minimum<\/h4><ul><li><strong>OS:<\/strong> OSX 10.5 Leopard<\/li><li><strong>Processor:<\/strong> 2Ghz<\/li><li><strong>Memory:<\/strong> 2 GB RAM<\/li><li><strong>Graphics:<\/strong> 512MB graphics card<\/li><li><strong>Hard Drive:<\/strong> 1 GB available space<\/li><li><strong>Sound Card:<\/strong> Any<\/li><\/ul><h3>Linux<\/h3><h4>Minimum<\/h4><ul><li><strong>OS:<\/strong> Ubuntu 10<\/li><li><strong>Processor:<\/strong> 2Ghz<\/li><li><strong>Memory:<\/strong> 2 GB RAM<\/li><li><strong>Graphics:<\/strong> 512MB graphics card<\/li><li><strong>Hard Drive:<\/strong> 1 GB available space<\/li><li><strong>Sound Card:<\/strong> Any<\/li><\/ul>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-46190",
+      "id": 46190,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2761706-2331543206-capsu.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2761706-2331543206-capsu.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2761706-2331543206-capsu.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2761706-2331543206-capsu.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2761706-2331543206-capsu.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2761706-2331543206-capsu.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2761706-2331543206-capsu.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2761706-2331543206-capsu.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2761706-2331543206-capsu.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-46190\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 11
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-46190\/?filter=image_tag%3APAX+East+2014",
+          "name": "PAX East 2014",
+          "total": 2
+        }
+      ],
+      "name": "Classroom Aquatic",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+          "id": 17,
+          "name": "Mac",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+          "abbreviation": "MAC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-152\/",
+          "id": 152,
+          "name": "Linux",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/linux\/3045-152\/",
+          "abbreviation": "LIN"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/classroom-aquatic\/3030-46190\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71288\/",
+      "date_added": "2018-12-06 15:56:58",
+      "date_last_updated": "2019-07-26 15:38:51",
+      "deck": "Beat Champion is a VR rhythm game",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": null,
+      "guid": "3030-71288",
+      "id": 71288,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3117349-7405043783-heade.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3117349-7405043783-heade.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3117349-7405043783-heade.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3117349-7405043783-heade.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3117349-7405043783-heade.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3117349-7405043783-heade.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3117349-7405043783-heade.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3117349-7405043783-heade.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3117349-7405043783-heade.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71288\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 3
+        }
+      ],
+      "name": "Beat Champion",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": "2019-12-01 00:00:00",
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/beat-champion\/3030-71288\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71300\/",
+      "date_added": "2018-12-06 19:13:20",
+      "date_last_updated": "2018-12-06 19:16:16",
+      "deck": "The Last Campfire from Hello Games.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71300",
+      "id": 71300,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067830-screen%20shot%202018-12-06%20at%2010.14.31%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71300\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "The Last Campfire",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": null,
+      "site_detail_url": "https:\/\/www.giantbomb.com\/the-last-campfire\/3030-71300\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71303\/",
+      "date_added": "2018-12-06 19:41:28",
+      "date_last_updated": "2019-09-16 18:42:19",
+      "deck": "From Giant Squid, the creators of Abz\u00fb.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71303",
+      "id": 71303,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067832-screen%20shot%202018-12-06%20at%2010.45.24%20pm.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71303\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "The Pathless",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-96\/",
+          "id": 96,
+          "name": "iPhone",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/iphone\/3045-96\/",
+          "abbreviation": "IPHN"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/the-pathless\/3030-71303\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71311\/",
+      "date_added": "2018-12-08 11:34:20",
+      "date_last_updated": "2018-12-10 18:10:22",
+      "deck": "She Dreams Elsewhere",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71311",
+      "id": 71311,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3067952-gb.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3067952-gb.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3067952-gb.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3067952-gb.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3067952-gb.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3067952-gb.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3067952-gb.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3067952-gb.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3067952-gb.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71311\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "She Dreams Elsewhere",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/she-dreams-elsewhere\/3030-71311\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71321\/",
+      "date_added": "2018-12-10 09:54:42",
+      "date_last_updated": "2018-12-20 18:24:05",
+      "deck": ".",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71321",
+      "id": 71321,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3068386-fae%20t.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3068386-fae%20t.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3068386-fae%20t.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3068386-fae%20t.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3068386-fae%20t.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3068386-fae%20t.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3068386-fae%20t.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3068386-fae%20t.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3068386-fae%20t.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71321\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "Fae Tactics",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/fae-tactics\/3030-71321\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-71343\/",
+      "date_added": "2018-12-12 11:20:48",
+      "date_last_updated": "2019-10-22 05:37:19",
+      "deck": "Take the role of a six-year old boy, searching the Wild Wild West for his mother.",
+      "description": "<p><strong>El Hijo<\/strong> catapults the player in the mythical wild west setting of the 19th century. It's a nod to Sergio Leone and his spaghetti westerns, emulating their most popular characteristics like outlaw gangs and saloons, all the while playing on cunning, sarcasm, and irony. The star of the game is \"El Hijo\" himself, a six-year-old boy, left to his own devices after his mother drops him off at the monastery for safekeeping. Obviously, the monastic life is not enough for our adventurer, and he makes it his goal to sneak out and find his mother, who has incidentally disappeared in search of the bandits that burned down their home. Armed with nothing but a slingshot and a quick wit, the player will see the boy develop new tactics and help him sneak his way past monks, bandits, and other western baddies. The player will explore three different environments: the monastery, the desert, and the villain town.<\/p><p>El Hijo is a non-violent stealth game. It focuses on problem solving and puzzles. The further you proceed in the game, the more complex the combination of the two become.<\/p><p> <\/p>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-71343",
+      "id": 71343,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3068731-3659394241-PVgrCgdg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3068731-3659394241-PVgrCgdg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3068731-3659394241-PVgrCgdg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3068731-3659394241-PVgrCgdg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3068731-3659394241-PVgrCgdg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3068731-3659394241-PVgrCgdg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3068731-3659394241-PVgrCgdg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3068731-3659394241-PVgrCgdg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3068731-3659394241-PVgrCgdg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71343\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 16
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-71343\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 1
+        }
+      ],
+      "name": "El Hijo",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+          "id": 17,
+          "name": "Mac",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+          "abbreviation": "MAC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+          "id": 145,
+          "name": "Xbox One",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+          "abbreviation": "XONE"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+          "abbreviation": "PS4"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-157\/",
+          "id": 157,
+          "name": "Nintendo Switch",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/nintendo-switch\/3045-157\/",
+          "abbreviation": "NSW"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/el-hijo\/3030-71343\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-47305\/",
+      "date_added": "2014-08-06 07:33:37",
+      "date_last_updated": "2018-12-19 17:28:54",
+      "deck": "Nordic Games pulls a new Aquanox game from the depths of the sea. Debuts behind closed doors at gamescom 2014. It will feature an open underwater world with trade opportunities, heists and action-heavy battles. The campaign is said to have 4 player co-op.",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-47305",
+      "id": 47305,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3070362-header.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3070362-header.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3070362-header.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3070362-header.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3070362-header.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3070362-header.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3070362-header.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3070362-header.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3070362-header.jpg",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-47305\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 4
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-47305\/?filter=image_tag%3APAX+East+2019",
+          "name": "PAX East 2019",
+          "total": 1
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-47305\/?filter=image_tag%3APAX+West+2017",
+          "name": "PAX West 2017",
+          "total": 2
+        }
+      ],
+      "name": "Aquanox: Deep Descent",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/aquanox-deep-descent\/3030-47305\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-73705\/",
+      "date_added": "2019-06-04 18:52:54",
+      "date_last_updated": "2019-06-05 08:21:36",
+      "deck": "Adventure mixed with Hack\u2019n slash, Beat\u2019em Up, Puzzles and Mazes",
+      "description": null,
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": null,
+      "guid": "3030-73705",
+      "id": 73705,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/3105312-naritaboy-new-logo.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/3105312-naritaboy-new-logo.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/3105312-naritaboy-new-logo.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/3105312-naritaboy-new-logo.png",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/3105312-naritaboy-new-logo.png",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/3105312-naritaboy-new-logo.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/3105312-naritaboy-new-logo.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/3105312-naritaboy-new-logo.png",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/3105312-naritaboy-new-logo.png",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-73705\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 1
+        }
+      ],
+      "name": "Narita Boy",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": "2019-12-01 00:00:00",
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-17\/",
+          "id": 17,
+          "name": "Mac",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/mac\/3045-17\/",
+          "abbreviation": "MAC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        },
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-152\/",
+          "id": 152,
+          "name": "Linux",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/linux\/3045-152\/",
+          "abbreviation": "LIN"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/narita-boy\/3030-73705\/"
+    },
+    {
+      "aliases": null,
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-55017\/",
+      "date_added": "2016-08-11 20:09:09",
+      "date_last_updated": "2019-05-09 21:42:30",
+      "deck": "My Summer Car - Part Car Mechanic Simulator, part basic needs simulator and part mid 90s Finland lifestyle simulator.",
+      "description": "<h2>Early Access<\/h2><p>My Summer Car released via Steam Early Access on October 24, 2016.<\/p><p> <\/p><h2> <\/h2><h2>PC System Requirements<\/h2><table data-max-width=\"true\"><thead><tr><th scope=\"col\"> <\/th><th scope=\"col\">Minimum:<\/th><th scope=\"col\"> <\/th><th scope=\"col\"><strong>Recommended<\/strong>:<\/th><\/tr><\/thead><tbody><tr><td><strong>OS:<\/strong><\/td><td>64bit versions of Windows 7, Windows 8, Windows 10<\/td><td><strong>OS:<\/strong><\/td><td>64bit versions of Windows 7, Windows 8, Windows 10<\/td><\/tr><tr><td><strong>Processor:<\/strong><\/td><td>3+ GHZ dual core processor<\/td><td><strong>Processor:<\/strong><\/td><td>Intel Core i5 or AMD equivalent<\/td><\/tr><tr><td><strong>Memory:<\/strong><\/td><td>4 GB RAM<\/td><td><strong>Memory:<\/strong><\/td><td>4 GB RAM<\/td><\/tr><tr><td><strong>Graphics:<\/strong><\/td><td>Nvidia GTX 650 TI or AMD equivalent<\/td><td><strong>Graphics:<\/strong><\/td><td>Nvidia GTX 960 or AMD equivalent<\/td><\/tr><tr><td><strong>DirectX<\/strong>:<\/td><td>Version 9.0<\/td><td><strong>DirectX<\/strong>:<\/td><td>Version 9.0<\/td><\/tr><tr><td><strong>Storage:<\/strong><\/td><td>1 GB available space<\/td><td><strong>Storage:<\/strong><\/td><td>1 GB available space<\/td><\/tr><tr><td><strong>Sound Card:<\/strong><\/td><td>DirectX Compatible Sound card<\/td><td><strong>Sound Card:<\/strong><\/td><td>DirectX Compatible Sound card<\/td><\/tr><\/tbody><\/table><h2>Early Access Change Log<\/h2><h3>5-09-2019<\/h3><p>Warnings for existing saves before this update:<\/p><ul><li>WARNING: Vehicle key-data and BBS telephone number has been reset!<\/li><li>WARNING: Your engine part wear values has been reset!<\/li><\/ul><h3>New features:<\/h3><ul><li>Added game Ending and related story content<\/li><li>Added Uncle. (Uncle now owns the van and the sewage truck. Player can borrow the vehicles, by getting the keys from Uncle, and can eventually obtain full ownership)<\/li><li>Added new job where you can share store adverts for Teimo (activates every Friday)<\/li><li>Added player weight simulation, starting at 79kg (Weight now also affects how much you can drink alcohol)<\/li><li>Added weight scale to second bedroom<\/li><li>Cars now have driver and passenger weight simulation<\/li><li>Added player head bob. (OFF by default)<\/li><li>Added clutch wear (Thanks Arto!), replacement Clutch Disc can be bought from Fleetari<\/li><li>Added Fuel Pump wear<\/li><li>Added removable Inspection Cover to get access to clutch assembly without taking engine out<\/li><li>Added \"kuski\" that spawns at the Dancehall on Saturdays<\/li><\/ul><p> <\/p><h3>Changes:<\/h3><p> <\/p><ul><li>Cigarettes now have a continuous burn rate, even while not inhaling<\/li><li>Subsequent store purchases now spawn into separate shopping bags instead of one<\/li><li>Removed button operated handbrake feature from Truck and Tractor<\/li><li>Decreased Satsuma high-RPM performance<\/li><li>Changed AFR calculations, when you now see your fuel mixture and revs fluctuating it will be normal<\/li><li>Exhaust smoke turns now white if you have failing Head Gasket<\/li><li>Default Fleetari discount is now 10%, but you can increase it to 40% if you do the vandalism job<\/li><li>Changed how the two amis-cars spawn, not every day and every time any more!<\/li><li>Reduced Satsuma overheating<\/li><li>Added hand throttle to Truck (Changed how Truck hydraulic pump operates - pumping efficiency is related to engine RPM)<\/li><li>Driving fast without Windshield can lead to bumblebee hitting player's face<\/li><li>Moped has now three different fuel tap positions, and their state is saved<\/li><li>Glove box cannot be opened any more if Rollcage is installed<\/li><li>Drunk guy now gets inside Ruscko as well<\/li><li>Non-lethal Player status bars will no longer turn red when full<\/li><li>Masked out bolts from engine that should not be accessed through other parts<\/li><li>Sleeping in a vehicle, breaking a windshield and opening a shopping bag now require holding down a button for 2 seconds<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed bug with rims spawning back to store if their package was not opened before saving<\/li><li>Fixed graphical glitches with the lake<\/li><\/ul><p> <\/p><h3>12-23-2018<\/h3><h3>New features:<\/h3><ul><li>Added rain hitting windshields and functional windscreen wipers to all driveable vehicles<\/li><li>Small green car drunk driver now also attempts to tow you home if you attach your car to rear towing hook<\/li><li>You can now buy Booze from the driver of Svoboda (only on Saturdays at the dance hall)<\/li><li>Added Teletext to TV, use remote control to operate (Use button and number keys) Teletext forecasts also local weather, on page 188<\/li><\/ul><h3>Changes:<\/h3><ul><li>Changed Truck engine sounds<\/li><li>Added driving animations to bus driver and drunk driver<\/li><li>Added speedometer to drunk driver's car<\/li><li>Closing car doors and windows now properly dampens outside ambient sounds<\/li><li>Adjusted Truck and Tractor engine characteristics<\/li><li>Added interior light to Van<\/li><li>Added many missing sound effects, work still in progress<\/li><li>Coffee now brews more quickly<\/li><li>Made card game betting easier<\/li><li>Septic well owners are now available only when their wells are full<\/li><li>Drunk guy now pays money of his lift based on how quickly player gets him home<\/li><li>Police should not give you a fine anymore for AI cars running over officers, unless you are close proximity to the victim<\/li><li>Front spoilers can now detach upon impact<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed bug with Rally giving incorrect 60sec penalty after Saturday stage<\/li><li>Fixed bug with Fleetari Windshield installation<\/li><li>Fixed wood chopping exploit<\/li><li>Fixed Van interior colliders<\/li><li>Fixed issue with clocks going out of sync in some circumstances<\/li><li>Fixed bug with Drunk guy where he calls about lift but then is not present at the bus stop<\/li><li>Fixed some bugs with the Police<\/li><li>Fixed Van speedometer, car used to travel faster what the speedometer was showing :D<\/li><\/ul><h3>10-24-2018 - The 2 year early access anniversary update<\/h3><p>Warnings for existing saves before this update:<\/p><p><strong>Warning:<\/strong> The Fan Belt for Satsuma might be gone, go buy a new one from Teimo<\/p><h3>New features:<\/h3><ul><li>Added purchasable computer<\/li><li>Added telephone bills<\/li><li>Added Wristwatch (you need to fight for it!)<\/li><\/ul><h3>Changes:<\/h3><ul><li>You can now grill food on top of a hot Satsuma engine<\/li><li>Spawn point after death is now at the gate of the graveyard (If permadeath isn't enabled)<\/li><li>Multiple Alternator Belts (Formally called Fan Belt) can now be purchased at one time<\/li><li>Weather conditions are now saved<\/li><li>Driving lights can be now toggled off by keeping Beam Mode button pressed down<\/li><li>Changed how driving light modes are used in Satsuma<\/li><li>Added Marker Lights to Parts Magazine<\/li><li>Added seatbelts to Ferndale<\/li><li>Spark plugs have now also visual indication about their condition<\/li><li>Added roll down windows to every vehicle, but not for passenger sides for performance economic reasons<\/li><li>Added Wood Stove and Wood Chopping to Ventti-cabin, which activate after you win the cabin<\/li><li>Staying at the Cottage island now reduces stress<\/li><li>-Gifu truck (Sewage truck) now requires rev matching when changing gears (applies only to players using H-Shifter controller)<\/li><li>Made highway little more bumpy<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed bug with rear shock absorbers not going in after first removing them<\/li><li>Fixed bug with Rally where it was not possible to register for a new event if player abandoned previous rally after Saturday stage<\/li><\/ul><p> <\/p><h3>8-18-2018<\/h3><p>Warnings for existing saves before this update:<\/p><p><strong>WARNING 1:<\/strong> Valve lash adjustments have changed, be careful not to rev the car until you or Fleetari<\/p><p><strong>WARNING 2: <\/strong>Satsuma 3d model has changed, so delete your meshsave.txt file to avoid graphical glitches<\/p><h3>New features:<\/h3><ul><li>Added Fuel Oil pump to Teimo's store, (Note: It is in most cases it is illegal to use Fuel Oil as a Diesel alternative)<\/li><li>Added new grilling system (Note: grilling with open fire makes food burn, so grill on embers instead)<\/li><li>Added Brick Grill (uses Firewood) to Cottage and movable Ball Grill (uses Charcoal)<\/li><li>Added garbage barrel to burn trash<\/li><li>Added Saturday night \"dance\" and related fist fight mechanics<\/li><li>Added Coffee Pan for making coffee on open fire or grill<\/li><\/ul><h3>Changes:<\/h3><ul><li>Increased useful battery life when running engine without working Alternator<\/li><li>Added Satsuma charge warning light to indicate if Alternator is not charging properly<\/li><li>Highway traffic is now more randomized<\/li><li>Decreased possibility of AI car veering off to oncoming lane towards Player<\/li><li>Fuel prices are now subject to change<\/li><li>Player no longer dies from fatigue (Will instead get sleepy and will eventually blackout - shake the mouse to wake up from a blackout)<\/li><li>Dead moose can be now chopped into meat chunks with Axe (Moose meat can be eaten after it has been grilled, similarly to fish)<\/li><li>Moose travel paths are now much more randomized<\/li><li>Added alternative mounting point for the Tachometer on top of the Dashboard<\/li><li>Adjusted Satsuma valve lash settings (Made Satsuma valve lash adjustments more precise, with smaller tolerances and decreased loose play at both ends)<\/li><li>Adjusted Satsuma engine heat output (overheats more easily now)<\/li><li>Satsuma Grille and Hood options now affects engine air flow cooling efficiency<\/li><li>Getting suspension damage from crashing might now also cause tire puncture<\/li><li>improved both Truck and Tractor Parking Brake systems<\/li><li>Added Beacon light to sewage truck<\/li><li>Grandma can now call about food deliveries<\/li><li>Made kitchen stove hot plates functional<\/li><li>Added visible smoke before Player's house before it bursts into flames<\/li><li>Added smoke detector<\/li><li>Map changes and GUI changes<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed issue (again) with in-game clock not working correctly when sleeping<\/li><li>Fixed issue with front wheel alignment resetting into incorrect angle upon every game load<\/li><li>Fixed issue with Teimo sometimes heads back home right after opening the store<\/li><li>Fixed several bugs with tires when they were replaced by Fleetari while installed to the car<\/li><li>Car should now slide less when on top of a Floor Jack<\/li><li>Fixed issue with battery terminals self-tightening the bolts in some cases<\/li><li>Fixed FPS slowdown issue when having random objects under Satsuma wheels<\/li><li>Fixed free fueling exploit<\/li><li>Fixed bug with not being able to light a cigarette while sitting on a chair<\/li><li>Fixed issue with a cigarette causing a fire even after dumping the Cigarette while exhaling smoke<\/li><\/ul><p> <\/p><h3>4-30-2018<\/h3><p>Warnings for existing saves before this update:<\/p><p><strong>WARNING 1:<\/strong> All your Spark Plugs have been removed, buy new ones from store<\/p><p><strong>WARNING 2:<\/strong> Your car Batteries have reset their position and state<\/p><h3>New features:<\/h3><ul><li>Added 64 bit support<\/li><li>Added electric wiring work for Satsuma<\/li><li>Added ignition timing adjustment to Distributor<\/li><li>Added Ruler to Spanner set to check tire wear<\/li><li>Added \"party\" to Kilju guys new apartment<\/li><li>Added wearable and replaceable Spark Plugs which can be bought from store<\/li><\/ul><h3>Changes:<\/h3><ul><li>Decreased rate of brake fluid leak on Satsuma<\/li><li>Satsuma Battery can now detach in crashes or hard hits<\/li><li>Satsuma Engine can be now ran without Battery if Alternator is fine and connected<\/li><li>Added Amplifier for Satsuma's sound system, (If you have already bought set of Subwoofers the Amp will spawn at Teimo's store)<\/li><li>Installing roll cage now removes floor mats<\/li><li>Fleetari can now do the tire job even if tires are installed to car, tires that are left inside his office are prioritized<\/li><li>Death screen has now play statistics of various things (enabled only in Permadeath-mode!)<\/li><li>Doors of the other vehicles collide with the environment now<\/li><li>Moped can be now re-textured with template found inside \/Images folder<\/li><li>Steering Ackermann is now calculated more precisely for all player cars<\/li><li>Subwoofer panel can be now painted with spray paint<\/li><li>Block, Crankshaft Pulley, Rocker Cover and Air Filter can be now painted with spray paint<\/li><li>Spray paint needs to be purchased from Store now<\/li><li>Car Jack handle can be now folded<\/li><li>the wheel wells in the Satsuma trunk now have proper hit boxes<\/li><li>Added gear shifter shaking animations<\/li><li>Re-balanced opponent Rally times a little<\/li><li>Made Kilju Guy moving job to trigger little earlier<\/li><li>Worn pistons now cause engine to exhaust out bluish oil smoke and increases oil consumption<\/li><li>Added order delay to Wood job<\/li><li>Charged Battery now stays connected to the Charger after game load<\/li><li>Brake Master Cylinder fluid levels now affect brake efficiency separately for front and rear wheels<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed Ferndale transmission issues, added better turbine simulation, increased power and brakes, changed style<\/li><li>Fixed Satsuma brake balance bug<\/li><li>Fixed bug with tire alignment and suspension damage messing with each other<\/li><li>Fixed issue with moped bouncing up and down when making sharp turns<\/li><li>Fixed issues with day sometimes advancing or not advancing when sleeping or loading<\/li><li>Fixed issue with being able to remove Gearbox while engine was installed to car<\/li><li>Fixed bug with tire raycasts hitting Fender Flare colliders and causing issues<\/li><\/ul><h3> <\/h3><h3>2-23-2018<\/h3><p>Warnings for existing saves before this update:<\/p><p><strong>WARNING 1:<\/strong> All your bought Batteries, Fire Extinguishers and Oil Filters have reset back to Teimo's store<\/p><p><strong>WARNING 2:<\/strong> Because of bug fix your Clutch Cover Plate will spawn back to garage. You can however install it back just through the engine block without having to disassemble anything.<\/p><p><strong>WARNING 3:<\/strong> Make sure your Camshaft position is aligned before starting the engine!<\/p><h3>New features:<\/h3><ul><li>Added kWh gauge to house - Energy usage can now be tracked<\/li><li>Added strawberry field, and new job: picking strawberries<\/li><li>Added Racing Flywheel that decreases engine mass and inertia<\/li><li>Added wasps, also note that player has a wasp sting allergy<\/li><li>Added grandma, if you follow her conversations correctly you will get more money<\/li><li>Added general conversation agreement gestures (when not too drunk), default button \"K\"<\/li><\/ul><h3>Changes:<\/h3><ul><li>Increased battery charger charging speed<\/li><li>Adjusted wheel rotation inertias for Satsuma, Hayosiko, Ruscko and Ferndale<\/li><li>Adjusted performance characteristics of above vehicles<\/li><li>Teimo now uses bicycle to travel to work<\/li><li>Teimo's Store is now open from 10 to 20, and both the store and the pub are now closed on Sundays<\/li><li>Interior light and gauges for the Satsuma are now properly illuminated<\/li><li>The Rally is now a two day event with two special stages<\/li><li>Moved Rally results tents to school yard<\/li><li>Added Rally spectators<\/li><li>Adjusted oil dipstick indicator, full oil level is now shown close to MAX<\/li><li>Decreased engine shaking when using standard Flywheel<\/li><li>Kilju guy does now catch you from trying to fool him<\/li><li>Added office worker to water facility<\/li><li>Firewood trailer now takes more firewood to fill<\/li><li>Selling Kilju and picking strawberries does not count to your official income<\/li><li>Increased tolerance of water treatment plant waste grate check to avoid incorrectly placed fines<\/li><li>Fire Extinguishers, Batteries and Oil Filters are now disposable at the landfill<\/li><li>Adjusted analog clutch sensitivity so that it engages little earlier<\/li><li>Made Boat controls compatible with analog controllers, similarly to other vehicles<\/li><li>The camshaft must now be properly timed with the crankshaft when assembling the engine<\/li><li>Made Alternator charging efficiency dependent on wear<\/li><li>Made brake fluid simulation better, amount of fluid affects the maximum braking efficiency<\/li><li>Suspension can now bend (Fix at Fleetari's) instead of completely break off, except for very hard hit<\/li><li>Added odometer to sewage truck<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Seating angle is now reset when entering Driving Mode<\/li><li>Fixed issue where it was able to buy Block or Crankshaft even when those old parts were not fully<\/li><li>disassembled<\/li><li>Fixed bug with milk and pub coffee drinking not locking the left hand<\/li><li>Fixed random \"ghost bumps\" that affected AI and Player cars on the highway<\/li><li>Fixed audio issues with footsteps when using analog player control inputs<\/li><li>Fixed bug where it was possible to remove disc and drumbrakes while wheels where installed<\/li><\/ul><p> <\/p><p> <\/p><h3>12-05-2017 - 100 years of Finnish independence update<\/h3><h3>New features:<\/h3><ul><li>Added oil contamination simulation<\/li><li>Added oil dipstick to check out oil level and quality<\/li><li>Added Oil Filters to Teimo's shop<\/li><li>Added rudimentary aerodynamic lift to Satsuma, makes the car more unstable at high speeds<\/li><li>Made Satsuma glove box functional<\/li><li>Added seatbelts to Satsuma, Hayosiko (blue van) and Gifu (sewage truck)<\/li><li>Added tire wear and puncture<\/li><li>Added more aftermarket wheels to the parts catalogue (Tires must now be purchased at Fleetari's shop)<\/li><li>Added custom song CD which can be played with car CD player (max. 15 songs)<\/li><li>Added possible destructive house fire<\/li><li>Added two wood carriers for transporting firewood<\/li><\/ul><h3>Changes:<\/h3><ul><li>Losing and winning card games now affects Stress<\/li><li>Not using seatbelts is now traffic infraction<\/li><li>Gifu (sewage truck) windshield can be now broken<\/li><li>Every wheel can be now installed freely to any corner of the car<\/li><li>Adjusted Satsuma cooling efficiency and fuel consumption<\/li><li>Electric sauna stove cools down faster now<\/li><li>Decreased Satsuma braking performance<\/li><li>Moved Parts Magazine to garage table<\/li><li>Player can now drown when too drunk<\/li><li>Sleeping with a lit cigarette can start a fire<\/li><\/ul><h3>Fixes:<\/h3><ul><li>Fixed car radio stereo effect<\/li><li>Fixed Fleetari issues with engine adjustments\/tuning and rim painting<\/li><li>Satsuma handbrake setting is now saved<\/li><\/ul><p> <\/p><h3>10-24-2017 - 1 year anniversary update<\/h3><ul><li>Fixed bug with pikes not spawning correctly in the fish trap, if trap was being held by the player<\/li><li>Pikes can no longer be caught anywhere in the lake. The best place is around the island, then average and bad places can be found elsewhere<\/li><li>Fixed issue where starter status was not properly checked when starting the engine<\/li><li>Changed min and max mixture setting limits for all the carburettors<\/li><li>Adjusted Tractor and Flatbed weights, should perform better now<\/li><li>Adjusted tractor physics and performance<\/li><li>The Satsuma's clock now only works when both the clock and the battery are installed in the car<\/li><li>decreased Alternator charging rate<\/li><li>Added detailed car battery condition simulation<\/li><li>Car batteries can now be bought from Teimo's shop (original battery now in bad condition)<\/li><li>Added battery charger<\/li><li>Traveling in the bus through police checkpoints no longer triggers traffic offenses<\/li><li>Fixed bug with not being able to get out of Driving Mode if Racing Harness was removed while buckled up<\/li><li>Home mailbox now works<\/li><li>Sewage truck tank now needs to be emptied at the Water Facility with additional waste handling fee<\/li><li>Dumping septic waste into the ground is now against the law, any fines will be appear at home mail box<\/li><li>Added electricity bills, will spawn at home mail box<\/li><li>Fixed sewage truck steering help setting issues<\/li><li>Added a new drivable car<\/li><li>Added a place to play cards with money. Large high stakes bets will grant the opportunity to win a car, or a house, with the risk of losing players own house, or Satsuma.<\/li><li>Decreased jumping height while inside vehicles<\/li><li>Fixed bug with police not giving fines for non-inspected Satsuma<\/li><li>Added car and house keys (except for the tractor, moped and boat)<\/li><li>Changed Satsuma standard suspension and handling<\/li><li>Added suspension upgrades<\/li><li>Pitched up of Satsuma engine sample to make it sound like it is revving higher<\/li><li>Added exhaust cool down sound to the Satsuma when the engine is shut down<\/li><li>Changed cigarette system; max 20 cigs in the inventory at any time, can be refilled from loose packages<\/li><li>Made smoking decrease hunger and fatigue a little<\/li><li>You can now drink from jail cell WC bowl<\/li><li>Added odometer to Van and work hour meter to Tractor<\/li><\/ul><h3>9-04-2017<\/h3><ul><li>Fixed issue with previous jail data not resetting properly when starting a new game<\/li><li>Added another amis car to race around Per\u00e4j\u00e4rvi roads<\/li><li>Made amis car's speeds faster on the highway<\/li><li>Fuel tank's fuel line nut can now only be tightened with a wrench<\/li><li>Fixed money owner from spawning at certain locations<\/li><li>Changed the way how chasing police cars tailgate the player<\/li><li>Fish can be now grilled in a fire, or on the sauna stove and eaten, unprepared fish goes rotten<\/li><li>The shower now works, and is now the primary way to reduce dirtiness (swimming still works as well)<\/li><li>Added stress<\/li><li>The sauna no longer reduces dirtiness, now reduces stress<\/li><li>Added smoking as another way to reduce stress<\/li><li>Changed system how hand usage is checked to avoid visual mutation glitches<\/li><li>Urinating can no longer be initiated while in driving mode<\/li><li>Fixed issue with engine not losing its oil due to major Block, or Oilpan damage<\/li><li>Added three achievements<\/li><li>Added high-performance Racing Carburettors<\/li><li>Adjusted choke<\/li><li>Added N2O kit (Nitrous system)<\/li><li>Optimized bolt materials<\/li><li>Changes in control assignments<\/li><li>Added engine shake animation<\/li><li>Added symptom for badly worn Crankshaft, engine shakes a lot and power is lost<\/li><li>Added symptom for badly worn Head gasket, engine will spit out some steam and lose coolant<\/li><li>Infamous Stuck In Kitchen glitch should be fixed now<\/li><li>Shortened the refueling distance from the pumps<\/li><\/ul><h3>7-31-2017<\/h3><ul><li>Fixed repair shop not being open on Fridays and being open on Sundays<\/li><li>Fixed issue with Block replacement being successful even when the engine was not disassembled<\/li><li>Made a closure for the life story lines of \"kilju guy\"<\/li><li>Player colliding with the car should not make any dents to it any more<\/li><li>Optimized death screen newspaper and added few more death screens<\/li><li>Fixed issue with replacement parts getting stuck at the counter<\/li><li>Added NPC tests<\/li><li>Car inspection shop now follows opening hours<\/li><li>Added Ratchet Tool set for faster bolt fastening, available from parts magazine<\/li><li>Changed the system how Spark Plug fastening is handled<\/li><li>Added working fireplace to cottage and house<\/li><li>Improved Yellow car driving capabilities around the village, should not spin out so much now<\/li><li>Smoothed out some bumpy dirt road sections<\/li><li>Added footsteps sounds<\/li><li>Added garbage disposal pit at landfill site to get rid of garbage (destroys items bought from store that are empty)<\/li><li>Fixed issue where player could grab the car seat while in Driving Mode<\/li><li>Cops now enforce 80km\/h speed limit for the sewage Truck and the van<\/li><li>Fixed bug with cops where some offenses were not noted if player stopped for breath test<\/li><li>Changed so that player is released from jail instantly when he has 0 days left<\/li><\/ul><h3>6-20-2017<\/h3><ul><li>Added engine spare parts to Fleetari for instant purchase<\/li><li>Fixed issue with some pistons not breaking off properly due to failure<\/li><li>Fixed issue with timing cover removal<\/li><li>Fixed issue with radiator fan animation<\/li><li>Made Headgasket wear little slower<\/li><li>Added early access disclaimer and theme music to the main menu<\/li><li>Increased the required force for suspension failure<\/li><li>Fixed issue with hitch-hiking drunk kilju guy not triggering his life stories correctly<\/li><li>Repair shop is now fully closed outside of working hours<\/li><li>Pistons will now lose their power when the condition goes under 10%, total breakdown at 0%<\/li><li>Added music mute button to main menu<\/li><li>Fixed Satsuma radio players getting stuck if car ACC was shut off<\/li><\/ul><h3>5-29-2017<\/h3><ul><li>Fleetari does NOT fix the whole engine any more, ONLY broken individual parts (I forgot to add this to earlier changelog...)<\/li><li>Made a fix for the moped an player scaling problems<\/li><li>Fixed issue with \"Rusting Fast\" achievement where it was possible to trigger it with train crash<\/li><li>Fixed parts order wait time not resetting properly<\/li><li>Made changes to \"starter helper\" to prevent Van and Moped from exploding at certain situations<\/li><li>Added wear and eventual failure simulation for some of the engine parts and gearbox, condition at game start is randomized<\/li><li>Added possibility for total suspension failure, also affects the assembly phase<\/li><li>Water Pump and Alternator operating friction is now calculated into total engine friction<\/li><li>Added radiator fan sound<\/li><li>Adjusted conditions of when Fleetari calls about the vandalism job<\/li><li>Changed the logic how items are spawned after load, should help with the items getting all messed up<\/li><li>Added Satsuma gear grinding for missed shifts (works only in H-shifter mode with manual clutch)<\/li><li>Fixed Gifu reverse gear ratios<\/li><li>Made it little less probable for exhaust pipes to fall of during game load<\/li><li>Added fix for ForceFeedbackPlugin that should prevent application crash if FFB-compatible controller is not present<\/li><li>Increased player grabbing force for ragdolls<\/li><li>Roll cage removal service added to Fleetari repair shop<\/li><li>Added replacement fiberglass hood<\/li><li>Added Fire Extinguisher to put out car fire, also required to be installed for rally event<\/li><li>Car fire will now break some engine components<\/li><li>\"Fleetari's revenge\" has now more randomized spawn points<\/li><li>Made Fleetari repair time longer<\/li><li>Made postal order arrival time longer<\/li><li>Hopefully fixed infamous issue with moped vanishing in thin air<\/li><li>Fixed bug with Satsuma wheels having a memory leak if game was loaded when car was saved upside down<\/li><li>Changed how physics steps are calculated, should increase calculations accuracy at sub 40-50fps situations<\/li><li>Added \"Feel Alive\" achievement<\/li><li>Drunk driver in little green car now takes the player all the way to home<\/li><li>Kilju buyer keeps his money if you do not accept the payment and leave the house area<\/li><\/ul><h3>4-17-2017<\/h3><ul><li>Fixed bug in handbrake that caused the inspection to fail every time<\/li><li>Fixed problems with drinking and handling of Juice cans<\/li><li>Fixed ODDITY with the Fleetari not being able to trigger his revenge<\/li><li>Made the duration much longer before Fleetari starts calling about his car<\/li><li>Made a settings toggle for AI skidmarks<\/li><li>Fixed unlimited sugar bug with Kilju bucket<\/li><li>Fixed bug with passing out at the cottage<\/li><li>Leveled the terrain at Per\u00e4j\u00e4rvi and home pier to stop vehicles sliding into the lake<\/li><li>Added moped (do not try to drive moped inside another vehicle, YOU WILL DIE)<\/li><li>Added visual damage to Head Gasket to help diagnose blown Head Gasket<\/li><li>Fixed issue with being able to drive Ferndale from rear seat<\/li><li>Fixed a delay in fueling process<\/li><li>Fixed a bug where sewage truck did not check the fuel level when starting the engine<\/li><li>Added glovebox hatch and gas cap for Satsuma<\/li><li>Fixed bug with steering wheel bolt referencing to distributor... don't ask :D<\/li><li>Added more voice acting for Teimo<\/li><li>Adjusted targeting of urine<\/li><li>Added 2-stroke fuel to Teimo's shop<\/li><li>Boat consumes fuel now<\/li><li>Added more Achievements and made distinctive icons for permadeath-only Achievements<\/li><li>Made swamp deeper right next to the rail tracks<\/li><li>Fixed issue with Kilju bucket colliding with vehicles<\/li><li>Changed Kilju bucket starting position to the cottage<\/li><li>Drivers Licence now allows single letter last names<\/li><li>Added towing hooks to that yellow bastard car (well just for fun!)<\/li><li>Added (brought back) camera, photos go to your Windows \"Pictures\" folder<\/li><li>Fixed issue with vehicles not colliding each other properly when being towed<\/li><\/ul><h3>3-20-2017<\/h3><ul><li>Added a new danger - Train<\/li><\/ul><h3>3-13-2017<\/h3><ul><li>New version of the \"Push\" system, should work better while being less glitchy<\/li><li>Fixed issue where player was at risk of dying after riding with the drunk driver<\/li><li>Fixed issue where yellow car driver did not begin to drive<\/li><li>Fixed occasional double pricing of bought fuel<\/li><li>Force feedback should work for all vehicles now<\/li><li>Ability to brew Kilju and use Juice cans as storing containers<\/li><li>Ability to sell Kilju for the drunk lifter when he is at home<\/li><li>Drunk lifter now tells you his life story when you are giving him a ride<\/li><li>Player can now sleep on Satsuma rear seat<\/li><li>Added Intro<\/li><li>Swamp area makes your vehicles stuck now<\/li><li>Alternator and Oil filter cannot be moved by hand if Tool-mode is selected<\/li><li>Adjusted timing of Fleetari calling about his car<\/li><li>Fixed issue with Fleetari services repair time<\/li><li>Added longer rear coil springs as an option (Can be found outside of Fleetari's shop)<\/li><li>Fixed bug where rear trailing arms could be detached while wheels stayed in place<\/li><li>Fixed bug with some of the fluid indicators getting stuck when closing the caps<\/li><li>Added customizable rear window sticker<\/li><li>Fixed possible bus spawning issue<\/li><li>Disabling HUD (F2) now also disables the crosshair<\/li><li>When passing out at the cottage island, player will wake up at the cottage<\/li><li>Fixed bug where player was able to throttle and adjust mixture with detached carburettor<\/li><li>Player can now climb back on to the boat<\/li><\/ul><h3>2-05-2017<\/h3><ul><li>Player can now purchase another fan belt when the previous one is lost<\/li><li>Store items are now re-stocked only at game load<\/li><li>Decreased power of sewage truck engine<\/li><li>Made sewage truck parking brake fail when strong force is applied<\/li><li>Player can now sleep in the sewage truck and on the junk sofa found in landfill<\/li><li>Sleep is now activated with Use button (default F)<\/li><li>Added driver and voice over for the yellow car<\/li><li>Added map features, railroad (no trains YET) and sports ground<\/li><li>Added bus player can travel with<\/li><li>Added cottage with wood burning Sauna<\/li><li>Fixed issue with controller deadzone settings not saving<\/li><li>Slower generation of fatigue when running<\/li><li>Drunk driver of the small green car can now die<\/li><li>Ability to buy coffee from the Pub, decreases fatigue<\/li><li>Fixed issue with Christmas lights draining the battery even when shut off<\/li><li>Fleetari wants his Ferndale car back now (I advise you to return it)<\/li><li>Fixed bug where detached Starter motor did not enable trigger for assembly<\/li><li>Fixed materials for all the bolts<\/li><li>Random graphics work<\/li><li>Random adjustments and fixes<\/li><\/ul><h3>12-19-2016<\/h3><ul><li>Fixed issue where some parts spawn back at the store after removal and save<\/li><li>Fixed issue where steering wheel could be installed without steering column and the wheel got lost<\/li><li>Possible fix for add-on gauges shattering the windshield after windshield repair<\/li><li>Jumping now resets any crouching position back to standing position<\/li><li>Added car upgrades; racing tachometer, bucket seats, 4-point harness, roll cage and rally steering wheel<\/li><li>Rally participation now requires installed safety gear<\/li><li>You can now properly enter rally only with Satsuma car<\/li><li>Fixed wrong name in rear left fender flare<\/li><li>Added spark plug wrench for tightening spark plugs<\/li><li>Made shopping bag rigid to solve bag instability issues<\/li><li>All vehicles now die when they enter water, no permanent damage however<\/li><li>Added separate setting for sun shadows and interior light shadows<\/li><li>Fixed issue where engine simulation did not care whether pistons were bolted or not<\/li><li>Fixed infamous \"death bump\" of the home road<\/li><li>Changed spawn positions of some AI cars so that they don't spawn too obviously<\/li><li>Added attempt to block lake side short cut route<\/li><li>Green menace driver has been removed, RIP :(<\/li><li>Added first version of AI car that can be driven with \/ raced against at the Per\u00e4j\u00e4rvi center<\/li><li>Increased strength of door locks<\/li><li>Added slowly developing brake fluid leak<\/li><li>Fixed issue with some used groceries getting set as \"consumed\" when quitting without saving<\/li><li>Now when fuel tank is detached accidentally, a random amount of fuel is lost<\/li><li>Player can now die when driving the sewage truck<\/li><\/ul><h3>11-24-2016<\/h3><ul><li>Radio OGG song import is now done in Main Menu to help game loading issues<\/li><li>House light states are now saved<\/li><li>Sewage job darts\/orders are now saved<\/li><li>Fixed Air Filter bolts<\/li><li>Added two odd jobs to do for Fleetari Repair Shop, vandalism and transporting of junk cars<\/li><li>Any items that drop into sewage well should re-spawn at the Landfill site<\/li><li>Portable Car Jack can be used only when it is placed on ground<\/li><li>Physics optimization; some car part collisions are now disabled after they are bolted tight<\/li><li>Fixed issue where telephone breaks down if mr. Fleetari tries to call from repair shop<\/li><li>Fixed gear indicator for boat<\/li><li>Fixed issue with front spoiler assemblies<\/li><li>Fixed issue with Satsuma loosing its tire grip when loading the game on top of asphalt surface<\/li><li>Made fur dices an optional accessory<\/li><li>Fixed spawning of third halfshaft<\/li><li>Police checkpoints now randomized<\/li><li>Local radio station updated; more songs, more programs, more random<\/li><li>Fixed issue where post order sheet is not always available after getting a call and then save\/loading the game<\/li><\/ul><h3>11-08-2016<\/h3><ul><li>Fixed some colliders at landfill site and home<\/li><li>Fixed Racing Radiator which floats after removal<\/li><li>Fixed adjustment issue with valves, where valve states were not correctly reset<\/li><li>Fixes in firewood chopping exploit<\/li><li>Made gesture animations independent from FOV setting<\/li><li>Fixed issue with installation of dashboard covers<\/li><li>Possible fix for Windshield shattering after Windshield repair at the car repair shop<\/li><li>Added optional gear indicator showing current gear selected<\/li><li>Made door usage easier for Truck, Van, Tractor and Muscle car<\/li><li>Added hitchhike ability with the small green car<\/li><li>Previously purchased parts cannot be re-ordered from the Parts Catalog<\/li><li>Price of postal order is now calculated from parts *actually* delivered<\/li><li>Changed mechanism how sewage well death is triggered<\/li><li>Fixed issue with how car body parts paint types were saved<\/li><li>Fixed issue where Police did not give ticket for speeding in some situations<\/li><li>Fixed fueling-saving-loading exploit<\/li><li>Fixed bootlid issue<\/li><li>Fixed erroneous Hood bolts<\/li><li>Fixed issue of bolts becoming unscrewed after having a damage and then quitting without saving<\/li><li>Increased tire grip for sewage truck<\/li><li>Added \"night-TV\", which being watched increases fatigue<\/li><li>Added Amistech Games splash screen<\/li><\/ul><p> <\/p><h3>10-30-2016<\/h3><ul><li>Added re-spawner for vehicles, if they drop out of the map they should spawn at their original starting locations<\/li><li>Made double check to reset spark plugs if they still get stuck<\/li><li>Increased strength of sewage truck hose connection<\/li><li>Fixed issue with stolen fuel getting saved too early<\/li><li>Made brute force parking brake to the truck, it won't slide anymore when parking brake is applied<\/li><li>Some player character stats are now reset after death (If bermadeath is disabled)<\/li><li>Changed Satsuma gear shift audio from 2D to 3D<\/li><li>Made flies appear little later at the dirtiness scale<\/li><li>Swimming also reduces dirtiness now<\/li><li>Starter help added to Van, Tractor and Truck for players who use Auto Clutch<\/li><li>Fixed gears being shifted while not in Driving Mode<\/li><li>Adjusted Tractor parking brake<\/li><\/ul><h3> <\/h3><h3>10-28-2016<\/h3><ul><li>Possible fix for phantom hit-and-run death<\/li><li>Towing rope can no longer be attached to same car<\/li><li>Dead player now spawns back at home (If permadeath is off)<\/li><li>Added 'Mortal' text to player HUD to indicate whether permadeath is ON<\/li><li>Removed underlying save encryption to possibly help save\/load issues<\/li><li>Player can now run<\/li><li>Sewage truck hose will now detach itself if too much force is applied,<\/li><li>Changed Repair Shop order duration to time instead of date to avoid bug that caused way too long repair times<\/li><li>Fixed issue with front wheel brake nuts not saving their state correctly<\/li><li>Fixed issue with clutch assembly where 'clutch cover plate' became stuck on to 'flywheel'<\/li><li>Fixed spark plug assembly issue<\/li><li>Made truck stop moving when player moves in the cockpit<\/li><li>Dart is now removed from the map after job is done<\/li><li>Fixed issue with Pouring fluids<\/li><li>Increased efficiency of mosquito spray<\/li><\/ul>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": 2019,
+      "guid": "3030-55017",
+      "id": 55017,
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/api\/image\/square_avatar\/2876465-5552739281-",
+        "medium_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_medium\/2876465-5552739281-",
+        "screen_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_medium\/2876465-5552739281-",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/api\/image\/screen_kubrick\/2876465-5552739281-",
+        "small_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_small\/2876465-5552739281-",
+        "super_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_large\/2876465-5552739281-",
+        "thumb_url": "https:\/\/www.giantbomb.com\/api\/image\/scale_avatar\/2876465-5552739281-",
+        "tiny_url": "https:\/\/www.giantbomb.com\/api\/image\/square_mini\/2876465-5552739281-",
+        "original_url": "https:\/\/www.giantbomb.com\/api\/image\/original\/2876465-5552739281-",
+        "image_tags": "All Images"
+      },
+      "image_tags": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-55017\/?filter=image_tag%3AAll+Images",
+          "name": "All Images",
+          "total": 67
+        }
+      ],
+      "name": "My Summer Car",
+      "number_of_user_reviews": 0,
+      "original_game_rating": null,
+      "original_release_date": null,
+      "platforms": [
+        {
+          "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+          "id": 94,
+          "name": "PC",
+          "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+          "abbreviation": "PC"
+        }
+      ],
+      "site_detail_url": "https:\/\/www.giantbomb.com\/my-summer-car\/3030-55017\/"
+    }
+  ],
+  "version": "1.0"
 }

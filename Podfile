@@ -9,7 +9,7 @@ abstract_target 'KOMvvmSampleBase' do
     pod 'Alamofire', '~> 4.8'
     pod 'SDWebImage', '~> 5.0'
     pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
-    pod 'KOControls', '~> 1.2.2'
+    pod 'KOControls', '~> 1.2.3'
     
     # Rx pods
     pod 'RxSwift', '~> 5.0'
