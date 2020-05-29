@@ -29,18 +29,6 @@ class BaseGiantBombClient: BaseApiClient {
         return ["api_key": AppSettings.Api.key, "format": "json"]
     }
 
-    override init() {
-        super.init()
-        initializeDefaultMapper()
-    }
-    
-    private func initializeDefaultMapper() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.locale = Locale(identifier: "en-US")
-        (ApiDataToJsonMapper.default as? ApiDataToJsonMapper)?.dateFormatStrategy = .formatted(formatter)
-    }
-    
     // MARK: Parameters for requests
     func parametersForGameDetails(forGuid guid: String) -> ApiRequestParameters {
         return ApiRequestParameters(url: urlBuilder.build(components: [GiantBombURLComponents.game.rawValue, guid])!, method: .get)
