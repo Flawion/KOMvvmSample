@@ -43,6 +43,6 @@ final class GameImagesViewController: BaseViewController {
 
 extension GameImagesViewController: GameImagesViewControllerProtocol {
     func goToImageViewer(forImage image: ImageModel) {
-        _ = AppCoordinator.shared.transition(.push(scene: ImageViewerSceneBuilder(image: image), onNavigationController: navigationController))
+        viewModel.goToImageViewer(forImage: image, navigationController: navigationController)
     }
 }

@@ -14,8 +14,8 @@ struct GameImagesSceneBuilder: SceneBuilderProtocol {
         self.images = images
     }
 
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
-        let viewModel = GameImagesViewModel(images: images)
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel = GameImagesViewModel(appCoordinator: appCoordinator, images: images)
         return GameImagesViewController(viewModel: viewModel)
     }
 }

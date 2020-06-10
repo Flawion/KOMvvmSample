@@ -64,25 +64,14 @@ extension GameDetailsViewController: GameDetailsViewControllerProtocol {
     func goToDetailsItem(_ detailsItem: GameDetailsItemModel) {
         switch detailsItem.item {
         case .overview:
-            goToOverviewDetailsItem(detailsItem)
+            viewModel.goToOverviewDetailsItem(detailsItem, navigationController: navigationController)
 
         case .images:
-            goToImagesDetailsItem(detailsItem)
+            viewModel.goToImagesDetailsItem(navigationController: navigationController)
 
         default:
             break
         }
-    }
-
-    private func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel) {
-        _ = AppCoordinator.shared.transition(.push(scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: viewModel.game.description ?? ""), onNavigationController: navigationController))
-    }
-
-    private func goToImagesDetailsItem(_ detailsItem: GameDetailsItemModel) {
-        guard let images = viewModel.gameDetails?.images else {
-            return
-        }
-        _ = AppCoordinator.shared.transition(.push(scene: GameImagesSceneBuilder(images: images), onNavigationController: navigationController))
     }
 
     func resizeDetailsFooterView() {

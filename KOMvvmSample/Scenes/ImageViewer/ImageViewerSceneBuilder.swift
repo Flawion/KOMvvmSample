@@ -14,8 +14,8 @@ struct ImageViewerSceneBuilder: SceneBuilderProtocol {
         self.image = image
     }
 
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
-        let viewModel = ImageViewerViewModel(image: image)
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel = ImageViewerViewModel(appCoordinator: appCoordinator, image: image)
         return ImageViewerViewController(viewModel: viewModel)
     }
 }

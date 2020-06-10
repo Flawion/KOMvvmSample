@@ -16,9 +16,9 @@ final class ImageViewerViewModel: BaseViewModel {
         return imageVar.value
     }
     
-    init(image: ImageModel) {
+    init(appCoordinator: AppCoordinatorProtocol, image: ImageModel) {
         imageVar = BehaviorRelay<ImageModel>(value: image)
         
-        super.init()
+        super.init(appCoordinator: appCoordinator)
     }
 }

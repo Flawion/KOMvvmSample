@@ -8,12 +8,11 @@
 import Foundation
 
 struct GamesSceneBuilder: SceneBuilderProtocol {
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
         guard let giantBombClient: GiantBombClientServiceProtocol = serviceLocator.get(type: .giantBombApiClient) else {
             fatalError("GamesSceneBuilder can't get giantBombApiClient service")
         }
-
-        let viewModel = GamesViewModel(giantBombClient: giantBombClient)
+        let viewModel = GamesViewModel(appCoordinator: appCoordinator, giantBombClient: giantBombClient)
         return GamesViewController(viewModel: viewModel)
     }
 }

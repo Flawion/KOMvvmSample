@@ -30,9 +30,9 @@ final class GamesFiltersViewModel: BaseViewModel {
     }
     
     // MARK: Functions
-    init(platformsService: PlatformsServiceProtocol, currentFilters: [GamesFilters: String]) {
+    init(appCoordinator: AppCoordinatorProtocol, platformsService: PlatformsServiceProtocol, currentFilters: [GamesFilters: String]) {
         self.platformsService = platformsService
-        super.init()
+        super.init(appCoordinator: appCoordinator)
 
         createFiltersCollection(fromCurrentFilters: currentFilters)
         createAvailableSortingOptions()

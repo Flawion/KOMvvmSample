@@ -9,29 +9,12 @@ import UIKit
 import WebKit
 
 final class WebViewController: BaseViewController {
-    private let barTitle: String
-    private var html: String?
-    private var url: URL?
-
+    private let viewModel: WebViewModel
     private weak var webView: WKWebView!
 
-    var appendingHTML: String {
-        //will be added to properly scale viewport
-        return "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
-    }
-
-    init(barTitle: String, html: String) {
-        self.barTitle = barTitle
-
+    init(viewModel: WebViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.html = html.appending(appendingHTML)
-    }
-
-    init(barTitle: String, url: URL?) {
-        self.barTitle = barTitle
-
-        super.init(nibName: nil, bundle: nil)
-        self.url = url
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,14 +40,14 @@ final class WebViewController: BaseViewController {
     }
 
     private func initializeView() {
-        prepareNavigationBar(withTitle: barTitle)
+        prepareNavigationBar(withTitle: viewModel.barTitle)
     }
 
     private func loadData() {
         showLoadingView()
-        if let html = html {
+        if let html = viewModel.html {
             webView.loadHTMLString(html, baseURL: nil)
-        } else if let url = url {
+        } else if let url = viewModel.url {
             webView.load(URLRequest(url: url))
         }
     }
@@ -93,9 +76,9 @@ extension WebViewController: WKNavigationDelegate {
         if requestUrl.host == nil, let newUrl = URL(string: AppSettings.Api.giantBombAddress + requestUrl.absoluteString) {
             requestUrl = newUrl
         }
-        guard let url = url else {
+        guard let url = viewModel.url else {
             decisionHandler(.cancel)
-            AppCoordinator.shared.openLink(requestUrl)
+            viewModel.openLink(requestUrl)
             return
         }
 
@@ -103,7 +86,7 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.allow)
         } else {
             decisionHandler(.cancel)
-            AppCoordinator.shared.openLink(url)
+            viewModel.openLink(url)
         }
     }
 
@@ -122,5 +105,4 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         hideLoadingView()
     }
-
 }

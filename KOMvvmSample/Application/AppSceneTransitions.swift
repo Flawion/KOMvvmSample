@@ -9,80 +9,74 @@ import UIKit
 
 // MARK: - Scene transition
 class BaseSceneTransition {
-    func transition(serviceLocator: ServiceLocator) -> Any? {
+    func transition(toScenesViewControllers scenesViewControllers: [UIViewController]) -> Any? {
         fatalError("to override")
     }
 }
 
 extension BaseSceneTransition {
-    static func push(scene: SceneBuilderProtocol, onNavigationController: UINavigationController?, animated: Bool = true) -> BaseSceneTransition {
-        return PushSceneTransition(scene: scene, onNavigationController: onNavigationController, animated: animated)
+    static func push(onNavigationController: UINavigationController?, animated: Bool = true) -> BaseSceneTransition {
+        return PushSceneTransition(onNavigationController: onNavigationController, animated: animated)
     }
 
-    static func set(scenes: [SceneBuilderProtocol], onNavigationController: UINavigationController?, animated: Bool = true) -> BaseSceneTransition {
-        return SetScenesTransition(scenes: scenes, onNavigationController: onNavigationController, animated: animated)
+    static func set(onNavigationController: UINavigationController?, animated: Bool = true) -> BaseSceneTransition {
+        return SetScenesTransition(onNavigationController: onNavigationController, animated: animated)
     }
 
-    static func present(scene: SceneBuilderProtocol, onViewController: UIViewController?, animated: Bool = true, completion: (() -> Void)? = nil) -> BaseSceneTransition {
-        return PresentSceneTransition(scene: scene, onViewController: onViewController, animated: animated, completion: completion)
+    static func present(onViewController: UIViewController?, animated: Bool = true, completion: (() -> Void)? = nil) -> BaseSceneTransition {
+        return PresentSceneTransition(onViewController: onViewController, animated: animated, completion: completion)
     }
 }
 
 final class PushSceneTransition: BaseSceneTransition {
-    private let scene: SceneBuilderProtocol
     private let animated: Bool
     private weak var navigationController: UINavigationController?
     
-    init(scene: SceneBuilderProtocol, onNavigationController: UINavigationController?, animated: Bool = true) {
-        self.scene = scene
+    init(onNavigationController: UINavigationController?, animated: Bool = true) {
         self.navigationController = onNavigationController
         self.animated = animated
     }
     
-    override func transition(serviceLocator: ServiceLocator) -> Any? {
-        let sceneViewController = scene.createScene(withServiceLocator: serviceLocator)
-        navigationController?.pushViewController(sceneViewController, animated: animated)
-        return sceneViewController
+    override func transition(toScenesViewControllers scenesViewControllers: [UIViewController]) -> Any? {
+        guard let scene = scenesViewControllers.first else {
+            fatalError("PushSceneTransition can't get scene")
+        }
+        navigationController?.pushViewController(scene, animated: animated)
+        return scene
     }
 }
 
 final class SetScenesTransition: BaseSceneTransition {
-    private let scenes: [SceneBuilderProtocol]
     private let animated: Bool
     private weak var navigationController: UINavigationController?
 
-    init(scenes: [SceneBuilderProtocol], onNavigationController: UINavigationController?, animated: Bool = true) {
-        self.scenes = scenes
+    init(onNavigationController: UINavigationController?, animated: Bool = true) {
         self.navigationController = onNavigationController
         self.animated = animated
     }
-
-    override func transition(serviceLocator: ServiceLocator) -> Any? {
-        var scenesViewControllers: [UIViewController] = []
-        for scene in scenes {
-            scenesViewControllers.append(scene.createScene(withServiceLocator: serviceLocator))
-        }
+    
+    override func transition(toScenesViewControllers scenesViewControllers: [UIViewController]) -> Any? {
         navigationController?.setViewControllers(scenesViewControllers, animated: animated)
         return scenesViewControllers
     }
 }
 
 final class PresentSceneTransition: BaseSceneTransition {
-    private let scene: SceneBuilderProtocol
     private let animated: Bool
     private let completion: (() -> Void)?
     private weak var presentingViewController: UIViewController?
    
-    init(scene: SceneBuilderProtocol, onViewController: UIViewController?, animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.scene = scene
+    init(onViewController: UIViewController?, animated: Bool = true, completion: (() -> Void)? = nil) {
         self.animated = animated
         self.presentingViewController = onViewController
         self.completion = completion
     }
     
-    override func transition(serviceLocator: ServiceLocator) -> Any? {
-        let sceneViewController = scene.createScene(withServiceLocator: serviceLocator)
-        presentingViewController?.present(sceneViewController, animated: animated, completion: completion)
-        return sceneViewController
+    override func transition(toScenesViewControllers scenesViewControllers: [UIViewController]) -> Any? {
+        guard let scene = scenesViewControllers.first else {
+            fatalError("PushSceneTransition can't get scene")
+        }
+        presentingViewController?.present(scene, animated: animated, completion: completion)
+        return scene
     }
 }

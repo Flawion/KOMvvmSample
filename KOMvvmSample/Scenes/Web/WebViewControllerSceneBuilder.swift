@@ -16,7 +16,8 @@ struct WebViewControllerSceneBuilder: SceneBuilderProtocol {
         self.html = html
     }
 
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
-        return WebViewController(barTitle: barTitle, html: html)
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
+        let viewModel = WebViewModel(appCoordinator: appCoordinator, barTitle: barTitle, html: html)
+        return WebViewController(viewModel: viewModel)
     }
 }

@@ -14,11 +14,11 @@ struct GameDetailsSceneBuilder: SceneBuilderProtocol {
         self.game = game
     }
 
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
         guard let giantBombClient: GiantBombClientServiceProtocol = serviceLocator.get(type: .giantBombApiClient) else {
             fatalError("GameDetailsSceneBuilder can't get giantBombApiClient service")
         }
-        let viewModel =  GameDetailsViewModel(giantBombClient: giantBombClient, game: game)
+        let viewModel = GameDetailsViewModel(appCoordinator: appCoordinator, giantBombClient: giantBombClient, game: game)
         return GameDetailsViewController(viewModel: viewModel)
     }
 }

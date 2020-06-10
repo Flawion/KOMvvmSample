@@ -9,9 +9,10 @@ import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+    private let appCoordinator: AppCoordinatorProtocol = AppCoordinator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppCoordinator.shared.initializeScene()
+        appCoordinator.initializeScene()
         return true
     }
 }

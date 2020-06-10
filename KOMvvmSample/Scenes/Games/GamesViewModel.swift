@@ -34,8 +34,8 @@ final class GamesViewModel: BaseViewModel {
         return gamesOffset < gamesTotalResults
     }
 
-    init(giantBombClient: GiantBombClientServiceProtocol) {
-        super.init()
+    init(appCoordinator: AppCoordinatorProtocol, giantBombClient: GiantBombClientServiceProtocol) {
+        super.init(appCoordinator: appCoordinator)
         self.giantBombClient = giantBombClient
     }
 
@@ -174,5 +174,18 @@ final class GamesViewModel: BaseViewModel {
         } else {
             self.gamesFilters[key] = value
         }
+    }
+    
+    func goToGameDetail(_ game: GameModel, navigationController: UINavigationController?) {
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GameDetailsSceneBuilder(game: game))
+    }
+    
+    func goToGamesFilter(navigationController: UINavigationController?) {
+        guard let gamesFiltersControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: gamesFilters)) as? GamesFiltersViewControllerProtocol else {
+            fatalError("cast failed GamesFiltersViewControllerProtocol")
+        }
+        gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
+            self?.changeGameFilters(savedFilters)
+        }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
     }
 }

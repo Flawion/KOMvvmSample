@@ -16,10 +16,9 @@ final class GameImagesViewModel: BaseViewModel {
         return imagesVar.asObservable()
     }
 
-    init(images: [ImageModel]) {
+    init(appCoordinator: AppCoordinatorProtocol, images: [ImageModel]) {
         imagesVar = BehaviorRelay<[ImageModel]>(value: images)
-
-        super.init()
+        super.init(appCoordinator: appCoordinator)
     }
     
     func getImage(forIndexPath indexPath: IndexPath) -> ImageModel? {
@@ -27,5 +26,9 @@ final class GameImagesViewModel: BaseViewModel {
             return nil
         }
         return imagesVar.value[indexPath.row]
+    }
+    
+    func goToImageViewer(forImage image: ImageModel, navigationController: UINavigationController?) {
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: ImageViewerSceneBuilder(image: image))
     }
 }

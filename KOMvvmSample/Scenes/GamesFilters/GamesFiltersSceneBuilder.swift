@@ -14,11 +14,11 @@ struct GamesFiltersSceneBuilder: SceneBuilderProtocol {
         self.currentFilters = currentFilters
     }
 
-    func createScene(withServiceLocator serviceLocator: ServiceLocator) -> UIViewController {
+    func createScene(withAppCoordinator appCoordinator: AppCoordinatorProtocol, serviceLocator: ServiceLocator) -> UIViewController {
         guard let platformsService: PlatformsServiceProtocol = serviceLocator.get(type: .platforms) else {
             fatalError("GamesFiltersSceneBuilder can't get platformsService service")
         }
-        let viewModel = GamesFiltersViewModel(platformsService: platformsService, currentFilters: currentFilters)
+        let viewModel = GamesFiltersViewModel(appCoordinator: appCoordinator, platformsService: platformsService, currentFilters: currentFilters)
         return GamesFiltersViewController(viewModel: viewModel)
     }
 }

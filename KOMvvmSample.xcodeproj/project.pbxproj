@@ -42,6 +42,9 @@
 		056AAF0E2201AF4B00C7A131 /* ImageTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AAF0D2201AF4B00C7A131 /* ImageTagModel.swift */; };
 		056AAF102201AF6300C7A131 /* ResourcesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AAF0F2201AF6300C7A131 /* ResourcesModel.swift */; };
 		056AAF122201AF7600C7A131 /* PlatformShortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AAF112201AF7600C7A131 /* PlatformShortModel.swift */; };
+		056DC37B2490032B00357A3D /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DC37A2490032B00357A3D /* WebViewModel.swift */; };
+		056DC37D249008EF00357A3D /* GamesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DC37C249008EF00357A3D /* GamesViewModelProtocol.swift */; };
+		057381322491085000F3FDFA /* BaseAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057381312491085000F3FDFA /* BaseAppCoordinator.swift */; };
 		057A2F13223694C900E4A9FD /* GiantBombClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A2F12223694C900E4A9FD /* GiantBombClientService.swift */; };
 		057D55D622326379008D0CEE /* GamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057D55D522326379008D0CEE /* GamesTests.swift */; };
 		057D55D822326878008D0CEE /* GiantBombClientServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057D55D722326878008D0CEE /* GiantBombClientServiceProtocol.swift */; };
@@ -184,6 +187,9 @@
 		056AAF0D2201AF4B00C7A131 /* ImageTagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTagModel.swift; sourceTree = "<group>"; };
 		056AAF0F2201AF6300C7A131 /* ResourcesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesModel.swift; sourceTree = "<group>"; };
 		056AAF112201AF7600C7A131 /* PlatformShortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformShortModel.swift; sourceTree = "<group>"; };
+		056DC37A2490032B00357A3D /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		056DC37C249008EF00357A3D /* GamesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModelProtocol.swift; sourceTree = "<group>"; };
+		057381312491085000F3FDFA /* BaseAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppCoordinator.swift; sourceTree = "<group>"; };
 		057A2F12223694C900E4A9FD /* GiantBombClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiantBombClientService.swift; sourceTree = "<group>"; };
 		057D55CB22326345008D0CEE /* KOMvvmSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KOMvvmSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		057D55CF22326345008D0CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -515,6 +521,7 @@
 		05A41DE3221A9D9200D96FE0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				057381312491085000F3FDFA /* BaseAppCoordinator.swift */,
 				05B421D121FEFD2D009439A6 /* AppCoordinator.swift */,
 				05B421B221FEF5BD009439A6 /* AppDelegate.swift */,
 				05A41DE4221A9DBB00D96FE0 /* AppErrors.swift */,
@@ -637,6 +644,7 @@
 				05B421CB21FEF8AA009439A6 /* GamesViewController.swift */,
 				05938800220AE4B200F67F44 /* GamesViewControllerProtocol.swift */,
 				05B421D721FF2430009439A6 /* GamesViewModel.swift */,
+				056DC37C249008EF00357A3D /* GamesViewModelProtocol.swift */,
 				054BEB70228AE8AB00A50597 /* GamesSceneBuilder.swift */,
 			);
 			path = Games;
@@ -691,6 +699,7 @@
 			children = (
 				05DBB7B5221D5E37009D17BC /* WebViewController.swift */,
 				054BEB7A228AF48B00A50597 /* WebViewControllerSceneBuilder.swift */,
+				056DC37A2490032B00357A3D /* WebViewModel.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -983,12 +992,14 @@
 				05DCCB0322170823001AD52B /* SelectedBackgroundView.swift in Sources */,
 				0530DF6A22009AAF00EAC167 /* ApiErrorContainer.swift in Sources */,
 				056AAF0E2201AF4B00C7A131 /* ImageTagModel.swift in Sources */,
+				057381322491085000F3FDFA /* BaseAppCoordinator.swift in Sources */,
 				057A2F13223694C900E4A9FD /* GiantBombClientService.swift in Sources */,
 				053ED7D12222C5CC008133D6 /* ImageViewerLoadingView.swift in Sources */,
 				05424B5B22F609EE006AF21C /* AppSceneTransitions.swift in Sources */,
 				05DCCB0122170526001AD52B /* SeparatorLineView.swift in Sources */,
 				0505605D221E0ABE0093871D /* UIColor+Resources.swift in Sources */,
 				05B6A03322203901006ED7D4 /* GameImagesViewControllerProtocol.swift in Sources */,
+				056DC37B2490032B00357A3D /* WebViewModel.swift in Sources */,
 				056AAF102201AF6300C7A131 /* ResourcesModel.swift in Sources */,
 				056AAF122201AF7600C7A131 /* PlatformShortModel.swift in Sources */,
 				05F08E702204DE9700A1AC40 /* LoadingView.swift in Sources */,
@@ -1053,6 +1064,7 @@
 				05B6A03522203932006ED7D4 /* GameImagesViewModel.swift in Sources */,
 				05DBB7B4221D54E6009D17BC /* GameDetailsItems.swift in Sources */,
 				05A41DE9221AC24A00D96FE0 /* Array+Extension.swift in Sources */,
+				056DC37D249008EF00357A3D /* GamesViewModelProtocol.swift in Sources */,
 				05A41DE5221A9DBB00D96FE0 /* AppErrors.swift in Sources */,
 				05DCCB05221708EC001AD52B /* BaseCollectionViewCell.swift in Sources */,
 				05A64FE0221EF201007BB12B /* Utils+Devices.swift in Sources */,

@@ -22,6 +22,7 @@ class BaseViewModel {
     // MARK: Variables
     private var dataStateVar: BehaviorRelay<ViewModelDataStates> = BehaviorRelay<ViewModelDataStates>(value: .none)
     private var raiseErrorSubject: PublishSubject<Error> = PublishSubject<Error>()
+    private(set) weak var appCoordinator: AppCoordinatorProtocol?
 
     //public
     var dataState: ViewModelDataStates {
@@ -84,6 +85,10 @@ class BaseViewModel {
     }
     
     // MARK: Functions
+    init(appCoordinator: AppCoordinatorProtocol) {
+        self.appCoordinator = appCoordinator
+    }
+    
     func raiseError(_ error: Error) {
         raiseErrorSubject.onNext(error)
     }

@@ -49,10 +49,10 @@ final class GameDetailsViewModel: BaseViewModel {
     }
 
     // MARK: Functions
-    init(giantBombClient: GiantBombClientServiceProtocol, game: GameModel) {
+    init(appCoordinator: AppCoordinatorProtocol, giantBombClient: GiantBombClientServiceProtocol, game: GameModel) {
         self.giantBombClient = giantBombClient
         gameVar = BehaviorRelay<GameModel>(value: game)
-        super.init()
+        super.init(appCoordinator: appCoordinator)
 
         generateGameDetailItems()
     }
@@ -128,5 +128,16 @@ final class GameDetailsViewModel: BaseViewModel {
                 self.gameDetailsVar.accept(gameDetails)
                 self.dataState = .none
             }).disposed(by: gameDetailsDisposeBag)
+    }
+    
+    func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel, navigationController: UINavigationController?) {
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: game.description ?? ""))
+    }
+
+    func goToImagesDetailsItem(navigationController: UINavigationController?) {
+        guard let images = gameDetails?.images else {
+            return
+        }
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GameImagesSceneBuilder(images: images))
     }
 }

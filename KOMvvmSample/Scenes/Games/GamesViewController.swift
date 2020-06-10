@@ -56,12 +56,7 @@ final class GamesViewController: BaseViewController {
     }
 
     @objc private func goToGamesFilter() {
-        guard let gamesFiltersControllerProtocol = AppCoordinator.shared.transition(.push(scene: GamesFiltersSceneBuilder(currentFilters: viewModel.gamesFilters), onNavigationController: navigationController)) as? GamesFiltersViewControllerProtocol else {
-            fatalError("cast failed GamesFiltersViewControllerProtocol")
-        }
-        gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
-            self?.viewModel.changeGameFilters(savedFilters)
-        }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
+        viewModel.goToGamesFilter(navigationController: navigationController)
     }
 
     private func initializeActions() {
@@ -130,6 +125,6 @@ extension GamesViewController: GamesViewControllerProtocol {
     }
 
     func goToGameDetail(_ game: GameModel) {
-        _ = AppCoordinator.shared.transition(.push(scene: GameDetailsSceneBuilder(game: game), onNavigationController: navigationController))
+        viewModel.goToGameDetail(game, navigationController: navigationController)
     }
 }

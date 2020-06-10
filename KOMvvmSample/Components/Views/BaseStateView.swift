@@ -86,7 +86,8 @@ class BaseStateView: UIView {
         guard manageBlockingAllUserInteraction else {
             return
         }
-        AppCoordinator.shared.blockAllUserInteraction = !isActive
+        // TODO: do it in another way
+       // AppCoordinator.shared.blockAllUserInteraction = !isActive
     }
     
     // MARK: To override
