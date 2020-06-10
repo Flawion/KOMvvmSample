@@ -12,6 +12,7 @@ import RxCocoa
 @testable import KOMvvmSample
 
 final class GameDetailsTests: XCTestCase {
+    private var appCoordinator: AppCoordinator!
     private var mockedServices: MockedServices!
     private var gameDetailsViewModel: GameDetailsViewModel!
     private var disposeBag: DisposeBag!
@@ -19,6 +20,7 @@ final class GameDetailsTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        appCoordinator = AppCoordinator()
         mockedServices = MockedServices()
         initializeTestScene()
     }
@@ -27,7 +29,7 @@ final class GameDetailsTests: XCTestCase {
         guard let firstGame = getFirstGameFromMockData() else {
             return
         }
-        guard let gameDetailsViewController = GameDetailsSceneBuilder(game: firstGame).createScene(withServiceLocator: mockedServices.locator) as? GameDetailsViewController else {
+        guard let gameDetailsViewController = GameDetailsSceneBuilder(game: firstGame).createScene(withAppCoordinator: appCoordinator, serviceLocator: mockedServices.locator) as? GameDetailsViewController else {
             fatalError("cast failed GameDetailsViewController")
         }
         gameDetailsViewModel = gameDetailsViewController.viewModel
@@ -37,7 +39,7 @@ final class GameDetailsTests: XCTestCase {
     private func getFirstGameFromMockData() -> GameModel? {
         let filters = MockSettings.filteredGamesFilters
         let data = mockedServices.giantBombMockClient.mockDataContainer.loadMockData(forRequestParameters: mockedServices.giantBombMockClient.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters)))
-        guard let gameData = data, let games: BaseResponseModel<[GameModel]>? = try? mockedServices.giantBombMockClient.defaultDataMapper().mapTo(data: gameData), let firstGame =  games?.results?.first else {
+        guard let gameData = data, let games: BaseResponseModel<[GameModel]> = try? mockedServices.giantBombMockClient.defaultDataMapper().mapTo(data: gameData), let firstGame =  games.results?.first else {
             XCTAssert(false)
             return nil
         }

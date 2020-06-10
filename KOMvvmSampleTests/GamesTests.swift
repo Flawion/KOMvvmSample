@@ -12,6 +12,7 @@ import RxCocoa
 @testable import KOMvvmSample
 
 final class GamesTests: XCTestCase {
+    private var appCoordinator: AppCoordinator!
     private var mockedServices: MockedServices!
     private var gamesViewModel: GamesViewModel!
     private var disposeBag: DisposeBag!
@@ -19,12 +20,13 @@ final class GamesTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        appCoordinator = AppCoordinator()
         mockedServices = MockedServices()
         initializeTestScene()
     }
     
     private func initializeTestScene() {
-        guard let gamesViewController = GamesSceneBuilder().createScene(withServiceLocator: mockedServices.locator) as? GamesViewController else {
+        guard let gamesViewController = GamesSceneBuilder().createScene(withAppCoordinator: appCoordinator, serviceLocator: mockedServices.locator) as? GamesViewController else {
             fatalError("cast failed GamesViewController")
         }
         gamesViewModel = gamesViewController.viewModel

@@ -35,7 +35,6 @@ final class ServiceLocator {
 
         //lazy loading
         return tryToCreateAndReturnService(withType: type) as? ReturnType
-
     }
 
     private func tryToCreateAndReturnService(withType type: ServiceTypes) -> Any? {

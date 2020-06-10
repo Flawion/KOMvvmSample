@@ -15,8 +15,7 @@ class BaseStateView: UIView {
     
     //public
     var isActiveVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
-    var manageBlockingAllUserInteraction: Bool = false
-    
+
     var isActiveDriver: Driver<Bool> {
         return isActiveVar.asDriver()
     }
@@ -81,26 +80,17 @@ class BaseStateView: UIView {
     private func showViewOnTop() {
         superview?.bringSubviewToFront(self)
     }
-
-    private func refreshBlockingAllUserInteraction() {
-        guard manageBlockingAllUserInteraction else {
-            return
-        }
-        // TODO: do it in another way
-       // AppCoordinator.shared.blockAllUserInteraction = !isActive
-    }
     
     // MARK: To override
     func createView() {
-        //to override
+        // to override
     }
     
     func startActive() {
         showViewOnTop()
-        refreshBlockingAllUserInteraction()
     }
     
     func stopActive() {
-        refreshBlockingAllUserInteraction()
+        // to override
     }
 }
