@@ -11,59 +11,14 @@ import RxCocoa
 
 final class GameDetailsViewModel: BaseViewModel {
     // MARK: Variables
-    private var giantBombClient: GiantBombClientServiceProtocol!
-    
-    private let gameVar: BehaviorRelay<GameModel>
-    private let gameDetailsVar: BehaviorRelay<GameDetailsModel?> = BehaviorRelay<GameDetailsModel?>(value: nil)
-    private let gameDetailsItemsVar: BehaviorRelay<[GameDetailsItemModel]> = BehaviorRelay<[GameDetailsItemModel]>(value: [])
-    
-    private var gameDetailsDisposeBag: DisposeBag!
+    private let gameDetailsUseCase: GameDetailsUseCase
     private let disposeBag: DisposeBag = DisposeBag()
     
     // MARK: Functions
-    init(appCoordinator: AppCoordinatorProtocol, giantBombClient: GiantBombClientServiceProtocol, game: GameModel) {
-        self.giantBombClient = giantBombClient
-        gameVar = BehaviorRelay<GameModel>(value: game)
+    init(appCoordinator: AppCoordinatorProtocol, gameDetailsUseCase: GameDetailsUseCase) {
+        self.gameDetailsUseCase = gameDetailsUseCase
         super.init(appCoordinator: appCoordinator)
-        
-        generateGameDetailItems()
-    }
-    
-    private func generateGameDetailItems() {
-        Observable<[GameDetailsItemModel]>.combineLatest(gameVar.asObservable(), gameDetailsVar.asObservable()) { [weak self] (game, gameDetails) -> [GameDetailsItemModel] in
-            var detailsItems: [GameDetailsItemModel] = []
-            
-            guard let self = self else {
-                return detailsItems
-            }
-            
-            self.appendOverviewToDetailsItems(&detailsItems, ifDescriptionNotEmpty: game.description)
-            self.appendToDetailsItems(&detailsItems, resourcesFromGameDetails: gameDetails)
-            return detailsItems
-        }.bind(to: gameDetailsItemsVar).disposed(by: disposeBag)
-    }
-    
-    private func appendOverviewToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], ifDescriptionNotEmpty description: String?) {
-        guard !(game.description?.isEmpty ?? true) else {
-            return
-        }
-        detailsItems.append(GameDetailsItemModel(item: .overview, contentSize: 0))
-    }
-    
-    private func appendToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], resourcesFromGameDetails gameDetails: GameDetailsModel?) {
-        guard let gameDetails = gameDetails else {
-            return
-        }
-        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.reviews, itemType: .reviews)
-        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.videos, itemType: .videos)
-        self.appendToDetailsItems(&detailsItems, ifResourcesExists: gameDetails.images, itemType: .images)
-    }
-    
-    private func appendToDetailsItems(_ detailsItems: inout [GameDetailsItemModel], ifResourcesExists resources: [Any]?, itemType: GameDetailsItems) {
-        guard let resources = resources, resources.count > 0 else {
-            return
-        }
-        detailsItems.append(GameDetailsItemModel(item: itemType, contentSize: resources.count))
+        forward(dataControllerState: gameDetailsUseCase, disposeBag: disposeBag)
     }
 }
 
@@ -71,63 +26,35 @@ final class GameDetailsViewModel: BaseViewModel {
 extension GameDetailsViewModel: GameDetailsViewModelProtocol {
     
     var gameDriver: Driver<GameModel> {
-        return gameVar.asDriver()
+        return gameDetailsUseCase.gameDriver
     }
     
     var game: GameModel {
-        return gameVar.value
+        return gameDetailsUseCase.game
     }
     
     var gameDetails: GameDetailsModel? {
-        return gameDetailsVar.value
+        return gameDetailsUseCase.gameDetails
     }
     
     var gameDetailsDriver: Driver<GameDetailsModel?> {
-        return gameDetailsVar.asDriver()
+        return gameDetailsUseCase.gameDetailsDriver
     }
     
     var gameDetailsItems: [GameDetailsItemModel] {
-        return gameDetailsItemsVar.value
+        return gameDetailsUseCase.gameDetailsItems
     }
     
     var gameDetailsItemsDriver: Driver<[GameDetailsItemModel]> {
-        return gameDetailsItemsVar.asDriver()
+        return gameDetailsUseCase.gameDetailsItemsDriver
     }
     
-    func gameDetailsItem(forIndexPath indexPath: IndexPath) -> GameDetailsItemModel? {
-        let gameDetailsItems = self.gameDetailsItems
-        guard indexPath.row < gameDetailsItems.count else {
-            return nil
-        }
-        return gameDetailsItems[indexPath.row]
+    func gameDetailsItem(forIndex index: Int) -> GameDetailsItemModel? {
+        return gameDetailsUseCase.gameDetailsItem(forIndex: index)
     }
     
-    // MARK: Download game details
     func downloadGameDetailsIfNeed(refresh: Bool = false) {
-        guard refresh || dataActionState == .error || gameDetails == nil else {
-            return
-        }
-        downloadGameDetails()
-    }
-    
-    private func downloadGameDetails() {
-        dataActionState = .loading
-        
-        gameDetailsDisposeBag = DisposeBag()
-        giantBombClient.gameDetails(forGuid: game.guid)
-            .subscribe({ [weak self] event in
-                guard let self = self, !event.isCompleted else {
-                    return
-                }
-                
-                guard event.error == nil, let gameDetails = event.element?.1?.results else {
-                    self.dataActionState = .error
-                    return
-                }
-                
-                self.gameDetailsVar.accept(gameDetails)
-                self.dataActionState = .none
-            }).disposed(by: gameDetailsDisposeBag)
+        gameDetailsUseCase.downloadIfNeed(force: refresh)
     }
     
     // MARK: Navigation

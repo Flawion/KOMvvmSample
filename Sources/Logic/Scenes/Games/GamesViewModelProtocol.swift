@@ -9,21 +9,21 @@ import RxSwift
 import RxCocoa
 
 protocol GamesViewModelProtocol: ViewModelProtocol {
-    var gamesFilters: [GamesFilters: String] { get }
-    var gameObser: Observable<[GameModel]> { get }
+    var filters: [GamesFilters: String] { get }
+    var gamesDriver: Driver<[GameModel]> { get }
     var games: [GameModel] { get }
     var canDownloadMoreResults: Bool { get }
     
-    func searchMoreGames()
-    func searchGamesIfNeed(forceRefresh: Bool)
-    func game(atIndexPath indexPath: IndexPath) -> GameModel?
-    func changeGameFilters(_ gameFilters: [GamesFilters: String?])
+    func searchMore()
+    func searchIfNeed(force: Bool)
+    func game(atIndex index: Int) -> GameModel?
+    func change(filters gameFilters: [GamesFilters: String?])
     func goToGameDetail(_ game: GameModel, navigationController: UINavigationController?)
     func goToGamesFilter(navigationController: UINavigationController?)
 }
 
 extension GamesViewModelProtocol {
-    func searchGamesIfNeed(forceRefresh: Bool = false) {
-        searchGamesIfNeed(forceRefresh: forceRefresh)
+    func searchIfNeed(force: Bool = false) {
+        searchIfNeed(force: force)
     }
 }

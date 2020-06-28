@@ -11,173 +11,51 @@ import RxCocoa
 final class GamesViewModel: BaseViewModel {
     // MARK: Variables
     //private
-    private var giantBombClient: GiantBombClientServiceProtocol!
+    private let disposeBag = DisposeBag()
+    private let searchGamesUseCase: SearchGamesUseCase
     
-    private var gamesOffset: Int = 0
-    private var gamesTotalResults: Int = 0
-    private var gamesVar: BehaviorRelay<[GameModel]> = BehaviorRelay<[GameModel]>(value: [])
-    
-    private var searchDisposeBag: DisposeBag!
-    
-    //public
-    private(set) var gamesFilters: [GamesFilters: String] = AppSettings.Games.defaultFilters
-    
-    init(appCoordinator: AppCoordinatorProtocol, giantBombClient: GiantBombClientServiceProtocol) {
+    init(appCoordinator: AppCoordinatorProtocol, searchGamesUseCase: SearchGamesUseCase) {
+        self.searchGamesUseCase = searchGamesUseCase
         super.init(appCoordinator: appCoordinator)
-        self.giantBombClient = giantBombClient
+        forward(dataControllerState: searchGamesUseCase, disposeBag: disposeBag)
     }
 }
 
 // MARK: GamesViewModelProtocol
 extension GamesViewModel: GamesViewModelProtocol {
     
-    var gameObser: Observable<[GameModel]> {
-        return gamesVar.asObservable()
+    var gamesDriver: Driver<[GameModel]> {
+        return searchGamesUseCase.gamesDriver
     }
     
     var games: [GameModel] {
-        return gamesVar.value
+        return searchGamesUseCase.games
+    }
+    
+    var filters: [GamesFilters: String] {
+        return searchGamesUseCase.filters
     }
     
     var canDownloadMoreResults: Bool {
-        return gamesOffset < gamesTotalResults
+        return searchGamesUseCase.canDownloadMoreResults
     }
     
     // MARK: Searching games functions
-    func searchMoreGames() {
-        guard canDownloadMoreResults else {
-            return
-        }
-        searchGames(offset: gamesOffset)
+    func searchMore() {
+        searchGamesUseCase.searchMore()
     }
     
-    func searchGamesIfNeed(forceRefresh: Bool = false) {
-        guard forceRefresh || isNeedToSearchGames else {
-            return
-        }
-        searchGames()
+    func searchIfNeed(force: Bool = false) {
+        searchGamesUseCase.searchIfNeed(force: force)
     }
     
-    private var isNeedToSearchGames: Bool {
-        return dataActionState == .error || gamesVar.value.count <= 0
-    }
-    
-    private func searchGames(offset: Int = 0) {
-        prepareForSearchingGames(offset: offset)
-        requestSearchGames(offset: offset)
-    }
-    
-    private func prepareForSearchingGames(offset: Int = 0) {
-        searchDisposeBag = DisposeBag()
-        dataActionState = isSearchingMoreGames(offset: offset) ? .loadingMore : .loading
-        clearGamesDataIfNeed(offset: offset)
-    }
-    
-    private func isSearchingMoreGames(offset: Int = 0) -> Bool {
-        return offset > 0
-    }
-    
-    private func clearGamesDataIfNeed(offset: Int) {
-        guard !isSearchingMoreGames(offset: offset) else {
-            return
-        }
-        clearGames()
-    }
-    
-    private func clearGames() {
-        gamesVar.accept([])
-        gamesOffset = 0
-        gamesTotalResults = 0
-    }
-    
-    private func requestSearchGames(offset: Int = 0) {
-        giantBombClient.searchGames(offset: offset, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: gamesFilters), sorting: Utils.shared.gamesSortingString(fromFilters: gamesFilters))
-            .subscribe({ [weak self] event in
-                guard let self = self, !event.isCompleted else {
-                    return
-                }
-                
-                if let error = event.error {
-                    self.showSearchError(error)
-                    return
-                }
-                
-                //adds new games
-                if let data = event.element?.1, let newGames = data.results {
-                    self.gamesTotalResults = data.numberOfTotalResults
-                    self.addNewGames(newGames)
-                }
-                self.checkIsGameListEmpty()
-            }).disposed(by: searchDisposeBag)
-    }
-    
-    private func showSearchError(_ error: Error) {
-        //if it's the first search block whole screen with refresh message
-        if gamesOffset == 0 {
-            dataActionState = .error
-        } else { //else show message only
-            raiseError(error)
-            checkIsGameListEmpty()
-        }
-    }
-    
-    private func checkIsGameListEmpty() {
-        dataActionState = gamesVar.value.count > 0 ? .none : .empty
-    }
-    
-    private func addNewGames(_ newGames: [GameModel]) {
-        var refreshedGames = gamesVar.value
-        refreshedGames.append(contentsOf: newGames)
-        gamesVar.accept(refreshedGames)
-        gamesOffset = refreshedGames.count
-    }
-    
-    func game(atIndexPath indexPath: IndexPath) -> GameModel? {
-        guard indexPath.row < gamesVar.value.count else {
-            return nil
-        }
-        return gamesVar.value[indexPath.row]
+    func game(atIndex index: Int) -> GameModel? {
+        return searchGamesUseCase.game(atIndex: index)
     }
     
     // MARK: Change game filters
-    func changeGameFilters(_ gameFilters: [GamesFilters: String?]) {
-        guard updateGamesFilters(gameFilters) else {
-            return
-        }
-        searchGamesIfNeed(forceRefresh: true)
-    }
-    
-    /// returns is need to refresh games
-    private func updateGamesFilters(_ gameFilters: [GamesFilters: String?]) -> Bool {
-        var updated: Bool = false
-        for gameFilter in gameFilters {
-            if updateGameFilter(gameFilter) {
-                updated = true
-            }
-        }
-        return updated
-    }
-    
-    private func updateGameFilter(_ gameFilter: (key: GamesFilters, value: String?)) -> Bool {
-        let newValue = gameFilter.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        if let currentFilter = self.gamesFilters[gameFilter.key] {
-            if currentFilter != newValue {
-                changeGameFilterValue(withKey: gameFilter.key, toValue: newValue)
-                return true
-            }
-        } else if !newValue.isEmpty {
-            self.gamesFilters[gameFilter.key] = newValue
-            return true
-        }
-        return false
-    }
-    
-    private func changeGameFilterValue(withKey key: GamesFilters, toValue value: String) {
-        if value.isEmpty {
-            self.gamesFilters.removeValue(forKey: key)
-        } else {
-            self.gamesFilters[key] = value
-        }
+    func change(filters: [GamesFilters: String?]) {
+        searchGamesUseCase.change(filters: filters)
     }
     
     // MARK: Navigation
@@ -186,11 +64,11 @@ extension GamesViewModel: GamesViewModelProtocol {
     }
     
     func goToGamesFilter(navigationController: UINavigationController?) {
-        guard let gamesFiltersControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: gamesFilters)) as? GamesFiltersViewControllerProtocol else {
+        guard let gamesFiltersControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: filters)) as? GamesFiltersViewControllerProtocol else {
             fatalError("cast failed GamesFiltersViewControllerProtocol")
         }
         gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
-            self?.changeGameFilters(savedFilters)
+            self?.change(filters: savedFilters)
         }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
     }
 }

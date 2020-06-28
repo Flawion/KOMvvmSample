@@ -12,7 +12,8 @@ struct GamesSceneBuilder: SceneBuilderProtocol {
         guard let giantBombClient: GiantBombClientServiceProtocol = appCoordinator.getService(type: .giantBombApiClient) else {
             fatalError("GamesSceneBuilder can't get giantBombApiClient service")
         }
-        let viewModel = GamesViewModel(appCoordinator: appCoordinator, giantBombClient: giantBombClient)
+        let searchGamesUseCase = SearchGamesUseCase(giantBombClient: giantBombClient)
+        let viewModel = GamesViewModel(appCoordinator: appCoordinator, searchGamesUseCase: searchGamesUseCase)
         return createScene(withAppCoordinator: appCoordinator, viewModel: viewModel, type: .games)
     }
 }

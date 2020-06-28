@@ -77,7 +77,7 @@ final class GamesView: UIView {
     }
 
     private func bindGamesCollectionData() {
-        controllerProtocol?.viewModel.gameObser.bind(to: gamesCollectionView.rx.items(cellIdentifier: gameCellReuseIdentifier)) { _, model, cell in
+        controllerProtocol?.viewModel.gamesDriver.drive(gamesCollectionView.rx.items(cellIdentifier: gameCellReuseIdentifier)) { _, model, cell in
             (cell as? GameViewCell)?.game = model
             }
             .disposed(by: disposeBag)
@@ -111,7 +111,7 @@ final class GamesView: UIView {
         gamesCollectionView.infiniteScrollIndicatorView = infiniteScrollIndicatorView
         
         gamesCollectionView.addInfiniteScroll { [weak self] _ -> Void in
-            self?.controllerProtocol?.viewModel.searchMoreGames()
+            self?.controllerProtocol?.viewModel.searchMore()
         }
 
         gamesCollectionView.setShouldShowInfiniteScrollHandler { [weak self] _ -> Bool in
@@ -142,7 +142,7 @@ final class GamesView: UIView {
     }
 
     @objc private func gamesCollectionStartRefreshing() {
-        controllerProtocol?.viewModel.searchGamesIfNeed(forceRefresh: true)
+        controllerProtocol?.viewModel.searchIfNeed(force: true)
     }
 
     private func bindGamesCollectionRefreshControlHidding() {
@@ -214,7 +214,7 @@ final class GamesView: UIView {
 
     // MARK: Others functions
     private func goToGameDetail(atIndexPath indexPath: IndexPath) {
-        guard let gamesViewController = controllerProtocol, let game = gamesViewController.viewModel.game(atIndexPath: indexPath) else {
+        guard let gamesViewController = controllerProtocol, let game = gamesViewController.viewModel.game(atIndex: indexPath.row) else {
             return
         }
         gamesViewController.goToGameDetail(game)

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum ViewModelDataActionStates {
+enum DataActionStates {
     case none
     case loading
     case loadingMore
@@ -17,37 +17,23 @@ enum ViewModelDataActionStates {
     case empty
 }
 
-class BaseViewModel: ViewModelProtocol {
+class BaseViewModel: BaseDataController, ViewModelProtocol {
     
     // MARK: Variables
-    private var dataActionStateRelay: BehaviorRelay<ViewModelDataActionStates> = BehaviorRelay<ViewModelDataActionStates>(value: .none)
-    private var raiseErrorSubject: PublishSubject<Error> = PublishSubject<Error>()
     private(set) weak var appCoordinator: AppCoordinatorProtocol?
-
-    //public
-    var dataActionState: ViewModelDataActionStates {
-        get {
-            return dataActionStateRelay.value
-        }
-        set {
-            dataActionStateRelay.accept(newValue)
-        }
-    }
-    
-    var dataActionStateDriver: Driver<ViewModelDataActionStates> {
-        return dataActionStateRelay.asDriver()
-    }
-
-    var raiseErrorDriver: Driver<Error> {
-        return raiseErrorSubject.asDriver(onErrorJustReturn: AppErrors.driverDefault)
-    }
     
     // MARK: Functions
     init(appCoordinator: AppCoordinatorProtocol) {
         self.appCoordinator = appCoordinator
     }
     
-    func raiseError(_ error: Error) {
-        raiseErrorSubject.onNext(error)
+    func forward(dataControllerState dataController: BaseDataController, disposeBag: DisposeBag) {
+        dataController.dataActionStateDriver.drive(onNext: { [weak self] dataActionState in
+            self?.dataActionState = dataActionState
+        }).disposed(by: disposeBag)
+        
+        dataController.raiseErrorDriver.drive(onNext: { [weak self] error in
+            self?.raise(error: error)
+        }).disposed(by: disposeBag)
     }
 }

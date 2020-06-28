@@ -16,7 +16,7 @@ protocol GameDetailsViewModelProtocol: ViewModelProtocol {
     var gameDetailsItems: [GameDetailsItemModel] { get }
     var gameDetailsItemsDriver: Driver<[GameDetailsItemModel]> { get }
     
-    func gameDetailsItem(forIndexPath indexPath: IndexPath) -> GameDetailsItemModel?
+    func gameDetailsItem(forIndex index: Int) -> GameDetailsItemModel?
     func downloadGameDetailsIfNeed(refresh: Bool)
     func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel, navigationController: UINavigationController?)
     func goToImagesDetailsItem(navigationController: UINavigationController?)

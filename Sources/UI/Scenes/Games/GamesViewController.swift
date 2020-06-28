@@ -55,7 +55,7 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
 
     private func bindActionToRefreshButtonClicked() {
         (errorView as? ErrorView)?.refreshButtonClicked.asDriver().drive(onNext: { [weak self] in
-            self?.viewModel.searchGamesIfNeed(forceRefresh: true)
+            self?.viewModel.searchIfNeed(force: true)
         }).disposed(by: disposeBag)
     }
 
@@ -84,13 +84,13 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
                 guard let self = self else {
                     return
                 }
-                self.viewModel.changeGameFilters([ .name: self.searchController.searchBar.text])
+                self.viewModel.change(filters: [ .name: self.searchController.searchBar.text])
             }).disposed(by: disposeBag)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.searchGamesIfNeed()
+        viewModel.searchIfNeed()
     }
     
     override func viewDidAppear(_ animated: Bool) {

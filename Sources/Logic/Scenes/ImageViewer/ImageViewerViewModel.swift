@@ -23,7 +23,7 @@ extension ImageViewerViewModel: ImageViewerViewModelProtocol {
         return imageVar.value
     }
     
-    func change(dataActionState: ViewModelDataActionStates) {
+    func change(dataActionState: DataActionStates) {
         self.dataActionState = dataActionState
     }
 }

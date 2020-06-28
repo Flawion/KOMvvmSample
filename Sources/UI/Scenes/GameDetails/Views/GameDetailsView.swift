@@ -102,7 +102,7 @@ final class GameDetailsView: UIView {
     }
 
     private func goToDetailsItem(atIndexPath indexPath: IndexPath) {
-        guard let controllerProtocol = controllerProtocol, let gameDetailsItem = controllerProtocol.viewModel.gameDetailsItem(forIndexPath: indexPath) else {
+        guard let controllerProtocol = controllerProtocol, let gameDetailsItem = controllerProtocol.viewModel.gameDetailsItem(forIndex: indexPath.row) else {
             return
         }
         controllerProtocol.goToDetailsItem(gameDetailsItem)

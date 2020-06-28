@@ -9,9 +9,9 @@ import RxSwift
 import RxCocoa
 
 protocol ViewModelProtocol {
-    var dataActionState: ViewModelDataActionStates { get }
-    var dataActionStateDriver: Driver<ViewModelDataActionStates> { get }
+    var dataActionState: DataActionStates { get }
+    var dataActionStateDriver: Driver<DataActionStates> { get }
     var raiseErrorDriver: Driver<Error> { get }
     
-    func raiseError(_ error: Error)
+    func raise(error: Error)
 }
