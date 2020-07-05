@@ -14,18 +14,18 @@ class BaseStateView: UIView {
     private let disposeBag = DisposeBag()
     
     //public
-    var isActiveVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
+    var isActiveRelay: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
 
     var isActiveDriver: Driver<Bool> {
-        return isActiveVar.asDriver()
+        return isActiveRelay.asDriver()
     }
     
     var isActive: Bool {
         get {
-            return isActiveVar.value
+            return isActiveRelay.value
         }
         set {
-            isActiveVar.accept(newValue)
+            isActiveRelay.accept(newValue)
         }
     }
     
@@ -56,13 +56,13 @@ class BaseStateView: UIView {
     }
 
     private func bindIsActiveToViewAlpha() {
-        isActiveVar.asDriver().map({$0 ? 1.0 : 0})
+        isActiveRelay.asDriver().map({$0 ? 1.0 : 0})
             .drive(self.rx.alpha)
             .disposed(by: disposeBag)
     }
 
     private func bindIsActiveToView() {
-        isActiveVar.asDriver().drive(
+        isActiveRelay.asDriver().drive(
             onNext: { [weak self] isActive in
                 self?.refreshIsActive(isActive)
 

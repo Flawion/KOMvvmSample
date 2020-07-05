@@ -15,10 +15,11 @@ struct GamesFiltersSceneBuilder: SceneBuilderProtocol {
     }
 
     func createScene(withAppCoordinator appCoordinator: (AppCoordinatorProtocol & AppCoordinatorResouresProtocol)) -> UIViewController {
-        guard let platformsService: PlatformsServiceProtocol = appCoordinator.getService(type: .platforms) else {
+        guard let giantBombClient: GiantBombClientServiceProtocol = appCoordinator.getService(type: .giantBombApiClient), let dataStore: DataStoreServiceProtocol = appCoordinator.getService(type: .dataStore) else {
             fatalError("GamesFiltersSceneBuilder can't get platformsService service")
         }
-        let viewModel = GamesFiltersViewModel(appCoordinator: appCoordinator, platformsService: platformsService, currentFilters: currentFilters)
+        let platformsUseCase = PlatformsUseCase(giantBombClient: giantBombClient, dataStore: dataStore)
+        let viewModel = GamesFiltersViewModel(appCoordinator: appCoordinator, platformsUseCase: platformsUseCase, currentFilters: currentFilters)
         return createScene(withAppCoordinator: appCoordinator, viewModel: viewModel, type: .gamesFilters)
     }
 }

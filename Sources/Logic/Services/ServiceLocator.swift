@@ -16,7 +16,6 @@ protocol ServiceBuilderProtocol {
 enum ServiceTypes {
     case giantBombApiClient
     case dataStore
-    case platforms
 }
 
 final class ServiceLocator {

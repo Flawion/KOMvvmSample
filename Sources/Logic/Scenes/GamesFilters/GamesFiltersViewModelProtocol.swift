@@ -9,12 +9,17 @@ import RxSwift
 import RxCocoa
 
 protocol GamesFiltersViewModelProtocol: ViewModelProtocol {
-    var platformsService: PlatformsServiceProtocol! { get }
+    var disposeBag: DisposeBag { get }
     var availableSortingOptions: [GamesFilterModel]! { get }
     var availableSortingOptionsDisplayValues: [String] { get }
-    var filtersObser: Observable<[GamesFilterModel]> { get }
-    var savedFiltersObser: Observable<[GamesFilters: String]> { get }
+    var filtersObservable: Observable<[GamesFilterModel]> { get }
+    var savedFiltersObservable: Observable<[GamesFilters: String]> { get }
+    var platformsDriver: Driver<[PlatformModel]> { get }
+    var platforms: [PlatformModel] { get }
+    var isDownloadingPlatformsDriver: Driver<Bool> { get }
+    var refreshPlatformsIfNeedObservable: Observable<Void> { get }
     
+    func refreshPlatformsIfNeed()
     func selectedIndexes(forPlatformsFilter filter: GamesFilterModel) -> [IndexPath]?
     func selectPlatforms(atIndexes indexes: [IndexPath]?, forFilter filter: GamesFilterModel)
     func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel?

@@ -53,7 +53,7 @@ final class GameImagesView: UIView {
     }
 
     private func bindCollectionData() {
-        controllerProtocol?.viewModel.imagesObser.bind(to: collectionView.rx.items(cellIdentifier: cellReuseIdentifier)) { _, model, cell in
+        controllerProtocol?.viewModel.imagesObservable.bind(to: collectionView.rx.items(cellIdentifier: cellReuseIdentifier)) { _, model, cell in
             (cell as? GameImageViewCell)?.image = model
             }
             .disposed(by: disposeBag)

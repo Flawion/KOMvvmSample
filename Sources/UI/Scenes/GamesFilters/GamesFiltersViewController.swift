@@ -14,7 +14,7 @@ final class GamesFiltersViewController: BaseViewController<GamesFiltersViewModel
     // MARK: Variables
     private let platformsSelectedLimit: Int = 5
     private let platformCellReuseIdentifier = "PlatformViewCell"
-    private let waitForRefreshPlatformsVar: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
+    private let waitForRefreshPlatformsRelay: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     private var refreshPlatformsDisposeBag: DisposeBag!
 
     private weak var gamesFiltersView: GamesFiltersView!
@@ -43,14 +43,14 @@ final class GamesFiltersViewController: BaseViewController<GamesFiltersViewModel
 
     private func initializePlatformsDownloadIndicator() {
         loadingView.backgroundColor = UIColor.Theme.viewControllerBackground
-        Driver<Bool>.combineLatest(waitForRefreshPlatformsVar.asDriver(), viewModel.platformsService.isDownloadingDriver, resultSelector: { (waitForRefreshPlatforms, isDownloadingPlatforms) -> Bool in
+        Driver<Bool>.combineLatest(waitForRefreshPlatformsRelay.asDriver(), viewModel.isDownloadingPlatformsDriver, resultSelector: { (waitForRefreshPlatforms, isDownloadingPlatforms) -> Bool in
             return waitForRefreshPlatforms && isDownloadingPlatforms
-        }).drive(loadingView.isActiveVar).disposed(by: disposeBag)
+        }).drive(loadingView.isActiveRelay).disposed(by: disposeBag)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.platformsService.refreshPlatforms()
+        viewModel.refreshPlatformsIfNeed()
     }
 }
 
@@ -138,20 +138,24 @@ extension GamesFiltersViewController {
     // MARK: Pick platforms
     private func refreshPlatforms(showPickerForFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
         refreshPlatformsDisposeBag = DisposeBag()
-        waitForRefreshPlatformsVar.accept(true)
+        waitForRefreshPlatformsRelay.accept(true)
         
-        viewModel.platformsService.refreshPlatformsObser
-            .catchError({ [weak self](error) -> Observable<Bool> in
+        viewModel.refreshPlatformsIfNeedObservable
+            .catchError({ [weak self](error) -> Observable<Void> in
                 self?.showError(message: error.localizedDescription)
-                return Observable<Bool>.just(false)
+                return Observable<Void>.just(())
             })
-            .subscribe(onNext: { [weak self](isAvailable) in
-                self?.refreshPlatformsCompleted(isAvailable: isAvailable, showPickerForFilter: filter, refreshCellFunc: refreshCellFunc)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else {
+                    return
+                }
+                let isAvailable = self.viewModel.platforms.count > 0
+                self.refreshPlatformsCompleted(isAvailable: isAvailable, showPickerForFilter: filter, refreshCellFunc: refreshCellFunc)
             }).disposed(by: refreshPlatformsDisposeBag)
     }
     
     private func refreshPlatformsCompleted(isAvailable: Bool, showPickerForFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        waitForRefreshPlatformsVar.accept(false)
+        waitForRefreshPlatformsRelay.accept(false)
         guard isAvailable else {
             return
         }
@@ -185,7 +189,7 @@ extension GamesFiltersViewController {
     }
     
     private func bindPlatformsData(toItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController) {
-        viewModel.platformsService.platformsObser.bind(to: itemsTablePicker.itemsTable.rx.items(cellIdentifier: self.platformCellReuseIdentifier)) { _, model, cell in
+        viewModel.platformsDriver.drive(itemsTablePicker.itemsTable.rx.items(cellIdentifier: self.platformCellReuseIdentifier)) { _, model, cell in
             (cell as? PlatformViewCell)?.platform = model
             }
             .disposed(by: refreshPlatformsDisposeBag)

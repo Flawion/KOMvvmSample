@@ -81,7 +81,7 @@ final class GamesFiltersView: UIView {
     }
 
     private func bindFiltersTableData() {
-        controllerProtocol?.viewModel.filtersObser.bind(to: filtersTableView.rx.items(cellIdentifier: gameFilterCellReuseIdentifier)) { [weak self] _, model, cell in
+        controllerProtocol?.viewModel.filtersObservable.bind(to: filtersTableView.rx.items(cellIdentifier: gameFilterCellReuseIdentifier)) { [weak self] _, model, cell in
             guard let gamesFilterViewCell = cell as? GamesFilterViewCell else {
                 fatalError("cast failed GamesFilterViewCell")
             }

@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 protocol GameImagesViewModelProtocol: ViewModelProtocol {
-    var imagesObser: Observable<[ImageModel]> { get }
+    var imagesObservable: Observable<[ImageModel]> { get }
     
     func getImage(forIndexPath indexPath: IndexPath) -> ImageModel?
     func goToImageViewer(forImage image: ImageModel, navigationController: UINavigationController?)

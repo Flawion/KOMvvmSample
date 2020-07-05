@@ -10,25 +10,25 @@ import RxSwift
 import RxCocoa
 
 final class GameImagesViewModel: BaseViewModel {
-    private let imagesVar: BehaviorRelay<[ImageModel]>
+    private let imagesRelay: BehaviorRelay<[ImageModel]>
     
     init(appCoordinator: AppCoordinatorProtocol, images: [ImageModel]) {
-        imagesVar = BehaviorRelay<[ImageModel]>(value: images)
+        imagesRelay = BehaviorRelay<[ImageModel]>(value: images)
         super.init(appCoordinator: appCoordinator)
     }
 }
 
 // MARK: - GameImagesViewModelProtocol
 extension GameImagesViewModel: GameImagesViewModelProtocol {
-    var imagesObser: Observable<[ImageModel]> {
-        return imagesVar.asObservable()
+    var imagesObservable: Observable<[ImageModel]> {
+        return imagesRelay.asObservable()
     }
     
     func getImage(forIndexPath indexPath: IndexPath) -> ImageModel? {
-        guard imagesVar.value.count > indexPath.row else {
+        guard imagesRelay.value.count > indexPath.row else {
             return nil
         }
-        return imagesVar.value[indexPath.row]
+        return imagesRelay.value[indexPath.row]
     }
     
     func goToImageViewer(forImage image: ImageModel, navigationController: UINavigationController?) {

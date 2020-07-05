@@ -8,6 +8,8 @@
 import UIKit
 
 protocol ViewControllerProtocol: UIViewController {
-
+    // this name is used instead of viewModel because UI will be use more specialized version
+    var viewModelInstance: Any { get }
+    
     init(viewModel: ViewModelProtocol)
 }

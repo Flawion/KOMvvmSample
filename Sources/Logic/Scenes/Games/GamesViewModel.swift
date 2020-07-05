@@ -64,11 +64,11 @@ extension GamesViewModel: GamesViewModelProtocol {
     }
     
     func goToGamesFilter(navigationController: UINavigationController?) {
-        guard let gamesFiltersControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: filters)) as? GamesFiltersViewControllerProtocol else {
+        guard let viewControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: filters)) as? ViewControllerProtocol, let viewModel = viewControllerProtocol.viewModelInstance as? GamesFiltersViewModelProtocol else {
             fatalError("cast failed GamesFiltersViewControllerProtocol")
         }
-        gamesFiltersControllerProtocol.viewModel.savedFiltersObser.subscribe(onNext: { [weak self] savedFilters in
+        viewModel.savedFiltersObservable.subscribe(onNext: { [weak self] savedFilters in
             self?.change(filters: savedFilters)
-        }).disposed(by: gamesFiltersControllerProtocol.disposeBag)
+        }).disposed(by: viewModel.disposeBag)
     }
 }

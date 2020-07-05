@@ -10,17 +10,17 @@ import RxSwift
 import RxCocoa
 
 final class ImageViewerViewModel: BaseViewModel {
-    private let imageVar: BehaviorRelay<ImageModel>
+    private let imageRelay: BehaviorRelay<ImageModel>
     
     init(appCoordinator: AppCoordinatorProtocol, image: ImageModel) {
-        imageVar = BehaviorRelay<ImageModel>(value: image)
+        imageRelay = BehaviorRelay<ImageModel>(value: image)
         super.init(appCoordinator: appCoordinator)
     }
 }
 
 extension ImageViewerViewModel: ImageViewerViewModelProtocol {
     var image: ImageModel {
-        return imageVar.value
+        return imageRelay.value
     }
     
     func change(dataActionState: DataActionStates) {

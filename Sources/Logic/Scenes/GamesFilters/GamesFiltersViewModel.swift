@@ -12,16 +12,17 @@ import RxCocoa
 final class GamesFiltersViewModel: BaseViewModel {
     // MARK: Variables
     private let savedFiltersSubject: PublishSubject<[GamesFilters: String]> = PublishSubject<[GamesFilters: String]>()
-    private let filtersVar: BehaviorRelay<[GamesFilterModel]> = BehaviorRelay<[GamesFilterModel]>(value: [])
+    private let filtersRelay: BehaviorRelay<[GamesFilterModel]> = BehaviorRelay<[GamesFilterModel]>(value: [])
+    let disposeBag: DisposeBag = DisposeBag()
     
-    private(set) var platformsService: PlatformsServiceProtocol!
+    private(set) var platformsUseCase: PlatformsUseCase!
     private(set) var availableSortingOptions: [GamesFilterModel]!
     
     // MARK: Functions
-    init(appCoordinator: AppCoordinatorProtocol, platformsService: PlatformsServiceProtocol, currentFilters: [GamesFilters: String]) {
-        self.platformsService = platformsService
+    init(appCoordinator: AppCoordinatorProtocol, platformsUseCase: PlatformsUseCase, currentFilters: [GamesFilters: String]) {
+        self.platformsUseCase = platformsUseCase
         super.init(appCoordinator: appCoordinator)
-        
+
         createFiltersCollection(fromCurrentFilters: currentFilters)
         createAvailableSortingOptions()
     }
@@ -44,7 +45,7 @@ final class GamesFiltersViewModel: BaseViewModel {
             }
         }
         refreshDisplayValue(forFilters: filters)
-        filtersVar.accept(filters)
+        filtersRelay.accept(filters)
     }
     
     private func parseFilterOriginalReleaseDate(value: String, andUpdateFilterReleaseDateFrom filterReleaseDateFrom: GamesFilterModel, filterReleaseDateTo: GamesFilterModel) {
@@ -76,28 +77,43 @@ final class GamesFiltersViewModel: BaseViewModel {
 
 // MARK: - GamesFiltersViewModelProtocol
 extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
-    
     var availableSortingOptionsDisplayValues: [String] {
         return availableSortingOptions.compactMap({ $0.displayValue })
     }
     
-    var filtersObser: Observable<[GamesFilterModel]> {
-        return filtersVar.asObservable()
+    var filtersObservable: Observable<[GamesFilterModel]> {
+        return filtersRelay.asObservable()
     }
     
-    var savedFiltersObser: Observable<[GamesFilters: String]> {
+    var savedFiltersObservable: Observable<[GamesFilters: String]> {
         return savedFiltersSubject.asObserver()
+    }
+    
+    var platformsDriver: Driver<[PlatformModel]> {
+        return platformsUseCase.platformsDriver
+    }
+    
+    var platforms: [PlatformModel] {
+        return platformsUseCase.platforms
+    }
+    
+    var isDownloadingPlatformsDriver: Driver<Bool> {
+        return platformsUseCase.dataActionStateDriver.map({ $0 == .loading })
+    }
+    
+    var refreshPlatformsIfNeedObservable: Observable<Void> {
+        return platformsUseCase.downloadPlatformsIfNeedObservable
     }
     
     // MARK: Platform functions
     func selectedIndexes(forPlatformsFilter filter: GamesFilterModel) -> [IndexPath]? {
-        guard !filter.value.isEmpty, platformsService.platforms.count > 0 else {
+        guard !filter.value.isEmpty, platformsUseCase.platforms.count > 0 else {
             return nil
         }
         var indexPathes: [IndexPath] = []
         let platformsIds = filter.value.split(separator: "|")
         for platformId in platformsIds {
-            if let platformIndex = platformsService.platforms.firstIndex(where: {"\($0.id)" == platformId}) {
+            if let platformIndex = platformsUseCase.platforms.firstIndex(where: {"\($0.id)" == platformId}) {
                 indexPathes.append(IndexPath(row: platformIndex, section: 0))
             }
         }
@@ -115,21 +131,21 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
         
         //refreshes filter value
         var value: String = ""
-        for index in indexes where index.row < platformsService.platforms.count {
+        for index in indexes where index.row < platformsUseCase.platforms.count {
             if !value.isEmpty {
                 value += "|"
             }
-            value += "\(platformsService.platforms[index.row].id)"
+            value += "\(platformsUseCase.platforms[index.row].id)"
         }
         filter.value = value
     }
     
     // MARK: Filters
     func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel? {
-        guard indexPath.count < filtersVar.value.count else {
+        guard indexPath.count < filtersRelay.value.count else {
             return nil
         }
-        return filtersVar.value[indexPath.row]
+        return filtersRelay.value[indexPath.row]
     }
     
     func saveFilters() {
@@ -137,7 +153,7 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
         
         var dateValueFrom: String = ""
         var dateValueTo: String = ""
-        for filter in filtersVar.value {
+        for filter in filtersRelay.value {
             if filter.filter == GamesFilters.originalReleaseDateFrom {
                 dateValueFrom = filter.value
             } else if filter.filter == GamesFilters.originalReleaseDateTo {
@@ -190,7 +206,7 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
         var displayValue = ""
         let platformsIds = filter.value.split(separator: "|")
         for platformId in platformsIds {
-            if let platform = platformsService.platforms.first(where: {"\($0.id)" == platformId}) {
+            if let platform = platformsUseCase.platforms.first(where: {"\($0.id)" == platformId}) {
                 if !displayValue.isEmpty {
                     displayValue += ", "
                 }
@@ -204,5 +220,10 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
         for filter in filters {
             refreshDisplayValue(forFilter: filter)
         }
+    }
+    
+    // MARK: Platforms
+    func refreshPlatformsIfNeed() {
+        platformsUseCase.downloadPlatformsIfNeed()
     }
 }

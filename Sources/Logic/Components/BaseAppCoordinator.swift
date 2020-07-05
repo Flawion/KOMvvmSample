@@ -63,7 +63,6 @@ class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     func registerServices(locator: ServiceLocator) {
         locator.register(withBuilder: GiantBombClientServiceBuilder())
         locator.register(withBuilder: DataStoreServiceBuilder())
-        locator.register(withBuilder: PlatformsServiceBuilder())
     }
     
     func registerViewControllers(builder: ScenesViewControllerBuilder) {

@@ -13,6 +13,10 @@ class BaseViewController<ViewModelType>: UIViewController, ViewControllerProtoco
     let viewModel: ViewModelType
     let disposeBag: DisposeBag = DisposeBag()
     
+    var viewModelInstance: Any {
+        return viewModel
+    }
+    
     //additional controls
     lazy var loadingView: BaseStateView = {
         return initializeLoadingView()
@@ -121,9 +125,9 @@ class BaseViewController<ViewModelType>: UIViewController, ViewControllerProtoco
     }
     
     private func bindDataActionStateDrivers(toViewModel viewModel: ViewModelProtocol) {
-        viewModel.dataActionStateDriver.map({ $0 == .loading }).drive(loadingView.isActiveVar).disposed(by: disposeBag)
-        viewModel.dataActionStateDriver.map({ $0 == .empty }).drive(emptyView.isActiveVar).disposed(by: disposeBag)
-        viewModel.dataActionStateDriver.map({ $0 == .error }).drive(errorView.isActiveVar).disposed(by: disposeBag)
+        viewModel.dataActionStateDriver.map({ $0 == .loading }).drive(loadingView.isActiveRelay).disposed(by: disposeBag)
+        viewModel.dataActionStateDriver.map({ $0 == .empty }).drive(emptyView.isActiveRelay).disposed(by: disposeBag)
+        viewModel.dataActionStateDriver.map({ $0 == .error }).drive(errorView.isActiveRelay).disposed(by: disposeBag)
     }
     
     private func bindRaiseErrorDriver(toViewModel viewModel: ViewModelProtocol) {
