@@ -25,7 +25,7 @@ extension AppSettings {
 
     struct Games {
         static var defaultFilters: [GamesFilters: String] {
-            return [GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.desc.rawValue), GamesFilters.originalReleaseDate: Utils.shared.filterDateRangeValue(from: nil, to: Date())]
+            return [GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.desc.rawValue), GamesFilters.originalReleaseDate: FiltersUtils().dateRangeValue(from: nil, to: Date())]
         }
 
         static var limitPerRequest: Int {

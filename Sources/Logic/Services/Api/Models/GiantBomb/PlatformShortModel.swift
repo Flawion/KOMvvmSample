@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlatformShortModel: Codable {
+public struct PlatformShortModel: Codable {
     enum CodingKeys: String, CodingKey {
         case apiDetailUrl = "api_detail_url"
         case id
@@ -16,9 +16,9 @@ struct PlatformShortModel: Codable {
         case abbreviation = "abbreviation"
     }
     
-    let apiDetailUrl: URL?
-    let id: Int?
-    let name: String
-    let siteDetailUrl: URL?
-    let abbreviation: String?
+    public let apiDetailUrl: URL?
+    public let id: Int?
+    public let name: String
+    public let siteDetailUrl: URL?
+    public let abbreviation: String?
 }

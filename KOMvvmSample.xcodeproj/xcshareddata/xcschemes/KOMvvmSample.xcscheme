@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05E3D42924CC876E00EE969F"
+               BuildableName = "KOMvvmSampleLogic.framework"
+               BlueprintName = "KOMvvmSampleLogic"
+               ReferencedContainer = "container:KOMvvmSample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "05B421AE21FEF5BD009439A6"
                BuildableName = "KOMvvmSample.app"
                BlueprintName = "KOMvvmSample"
@@ -44,6 +58,16 @@
                BlueprintIdentifier = "057D55CA22326345008D0CEE"
                BuildableName = "KOMvvmSampleTests.xctest"
                BlueprintName = "KOMvvmSampleTests"
+               ReferencedContainer = "container:KOMvvmSample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05E3D43124CC876E00EE969F"
+               BuildableName = "KOMvvmSampleLogicTests.xctest"
+               BlueprintName = "KOMvvmSampleLogicTests"
                ReferencedContainer = "container:KOMvvmSample.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -24,4 +24,12 @@ abstract_target 'KOMvvmSampleBase' do
   target 'KOMvvmSampleTests' do
   end
   
+  # Pods for KOMvvmSampleLogic
+  target 'KOMvvmSampleLogic' do
+  end
+  
+  # Pods for KOMvvmSampleLogic
+  target 'KOMvvmSampleLogicTests' do
+  end
+  
 end

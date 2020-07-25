@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import KOMvvmSampleLogic
 
 protocol GamesFiltersViewControllerProtocol: ViewControllerProtocol {
     var viewModel: GamesFiltersViewModelProtocol { get }

@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import KOMvvmSampleLogic
 
 protocol GameImagesViewControllerProtocol: ViewControllerProtocol {
     var viewModel: GameImagesViewModelProtocol { get }

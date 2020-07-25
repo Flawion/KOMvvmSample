@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import KOMvvmSampleLogic
 
 final class GamesFiltersView: UIView {
     private weak var controllerProtocol: GamesFiltersViewControllerProtocol?

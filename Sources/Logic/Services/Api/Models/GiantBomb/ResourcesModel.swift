@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct ResourceModel: Codable {
+public struct ResourceModel: Codable {
     enum CodingKeys: String, CodingKey {
         case apiDetailUrl = "api_detail_url"
         case id
         case name
         case siteDetailUrl = "site_detail_url"
     }
-    let apiDetailUrl: URL?
-    let id: Int
-    let name: String
-    let siteDetailUrl: URL?
+    public let apiDetailUrl: URL?
+    public let id: Int
+    public let name: String
+    public let siteDetailUrl: URL?
 }

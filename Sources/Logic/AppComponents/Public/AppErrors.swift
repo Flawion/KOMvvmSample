@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppErrors: String, LocalizedError {
+public enum AppErrors: String, LocalizedError {
     case selfNotExists = "error_self_not_exists"
     case driverDefault = "error_driver_default"
 

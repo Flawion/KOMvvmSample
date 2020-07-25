@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import KOMvvmSampleLogic
 
 struct MessageAction {
     let id: Int

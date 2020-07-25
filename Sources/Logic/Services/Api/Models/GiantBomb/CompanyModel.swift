@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CompanyModel: Codable {
+public struct CompanyModel: Codable {
     enum CodingKeys: String, CodingKey {
         case apiDetailUrl = "api_detail_url"
         case id
         case name
     }
 
-    let apiDetailUrl: URL?
-    let id: Int
-    let name: String
+    public let apiDetailUrl: URL?
+    public let id: Int
+    public let name: String
 }

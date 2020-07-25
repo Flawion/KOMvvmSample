@@ -6,6 +6,7 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import UIKit
+import KOMvvmSampleLogic
 
 final class GameImagesViewController: BaseViewController<GameImagesViewModelProtocol> {
     // MARK: Variables

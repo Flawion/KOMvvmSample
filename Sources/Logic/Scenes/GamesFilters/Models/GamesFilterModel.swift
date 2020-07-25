@@ -7,12 +7,12 @@
 
 import Foundation
 
-final class GamesFilterModel {
+public final class GamesFilterModel {
     // MARK: Variables
     //public
-    var filter: GamesFilters
-    var value: String
-    var displayValue: String?
+    public var filter: GamesFilters
+    public var value: String
+    public var displayValue: String?
 
     // MARK: Functions
     init(filter: GamesFilters, value: String) {

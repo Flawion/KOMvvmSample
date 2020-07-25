@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-protocol GameImagesViewModelProtocol: ViewModelProtocol {
+public protocol GameImagesViewModelProtocol: ViewModelProtocol {
     var imagesObservable: Observable<[ImageModel]> { get }
     
     func getImage(forIndexPath indexPath: IndexPath) -> ImageModel?

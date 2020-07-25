@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameDetailsModel: Codable {
+public struct GameDetailsModel: Codable {
     enum CodingKeys: String, CodingKey {
         case aliases
         case apiDetailUrl = "api_detail_url"
@@ -51,44 +51,44 @@ struct GameDetailsModel: Codable {
         case reviews
     }
 
-    let aliases: String?
-    let apiDetailUrl: URL?
-    let dateAdded: Date?
-    let dateLastUpdated: Date?
-    let deck: String?
-    let description: String?
-    let expectedReleaseDay: Int?
-    let expectedReleaseMonth: Int?
-    let expectedReleaseQuarter: Int?
-    let expectedReleaseYear: Int?
-    let guid: String
-    let id: Int
-    let image: ImageModel?
-    let imageTags: [ImageTagModel]?
-    let name: String
-    let numberOfUserReviews: Int
-    let originalGameRating: [ResourceModel]?
-    let originalReleaseDate: Date?
-    let platforms: [PlatformShortModel]?
-    let siteDetailUrl: URL?
-    let images: [ImageModel]?
-    let videos: [ResourceModel]?
-    let characters: [ResourceModel]?
-    let concepts: [ResourceModel]?
-    let developers: [ResourceModel]?
-    let themes: [ResourceModel]?
-    let firstAppearanceCharacters: [ResourceModel]?
-    let firstAppearanceConcepts: [ResourceModel]?
-    let firstAppearanceLocations: [ResourceModel]?
-    let firstAppearanceObjects: [ResourceModel]?
-    let firstAppearancePeople: [ResourceModel]?
-    let franchises: [ResourceModel]?
-    let genres: [ResourceModel]?
-    let killedCharacters: [ResourceModel]?
-    let locations: [ResourceModel]?
-    let objects: [ResourceModel]?
-    let people: [ResourceModel]?
-    let publishers: [ResourceModel]?
-    let reviews: [ResourceModel]?
-    let similarGames: [ResourceModel]?
+    public let aliases: String?
+    public let apiDetailUrl: URL?
+    public let dateAdded: Date?
+    public let dateLastUpdated: Date?
+    public let deck: String?
+    public let description: String?
+    public let expectedReleaseDay: Int?
+    public let expectedReleaseMonth: Int?
+    public let expectedReleaseQuarter: Int?
+    public let expectedReleaseYear: Int?
+    public let guid: String
+    public let id: Int
+    public let image: ImageModel?
+    public let imageTags: [ImageTagModel]?
+    public let name: String
+    public let numberOfUserReviews: Int
+    public let originalGameRating: [ResourceModel]?
+    public let originalReleaseDate: Date?
+    public let platforms: [PlatformShortModel]?
+    public let siteDetailUrl: URL?
+    public let images: [ImageModel]?
+    public let videos: [ResourceModel]?
+    public let characters: [ResourceModel]?
+    public let concepts: [ResourceModel]?
+    public let developers: [ResourceModel]?
+    public let themes: [ResourceModel]?
+    public let firstAppearanceCharacters: [ResourceModel]?
+    public let firstAppearanceConcepts: [ResourceModel]?
+    public let firstAppearanceLocations: [ResourceModel]?
+    public let firstAppearanceObjects: [ResourceModel]?
+    public let firstAppearancePeople: [ResourceModel]?
+    public let franchises: [ResourceModel]?
+    public let genres: [ResourceModel]?
+    public let killedCharacters: [ResourceModel]?
+    public let locations: [ResourceModel]?
+    public let objects: [ResourceModel]?
+    public let people: [ResourceModel]?
+    public let publishers: [ResourceModel]?
+    public let reviews: [ResourceModel]?
+    public let similarGames: [ResourceModel]?
 }

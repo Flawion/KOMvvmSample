@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import KOMvvmSampleLogic
 
 final class WebViewController: BaseViewController<WebViewModelProtocol> {
     private weak var webView: WKWebView!
@@ -57,21 +58,19 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-
+        
         guard var requestUrl = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
             decisionHandler(.allow)
             return
         }
-
-        if requestUrl.host == nil, let newUrl = URL(string: AppSettings.Api.giantBombAddress + requestUrl.absoluteString) {
-            requestUrl = newUrl
-        }
+        // TODO: it can be done in logic
+        requestUrl = viewModel.relativeToServerIfNeed(url: requestUrl)
         guard let url = viewModel.url else {
             decisionHandler(.cancel)
             viewModel.openLink(requestUrl)
             return
         }
-
+        
         if requestUrl.absoluteString == url.absoluteString {
             decisionHandler(.allow)
         } else {

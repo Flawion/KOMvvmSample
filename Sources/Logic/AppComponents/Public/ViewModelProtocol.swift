@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-protocol ViewModelProtocol {
+public protocol ViewModelProtocol {
     var dataActionState: DataActionStates { get }
     var dataActionStateDriver: Driver<DataActionStates> { get }
     var raiseErrorDriver: Driver<Error> { get }

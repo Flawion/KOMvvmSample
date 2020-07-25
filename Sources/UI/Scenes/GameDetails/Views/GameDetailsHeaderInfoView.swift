@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import KOMvvmSampleLogic
 
 final class GameDetailsHeaderInfoView: UIView {
     // MARK: Variables

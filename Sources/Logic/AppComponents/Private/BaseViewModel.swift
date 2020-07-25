@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum DataActionStates {
+public enum DataActionStates {
     case none
     case loading
     case loadingMore

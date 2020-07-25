@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlatformModel: Codable {
+public struct PlatformModel: Codable {
     enum CodingKeys: String, CodingKey {
         case aliases
         case abbreviation
@@ -29,22 +29,22 @@ struct PlatformModel: Codable {
         case siteDetailUrl = "site_detail_url"
     }
 
-    let aliases: String?
-    let abbreviation: String?
-    let apiDetailUrl: URL?
-    let company: CompanyModel?
-    let dateAdded: Date
-    let dateLastUpdated: Date?
-    let deck: String?
-    let description: String?
-    let guid: String
-    let id: Int
-    let image: ImageModel?
-    let imageTags: [ImageTagModel]?
-    let installBase: String?
-    let name: String
-    let onlineSupport: Bool?
-    let originalPrice: String?
-    let releaseDate: Date?
-    let siteDetailUrl: URL?
+    public let aliases: String?
+    public let abbreviation: String?
+    public let apiDetailUrl: URL?
+    public let company: CompanyModel?
+    public let dateAdded: Date
+    public let dateLastUpdated: Date?
+    public let deck: String?
+    public let description: String?
+    public let guid: String
+    public let id: Int
+    public let image: ImageModel?
+    public let imageTags: [ImageTagModel]?
+    public let installBase: String?
+    public let name: String
+    public let onlineSupport: Bool?
+    public let originalPrice: String?
+    public let releaseDate: Date?
+    public let siteDetailUrl: URL?
 }

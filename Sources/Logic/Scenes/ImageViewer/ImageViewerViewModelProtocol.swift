@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ImageViewerViewModelProtocol: ViewModelProtocol {
+public protocol ImageViewerViewModelProtocol: ViewModelProtocol {
     var image: ImageModel { get }
     
     func change(dataActionState: DataActionStates)

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct ImageTagModel: Codable {
+public struct ImageTagModel: Codable {
     enum CodingKeys: String, CodingKey {
         case apiDetailUrl = "api_detail_url"
         case name
         case total
     }
     
-    let apiDetailUrl: URL?
-    let name: String?
-    let total: Int?
+    public let apiDetailUrl: URL?
+    public let name: String?
+    public let total: Int?
 }

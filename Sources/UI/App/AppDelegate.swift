@@ -9,7 +9,7 @@ import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let appCoordinator: AppCoordinatorProtocol = AppCoordinator()
+    private let appCoordinator: AppCoordinator = AppCoordinator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         appCoordinator.initializeScene()

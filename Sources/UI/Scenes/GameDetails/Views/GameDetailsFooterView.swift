@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import KOMvvmSampleLogic
 
 final class GameDetailsFooterView: UIView {
     // MARK: Variables

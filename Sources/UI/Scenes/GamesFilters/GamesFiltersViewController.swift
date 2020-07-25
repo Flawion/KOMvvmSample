@@ -9,6 +9,7 @@ import UIKit
 import KOControls
 import RxSwift
 import RxCocoa
+import KOMvvmSampleLogic
 
 final class GamesFiltersViewController: BaseViewController<GamesFiltersViewModelProtocol> {
     // MARK: Variables
@@ -119,7 +120,7 @@ extension GamesFiltersViewController {
     }
     
     private func initializeOriginalReleaseDatePickerViewController(_ datePickerViewController: KODatePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        if let selectedDate = Utils.shared.filterDate(forValue: filter.value) {
+        if let selectedDate = FiltersUtils().date(forValue: filter.value) {
             datePickerViewController.datePicker.date = selectedDate
         }
         datePickerViewController.datePicker.datePickerMode = .date
@@ -130,7 +131,7 @@ extension GamesFiltersViewController {
     }
     
     private func pickOriginalReleaseDate(fromDatePickerViewController datePickerViewController: KODatePickerViewController, forFilter filter: GamesFilterModel, refreshCellFunc: @escaping () -> Void) {
-        filter.value = Utils.shared.filterDateValue(forDate: datePickerViewController.datePicker.date)
+        filter.value = FiltersUtils().dateValue(forDate: datePickerViewController.datePicker.date)
         viewModel.refreshDisplayValue(forFilter: filter)
         refreshCellFunc()
     }

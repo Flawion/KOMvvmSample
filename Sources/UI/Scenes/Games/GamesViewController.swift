@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import KOMvvmSampleLogic
 
 // MARK: - Class methods and intializations
 final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
@@ -20,7 +21,7 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
         let gamesView: GamesView = GamesView(controllerProtocol: self)
         view = gamesView
         self.gamesView = gamesView
-
+        
         gamesView.refreshChangingLayoutBarButton()
     }
 
@@ -97,7 +98,7 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
         super.viewDidAppear(animated)
         
         //checks api key
-        if AppSettings.Api.key.isEmpty {
+        if !viewModel.isApiKeyValid {
             showError(message: "error_api_key".localized)
         }
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GamesFilters: String {
+public enum GamesFilters: String {
     case name
     case platforms
     case originalReleaseDate = "original_release_date"
@@ -15,7 +15,7 @@ enum GamesFilters: String {
     case originalReleaseDateTo
     case sorting
 
-    var localizable: String {
+    public var localizable: String {
         switch self {
         case .sorting:
             return "games_filters_sorting".localized

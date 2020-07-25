@@ -8,12 +8,13 @@
 import RxSwift
 import RxCocoa
 
-protocol GamesViewModelProtocol: ViewModelProtocol {
+public protocol GamesViewModelProtocol: ViewModelProtocol {
+    var isApiKeyValid: Bool { get }
     var filters: [GamesFilters: String] { get }
     var gamesDriver: Driver<[GameModel]> { get }
     var games: [GameModel] { get }
     var canDownloadMoreResults: Bool { get }
-    
+
     func searchMore()
     func searchIfNeed(force: Bool)
     func game(atIndex index: Int) -> GameModel?
@@ -22,7 +23,7 @@ protocol GamesViewModelProtocol: ViewModelProtocol {
     func goToGamesFilter(navigationController: UINavigationController?)
 }
 
-extension GamesViewModelProtocol {
+public extension GamesViewModelProtocol {
     func searchIfNeed(force: Bool = false) {
         searchIfNeed(force: force)
     }

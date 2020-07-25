@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GameDetailsItems: String {
+public enum GameDetailsItems: String {
     case overview = "game_details_items_overview"
     case reviews = "game_details_items_reviews"
     case videos = "game_details_items_videos"

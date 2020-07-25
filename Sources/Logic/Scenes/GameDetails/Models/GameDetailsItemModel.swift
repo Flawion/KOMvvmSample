@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct GameDetailsItemModel {
-    let item: GameDetailsItems
-    let contentSize: Int
+public struct GameDetailsItemModel {
+    public let item: GameDetailsItems
+    public let contentSize: Int
 
-    var localizedName: String {
+    public var localizedName: String {
         if contentSize > 0 {
             return String(format: "%@ (%d)", item.rawValue.localized, contentSize)
         }

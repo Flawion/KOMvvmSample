@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageModel: Codable {
+public struct ImageModel: Codable {
     enum CodingKeys: String, CodingKey {
         case iconUrl = "icon_url"
         case mediumUrl = "medium_url"
@@ -21,14 +21,14 @@ struct ImageModel: Codable {
         case imageTags = "image_tags"
     }
     
-    let iconUrl: URL?
-    let mediumUrl: URL?
-    let screenUrl: URL?
-    let screenLargeUrl: URL?
-    let smallUrl: URL?
-    let superUrl: URL?
-    let thumbUrl: URL?
-    let tinyUrl: URL?
-    let original: URL?
-    let imageTags: String?
+    public let iconUrl: URL?
+    public let mediumUrl: URL?
+    public let screenUrl: URL?
+    public let screenLargeUrl: URL?
+    public let smallUrl: URL?
+    public let superUrl: URL?
+    public let thumbUrl: URL?
+    public let tinyUrl: URL?
+    public let original: URL?
+    public let imageTags: String?
 }

@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-protocol GamesFiltersViewModelProtocol: ViewModelProtocol {
+public protocol GamesFiltersViewModelProtocol: ViewModelProtocol {
     var disposeBag: DisposeBag { get }
     var availableSortingOptions: [GamesFilterModel]! { get }
     var availableSortingOptionsDisplayValues: [String] { get }

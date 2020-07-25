@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameModel: Codable {
+public struct GameModel: Codable {
     enum CodingKeys: String, CodingKey {
         case aliases
         case apiDetailUrl = "api_detail_url"
@@ -31,30 +31,30 @@ struct GameModel: Codable {
         case siteDetailUrl = "site_detail_url"
     }
     
-    let aliases: String?
-    let apiDetailUrl: URL?
-    let dateAdded: Date
-    let dateLastUpdated: Date?
-    let deck: String?
-    let description: String?
-    let expectedReleaseDay: Int?
-    let expectedReleaseMonth: Int?
-    let expectedReleaseQuarter: Int?
-    let expectedReleaseYear: Int?
-    let guid: String
-    let id: Int
-    let image: ImageModel?
-    let imageTags: [ImageTagModel]?
-    let name: String
-    let numberOfUserReviews: Int
-    let originalGameRating: [ResourceModel]?
-    let originalReleaseDate: Date?
-    let platforms: [PlatformShortModel]?
-    let siteDetailUrl: URL?
+    public let aliases: String?
+    public let apiDetailUrl: URL?
+    public let dateAdded: Date
+    public let dateLastUpdated: Date?
+    public let deck: String?
+    public let description: String?
+    public let expectedReleaseDay: Int?
+    public let expectedReleaseMonth: Int?
+    public let expectedReleaseQuarter: Int?
+    public let expectedReleaseYear: Int?
+    public let guid: String
+    public let id: Int
+    public let image: ImageModel?
+    public let imageTags: [ImageTagModel]?
+    public let name: String
+    public let numberOfUserReviews: Int
+    public let originalGameRating: [ResourceModel]?
+    public let originalReleaseDate: Date?
+    public let platforms: [PlatformShortModel]?
+    public let siteDetailUrl: URL?
 }
 
 extension GameModel {
-    var orginalOrExpectedReleaseDateString: String? {
+    public var orginalOrExpectedReleaseDateString: String? {
         guard let originalReleaseDateString = originalReleaseDateString else {
             return expectedReleaseDateString
         }

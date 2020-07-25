@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import KOMvvmSampleLogic
 
 final class GameViewCell: BaseCollectionViewCell {
     // MARK: Variables

@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-protocol GameDetailsViewModelProtocol: ViewModelProtocol {
+public protocol GameDetailsViewModelProtocol: ViewModelProtocol {
     var game: GameModel { get }
     var gameDriver: Driver<GameModel> { get }
     var gameDetails: GameDetailsModel? { get }
@@ -22,7 +22,7 @@ protocol GameDetailsViewModelProtocol: ViewModelProtocol {
     func goToImagesDetailsItem(navigationController: UINavigationController?)
 }
 
-extension GameDetailsViewModelProtocol {
+public extension GameDetailsViewModelProtocol {
     func downloadGameDetailsIfNeed(refresh: Bool = false) {
         downloadGameDetailsIfNeed(refresh: refresh)
     }

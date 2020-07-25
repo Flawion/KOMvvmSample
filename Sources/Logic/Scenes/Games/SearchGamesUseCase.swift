@@ -90,7 +90,7 @@ final class SearchGamesUseCase: BaseDataController {
     }
     
     private func requestSearch(offset: Int = 0) {
-        giantBombClient.searchGames(offset: offset, limit: AppSettings.Games.limitPerRequest, filters: Utils.shared.gamesFiltersString(fromFilters: filters), sorting: Utils.shared.gamesSortingString(fromFilters: filters))
+        giantBombClient.searchGames(offset: offset, limit: AppSettings.Games.limitPerRequest, filters: FiltersUtils().gamesFiltersString(fromFilters: filters), sorting: FiltersUtils().gamesSortingString(fromFilters: filters))
             .subscribe({ [weak self] event in
                 guard let self = self, !event.isCompleted else {
                     return

@@ -24,6 +24,10 @@ final class GamesViewModel: BaseViewModel {
 // MARK: GamesViewModelProtocol
 extension GamesViewModel: GamesViewModelProtocol {
     
+    var isApiKeyValid: Bool {
+        return !AppSettings.Api.key.isEmpty
+    }
+    
     var gamesDriver: Driver<[GameModel]> {
         return searchGamesUseCase.gamesDriver
     }

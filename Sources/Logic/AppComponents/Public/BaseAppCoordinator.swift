@@ -7,42 +7,15 @@
 
 import UIKit
 
-protocol SceneBuilderProtocol {
-    func createScene(withAppCoordinator appCoordinator: (AppCoordinatorProtocol & AppCoordinatorResouresProtocol)) -> UIViewController
-}
-
-extension SceneBuilderProtocol {
-    func createScene(withAppCoordinator appCoordinator: (AppCoordinatorProtocol & AppCoordinatorResouresProtocol), viewModel: ViewModelProtocol, type: SceneTypes) -> UIViewController {
-        guard let viewController = appCoordinator.getSceneViewController(forViewModel: viewModel, type: type) else {
-            fatalError("can't get view controller")
-        }
-        return viewController
-    }
-}
-
-protocol AppCoordinatorProtocol: NSObjectProtocol {
-    var blockAllUserInteraction: Bool { get set }
-    
-    func initializeScene()
-    func openLink(_ url: URL)
-    func transition(_ transtion: BaseSceneTransition, scene: SceneBuilderProtocol) -> Any?
-    func transition(_ transtion: BaseSceneTransition, scenes: [SceneBuilderProtocol]) -> Any?
-}
-
-protocol AppCoordinatorResouresProtocol: NSObjectProtocol {
-    func getService<ReturnType>(type: ServiceTypes) -> ReturnType?
-    func getSceneViewController(forViewModel viewModel: ViewModelProtocol, type: SceneTypes) -> ViewControllerProtocol?
-}
-
 // MARK: - BaseAppCoordinator
-class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
+open class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     // MARK: Variables
     private let serviceLocator: ServiceLocator
     private let scenesViewControllerBuilder: ScenesViewControllerBuilder
-    private(set) var window: UIWindow?
+    public private(set) var window: UIWindow?
     
     /// Blocking all user interaction on UIWindow can be used in animation
-    var blockAllUserInteraction: Bool {
+    public var blockAllUserInteraction: Bool {
         get {
             return window?.isUserInteractionEnabled ?? false
         }
@@ -52,7 +25,7 @@ class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     }
     
     // MARK: Initialization
-    override init() {
+    public override init() {
         serviceLocator = ServiceLocator()
         scenesViewControllerBuilder = ScenesViewControllerBuilder()
         super.init()
@@ -65,22 +38,22 @@ class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
         locator.register(withBuilder: DataStoreServiceBuilder())
     }
     
-    func registerViewControllers(builder: ScenesViewControllerBuilder) {
+    open func registerViewControllers(builder: ScenesViewControllerBuilder) {
         fatalError("registerViewControllers - should be overriden")
     }
     
     // MARK: Actions
-    func initializeScene() {
+    public func initializeScene() {
         window = UIWindow()
         window?.makeKeyAndVisible()
         createMainScene()
     }
     
-    func createMainScene() {
+    open func createMainScene() {
         fatalError("createMainScene - should be overriden")
     }
     
-    func createMainSceneViewController() -> UIViewController {
+    public func createMainSceneViewController() -> UIViewController {
         return GamesSceneBuilder().createScene(withAppCoordinator: self)
     }
     

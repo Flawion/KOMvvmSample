@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import KOMvvmSampleLogic
 
 class BaseViewController<ViewModelType>: UIViewController, ViewControllerProtocol {
     // MARK: Variables

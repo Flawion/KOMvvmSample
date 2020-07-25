@@ -7,10 +7,11 @@
 
 import Foundation
 
-protocol WebViewModelProtocol: ViewModelProtocol {
+public protocol WebViewModelProtocol: ViewModelProtocol {
     var barTitle: String { get }
     var html: String? { get }
     var url: URL? { get }
     
+    func relativeToServerIfNeed(url: URL) -> URL
     func openLink(_ url: URL)
 }

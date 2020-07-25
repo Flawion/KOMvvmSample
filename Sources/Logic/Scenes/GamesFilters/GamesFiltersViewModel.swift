@@ -22,7 +22,7 @@ final class GamesFiltersViewModel: BaseViewModel {
     init(appCoordinator: AppCoordinatorProtocol, platformsUseCase: PlatformsUseCase, currentFilters: [GamesFilters: String]) {
         self.platformsUseCase = platformsUseCase
         super.init(appCoordinator: appCoordinator)
-
+        
         createFiltersCollection(fromCurrentFilters: currentFilters)
         createAvailableSortingOptions()
     }
@@ -162,7 +162,7 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
                 filters[filter.filter] = filter.value
             }
         }
-        filters[GamesFilters.originalReleaseDate] = Utils.shared.filterDateRangeValue(from: dateValueFrom, to: dateValueTo)
+        filters[GamesFilters.originalReleaseDate] = FiltersUtils().dateRangeValue(from: dateValueFrom, to: dateValueTo)
         savedFiltersSubject.onNext(filters)
     }
     
