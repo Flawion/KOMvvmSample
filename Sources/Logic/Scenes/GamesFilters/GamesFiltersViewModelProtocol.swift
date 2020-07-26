@@ -22,7 +22,9 @@ public protocol GamesFiltersViewModelProtocol: ViewModelProtocol {
     func refreshPlatformsIfNeed()
     func selectedIndexes(forPlatformsFilter filter: GamesFilterModel) -> [IndexPath]?
     func selectPlatforms(atIndexes indexes: [IndexPath]?, forFilter filter: GamesFilterModel)
+    func select(date: Date, forFilter filter: GamesFilterModel)
     func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel?
     func saveFilters()
+    func date(fromFilterValue value: String) -> Date?
     func refreshDisplayValue(forFilter filter: GamesFilterModel)
 }

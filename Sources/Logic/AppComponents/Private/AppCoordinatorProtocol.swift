@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AppCoordinatorProtocol: NSObjectProtocol {
-    var blockAllUserInteraction: Bool { get set }
+    var isUserInteractionEnabled: Bool { get set }
     
     func initializeScene()
     func openLink(_ url: URL)

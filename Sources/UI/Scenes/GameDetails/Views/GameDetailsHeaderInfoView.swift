@@ -61,7 +61,7 @@ final class GameDetailsHeaderInfoView: UIView {
     }
 
     private func initializePlatformsScrollView() {
-        let platformsScrollView = Utils.shared.createHorizontalViewsSlider(viewCount: controllerProtocol?.viewModel.game.platforms?.count ?? 0, spacer: 2, createViewAtIndex: { [weak self](index) -> UIView in
+        let platformsScrollView = UIUtils.createHorizontalViewsSlider(viewCount: controllerProtocol?.viewModel.game.platforms?.count ?? 0, spacer: 2, createViewAtIndex: { [weak self](index) -> UIView in
             let platformLabel = BaseLabel()
             guard let self = self, let platforms = self.controllerProtocol?.viewModel.game.platforms else {
                 return platformLabel

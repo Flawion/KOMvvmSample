@@ -7,18 +7,15 @@
 
 import Foundation
 
-public final class FiltersUtils {
-    private var dateFormatter: DateFormatter {
+final class FiltersUtils {
+    static private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en-US")
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }
     
-    public init() {
-    }
-    
-    func gamesFiltersString(fromFilters filters: [GamesFilters: String]) -> String {
+    static func gamesFiltersString(fromFilters filters: [GamesFilters: String]) -> String {
         var filtersString = ""
         
         //order is important to match the url in mockupDataContainer
@@ -28,7 +25,7 @@ public final class FiltersUtils {
         return filtersString
     }
     
-    private func addGameFilterIfExsists(fromFilters filters: [GamesFilters: String], filter: GamesFilters, toString: inout String) {
+    static private func addGameFilterIfExsists(fromFilters filters: [GamesFilters: String], filter: GamesFilters, toString: inout String) {
         guard let value = filters[filter] else {
             return
         }
@@ -38,22 +35,22 @@ public final class FiltersUtils {
         toString += String(format: "%@:%@", filter.rawValue, value)
     }
     
-    func gamesSortingString(fromFilters filters: [GamesFilters: String]) -> String {
+    static func gamesSortingString(fromFilters filters: [GamesFilters: String]) -> String {
         guard let sortingOptions = filters[.sorting]?.split(separator: ":"), sortingOptions.count == 2 else {
             return ""
         }
         return String(format: "%@:%@", String(sortingOptions[0]), String(sortingOptions[1]))
     }
     
-    public func dateValue(forDate date: Date) -> String {
+    static func dateValue(forDate date: Date) -> String {
         return dateFormatter.string(from: date)
     }
     
-    public func date(forValue value: String) -> Date? {
+    static func date(forValue value: String) -> Date? {
         return dateFormatter.date(from: value)
     }
     
-    public func dateRangeValue(from: Date?, to: Date?) -> String {
+    static func dateRangeValue(from: Date?, to: Date?) -> String {
         let formatter = dateFormatter
         var fromStr = ""
         if let from = from {
@@ -67,7 +64,7 @@ public final class FiltersUtils {
         return dateRangeValue(from: fromStr, to: toStr)
     }
     
-    public func dateRangeValue(from: String, to: String) -> String {
+    static func dateRangeValue(from: String, to: String) -> String {
         if !from.isEmpty || !to.isEmpty {
             return String(format: "%@|%@", from, to)
         } else {

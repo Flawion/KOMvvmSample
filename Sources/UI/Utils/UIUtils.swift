@@ -1,5 +1,5 @@
 //
-//  Utils+UI.swift
+//  UIUtils.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -7,18 +7,18 @@
 
 import Foundation
 
-extension Utils {
-    func createHorizontalViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIScrollView {
+final class UIUtils {
+    static func createHorizontalViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIScrollView {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
 
-        let contentView = Utils.shared.createHorizontalContentOfViewsSlider(viewCount: viewCount, spacer: spacer, createViewAtIndex: createViewAtIndex, createEmptyView: createEmptyView)
+        let contentView = createHorizontalContentOfViewsSlider(viewCount: viewCount, spacer: spacer, createViewAtIndex: createViewAtIndex, createEmptyView: createEmptyView)
         _ = scrollView.addAutoLayoutSubview(contentView)
 
         return scrollView
     }
 
-    private func createHorizontalContentOfViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIView {
+    static private func createHorizontalContentOfViewsSlider(viewCount: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView, createEmptyView: () -> UIView) -> UIView {
         let contentView = UIView()
 
         if createOnlyEmptyViewIfNeed(contentView: contentView, viewCount: viewCount, createEmptyView: createEmptyView) {
@@ -33,7 +33,7 @@ extension Utils {
         return contentView
     }
 
-    private func createOnlyEmptyViewIfNeed(contentView: UIView, viewCount: Int, createEmptyView: () -> UIView) -> Bool {
+    static private func createOnlyEmptyViewIfNeed(contentView: UIView, viewCount: Int, createEmptyView: () -> UIView) -> Bool {
         guard viewCount <= 0 else {
             return false
         }
@@ -42,7 +42,7 @@ extension Utils {
         return true
     }
 
-    private func createNextViewInHorizontalContentView(_ contentView: UIView, atIndex index: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView) {
+    static private func createNextViewInHorizontalContentView(_ contentView: UIView, atIndex index: Int, spacer: CGFloat = 0, createViewAtIndex: (_: Int) -> UIView) {
         let previousViewRightAnchor = contentView.subviews.last?.rightAnchor
         let viewToAdd = createViewAtIndex(index)
         _ = contentView.addAutoLayoutSubview(viewToAdd, toAddConstraints: [.top, .bottom])
@@ -55,7 +55,7 @@ extension Utils {
         }
     }
 
-    private func connectLastSubviewRightAnchor(toContentView contentView: UIView) {
+    static private func connectLastSubviewRightAnchor(toContentView contentView: UIView) {
         if let lastSubview = contentView.subviews.last {
             contentView.addConstraint(lastSubview.rightAnchor.constraint(equalTo: contentView.rightAnchor))
         }

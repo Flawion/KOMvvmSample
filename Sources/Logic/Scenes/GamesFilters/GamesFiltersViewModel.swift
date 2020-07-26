@@ -141,6 +141,11 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
     }
     
     // MARK: Filters
+    func select(date: Date, forFilter filter: GamesFilterModel) {
+        filter.value = FiltersUtils.dateValue(forDate: date)
+        refreshDisplayValue(forFilter: filter)
+    }
+    
     func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel? {
         guard indexPath.count < filtersRelay.value.count else {
             return nil
@@ -162,8 +167,12 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
                 filters[filter.filter] = filter.value
             }
         }
-        filters[GamesFilters.originalReleaseDate] = FiltersUtils().dateRangeValue(from: dateValueFrom, to: dateValueTo)
+        filters[GamesFilters.originalReleaseDate] = FiltersUtils.dateRangeValue(from: dateValueFrom, to: dateValueTo)
         savedFiltersSubject.onNext(filters)
+    }
+    
+    func date(fromFilterValue value: String) -> Date? {
+        return FiltersUtils.date(forValue: value)
     }
     
     // MARK: Functions of refreshing filters display value

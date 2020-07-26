@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1160"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05B421AE21FEF5BD009439A6"
-               BuildableName = "KOMvvmSample.app"
-               BlueprintName = "KOMvvmSample"
+               BlueprintIdentifier = "05E3D42924CC876E00EE969F"
+               BuildableName = "KOMvvmSampleLogic.framework"
+               BlueprintName = "KOMvvmSampleLogic"
+               ReferencedContainer = "container:KOMvvmSample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05E3D43124CC876E00EE969F"
+               BuildableName = "KOMvvmSampleLogicTests.xctest"
+               BlueprintName = "KOMvvmSampleLogicTests"
                ReferencedContainer = "container:KOMvvmSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,26 +41,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05B421AE21FEF5BD009439A6"
-            BuildableName = "KOMvvmSample.app"
-            BlueprintName = "KOMvvmSample"
-            ReferencedContainer = "container:KOMvvmSample.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "057D55CA22326345008D0CEE"
-               BuildableName = "KOMvvmSampleTests.xctest"
-               BlueprintName = "KOMvvmSampleTests"
-               ReferencedContainer = "container:KOMvvmSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -59,16 +54,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05B421AE21FEF5BD009439A6"
-            BuildableName = "KOMvvmSample.app"
-            BlueprintName = "KOMvvmSample"
-            ReferencedContainer = "container:KOMvvmSample.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -76,16 +61,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05B421AE21FEF5BD009439A6"
-            BuildableName = "KOMvvmSample.app"
-            BlueprintName = "KOMvvmSample"
+            BlueprintIdentifier = "05E3D42924CC876E00EE969F"
+            BuildableName = "KOMvvmSampleLogic.framework"
+            BlueprintName = "KOMvvmSampleLogic"
             ReferencedContainer = "container:KOMvvmSample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

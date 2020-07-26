@@ -59,24 +59,11 @@ extension WebViewController: WKNavigationDelegate {
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        guard var requestUrl = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
+        guard let requestUrl = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
             decisionHandler(.allow)
             return
         }
-        // TODO: it can be done in logic
-        requestUrl = viewModel.relativeToServerIfNeed(url: requestUrl)
-        guard let url = viewModel.url else {
-            decisionHandler(.cancel)
-            viewModel.openLink(requestUrl)
-            return
-        }
-        
-        if requestUrl.absoluteString == url.absoluteString {
-            decisionHandler(.allow)
-        } else {
-            decisionHandler(.cancel)
-            viewModel.openLink(url)
-        }
+        viewModel.tryToHandle(activatedUrl: requestUrl) ? decisionHandler(.cancel) : decisionHandler(.allow)
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

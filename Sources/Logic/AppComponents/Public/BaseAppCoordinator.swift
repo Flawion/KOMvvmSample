@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - BaseAppCoordinator
+////// Entry app point, it must be overridden in UI part to make a bridge between Logic and UI.
 open class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     // MARK: Variables
     private let serviceLocator: ServiceLocator
@@ -15,7 +16,7 @@ open class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     public private(set) var window: UIWindow?
     
     /// Blocking all user interaction on UIWindow can be used in animation
-    public var blockAllUserInteraction: Bool {
+    public var isUserInteractionEnabled: Bool {
         get {
             return window?.isUserInteractionEnabled ?? false
         }
@@ -46,11 +47,11 @@ open class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     public func initializeScene() {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        createMainScene()
+        createWindowRootViewController()
     }
     
-    open func createMainScene() {
-        fatalError("createMainScene - should be overriden")
+    open func createWindowRootViewController() {
+        fatalError("createWindowRootViewController - should be overriden")
     }
     
     public func createMainSceneViewController() -> UIViewController {

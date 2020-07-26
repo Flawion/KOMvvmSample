@@ -34,14 +34,28 @@ final class WebViewModel: BaseViewModel {
 
 // MARK: - WebViewModelProtocol
 extension WebViewModel: WebViewModelProtocol {
-    func relativeToServerIfNeed(url: URL) -> URL {
+    
+    func tryToHandle(activatedUrl: URL) -> Bool {
+        let requestUrl = relativeToServerIfNeed(url: activatedUrl)
+        guard let entryUrl = url else {
+            openLink(requestUrl)
+            return true
+        }
+        guard requestUrl.absoluteString != entryUrl.absoluteString else {
+            return false
+        }
+        openLink(requestUrl)
+        return true
+    }
+    
+    private func relativeToServerIfNeed(url: URL) -> URL {
         guard url.host == nil, let urlRelativeToServer = URL(string: AppSettings.Api.giantBombAddress + url.absoluteString) else {
             return url
         }
         return urlRelativeToServer
     }
     
-    func openLink(_ url: URL) {
+    private func openLink(_ url: URL) {
         appCoordinator?.openLink(url)
     }
 }

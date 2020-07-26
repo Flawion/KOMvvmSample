@@ -12,6 +12,5 @@ public protocol WebViewModelProtocol: ViewModelProtocol {
     var html: String? { get }
     var url: URL? { get }
     
-    func relativeToServerIfNeed(url: URL) -> URL
-    func openLink(_ url: URL)
+    func tryToHandle(activatedUrl url: URL) -> Bool
 }
