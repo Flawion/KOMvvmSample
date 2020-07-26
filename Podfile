@@ -9,7 +9,6 @@ abstract_target 'KOMvvmSampleBase' do
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
   
-  
   abstract_target 'Logic' do
     pod 'Alamofire', '~> 4.8'
     pod 'RxAlamofire', '~> 5.0'
@@ -20,6 +19,7 @@ abstract_target 'KOMvvmSampleBase' do
     
     # Pods for KOMvvmSampleLogic
     target 'KOMvvmSampleLogicTests' do
+      pod 'RxBlocking', '~> 5.0'
     end
   end
   

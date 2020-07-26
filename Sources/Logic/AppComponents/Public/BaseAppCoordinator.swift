@@ -47,11 +47,11 @@ open class BaseAppCoordinator: NSObject, AppCoordinatorProtocol {
     public func initializeScene() {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        createWindowRootViewController()
+        setWindowRootViewController()
     }
     
-    open func createWindowRootViewController() {
-        fatalError("createWindowRootViewController - should be overriden")
+    open func setWindowRootViewController() {
+        fatalError("setWindowRootViewController - should be overriden")
     }
     
     public func createMainSceneViewController() -> UIViewController {

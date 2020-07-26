@@ -6,6 +6,8 @@ PODS:
   - RxAlamofire/Core (5.1.0):
     - Alamofire (~> 4.8)
     - RxSwift (~> 5.0)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -22,6 +24,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.8)
   - KOControls (~> 1.2.3)
   - RxAlamofire (~> 5.0)
+  - RxBlocking (~> 5.0)
   - RxCocoa (~> 5.0)
   - RxSwift (~> 5.0)
   - SDWebImage (~> 5.0)
@@ -33,6 +36,7 @@ SPEC REPOS:
     - Alamofire
     - KOControls
     - RxAlamofire
+    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -44,6 +48,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   KOControls: b6404d74cd77ae7c89bf6f325e81e7bb841f0ff0
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
@@ -51,6 +56,6 @@ SPEC CHECKSUMS:
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 27326c60c158035b4723f7d68104fe8ab4f9176e
+PODFILE CHECKSUM: dda08822e754a3e0a2421c6aa04ba2e7f378ad6f
 
 COCOAPODS: 1.9.3

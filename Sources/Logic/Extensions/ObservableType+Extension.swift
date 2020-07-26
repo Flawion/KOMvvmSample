@@ -35,7 +35,7 @@ extension ObservableType {
     }
 }
 
-class InvokeOnceParamOrError<T> {
+final class InvokeOnceParamOrError<T> {
     var invokeFunc: ((T?, Error?) -> Void)?
 
     init(_ invokeFunc: @escaping (T?, Error?) -> Void) {

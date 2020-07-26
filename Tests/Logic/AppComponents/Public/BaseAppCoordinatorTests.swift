@@ -88,7 +88,7 @@ private final class TestAppCoordinator: BaseAppCoordinator {
         builder.register(viewControllerType: TestViewController.self, forType: .games)
     }
     
-    override func createWindowRootViewController() {
+    override func setWindowRootViewController() {
         let mainSceneViewController = createMainSceneViewController()
         masterViewController = UINavigationController(rootViewController: mainSceneViewController)
         window?.rootViewController = masterViewController

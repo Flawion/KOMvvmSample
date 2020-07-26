@@ -11,7 +11,7 @@ import KOMvvmSampleLogic
 /// Class that navigate between different scenes and contains all services in local instance of ServiceLocator.
 final class AppCoordinator: BaseAppCoordinator {
     
-    override func createWindowRootViewController() {
+    override func setWindowRootViewController() {
         guard let window = window else {
             return
         }
