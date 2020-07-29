@@ -1,10 +1,11 @@
 //
-//  ApiError.swift
+//  ApiErrorContainer.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
+import Foundation
 import Alamofire
 
 struct ApiErrorContainer: LocalizedError {
@@ -12,8 +13,8 @@ struct ApiErrorContainer: LocalizedError {
     let data: Any?
     let originalError: Error
 
-    var errorDescription: String {
-        return originalError.localizedDescription
+    public var errorDescription: String? {
+        return "\(originalError as NSError)"
     }
 
     init(response: HTTPURLResponse, data: Any?, originalError: Error) {

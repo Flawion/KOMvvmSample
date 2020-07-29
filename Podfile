@@ -20,6 +20,7 @@ abstract_target 'KOMvvmSampleBase' do
     # Pods for KOMvvmSampleLogic
     target 'KOMvvmSampleLogicTests' do
       pod 'RxBlocking', '~> 5.0'
+      pod 'RxTest', '~> 5.0'
     end
   end
   

@@ -29,7 +29,7 @@ class BaseDataController {
     }
     
     var raiseErrorDriver: Driver<Error> {
-        return raiseErrorSubject.asDriver(onErrorJustReturn: AppErrors.driverDefault)
+        return raiseErrorSubject.asDriver(onErrorJustReturn: AppError.commonDriverDefault)
     }
     
     func raise(error: Error) {

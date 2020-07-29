@@ -218,7 +218,7 @@ extension Logger {
         guard let error = error else {
             return nil
         }
-        return String(format: "%@Error: %@", errorSymbol, error.localizedDescription)
+        return String(format: "%@Error: %@", errorSymbol, error as NSError)
     }
 
     private func statusCodeToLog(_ statusCode: Int?) -> String? {

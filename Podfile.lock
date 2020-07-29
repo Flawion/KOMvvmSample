@@ -14,6 +14,8 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - RxTest (5.1.1):
+    - RxSwift (~> 5)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - RxBlocking (~> 5.0)
   - RxCocoa (~> 5.0)
   - RxSwift (~> 5.0)
+  - RxTest (~> 5.0)
   - SDWebImage (~> 5.0)
   - SwiftLint (~> 0.34)
   - UIScrollView-InfiniteScroll (~> 1.1.0)
@@ -40,6 +43,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
     - SDWebImage
     - SwiftLint
     - UIScrollView-InfiniteScroll
@@ -52,10 +56,11 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: dda08822e754a3e0a2421c6aa04ba2e7f378ad6f
+PODFILE CHECKSUM: ade05c6434205f72e5d99465e2a5a2f99b9227b7
 
 COCOAPODS: 1.9.3

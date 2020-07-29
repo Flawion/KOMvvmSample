@@ -74,7 +74,7 @@ class BaseApiClient: NSObject {
     func validate(response: HTTPURLResponse, data: Any?)throws {
         if !(200 ... 299 ~= response.statusCode) || data == nil {
             Logger.shared.logValidateFailure(response)
-            try throwError(forResponse: response, data: data, originalError: ApiErrors.validation)
+            try throwError(forResponse: response, data: data, originalError: AppError.apiValidation)
         } else {
             Logger.shared.logValidateSucccess(response)
         }
