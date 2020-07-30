@@ -40,8 +40,8 @@ final class BaseDataControllerTests: XCTestCase {
         let testScheduler = TestScheduler(initialClock: 0)
         let disposeBag = DisposeBag()
         let observer = testScheduler.createObserver(NSError.self)
-        let expectedError: [Recorded<Event<NSError>>] = [Recorded.next(15, AppError.commonSelfNotExists),
-                                                     Recorded.next(30, AppError.commonDriverDefault)]
+        let expectedError: [Recorded<Event<NSError>>] = [Recorded.next(15, AppError(withCode: .commonSelfNotExists)),
+                                                         Recorded.next(30, AppError(withCode: .commonDriverDefault))]
         
         baseDataController.raiseErrorDriver.map({ $0 as NSError }).drive(observer).disposed(by: disposeBag)
         testScheduler.createHotObservable(expectedError)

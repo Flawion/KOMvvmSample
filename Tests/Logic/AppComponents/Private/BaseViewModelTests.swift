@@ -53,7 +53,7 @@ final class BaseViewModelTests: XCTestCase {
     func testForwardRaiseError() {
         let testScheduler = TestScheduler(initialClock: 0)
         let disposeBag = DisposeBag()
-        let expectedEvents = [Recorded.next(15, AppError.commonSelfNotExists), Recorded.next(30, AppError.commonDriverDefault)]
+        let expectedEvents = [Recorded.next(15, AppError(withCode: .commonSelfNotExists) as NSError), Recorded.next(30, AppError(withCode: .commonDriverDefault) as NSError)]
         
         let errorObserver = testScheduler.createObserver(NSError.self)
         baseViewModel.raiseErrorDriver.map({ $0 as NSError}).drive(errorObserver).disposed(by: disposeBag)

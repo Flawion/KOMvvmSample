@@ -59,4 +59,5 @@
 "error_general" = "Sorry an error has occured";
 "error_connection" = "Connection error";
 "error_validation" = "Connection error or invalid data";
+"error_parse" = "Parse error";
 "error_api_key" = "Insert your apiKey in:\nApplication -> AppSettings -> Api -> key\n\nYou can grab it from here:\nhttps://www.giantbomb.com/api";

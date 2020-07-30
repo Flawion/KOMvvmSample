@@ -74,7 +74,7 @@ class BaseApiClient: NSObject {
     func validate(response: HTTPURLResponse, data: Any?)throws {
         if !(200 ... 299 ~= response.statusCode) || data == nil {
             Logger.shared.logValidateFailure(response)
-            try throwError(forResponse: response, data: data, originalError: AppError.apiValidation)
+            throw AppError.apiError(withCode: .apiMapping, forResponse: response, data: data, originalError: nil)
         } else {
             Logger.shared.logValidateSucccess(response)
         }
@@ -90,10 +90,6 @@ class BaseApiClient: NSObject {
             }
             try self.validate(response: response, data: data)
         })
-    }
-    
-    private func throwError(forResponse response: HTTPURLResponse, data: Any?, originalError: Error)throws {
-        throw ApiErrorContainer(response: response, data: data, originalError: originalError)
     }
     
     // MARK: Api mock requests
@@ -209,7 +205,7 @@ class BaseApiClient: NSObject {
         do {
             mappedData = try (mapper ?? self.defaultDataMapper()).mapTo(data: data)
         } catch {
-            try self.throwError(forResponse: response, data: data, originalError: error)
+            throw AppError.apiError(withCode: .apiMapping, forResponse: response, data: data, originalError: error)
         }
         return mappedData
     }

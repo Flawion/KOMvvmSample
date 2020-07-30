@@ -48,7 +48,7 @@ final class PlatformsUseCase: BaseDataController {
         if allPlatformsCached {
             return Observable<Void>.just(())
         }
-        return downloadPlatformsSharedObservable ?? Observable<Void>.error(AppError.apiValidation)
+        return downloadPlatformsSharedObservable ?? Observable<Void>.error(AppError(withCode: .apiValidation))
     }
     
     func downloadPlatformsIfNeed() {
@@ -77,7 +77,7 @@ final class PlatformsUseCase: BaseDataController {
         return giantBombClient.platforms(offset: startOffset, limit: limit)
             .flatMapLatest({ [weak self](result, data) -> Observable<Void>  in
                 guard let self = self, let responseData = data else {
-                    throw ApiErrorContainer(response: result, data: data, originalError: AppError.apiValidation)
+                    throw AppError.apiError(withCode: .apiValidation, forResponse: result, data: nil, originalError: nil)
                 }
                 
                 self.storePlatforms(responseData.results)

@@ -65,9 +65,9 @@ final class Logger {
         }
 
         //tries to get information from ApiErrorContainer
-        let apiError = error as? ApiErrorContainer
-        let response = response ?? apiError?.response
-        let data = data ?? (apiError?.data as? Data)
+        let appError = error as? AppError
+        let response = response ?? appError?.userInfo[AppError.UserInfoKeys.apiResponse.rawValue] as? HTTPURLResponse
+        let data = data ?? appError?.userInfo[AppError.UserInfoKeys.apiResponse.rawValue] as? Data
 
         var logStr: [Any] = [String(format: "%@End request", endRequestSymbol)]
         logStr.appendIfNotNull([

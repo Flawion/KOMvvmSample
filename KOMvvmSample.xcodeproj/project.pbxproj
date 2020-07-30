@@ -18,6 +18,7 @@
 		052E405924CE2766005598B0 /* ScenesViewControllerBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E405824CE2766005598B0 /* ScenesViewControllerBuilderTests.swift */; };
 		052E405B24CE2C22005598B0 /* SceneBuilderProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E405A24CE2C22005598B0 /* SceneBuilderProtocolTests.swift */; };
 		052E405D24CE2F8C005598B0 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E405C24CE2F8C005598B0 /* BaseDataControllerTests.swift */; };
+		053125E124D34AE3000BBA45 /* AppErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053125E024D34AE3000BBA45 /* AppErrorsTest.swift */; };
 		05378247220479BC00EDCF72 /* GameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05378245220479BC00EDCF72 /* GameViewCell.swift */; };
 		0537824B22047B9600EDCF72 /* GameViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0537824922047B9600EDCF72 /* GameViewCell.xib */; };
 		053ED7D12222C5CC008133D6 /* ImageViewerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053ED7D02222C5CC008133D6 /* ImageViewerLoadingView.swift */; };
@@ -102,7 +103,6 @@
 		05E3D45A24CC887800EE969F /* ApiMockDataMatchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEAD5C2235B17A003CCA34 /* ApiMockDataMatchOptions.swift */; };
 		05E3D45B24CC887800EE969F /* ApiMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEAD5E2235B18F003CCA34 /* ApiMockData.swift */; };
 		05E3D45C24CC887E00EE969F /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AAF062201A49A00C7A131 /* BaseResponseModel.swift */; };
-		05E3D45D24CC887E00EE969F /* ApiErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530DF6922009AAF00EAC167 /* ApiErrorContainer.swift */; };
 		05E3D45E24CC887E00EE969F /* ApiRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05982FC0223449CA00B30A45 /* ApiRequestParameters.swift */; };
 		05E3D46024CC888200EE969F /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AAF082201A74400C7A131 /* GameModel.swift */; };
 		05E3D46124CC888200EE969F /* GameDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DBB7BA221D7A05009D17BC /* GameDetailsModel.swift */; };
@@ -224,8 +224,8 @@
 		052E405824CE2766005598B0 /* ScenesViewControllerBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesViewControllerBuilderTests.swift; sourceTree = "<group>"; };
 		052E405A24CE2C22005598B0 /* SceneBuilderProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneBuilderProtocolTests.swift; sourceTree = "<group>"; };
 		052E405C24CE2F8C005598B0 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
-		0530DF6922009AAF00EAC167 /* ApiErrorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorContainer.swift; sourceTree = "<group>"; };
 		0530DF6B22009AD900EAC167 /* BaseGiantBombClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGiantBombClient.swift; sourceTree = "<group>"; };
+		053125E024D34AE3000BBA45 /* AppErrorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorsTest.swift; sourceTree = "<group>"; };
 		05378245220479BC00EDCF72 /* GameViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCell.swift; sourceTree = "<group>"; };
 		0537824922047B9600EDCF72 /* GameViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewCell.xib; sourceTree = "<group>"; };
 		053BF182228B55E2008C6465 /* MockedServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedServices.swift; sourceTree = "<group>"; };
@@ -500,6 +500,7 @@
 			children = (
 				05A121A724CDBDA700E60FB8 /* BaseAppCoordinatorTests.swift */,
 				052E405824CE2766005598B0 /* ScenesViewControllerBuilderTests.swift */,
+				053125E024D34AE3000BBA45 /* AppErrorsTest.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -530,7 +531,6 @@
 			children = (
 				0517A402223802BF00F209D3 /* GiantBomb */,
 				056AAF062201A49A00C7A131 /* BaseResponseModel.swift */,
-				0530DF6922009AAF00EAC167 /* ApiErrorContainer.swift */,
 				05982FC0223449CA00B30A45 /* ApiRequestParameters.swift */,
 			);
 			path = Models;
@@ -1529,7 +1529,6 @@
 				05E3D47B24CC88C300EE969F /* GameDetailsUseCase.swift in Sources */,
 				05E3D45124CC885E00EE969F /* LogDataReducible.swift in Sources */,
 				05E3D45524CC886F00EE969F /* GiantBombClientService.swift in Sources */,
-				05E3D45D24CC887E00EE969F /* ApiErrorContainer.swift in Sources */,
 				05E3D45A24CC887800EE969F /* ApiMockDataMatchOptions.swift in Sources */,
 				05E3D46024CC888200EE969F /* GameModel.swift in Sources */,
 				05E3D46B24CC88A700EE969F /* ImageViewerViewModel.swift in Sources */,
@@ -1552,6 +1551,7 @@
 				0595B42D24D2062A00E59530 /* BaseViewModelTests.swift in Sources */,
 				052E405724CE1FB5005598B0 /* AppSceneTransitionsTests.swift in Sources */,
 				052E405D24CE2F8C005598B0 /* BaseDataControllerTests.swift in Sources */,
+				053125E124D34AE3000BBA45 /* AppErrorsTest.swift in Sources */,
 				052E405B24CE2C22005598B0 /* SceneBuilderProtocolTests.swift in Sources */,
 				05A121A824CDBDA700E60FB8 /* BaseAppCoordinatorTests.swift in Sources */,
 				052E405924CE2766005598B0 /* ScenesViewControllerBuilderTests.swift in Sources */,

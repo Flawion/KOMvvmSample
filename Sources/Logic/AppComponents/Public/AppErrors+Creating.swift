@@ -7,29 +7,34 @@
 
 import Foundation
 
-public enum AppErrorCodes: Int {
-    case commonSelfNotExists = 100
-    case commonDriverDefault = 101
-    
-    case apiConnection = 201
-    case apiValidation = 202
-}
-
 // MARK: Creating
 extension AppError {
-    public static var commonSelfNotExists: NSError {
-        return AppError(withCode: .commonSelfNotExists)
+    public enum Codes: Int {
+        case commonSelfNotExists = 100
+        case commonDriverDefault = 101
+        
+        case apiConnection = 201
+        case apiValidation = 202
+        case apiMapping = 203
     }
     
-    public static var commonDriverDefault: NSError {
-        return AppError(withCode: .commonDriverDefault)
+    public enum UserInfoKeys: String {
+        case apiResponse // HTTPURLResponse
+        case apiData // Data
     }
     
-    public static var apiConnection: NSError {
-        return AppError(withCode: .apiConnection, description: "error_connection".localized)
+    static func createDescriptionKeysForErrorCodes() -> [AppError.Codes: String] {
+        return [.apiConnection: "error_connection",
+                .apiValidation: "error_validation",
+                .apiMapping: "error_parse"
+                ]
     }
     
-    public static var apiValidation: NSError {
-        return AppError(withCode: .apiValidation, description: "error_validation".localized)
+    static func apiError(withCode code: AppError.Codes, forResponse response: HTTPURLResponse, data: Any?, originalError: Error?) -> AppError {
+        var userInfo: [String: Any] = [AppError.UserInfoKeys.apiResponse.rawValue: response]
+        if let data = data {
+            userInfo[AppError.UserInfoKeys.apiData.rawValue] = data
+        }
+        return AppError(withCode: code, userInfo: userInfo, innerError: originalError as NSError?)
     }
 }

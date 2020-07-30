@@ -8,6 +8,10 @@
 import Foundation
 
 public final class AppError: NSError, LocalizedError {
+    private static var descriptionKeysForErrorCodes = {
+        createDescriptionKeysForErrorCodes()
+    }()
+    
     private var pDescription: String
     public let innerError: NSError?
     public static let errorDomain = "pl.KO.KOMvvmSample"
@@ -16,8 +20,8 @@ public final class AppError: NSError, LocalizedError {
         return pDescription
     }
     
-    init(withCode code: AppErrorCodes, userInfo: [String: Any]? = nil, description: String? = nil, innerError: NSError? = nil) {
-        pDescription = description ?? "error_general".localized
+    public init(withCode code: AppError.Codes, userInfo: [String: Any]? = nil, innerError: NSError? = nil) {
+        pDescription = Self.descriptionKeysForErrorCodes[code]?.localized ?? "error_general".localized
         if let innerError = innerError {
             let lastDomainPath = innerError.domain.split(separator: ".").last ?? ""
             pDescription += "\n(\(lastDomainPath) \(innerError.code))"
