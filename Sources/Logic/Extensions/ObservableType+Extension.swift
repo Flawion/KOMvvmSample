@@ -10,14 +10,7 @@ import RxCocoa
 import RxSwift
 
 extension ObservableType {
-    //chain ends working on this method and continue after next onNext ;)
-    func catchErrorContinueAfterOnNext(handler: @escaping (Error) throws -> Void) -> RxSwift.Observable<Self.Element> {
-        return self.catchError { error in
-            try handler(error)
-            return Observable.error(error)
-            }.retry()
-    }
-
+    
     func doOnce(_ handler: @escaping (Self.Element?, Error?) -> Void) -> RxSwift.Observable<Self.Element> {
         let invokeOnce = InvokeOnceParamOrError({ (object, error) in
             handler(object, error)
