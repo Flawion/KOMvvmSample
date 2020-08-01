@@ -7,31 +7,40 @@
 
 import Foundation
 
-@testable import KOMvvmSample
+@testable import KOMvvmSampleLogic
 
-/// Used for sets settings of mock data in MockClient or unit tests
 struct MockSettings {
-    static var responseDelay: Double {
-        return 0.1
+    
+    enum FileNames: String {
+        case games
+        case moregames
+        case filteredgames
+        case platforms
+        case moreplatforms
+        case gamedetails
     }
-
+    
+    static var platformsCount: Int {
+        return 100
+    }
+    
+    static var platformsTotalCount: Int {
+        return 157
+    }
+    
+    static var filteredGamesFilters: [GamesFilters: String] {
+        return [GamesFilters.name: filtedGamesName, GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue), GamesFilters.originalReleaseDate: FiltersUtils.dateRangeValue(from: filtedGamesFromDate, to: filtedGamesToDate)]
+    }
+    
     static var filtedGamesName: String {
         return "Mass effect"
     }
-
+    
     static var filtedGamesToDate: Date {
         return Calendar.current.date(from: DateComponents(year: 2019, month: 3, day: 8))!
     }
-
+    
     static var filtedGamesFromDate: Date {
         return Calendar.current.date(from: DateComponents(year: 2006, month: 3, day: 3))!
-    }
-
-    static var filteredGamesFilters: [GamesFilters: String] {
-        return [GamesFilters.name: filtedGamesName, GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue), GamesFilters.originalReleaseDate: Utils.shared.filterDateRangeValue(from: filtedGamesFromDate, to: filtedGamesToDate)]
-    }
-
-    static var platformsTotalCount: Int {
-        return 157
     }
 }

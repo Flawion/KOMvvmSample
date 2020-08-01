@@ -37,7 +37,7 @@ final class ApiMockDataContainer {
             let dataUrl = dataBundle.url(forResource: mockData.fileName, withExtension: mockData.fileType) else {
             return nil
         }
-        return try? Data.init(contentsOf: dataUrl)
+        return try? Data(contentsOf: dataUrl)
     }
     
     func register(mockData: ApiMockData) {

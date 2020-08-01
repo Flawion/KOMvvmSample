@@ -14,15 +14,24 @@ import XCTest
 final class DataStoreServiceTests: XCTestCase {
     
     private var serviceLocator: ServiceLocator!
+    private var dataStore: DataStoreServiceProtocol!
     
     override func setUp() {
         serviceLocator = ServiceLocator()
+        dataStore = DataStoreServiceBuilder().createService(withServiceLocator: serviceLocator) as? DataStoreServiceProtocol
         super.setUp()
     }
     
     override func tearDown() {
         super.tearDown()
         serviceLocator = nil
+        dataStore.platforms = nil
+        dataStore = nil
+        guard let testDataStore = (dataStore as? TestDataStoreServiceProtocol) else {
+            return
+        }
+        testDataStore.testUserDefaultObject = nil
+        testDataStore.testUserDefaultBool = nil
     }
     
     func testCeateDataService() {
@@ -33,5 +42,93 @@ final class DataStoreServiceTests: XCTestCase {
     
     func testBuilderType() {
         XCTAssertEqual(DataStoreServiceBuilder().type, .dataStore)
+    }
+    
+    func testSavePlatforms() {
+        guard let platforms: BaseResponseModel<[PlatformModel]>? = jsonModel(mockName: .platforms) else {
+            XCTAssertTrue(false)
+            return
+        }
+        
+        dataStore.platforms = platforms?.results
+        
+        XCTAssertNotNil(dataStore.platforms)
+        XCTAssertNotNil(dataStore.savePlatformsDate)
+        XCTAssertEqual(dataStore.platforms?.count, MockSettings.platformsCount)
+    }
+    
+    func testDeletePlatforms() {
+        guard let platforms: BaseResponseModel<[PlatformModel]>? = jsonModel(mockName: .platforms) else {
+            XCTAssertTrue(false)
+            return
+        }
+        dataStore.platforms = platforms?.results
+        
+        dataStore.platforms = nil
+        
+        XCTAssertNil(dataStore.platforms)
+        XCTAssertNil(dataStore.savePlatformsDate)
+    }
+    
+    func testSaveUserDefaultObject() {
+        guard let testDataStore = dataStore as? TestDataStoreServiceProtocol else {
+            XCTAssertTrue(false)
+            return
+        }
+        let testData = TestUserDefaultObject(name: "Kuba", value: "Ostr", age: 30)
+        
+        testDataStore.testUserDefaultObject = testData
+        let savedDate = testDataStore.testUserDefaultObject
+        
+        XCTAssertNotNil(savedDate)
+        XCTAssertEqual(savedDate?.name, testData.name)
+        XCTAssertEqual(savedDate?.value, testData.value)
+        XCTAssertEqual(savedDate?.age, testData.age)
+    }
+    
+    func testClearUserDefaultObject() {
+        guard let testDataStore = dataStore as? TestDataStoreServiceProtocol else {
+            XCTAssertTrue(false)
+            return
+        }
+        let testData = TestUserDefaultObject(name: "Kuba", value: "Ostr", age: 30)
+        
+        testDataStore.testUserDefaultObject = testData
+        testDataStore.testUserDefaultObject = nil
+        
+        XCTAssertNil(testDataStore.testUserDefaultObject)
+    }
+    
+    func testGetNotContainedUserDefaultBool() {
+        guard let testDataStore = dataStore as? TestDataStoreServiceProtocol else {
+            XCTAssertTrue(false)
+            return
+        }
+        
+        XCTAssertNil(testDataStore.testUserDefaultBool)
+    }
+    
+    func testSaveUserDefaultBool() {
+        guard let testDataStore = dataStore as? TestDataStoreServiceProtocol else {
+            XCTAssertTrue(false)
+            return
+        }
+        let saveUserDefaultBool = true
+        
+        testDataStore.testUserDefaultBool = saveUserDefaultBool
+        
+        XCTAssertEqual(testDataStore.testUserDefaultBool, saveUserDefaultBool)
+    }
+    
+    func testClearUserDefaultBool() {
+        guard let testDataStore = dataStore as? TestDataStoreServiceProtocol else {
+            XCTAssertTrue(false)
+            return
+        }
+        
+        testDataStore.testUserDefaultBool = true
+        testDataStore.testUserDefaultBool = nil
+        
+        XCTAssertNil(testDataStore.testUserDefaultBool)
     }
 }

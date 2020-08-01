@@ -9,6 +9,17 @@ import XCTest
 
 extension XCTestCase {
     
+    func resource(mockName: MockSettings.FileNames, extension: String) -> Data? {
+        return resource(name: mockName.rawValue, extension: `extension`)
+    }
+    
+    func resource(name: String, extension: String) -> Data? {
+        guard let resourceUrl = Bundle(for: FiltersUtilsTests.self).url(forResource: name, withExtension: `extension`), let data = try? Data(contentsOf: resourceUrl) else {
+            return nil
+        }
+        return data
+    }
+    
     func wait(timeout: TimeInterval) {
         let expection = expectation(description: "wait expection")
         DispatchQueue.main.asyncAfter(deadline: .now() + timeout) {

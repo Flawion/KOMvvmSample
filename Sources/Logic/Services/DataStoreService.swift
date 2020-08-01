@@ -24,12 +24,15 @@ protocol DataStoreServiceProtocol: NSObject {
 
 // MARK: - DataStoreService
 final class DataStoreService: NSObject {
+    
+    private enum Keys: String {
+        case platforms
+        case savePlatformsDate
+    }
+    
     // MARK: - Variables
     private let fileDirectoryURL: URL
-
-    private let platformsKey: String = "platformsKey"
-    private let savePlatformsDateKey: String = "savePlatformsDateKey"
-
+   
     override init() {
         do {
             fileDirectoryURL = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -40,10 +43,14 @@ final class DataStoreService: NSObject {
 
     // MARK: - Private helpers functions
     private func setSavePlatformsDate(_ date: Date?) {
-        UserDefaults.standard.set(date, forKey: savePlatformsDateKey)
+        UserDefaults.standard.set(date, forKey: Keys.savePlatformsDate.rawValue)
     }
 
     // MARK: Loading / saving from UserDefaults
+    private func loadObject<T: Decodable>(forKey key: Keys) -> T? {
+        return loadObject(forKey: key.rawValue)
+    }
+    
     private func loadObject<T: Decodable>(forKey key: String) -> T? {
         guard let data = UserDefaults.standard.object(forKey: key) as? Data else {
             return nil
@@ -51,6 +58,10 @@ final class DataStoreService: NSObject {
         return unarchiveObjectFromData(data)
     }
 
+    private func saveObject<T: Encodable>(_ object: T?, forKey key: Keys) -> Bool {
+        saveObject(object, forKey: key.rawValue)
+    }
+    
     private func saveObject<T: Encodable>(_ object: T?, forKey key: String) -> Bool {
         guard let object = object else {
             UserDefaults.standard.removeObject(forKey: key)
@@ -64,6 +75,10 @@ final class DataStoreService: NSObject {
     }
 
     // MARK: Loading / saving from files
+    private func loadObjectFromFile<T: Decodable>(forKey key: Keys) -> T? {
+        return loadObjectFromFile(forKey: key.rawValue)
+    }
+    
     private func loadObjectFromFile<T: Decodable>(forKey key: String) -> T? {
         let fileURL = self.fileURL(forKey: key)
         guard FileManager.default.fileExists(atPath: fileURL.path), let data = try? Data(contentsOf: fileURL) else {
@@ -72,6 +87,10 @@ final class DataStoreService: NSObject {
         return unarchiveObjectFromData(data)
     }
 
+    private func saveObjectToFile<T: Encodable>(_ object: T?, forKey key: Keys) -> Bool {
+        saveObjectToFile(object, forKey: key.rawValue)
+    }
+    
     private func saveObjectToFile<T: Encodable>(_ object: T?, forKey key: String) -> Bool {
         let fileURL = self.fileURL(forKey: key)
         guard let object = object else {
@@ -92,6 +111,10 @@ final class DataStoreService: NSObject {
         }
     }
 
+    private func fileURL(forKey key: Keys) -> URL {
+        return fileURL(forKey: key.rawValue)
+    }
+    
     private func fileURL(forKey key: String) -> URL {
         return URL(fileURLWithPath: String(format: "%@.dat", key), relativeTo: fileDirectoryURL)
     }
@@ -116,6 +139,10 @@ final class DataStoreService: NSObject {
         return nil
     }
 
+    private func containsKey(_ key: Keys) -> Bool {
+        return containsKey(key.rawValue)
+    }
+    
     private func containsKey(_ key: String) -> Bool {
         return UserDefaults.standard.dictionaryRepresentation().keys.contains(key)
     }
@@ -125,15 +152,64 @@ final class DataStoreService: NSObject {
 extension DataStoreService: DataStoreServiceProtocol {
     var platforms: [PlatformModel]? {
         get {
-            return loadObjectFromFile(forKey: platformsKey)
+            return loadObjectFromFile(forKey: .platforms)
         }
         set {
-            _ = saveObjectToFile(newValue, forKey: platformsKey)
+            _ = saveObjectToFile(newValue, forKey: .platforms)
             setSavePlatformsDate(newValue != nil ? Date() : nil)
         }
     }
 
     var savePlatformsDate: Date? {
-        return UserDefaults.standard.object(forKey: savePlatformsDateKey) as? Date
+        return UserDefaults.standard.object(forKey: Keys.savePlatformsDate.rawValue) as? Date
+    }
+}
+
+// MARK: - For test purpose
+final class TestUserDefaultObject: Codable {
+    let name: String
+    let value: String
+    let age: Int
+    
+    init(name: String, value: String, age: Int) {
+        self.name = name
+        self.value = value
+        self.age = age
+    }
+}
+
+protocol TestDataStoreServiceProtocol: NSObject {
+    var testUserDefaultObject: TestUserDefaultObject? { get set }
+    var testUserDefaultBool: Bool? { get set }
+}
+
+extension DataStoreService: TestDataStoreServiceProtocol {
+    var testUserDefaultObjectKey: String {
+        return "testUserDefaultObjectKey"
+    }
+    
+    var testUserDefaultBoolKey: String {
+        return "testUserDefaultBoolKey"
+    }
+    
+    var testUserDefaultObject: TestUserDefaultObject? {
+        get {
+            return loadObject(forKey: testUserDefaultObjectKey)
+        }
+        set {
+            _ = saveObject(newValue, forKey: testUserDefaultObjectKey)
+        }
+    }
+    
+    var testUserDefaultBool: Bool? {
+        get {
+            guard containsKey(testUserDefaultBoolKey) else {
+                return nil
+            }
+            return UserDefaults.standard.bool(forKey: testUserDefaultBoolKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: testUserDefaultBoolKey)
+        }
     }
 }
