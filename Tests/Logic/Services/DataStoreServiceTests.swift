@@ -54,7 +54,7 @@ final class DataStoreServiceTests: XCTestCase {
         
         XCTAssertNotNil(dataStore.platforms)
         XCTAssertNotNil(dataStore.savePlatformsDate)
-        XCTAssertEqual(dataStore.platforms?.count, MockSettings.platformsCount)
+        XCTAssertEqual(dataStore.platforms?.count, platforms?.results?.count)
     }
     
     func testDeletePlatforms() {
