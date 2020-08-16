@@ -25,6 +25,6 @@ extension XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + timeout) {
             expection.fulfill()
         }
-        waitForExpectations(timeout: timeout + 0.1, handler: nil)
+        waitForExpectations(timeout: timeout + 0.2, handler: nil)
     }
 }

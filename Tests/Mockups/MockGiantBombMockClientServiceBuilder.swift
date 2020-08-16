@@ -2,8 +2,8 @@
 //  MockGiantBombMockClientServiceBuilder.swift
 //  KOMvvmSample
 //
-//  Created by Kuba Ostrowski on 01/08/2020.
-//
+//  Copyright (c) 2020 Kuba Ostrowskion 01/08/2020.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import Foundation
 
@@ -29,6 +29,10 @@ final class MockGiantBombMockClientServiceBuilder {
         return 4
     }
     
+    var searchFilters: [GamesFilters: String] {
+        return [GamesFilters.name: searchFilteredGamesName, GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue), GamesFilters.originalReleaseDate: FiltersUtils.dateRangeValue(from: searchFilteredGamesFromDate, to: searchFilteredGamesToDate)]
+    }
+    
     var morePlatformsCount: Int {
         return 57
     }
@@ -52,8 +56,7 @@ final class MockGiantBombMockClientServiceBuilder {
     }
     
     var searchFilteredGamesDataParameters: ApiRequestParameters {
-        let filters = [GamesFilters.name: searchFilteredGamesName, GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue), GamesFilters.originalReleaseDate: FiltersUtils.dateRangeValue(from: searchFilteredGamesFromDate, to: searchFilteredGamesToDate)]
-        return client.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: FiltersUtils.gamesFiltersString(fromFilters: filters), sorting: FiltersUtils.gamesSortingString(fromFilters: filters))
+        return client.parametersForSearchGames(offset: 0, limit: AppSettings.Games.limitPerRequest, filters: FiltersUtils.gamesFiltersString(fromFilters: searchFilters), sorting: FiltersUtils.gamesSortingString(fromFilters: searchFilters))
     }
     
     var platformsDataParameters: ApiRequestParameters {

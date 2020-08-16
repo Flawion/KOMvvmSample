@@ -132,7 +132,7 @@ final class SearchGamesUseCase: BaseDataController {
     }
     
     func game(atIndex index: Int) -> GameModel? {
-        guard index < gamesRelay.value.count else {
+        guard index >= 0, index < gamesRelay.value.count else {
             return nil
         }
         return gamesRelay.value[index]
