@@ -51,6 +51,29 @@ public struct GameModel: Codable {
     public let originalReleaseDate: Date?
     public let platforms: [PlatformShortModel]?
     public let siteDetailUrl: URL?
+    
+    public init(testModelWithGuid guid: String, name: String) {
+        self.dateAdded = Date()
+        self.guid = guid
+        self.id = -1
+        self.name = name
+        self.numberOfUserReviews = 0
+        self.aliases = nil
+        self.apiDetailUrl = nil
+        self.dateLastUpdated = nil
+        self.deck = nil
+        self.description = nil
+        self.expectedReleaseDay = nil
+        self.expectedReleaseMonth = nil
+        self.expectedReleaseQuarter = nil
+        self.expectedReleaseYear = nil
+        self.image = nil
+        self.imageTags = nil
+        self.originalGameRating = nil
+        self.originalReleaseDate = nil
+        self.platforms = nil
+        self.siteDetailUrl = nil
+    }
 }
 
 extension GameModel {

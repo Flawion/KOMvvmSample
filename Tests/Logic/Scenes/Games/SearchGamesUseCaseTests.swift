@@ -144,5 +144,34 @@ final class SearchGamesUseCaseTests: XCTestCase {
             XCTAssertTrue(false)
             return
         }
+        XCTAssertEqual(searchGamesUseCase.games.count, filteredGames.count)
+    }
+    
+    func testChangeFiltersWithTheSameValue() {
+        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        wait(timeout: 0.1)
+        
+        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        XCTAssertEqual(searchGamesUseCase.dataActionState, DataActionStates.none)
+        
+        guard let response: BaseResponseModel<[GameModel]> = jsonModel(mockName: .filteredgames), let filteredGames = response.results else {
+            XCTAssertTrue(false)
+            return
+        }
+        for game in searchGamesUseCase.games where !filteredGames.contains(where: { $0.id == game.id }) {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(searchGamesUseCase.games.count, filteredGames.count)
+    }
+    
+    func testChangeFiltersRemoveValue() {
+        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        wait(timeout: 0.1)
+        XCTAssertNotNil(searchGamesUseCase.filters[GamesFilters.name])
+        
+        searchGamesUseCase.change(filters: [GamesFilters.name: ""])
+        
+        XCTAssertNil(searchGamesUseCase.filters[GamesFilters.name])
     }
 }
