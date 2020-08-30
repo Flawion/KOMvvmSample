@@ -12,12 +12,12 @@ import XCTest
 final class ScenesViewControllerBuilderTests: XCTestCase {
     
     private var scenesViewControllerBuilder: ScenesViewControllerBuilder!
-    private var appCoordinator: TestAppCoordinator!
+    private var appCoordinator: MockedAppCoordinator!
     private var viewModel: TestViewModel!
     
     override func setUp() {
         scenesViewControllerBuilder = ScenesViewControllerBuilder()
-        appCoordinator = TestAppCoordinator()
+        appCoordinator = MockedAppCoordinator()
         viewModel = TestViewModel(appCoordinator: appCoordinator)
         super.setUp()
     }
@@ -60,14 +60,6 @@ private final class TestViewController: UIViewController, ViewControllerProtocol
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private final class TestAppCoordinator: BaseAppCoordinator {
-    override func registerViewControllers(builder: ScenesViewControllerBuilder) {
-    }
-    
-    override func setWindowRootViewController() {
     }
 }
 

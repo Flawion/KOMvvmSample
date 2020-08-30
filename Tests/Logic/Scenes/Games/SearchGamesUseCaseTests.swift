@@ -2,7 +2,7 @@
 //  SearchGamesUseCaseTests.swift
 //  KOMvvmSampleLogicTests
 //
-//  Copyright (c) 2020 Kuba Ostrowskion 16/08/2020.
+//  Copyright (c) 2020 Kuba Ostrowski
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
@@ -15,14 +15,14 @@ import RxBlocking
 
 final class SearchGamesUseCaseTests: XCTestCase {
     private var serviceLocator: ServiceLocator!
-    private var mockGiantBombMockClientServiceBuilder: MockGiantBombMockClientServiceBuilder!
+    private var mockGiantBombClientServiceConfigurator: MockGiantBombClientServiceConfigurator!
     private var giantBombMockClient: GiantBombMockClientService!
     private var searchGamesUseCase: SearchGamesUseCase!
     
     override func setUp() {
         serviceLocator = ServiceLocator()
-        mockGiantBombMockClientServiceBuilder = MockGiantBombMockClientServiceBuilder(serviceLocator: serviceLocator)
-        giantBombMockClient = MockGiantBombMockClientServiceBuilder(serviceLocator: serviceLocator).client
+        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator)
+        giantBombMockClient = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator).client
         searchGamesUseCase = SearchGamesUseCase(giantBombClient: giantBombMockClient)
         super.setUp()
     }
@@ -30,7 +30,7 @@ final class SearchGamesUseCaseTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         serviceLocator = nil
-        mockGiantBombMockClientServiceBuilder = nil
+        mockGiantBombClientServiceConfigurator = nil
         giantBombMockClient = nil
         searchGamesUseCase = nil
     }
@@ -132,7 +132,7 @@ final class SearchGamesUseCaseTests: XCTestCase {
         searchGamesUseCase.searchIfNeed()
         wait(timeout: 0.1)
         
-        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        searchGamesUseCase.change(filters: mockGiantBombClientServiceConfigurator.searchFilters)
         XCTAssertEqual(searchGamesUseCase.dataActionState, DataActionStates.loading)
         wait(timeout: 0.1)
         
@@ -148,10 +148,10 @@ final class SearchGamesUseCaseTests: XCTestCase {
     }
     
     func testChangeFiltersWithTheSameValue() {
-        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        searchGamesUseCase.change(filters: mockGiantBombClientServiceConfigurator.searchFilters)
         wait(timeout: 0.1)
         
-        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        searchGamesUseCase.change(filters: mockGiantBombClientServiceConfigurator.searchFilters)
         XCTAssertEqual(searchGamesUseCase.dataActionState, DataActionStates.none)
         
         guard let response: BaseResponseModel<[GameModel]> = jsonModel(mockName: .filteredgames), let filteredGames = response.results else {
@@ -166,7 +166,7 @@ final class SearchGamesUseCaseTests: XCTestCase {
     }
     
     func testChangeFiltersRemoveValue() {
-        searchGamesUseCase.change(filters: mockGiantBombMockClientServiceBuilder.searchFilters)
+        searchGamesUseCase.change(filters: mockGiantBombClientServiceConfigurator.searchFilters)
         wait(timeout: 0.1)
         XCTAssertNotNil(searchGamesUseCase.filters[GamesFilters.name])
         

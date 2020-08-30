@@ -14,11 +14,11 @@ import RxBlocking
 @testable import KOMvvmSampleLogic
 
 final class BaseViewModelTests: XCTestCase {
-    private var appCoordinator: TestAppCoordinator!
+    private var appCoordinator: MockedAppCoordinator!
     private var baseViewModel: BaseViewModel!
     
     override func setUp() {
-        appCoordinator = TestAppCoordinator()
+        appCoordinator = MockedAppCoordinator()
         baseViewModel = BaseViewModel(appCoordinator: appCoordinator)
         super.setUp()
     }
@@ -63,14 +63,5 @@ final class BaseViewModelTests: XCTestCase {
         testScheduler.start()
         
         XCTAssertEqual(errorObserver.events, expectedEvents)
-    }
-}
-
-// MARK: Testa data
-private final class TestAppCoordinator: BaseAppCoordinator {
-    override func registerViewControllers(builder: ScenesViewControllerBuilder) {
-    }
-    
-    override func setWindowRootViewController() {
     }
 }

@@ -19,7 +19,7 @@ struct DataStoreServiceBuilder: ServiceBuilderProtocol {
 
 protocol DataStoreServiceProtocol: NSObject {
     var platforms: [PlatformModel]? {get set}
-    var savePlatformsDate: Date? {get }
+    var savePlatformsDate: Date? { get }
 }
 
 // MARK: - DataStoreService

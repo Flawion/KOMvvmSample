@@ -1,5 +1,5 @@
 //
-//  WebViewControllerSceneBuilder.swift
+//  WebViewSceneBuilder.swift
 //  KOMvvmSample
 //
 //  Copyright (c) 2019 Kuba Ostrowski
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct WebViewControllerSceneBuilder: SceneBuilderProtocol {
+struct WebViewSceneBuilder: SceneBuilderProtocol {
     private let barTitle: String
     private var html: String
 

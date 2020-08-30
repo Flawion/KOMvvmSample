@@ -11,12 +11,10 @@ import XCTest
 
 final class SceneBuilderProtocolTests: XCTestCase {
     private var appCoordinator: TestAppCoordinator!
-    private var viewModel: TestViewModel!
     private var sceneBuilder: TestSceneBuilder!
     
     override func setUp() {
         appCoordinator = TestAppCoordinator()
-        viewModel = TestViewModel(appCoordinator: appCoordinator)
         sceneBuilder = TestSceneBuilder()
         super.setUp()
     }
@@ -24,7 +22,6 @@ final class SceneBuilderProtocolTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         appCoordinator = nil
-        viewModel = nil
         sceneBuilder = nil
     }
     

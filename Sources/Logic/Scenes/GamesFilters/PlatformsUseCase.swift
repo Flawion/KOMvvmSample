@@ -27,6 +27,14 @@ final class PlatformsUseCase: BaseDataController {
         return platformsRelay.value
     }
     
+    var downloadPlatformsIfNeedObservable: Observable<Void> {
+        downloadPlatformsIfNeed()
+        if allPlatformsCached {
+            return Observable<Void>.just(())
+        }
+        return downloadPlatformsSharedObservable ?? Observable<Void>.error(AppError(withCode: .apiValidation))
+    }
+    
     // MARK: Functions
     init(giantBombClient: GiantBombClientServiceProtocol, dataStore: DataStoreServiceProtocol) {
         self.giantBombClient = giantBombClient
@@ -41,14 +49,6 @@ final class PlatformsUseCase: BaseDataController {
         }
         allPlatformsCached = true
         platformsRelay.accept(platforms)
-    }
-    
-    var downloadPlatformsIfNeedObservable: Observable<Void> {
-        downloadPlatformsIfNeed()
-        if allPlatformsCached {
-            return Observable<Void>.just(())
-        }
-        return downloadPlatformsSharedObservable ?? Observable<Void>.error(AppError(withCode: .apiValidation))
     }
     
     func downloadPlatformsIfNeed() {

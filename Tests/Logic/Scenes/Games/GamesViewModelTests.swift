@@ -2,7 +2,7 @@
 //  GamesViewModelTests.swift
 //  KOMvvmSampleLogicTests
 //
-//  Copyright (c) 2020 Kuba Ostrowskion 16/08/2020.
+//  Copyright (c) 2020 Kuba Ostrowski
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
@@ -13,13 +13,13 @@ import RxBlocking
 @testable import KOMvvmSampleLogic
 
 final class GamesViewModelTests: XCTestCase {
-    private var appCoordinator: TestAppCoordinator!
+    private var appCoordinator: MockedAppCoordinator!
     private var giantBombMockClient: GiantBombMockClientService!
     private var gamesViewModel: GamesViewModel!
     
     override func setUp() {
-        appCoordinator = TestAppCoordinator()
-        giantBombMockClient = appCoordinator.mockGiantBombMockClientServiceBuilder.client!
+        appCoordinator = MockedAppCoordinator()
+        giantBombMockClient = appCoordinator.mockGiantBombClientServiceConfigurator.client!
         let searchGamesUseCase = SearchGamesUseCase(giantBombClient: giantBombMockClient)
         gamesViewModel = GamesViewModel(appCoordinator: appCoordinator, searchGamesUseCase: searchGamesUseCase)
         super.setUp()
@@ -28,6 +28,7 @@ final class GamesViewModelTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         appCoordinator = nil
+        giantBombMockClient = nil
         gamesViewModel = nil
     }
     
@@ -126,7 +127,7 @@ final class GamesViewModelTests: XCTestCase {
     func testChangeFilters() {
         gamesViewModel.searchIfNeed()
         wait(timeout: 0.1)
-        let searchFilters = appCoordinator.mockGiantBombMockClientServiceBuilder.searchFilters
+        let searchFilters = appCoordinator.mockGiantBombClientServiceConfigurator.searchFilters
         
         gamesViewModel.change(filters: searchFilters)
         XCTAssertEqual(gamesViewModel.dataActionState, DataActionStates.loading)
@@ -144,24 +145,5 @@ final class GamesViewModelTests: XCTestCase {
             XCTAssertTrue(false)
         }
         XCTAssertEqual(gamesViewModel.games.count, filteredGames.count)
-    }
-}
-
-// MARK: - TestAppCoordinator
-private final class TestAppCoordinator: BaseAppCoordinator {
-    var masterViewController: UINavigationController?
-    var mockGiantBombMockClientServiceBuilder: MockGiantBombMockClientServiceBuilder!
-    
-    override func registerServices(locator: ServiceLocator) {
-        mockGiantBombMockClientServiceBuilder = MockGiantBombMockClientServiceBuilder(serviceLocator: locator)
-    }
-    
-    override func registerViewControllers(builder: ScenesViewControllerBuilder) {
-    }
-    
-    override func setWindowRootViewController() {
-        let mainSceneViewController = createMainSceneViewController()
-        masterViewController = UINavigationController(rootViewController: mainSceneViewController)
-        window?.rootViewController = masterViewController
     }
 }

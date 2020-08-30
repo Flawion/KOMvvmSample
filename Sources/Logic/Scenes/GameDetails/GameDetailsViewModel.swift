@@ -59,7 +59,7 @@ extension GameDetailsViewModel: GameDetailsViewModelProtocol {
     
     // MARK: Navigation
     func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel, navigationController: UINavigationController?) {
-        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: WebViewControllerSceneBuilder(barTitle: detailsItem.localizedName, html: game.description ?? ""))
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: WebViewSceneBuilder(barTitle: detailsItem.localizedName, html: game.description ?? ""))
     }
     
     func goToImagesDetailsItem(navigationController: UINavigationController?) {

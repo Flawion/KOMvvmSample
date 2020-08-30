@@ -2,7 +2,7 @@
 //  GiantBombClientServiceTests.swift
 //  KOMvvmSampleLogicTests
 //
-//  Copyright (c) 2020 Kuba Ostrowskion 01/08/2020.
+//  Copyright (c) 2020 Kuba Ostrowski
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
@@ -12,25 +12,25 @@ import XCTest
 final class GiantBombClientServiceTests: XCTestCase {
     
     private var serviceLocator: ServiceLocator!
-    private var mockGiantBombMockClientServiceBuilder: MockGiantBombMockClientServiceBuilder!
+    private var mockGiantBombClientServiceConfigurator: MockGiantBombClientServiceConfigurator!
     private var giantBombMockClient: GiantBombMockClientService!
     
     override func setUp() {
         serviceLocator = ServiceLocator()
-        mockGiantBombMockClientServiceBuilder = MockGiantBombMockClientServiceBuilder(serviceLocator: serviceLocator)
-        giantBombMockClient = MockGiantBombMockClientServiceBuilder(serviceLocator: serviceLocator).client
+        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator)
+        giantBombMockClient = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator).client
         super.setUp()
     }
     
     override func tearDown() {
         super.tearDown()
         serviceLocator = nil
-        mockGiantBombMockClientServiceBuilder = nil
+        mockGiantBombClientServiceConfigurator = nil
         giantBombMockClient = nil
     }
     
     func testSearchGames() {
-        let parameters = mockGiantBombMockClientServiceBuilder.searchGamesDataParameters.parameters ?? [:]
+        let parameters = mockGiantBombClientServiceConfigurator.searchGamesDataParameters.parameters ?? [:]
         let offset = parameters["offset"] as? Int ?? 0
         let limit = parameters["limit"] as? Int ?? 0
         let filters = parameters["filter"] as? String ?? ""
@@ -50,7 +50,7 @@ final class GiantBombClientServiceTests: XCTestCase {
     }
     
     func testSearchGamesMore() {
-        let parameters = mockGiantBombMockClientServiceBuilder.searchMoreGamesDataParameters.parameters ?? [:]
+        let parameters = mockGiantBombClientServiceConfigurator.searchMoreGamesDataParameters.parameters ?? [:]
         let offset = parameters["offset"] as? Int ?? 0
         let limit = parameters["limit"] as? Int ?? 0
         let filters = parameters["filter"] as? String ?? ""
@@ -70,14 +70,14 @@ final class GiantBombClientServiceTests: XCTestCase {
     }
     
     func testSearchFilteredGames() {
-        let parameters = mockGiantBombMockClientServiceBuilder.searchFilteredGamesDataParameters.parameters ?? [:]
+        let parameters = mockGiantBombClientServiceConfigurator.searchFilteredGamesDataParameters.parameters ?? [:]
         let offset = parameters["offset"] as? Int ?? 0
         let limit = parameters["limit"] as? Int ?? 0
         let filters = parameters["filter"] as? String ?? ""
         let sorting = parameters["sort"] as? String ?? ""
-        let searchFilteredGamesName = mockGiantBombMockClientServiceBuilder.searchFilteredGamesName.lowercased()
-        let searchFilteredGamesFromDate = mockGiantBombMockClientServiceBuilder.searchFilteredGamesFromDate
-        let searchFilteredGamesToDate = mockGiantBombMockClientServiceBuilder.searchFilteredGamesToDate
+        let searchFilteredGamesName = mockGiantBombClientServiceConfigurator.searchFilteredGamesName.lowercased()
+        let searchFilteredGamesFromDate = mockGiantBombClientServiceConfigurator.searchFilteredGamesFromDate
+        let searchFilteredGamesToDate = mockGiantBombClientServiceConfigurator.searchFilteredGamesToDate
         
         let results: (HTTPURLResponse, BaseResponseModel<[GameModel]>?)? = try? giantBombMockClient.searchGames(offset: offset, limit: limit, filters: filters, sorting: sorting)
             .toBlocking().first()
@@ -87,7 +87,7 @@ final class GiantBombClientServiceTests: XCTestCase {
         }
         
         XCTAssertEqual(response.statusCode, 200)
-        XCTAssertEqual(games.results?.count, mockGiantBombMockClientServiceBuilder.searchFilteredGamesTotalResult)
+        XCTAssertEqual(games.results?.count, mockGiantBombClientServiceConfigurator.searchFilteredGamesTotalResult)
         XCTAssertEqual(games.offset, offset)
         XCTAssertEqual(games.limit, limit)
         let gameWithWrongName = games.results?.first(where: { !$0.name.lowercased().starts(with: searchFilteredGamesName) })
@@ -105,7 +105,7 @@ final class GiantBombClientServiceTests: XCTestCase {
     }
     
     func testPlatforms() {
-        let parameters = mockGiantBombMockClientServiceBuilder.platformsDataParameters.parameters ?? [:]
+        let parameters = mockGiantBombClientServiceConfigurator.platformsDataParameters.parameters ?? [:]
         let offset = parameters["offset"] as? Int ?? 0
         let limit = parameters["limit"] as? Int ?? 0
         
@@ -123,7 +123,7 @@ final class GiantBombClientServiceTests: XCTestCase {
     }
     
     func testMorePlatforms() {
-        let parameters = mockGiantBombMockClientServiceBuilder.morePlatformsDataParameters.parameters ?? [:]
+        let parameters = mockGiantBombClientServiceConfigurator.morePlatformsDataParameters.parameters ?? [:]
         let offset = parameters["offset"] as? Int ?? 0
         let limit = parameters["limit"] as? Int ?? 0
         
@@ -135,13 +135,13 @@ final class GiantBombClientServiceTests: XCTestCase {
         }
         
         XCTAssertEqual(response.statusCode, 200)
-        XCTAssertEqual(platforms.results?.count, mockGiantBombMockClientServiceBuilder.morePlatformsCount)
+        XCTAssertEqual(platforms.results?.count, mockGiantBombClientServiceConfigurator.morePlatformsCount)
         XCTAssertEqual(platforms.offset, offset)
         XCTAssertEqual(platforms.limit, limit)
     }
     
     func testGameDetails() {
-        let gameDetailsGuid = mockGiantBombMockClientServiceBuilder.gameDetailsGuid
+        let gameDetailsGuid = mockGiantBombClientServiceConfigurator.gameDetailsGuid
         
         let results: (HTTPURLResponse, BaseResponseModel<GameDetailsModel>?)? = try? giantBombMockClient.gameDetails(forGuid: gameDetailsGuid)
             .toBlocking().first()
@@ -151,7 +151,7 @@ final class GiantBombClientServiceTests: XCTestCase {
         }
         
         XCTAssertEqual(response.statusCode, 200)
-        XCTAssertEqual(gameDetails.results?.name, mockGiantBombMockClientServiceBuilder.gameDetailsName)
-        XCTAssertEqual(gameDetails.results?.guid, mockGiantBombMockClientServiceBuilder.gameDetailsGuid)
+        XCTAssertEqual(gameDetails.results?.name, mockGiantBombClientServiceConfigurator.gameDetailsName)
+        XCTAssertEqual(gameDetails.results?.guid, mockGiantBombClientServiceConfigurator.gameDetailsGuid)
     }
 }

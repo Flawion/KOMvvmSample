@@ -2,7 +2,7 @@
 //  ApiDataMapperTests.swift
 //  KOMvvmSampleLogicTests
 //
-//  Copyright (c) 2020 Kuba Ostrowskion 16/08/2020.
+//  Copyright (c) 2020 Kuba Ostrowski
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
