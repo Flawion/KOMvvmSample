@@ -16,10 +16,18 @@ final class PlatformsUseCaseTests: XCTestCase {
     private var appCoordinator: MockedAppCoordinator!
     private var platformsUseCase: PlatformsUseCase!
     
+    private var allPlatforms: [PlatformModel] {
+        guard let response: BaseResponseModel<[PlatformModel]> = jsonModel(mockName: .platforms), let responsePlatforms = response.results,
+            let responseMore: BaseResponseModel<[PlatformModel]> = jsonModel(mockName: .moreplatforms), let responseMorePlatforms = responseMore.results else {
+                return []
+        }
+        return responsePlatforms + responseMorePlatforms
+    }
+    
     override func setUp() {
         appCoordinator = MockedAppCoordinator()
-        let mockGiantBombClientService = appCoordinator.mockGiantBombClientServiceConfigurator.client!
-        let mockDataStoreService = appCoordinator.mockDataStoreServiceConfigurator.dataStore!
+        let mockGiantBombClientService: GiantBombClientServiceProtocol = appCoordinator.mockGiantBombClientServiceConfigurator.client
+        let mockDataStoreService: DataStoreServiceProtocol = appCoordinator.mockDataStoreServiceConfigurator.dataStore
         platformsUseCase = PlatformsUseCase(giantBombClient: mockGiantBombClientService, dataStore: mockDataStoreService)
         super.setUp()
     }
@@ -37,20 +45,31 @@ final class PlatformsUseCaseTests: XCTestCase {
         
         let platforms = (try? platformsUseCase.platformsDriver.toBlocking().first()) ?? []
         XCTAssertEqual(platformsUseCase.dataActionState, .none)
-        guard let response: BaseResponseModel<[PlatformModel]> = jsonModel(mockName: .platforms), let responsePlatforms = response.results else {
-            XCTAssertTrue(false)
-            return
-        }
-        XCTAssertTrue(platformsUseCase.platforms.contains(where: { platform in !responsePlatforms.contains(where: { $0.id == platform.id }) }))
-        XCTAssertTrue(platforms.contains(where: { platform in !responsePlatforms.contains(where: { $0.id == platform.id }) }))
+        let allPlatforms = self.allPlatforms
+        XCTAssertFalse(platformsUseCase.platforms.contains(where: { platform in !allPlatforms.contains(where: { $0.id == platform.id }) }))
+        XCTAssertFalse(platforms.contains(where: { platform in !allPlatforms.contains(where: { $0.id == platform.id }) }))
     }
     
-    func testDownlaodPlatformsNotNeeded() {
+    func testDownloadPlatformsNotNeeded() {
         platformsUseCase.downloadPlatformsIfNeed()
         XCTAssertEqual(platformsUseCase.dataActionState, .loading)
         try? platformsUseCase.downloadPlatformsIfNeedObservable.toBlocking().first()
         
         platformsUseCase.downloadPlatformsIfNeed()
         XCTAssertEqual(platformsUseCase.dataActionState, .none)
+    }
+    
+    func testReadPlatformsFromCache() {
+        let allPlatforms = self.allPlatforms
+        appCoordinator.mockDataStoreServiceConfigurator.dataStore.platforms = allPlatforms
+        
+        let mockGiantBombClientService: GiantBombClientServiceProtocol = appCoordinator.mockGiantBombClientServiceConfigurator.client
+        let mockDataStoreService: DataStoreServiceProtocol = appCoordinator.mockDataStoreServiceConfigurator.dataStore
+        let platformsUseCase = PlatformsUseCase(giantBombClient: mockGiantBombClientService, dataStore: mockDataStoreService)
+        
+        XCTAssertEqual(platformsUseCase.dataActionState, .none)
+        let platforms = (try? platformsUseCase.platformsDriver.toBlocking().first()) ?? []
+        XCTAssertFalse(platformsUseCase.platforms.contains(where: { platform in !allPlatforms.contains(where: { $0.id == platform.id }) }))
+        XCTAssertFalse(platforms.contains(where: { platform in !allPlatforms.contains(where: { $0.id == platform.id }) }))
     }
 }

@@ -19,7 +19,11 @@ final class WebViewModel: BaseViewModel {
     
     init(appCoordinator: AppCoordinatorProtocol, barTitle: String, html: String?) {
         self.barTitle = barTitle
-        self.html = html?.appending(WebViewModel.appendingHTML)
+        if let html = html {
+            self.html = WebViewModel.appendingHTML + html
+        } else {
+            self.html = nil
+        }
         self.url = nil
         super.init(appCoordinator: appCoordinator)
     }

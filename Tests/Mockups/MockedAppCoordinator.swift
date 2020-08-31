@@ -33,4 +33,7 @@ final class MockedAppCoordinator: BaseAppCoordinator {
         masterViewController = UINavigationController(rootViewController: mainSceneViewController)
         window?.rootViewController = masterViewController
     }
+    
+    override func openLink(_ url: URL) {
+    }
 }

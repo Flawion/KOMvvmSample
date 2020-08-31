@@ -147,7 +147,7 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
     }
     
     func filter(atIndexPath indexPath: IndexPath) -> GamesFilterModel? {
-        guard indexPath.count < filtersRelay.value.count else {
+        guard indexPath.row >= 0 && indexPath.row < filtersRelay.value.count else {
             return nil
         }
         return filtersRelay.value[indexPath.row]

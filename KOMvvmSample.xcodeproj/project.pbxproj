@@ -93,6 +93,8 @@
 		05B6A03B2220464E006ED7D4 /* GameImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6A0392220464E006ED7D4 /* GameImageViewCell.swift */; };
 		05B6A03C2220464E006ED7D4 /* GameImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B6A03A2220464E006ED7D4 /* GameImageViewCell.xib */; };
 		05B6A03E22204A4F006ED7D4 /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6A03D22204A4F006ED7D4 /* BaseImageView.swift */; };
+		05B91EA324FD807300C5B611 /* GamesFiltersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B91EA224FD807300C5B611 /* GamesFiltersViewModelTests.swift */; };
+		05B91EA524FDA5FB00C5B611 /* WebViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B91EA424FDA5FB00C5B611 /* WebViewModelTests.swift */; };
 		05BF6973228458B700FA77C4 /* BaseViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BF6972228458B700FA77C4 /* BaseViewController+Messages.swift */; };
 		05D93C352215A13D00C29A95 /* PlatformViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D93C332215A13D00C29A95 /* PlatformViewCell.swift */; };
 		05D93C362215A13D00C29A95 /* PlatformViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D93C342215A13D00C29A95 /* PlatformViewCell.xib */; };
@@ -363,6 +365,8 @@
 		05B6A0392220464E006ED7D4 /* GameImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImageViewCell.swift; sourceTree = "<group>"; };
 		05B6A03A2220464E006ED7D4 /* GameImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameImageViewCell.xib; sourceTree = "<group>"; };
 		05B6A03D22204A4F006ED7D4 /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
+		05B91EA224FD807300C5B611 /* GamesFiltersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesFiltersViewModelTests.swift; sourceTree = "<group>"; };
+		05B91EA424FDA5FB00C5B611 /* WebViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModelTests.swift; sourceTree = "<group>"; };
 		05BF6972228458B700FA77C4 /* BaseViewController+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Messages.swift"; sourceTree = "<group>"; };
 		05CA34EC2492E630008230A4 /* ScenesViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesViewControllerBuilder.swift; sourceTree = "<group>"; };
 		05D93C312215716200C29A95 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 			children = (
 				0557840924FC4E7300D0EC40 /* GamesFiltersSceneBuilderTests.swift */,
 				0557841824FC56AE00D0EC40 /* PlatformsUseCaseTests.swift */,
+				05B91EA224FD807300C5B611 /* GamesFiltersViewModelTests.swift */,
 			);
 			path = GamesFilters;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				0557841324FC547100D0EC40 /* WebViewSceneBuilderTests.swift */,
+				05B91EA424FDA5FB00C5B611 /* WebViewModelTests.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -1576,9 +1582,11 @@
 				05A562B524FBCDAE00D2379A /* GameDetailsViewModelTests.swift in Sources */,
 				05A121A524CDB00500E60FB8 /* ServiceLocatorTests.swift in Sources */,
 				05A6652624D4AF7000C432D1 /* XCTestCase+Extension.swift in Sources */,
+				05B91EA324FD807300C5B611 /* GamesFiltersViewModelTests.swift in Sources */,
 				0595B42D24D2062A00E59530 /* BaseViewModelTests.swift in Sources */,
 				05A6652124D4AC1E00C432D1 /* Array+ExtensionTests.swift in Sources */,
 				052E405724CE1FB5005598B0 /* AppSceneTransitionsTests.swift in Sources */,
+				05B91EA524FDA5FB00C5B611 /* WebViewModelTests.swift in Sources */,
 				052E405D24CE2F8C005598B0 /* BaseDataControllerTests.swift in Sources */,
 				0557840124FC3AD300D0EC40 /* GameDetailsSceneBuilderTests.swift in Sources */,
 				0557840C24FC512400D0EC40 /* MockDataStoreServiceConfigurator.swift in Sources */,

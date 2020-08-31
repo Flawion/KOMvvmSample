@@ -25,7 +25,7 @@ extension GameImagesViewModel: GameImagesViewModelProtocol {
     }
     
     func getImage(forIndexPath indexPath: IndexPath) -> ImageModel? {
-        guard imagesRelay.value.count > indexPath.row else {
+        guard indexPath.row >= 0 && imagesRelay.value.count > indexPath.row else {
             return nil
         }
         return imagesRelay.value[indexPath.row]

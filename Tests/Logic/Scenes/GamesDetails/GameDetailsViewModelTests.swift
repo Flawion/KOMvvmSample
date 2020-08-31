@@ -14,14 +14,13 @@ import RxBlocking
 
 final class GameDetailsViewModelTests: XCTestCase {
     private var appCoordinator: MockedAppCoordinator!
-    private var giantBombMockClient: GiantBombMockClientService!
     private var testGame: GameModel!
     private var gameDetailsViewModel: GameDetailsViewModel!
     
     override func setUp() {
         appCoordinator = MockedAppCoordinator()
         let mockGiantBombClientServiceConfigurator = appCoordinator.mockGiantBombClientServiceConfigurator!
-        giantBombMockClient = mockGiantBombClientServiceConfigurator.client!
+        let giantBombMockClient: GiantBombClientServiceProtocol = mockGiantBombClientServiceConfigurator.client
         let gameDetailsGuid = mockGiantBombClientServiceConfigurator.gameDetailsGuid
         let gameDetailsName = mockGiantBombClientServiceConfigurator.gameDetailsName
         testGame = GameModel(testModelWithGuid: gameDetailsGuid, name: gameDetailsName, description: "test")

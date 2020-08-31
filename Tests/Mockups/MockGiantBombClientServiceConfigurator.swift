@@ -29,8 +29,12 @@ final class MockGiantBombClientServiceConfigurator {
         return 4
     }
     
+    var searchFilteredGamesSortingOptions: String {
+        return String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue)
+    }
+    
     var searchFilters: [GamesFilters: String] {
-        return [GamesFilters.name: searchFilteredGamesName, GamesFilters.sorting: String(format: "%@:%@", GamesSortingOptions.originalReleaseDate.rawValue, GamesSortingDirections.asc.rawValue), GamesFilters.originalReleaseDate: FiltersUtils.dateRangeValue(from: searchFilteredGamesFromDate, to: searchFilteredGamesToDate)]
+        return [GamesFilters.name: searchFilteredGamesName, GamesFilters.sorting: searchFilteredGamesSortingOptions, GamesFilters.originalReleaseDate: FiltersUtils.dateRangeValue(from: searchFilteredGamesFromDate, to: searchFilteredGamesToDate)]
     }
     
     var morePlatformsCount: Int {
