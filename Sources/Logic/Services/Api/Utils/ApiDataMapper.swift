@@ -20,8 +20,9 @@ final class ApiDataToJsonMapper: ApiDataMapperProtocol {
     
     var dateFormatStrategy: JSONDecoder.DateDecodingStrategy = {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en-US")
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat =  "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         return JSONDecoder.DateDecodingStrategy.custom({ (decoder) -> Date in
             let container = try decoder.singleValueContainer()

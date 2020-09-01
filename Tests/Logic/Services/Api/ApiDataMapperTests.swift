@@ -18,6 +18,7 @@ final class ApiDataMapperTests: XCTestCase {
         apiDataMapper = ApiDataToJsonMapper()
         dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_us_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         super.setUp()
     }
     

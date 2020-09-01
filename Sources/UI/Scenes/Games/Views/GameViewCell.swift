@@ -11,6 +11,8 @@ import KOMvvmSampleLogic
 
 final class GameViewCell: BaseCollectionViewCell {
     // MARK: Variables
+    private var refreshedLayoutForWidth: CGFloat = 0
+    
     //controls
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: CellTitleLabel!
@@ -42,6 +44,7 @@ final class GameViewCell: BaseCollectionViewCell {
         didSet {
             isListLayout ? changeLayoutToList() : changeLayoutToCollection()
             layoutIfNeeded()
+            refreshedLayoutForWidth = bounds.width
         }
     }
 
@@ -53,9 +56,16 @@ final class GameViewCell: BaseCollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        if let superView = superview {
-            isListLayout = bounds.width == superView.bounds.width
+        DispatchQueue.main.async { [weak self] in
+            self?.refreshLayout()
         }
+    }
+    
+    private func refreshLayout() {
+        guard bounds.width != refreshedLayoutForWidth else {
+            return
+        }
+        isListLayout = bounds.width >= 300 // list layout can't have lower width than
     }
     
     private func changeLayoutToList() {

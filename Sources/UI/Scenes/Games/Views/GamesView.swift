@@ -157,7 +157,9 @@ final class GamesView: UIView {
     // MARK: Resizing functions
     override func layoutSubviews() {
         super.layoutSubviews()
-        resizeGamesCollectionView()
+        DispatchQueue.main.async { [weak self] in
+            self?.resizeGamesCollectionView()
+        }
     }
 
     private func resizeGamesCollectionView() {
