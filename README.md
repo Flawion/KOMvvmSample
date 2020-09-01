@@ -51,15 +51,15 @@ The main advantages of mvvm are:
     
 ## Architecture parts
 
-App is separated to two different targets that makes a natural border between two aspects: Logic and UI. 
+App is separated to two different targets that makes a natural border between the two aspects: Logic and UI. 
 
 1) Logic - This component need to be the most stable part of the app so it should be independent from the UI and the most frameworks. 
-    1. AppComponents -  Main components used to create app scene and manage transitions between them.
+    1. AppComponents -  Main components used to create app scene and manages transitions between them.
         1. Private - Part not available outside Logic. All stuff connected with the application settings or navigation over the scenes.
         2. Public - Types that should be used to create app.
             1. BaseAppCoordinator - Class that creates scenes and manages transitions between them, it should be overridden by the app. App needs to register own view controllers that will be connected to the logic.
-            2. ViewControllerProtocol - Basic set of functionalities that need to be implemented in all ViewControllers.
-            3. ViewModelProtocol - Basic set of functionalities that need to be implemented in all ViewModels.
+            2. ViewControllerProtocol - Basic set of funcs that need to be implemented in all ViewControllers.
+            3. ViewModelProtocol - Basic set of funcs that need to be implemented in all ViewModels.
     2. Extensions - Extensions of common used types like String.
     3. Logger
     4. Services - Services used in app to do some specific actions. Each of them should has only one responsibility like: managing the data files, managing the api connections etc. They are managed by ServiceLocator that is stored in AppCoordinator. UseCases, scenes can have the references to the services by dependency injection in the initialization in SceneBuilder.
@@ -77,7 +77,9 @@ App is separated to two different targets that makes a natural border between tw
         2. ViewControllerProtocol - Logic and list of controller actions that can be used from views in scene.
         3. View - Views that can use logic and some actions from the controller by protocol.
     4. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).
-    5. App  - All stuff connected with the application settings or navigation over the scenes.
+    5. App  - Components that initialize the application.
+        1. AppCoordinator - Inherited from baseAppCoordinator. It registers its own viewController types, and create default view hierarchy.
+        2. AppDelegate - Initializes AppCoordinator.
 
 ## FAQ
 
