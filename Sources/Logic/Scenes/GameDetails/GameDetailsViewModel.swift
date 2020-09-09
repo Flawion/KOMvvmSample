@@ -10,15 +10,13 @@ import RxSwift
 import RxCocoa
 
 final class GameDetailsViewModel: BaseViewModel {
-    // MARK: Variables
     private let gameDetailsUseCase: GameDetailsUseCase
-    private let disposeBag: DisposeBag = DisposeBag()
     
     // MARK: Functions
     init(appCoordinator: AppCoordinatorProtocol, gameDetailsUseCase: GameDetailsUseCase) {
         self.gameDetailsUseCase = gameDetailsUseCase
         super.init(appCoordinator: appCoordinator)
-        forward(dataControllerState: gameDetailsUseCase, disposeBag: disposeBag)
+        forward(dataControllerState: gameDetailsUseCase)
     }
 }
 

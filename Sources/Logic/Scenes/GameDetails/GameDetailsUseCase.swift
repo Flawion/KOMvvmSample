@@ -19,7 +19,6 @@ final class GameDetailsUseCase: BaseDataController {
     private let gameDetailsItemsRelay: BehaviorRelay<[GameDetailsItemModel]> = BehaviorRelay<[GameDetailsItemModel]>(value: [])
     
     private var gameDetailsDisposeBag: DisposeBag!
-    private let disposeBag: DisposeBag = DisposeBag()
     
     // public
     var gameDriver: Driver<GameModel> {

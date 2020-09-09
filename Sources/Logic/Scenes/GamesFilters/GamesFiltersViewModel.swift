@@ -13,7 +13,6 @@ final class GamesFiltersViewModel: BaseViewModel {
     // MARK: Variables
     private let savedFiltersSubject: PublishSubject<[GamesFilters: String]> = PublishSubject<[GamesFilters: String]>()
     private let filtersRelay: BehaviorRelay<[GamesFilterModel]> = BehaviorRelay<[GamesFilterModel]>(value: [])
-    let disposeBag: DisposeBag = DisposeBag()
     
     private(set) var platformsUseCase: PlatformsUseCase!
     private(set) var availableSortingOptions: [GamesFilterModel]!

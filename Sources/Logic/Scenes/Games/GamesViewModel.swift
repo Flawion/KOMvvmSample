@@ -9,15 +9,12 @@ import RxSwift
 import RxCocoa
 
 final class GamesViewModel: BaseViewModel {
-    // MARK: Variables
-    //private
-    private let disposeBag = DisposeBag()
     private let searchGamesUseCase: SearchGamesUseCase
     
     init(appCoordinator: AppCoordinatorProtocol, searchGamesUseCase: SearchGamesUseCase) {
         self.searchGamesUseCase = searchGamesUseCase
         super.init(appCoordinator: appCoordinator)
-        forward(dataControllerState: searchGamesUseCase, disposeBag: disposeBag)
+        forward(dataControllerState: searchGamesUseCase)
     }
 }
 

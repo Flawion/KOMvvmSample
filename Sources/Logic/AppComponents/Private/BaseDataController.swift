@@ -13,6 +13,7 @@ class BaseDataController {
     // MARK: Variables
     private var dataActionStateRelay: BehaviorRelay<DataActionStates> = BehaviorRelay<DataActionStates>(value: .none)
     private var raiseErrorSubject: PublishSubject<Error> = PublishSubject<Error>()
+    let disposeBag = DisposeBag()
     
     //public
     var dataActionState: DataActionStates {

@@ -27,13 +27,13 @@ class BaseViewModel: BaseDataController, ViewModelProtocol {
         self.appCoordinator = appCoordinator
     }
     
-    func forward(dataControllerState dataController: BaseDataController, disposeBag: DisposeBag) {
+    func forward(dataControllerState dataController: BaseDataController) {
         dataController.dataActionStateDriver.drive(onNext: { [weak self] dataActionState in
             self?.dataActionState = dataActionState
-        }).disposed(by: disposeBag)
+        }).disposed(by: dataController.disposeBag)
         
         dataController.raiseErrorDriver.drive(onNext: { [weak self] error in
             self?.raise(error: error)
-        }).disposed(by: disposeBag)
+        }).disposed(by: dataController.disposeBag)
     }
 }
