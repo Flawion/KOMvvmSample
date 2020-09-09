@@ -2,7 +2,7 @@
 
 KOMvvmSample is a proposition of mvvm architecture, that can be used in your own project. Example is based on [GiantBomb](https://www.giantbomb.com/api) api.
 
-This version of mvvm is partially inspired by clean architecture written by Uncle Bob. The key element is to separate logic from the UI. Logic is the most stable element of the app and the only necessary elements are injected into the UI in the form of protocols. UI knows nothing about the current implementation of the Logic, which makes it easier to test the app and change the UI without doing any changes in the Logic. So the logic is closed to unwanted changes and opened for future extensions. This architecture simplify presentation layer using event streaming by RxSwift framework. 
+This version of mvvm is partially inspired by clean architecture written by Uncle Bob. The key element is to separate logic from the UI. Logic is the most stable element of the app and the only necessary elements are injected into the UI in the form of protocols. UI knows nothing about the current implementation of the Logic, which makes it easier to test the app and change the UI without doing any changes in the Logic. So the logic is closed to unwanted changes and opened for future extensions. This architecture simplifies presentation layer by using event streaming by RxSwift framework. 
 
 <p align="center">
 <img src="ReadmeImages/GamesList.png" width="250">
@@ -53,33 +53,37 @@ The main advantages of mvvm are:
 
 App is separated to two different targets that makes a natural border between the two aspects: Logic and UI. 
 
-1) Logic - This component need to be the most stable part of the app so it should be independent from the UI and the most frameworks. 
-    1. AppComponents -  Main components used to create app scene and manages transitions between them.
-        1. Private - Part not available outside Logic. All stuff connected with the application settings or navigation over the scenes.
-        2. Public - Types that should be used to create app.
-            1. BaseAppCoordinator - Class that creates scenes and manages transitions between them, it should be overridden by the app. App needs to register own view controllers that will be connected to the logic.
-            2. ViewControllerProtocol - Basic set of funcs that need to be implemented in all ViewControllers.
-            3. ViewModelProtocol - Basic set of funcs that need to be implemented in all ViewModels.
-    2. Extensions - Extensions of common used types like String.
-    3. Logger
-    4. Services - Services used in app to do some specific actions. Each of them should has only one responsibility like: managing the data files, managing the api connections etc. They are managed by ServiceLocator that is stored in AppCoordinator. UseCases, scenes can have the references to the services by dependency injection in the initialization in SceneBuilder.
-    5. Scenes - Logic part of scene. Each part need to has:
-        1. SceneBuilder - Class that builds the whole scene, creates the viewModel with the references to the use cases and passes it to the registered sceneViewController.
-        2. ViewModel - Connection between input / output data and use cases. View models can be used to change current scene.
-        3. ViewModelProtocol - Public viewModel abstraction layer that will be passed to registered scene viewController.
-        4. UseCase - Separated logic for specific case.
+### Logic
+This component needs to be the most stable part of the app so it should be independent from the UI and the most frameworks. 
+
+1. AppComponents - Main components used to create app scene and manage transitions between them.
+    1. Private - Part not available outside Logic. All stuff connected with the application settings or navigation over the scenes.
+    2. Public - Types that should be used to create app.
+        1. BaseAppCoordinator - Class that creates scenes and manages transitions between them, it should be overridden by the app. App needs to register own view controllers that will be connected to the logic.
+        2. ViewControllerProtocol - Basic set of funcs that need to be implemented in all ViewControllers.
+        3. ViewModelProtocol - Basic set of funcs that need to be implemented in all ViewModels.
+2. Extensions - Extensions of common used types like String.
+3. Logger
+4. Services - Services used in the app to do some specific actions. Each of them should have only one responsibility like: managing the data files, managing the api connections etc. They are managed by ServiceLocator that is stored in AppCoordinator. UseCases, scenes can have the references to the services by dependency injection in the initialization in SceneBuilder.
+5. Scenes - Logic part of scene. Each part needs to have:
+    1. SceneBuilder - Class that builds the whole scene, creates the viewModel with the references to the use cases and passes it to the registered sceneViewController.
+    2. ViewModel - Facade, connection layer between input / output data and use cases. View models can be used to change current scene.
+    3. ViewModelProtocol - Public viewModel abstraction layer that will be passed to registered scene viewController.
+    4. UseCase - Separated logic for specific case.
         
-2) UI - That component should be flexible to client needs :) 
-    1. Components - Components that was used in code. Buttons, labels and different kinds of views. Creating the defaults types of views are key to create easily application themes mechanism. All default views should use theme colors and fonts from "Resources" part of architecture.
-    2. Extensions - Extensions of common used in UI types like UIView, UIImage etc.
-    3. Scenes - UI part of scene. Each scene should be constructed from:
-        1. ViewController - Controller of scene, that makes available scene logic and some actions to the its views by protocol.
-        2. ViewControllerProtocol - Logic and list of controller actions that can be used from views in scene.
-        3. View - Views that can use logic and some actions from the controller by protocol.
-    4. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).
-    5. App  - Components that initialize the application.
-        1. AppCoordinator - Inherited from baseAppCoordinator. It registers its own viewController types, and create default view hierarchy.
-        2. AppDelegate - Initializes AppCoordinator.
+### UI
+That component should be flexible to client needs :) 
+
+1. Components - Buttons, labels and different kinds of views, used in code by different scenes. Creating the defaults types of views are key to create easily application themes mechanism. All defaults views should use theme colors and fonts from "Resources" part of architecture.
+2. Extensions - Extensions of common used UI types like UIView, UIImage etc.
+3. Scenes - UI part of scene. Each scene should be constructed from:
+    1. ViewController - Controller of scene, that makes available scene logic and some actions to the views by protocol.
+    2. ViewControllerProtocol - Logic and list of controller actions that can be used from views in scene.
+    3. View - Views that can use logic and some actions from the controller by protocol.
+4. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).
+5. App  - Components that initialize the application.
+    1. AppCoordinator - Inherited from baseAppCoordinator. It registers its own viewController types, and creates default view hierarchy.
+    2. AppDelegate - Initializes AppCoordinator.
 
 ## FAQ
 
