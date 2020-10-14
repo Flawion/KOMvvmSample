@@ -102,6 +102,14 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
             showError(message: "error_api_key".localized)
         }
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.gamesView.invalidateGamesCollectionLayout()
+        }, completion: nil)
+    }
 }
 
 // MARK: - GamesViewControllerProtocol

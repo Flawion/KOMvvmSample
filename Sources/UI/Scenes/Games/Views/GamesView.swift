@@ -64,8 +64,9 @@ final class GamesView: UIView {
         bindGamesCollectionItemSelected()
         bindGamesCollectionData()
         bindGamesCollectionBottomInsetToKeyboardHeight()
+        bindGamesCollectionSize()
     }
-
+    
     private func bindGamesCollectionItemSelected() {
         gamesCollectionView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self else {
@@ -103,7 +104,14 @@ final class GamesView: UIView {
         self.gamesCollectionView.contentInset.bottom = inset
         self.gamesCollectionView.scrollIndicatorInsets.bottom = self.gamesCollectionView.contentInset.bottom
     }
-
+    
+    private func bindGamesCollectionSize() {
+        gamesCollectionView.rx.observe(CGRect.self, "bounds")
+            .asDriver(onErrorJustReturn: nil).map({ $0?.size ?? .zero }).drive(onNext: { [weak self] size in
+                self?.resizeGamesCollectionView(toSize: size)
+            }).disposed(by: disposeBag)
+    }
+    
     // MARK: Infinity scrolling functions
     private func initializeGamesCollectionInfinityScrolling() {
         let infiniteScrollIndicatorView = UIActivityIndicatorView(style: .gray)
@@ -155,20 +163,14 @@ final class GamesView: UIView {
     }
 
     // MARK: Resizing functions
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        DispatchQueue.main.async { [weak self] in
-            self?.resizeGamesCollectionView()
-        }
+    func invalidateGamesCollectionLayout() {
+        gamesCollectionView.collectionViewLayout.invalidateLayout()
     }
-
-    private func resizeGamesCollectionView() {
-        let collectionSize = gamesCollectionView.bounds.size
-        
+    
+    private func resizeGamesCollectionView(toSize collectionSize: CGSize) {
         guard collectionSize.width > 0 && collectionSize.height > 0 && collectionSize != gamesCollectionViewSize else {
             return
         }
-
         resizeGamesListLayout(collectionSize: collectionSize)
         resizeGamesCollectionLayout(collectionSize: collectionSize)
         gamesCollectionViewSize = collectionSize
@@ -182,19 +184,23 @@ final class GamesView: UIView {
     }
 
     private func resizeGamesCollectionLayout(collectionSize size: CGSize) {
-        let itemMinWidth: Double = Double(GameViewCell.prefferedCollectionWidth)
-        let inset: CGFloat = 4
-        let itemMargin = 2.0
-        let parentWidth = Double((size.width) - inset * 2)
-        let divider = max(2.0, (Double(parentWidth)) / itemMinWidth)
+        let itemMinWidth = GameViewCell.prefferedCollectionWidth
+        let itemMargin: CGFloat = 4
+        let inset: CGFloat = 2
+        let parentWidth = size.width - inset * 2
+        let divider = max(2.0, parentWidth / (itemMinWidth + itemMargin))
         let column = floor(divider)
+        var itemSize = (parentWidth / column)
+        if column > 1 {
+            itemSize -= itemMargin
+        }
         let allMargin = (itemMargin * (column - 1))
-        let itemSize = (Double(parentWidth) / column) - allMargin
-        let lineSpacing = max(4.0, ((Double(parentWidth) - allMargin) - (column * itemSize)) / column)
-
-        gamesCollectionLayout.minimumInteritemSpacing = CGFloat(itemMargin) * 2
-        gamesCollectionLayout.minimumLineSpacing = CGFloat(lineSpacing)
-        gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + Double(GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth))
+        let lineSpacing = max(4.0, ((parentWidth - allMargin) - (column * itemSize)) / column)
+        let itemAdditionalHeight = GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth
+        
+        gamesCollectionLayout.minimumInteritemSpacing = itemMargin
+        gamesCollectionLayout.minimumLineSpacing = lineSpacing
+        gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + itemAdditionalHeight)
         gamesCollectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         gamesCollectionLayout.invalidateLayout()
     }
