@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
-  - KOControls (1.2.3)
+  - KOControls (1.2.4)
   - RxAlamofire (5.1.0):
     - RxAlamofire/Core (= 5.1.0)
   - RxAlamofire/Core (5.1.0):
@@ -24,7 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
-  - KOControls (~> 1.2.3)
+  - KOControls (~> 1.2.4)
   - RxAlamofire (~> 5.0)
   - RxBlocking (~> 5.0)
   - RxCocoa (~> 5.0)
@@ -50,7 +50,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  KOControls: b6404d74cd77ae7c89bf6f325e81e7bb841f0ff0
+  KOControls: 491c8edbcae3c7edd3b3964782697e664b42351f
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: aa47df55c6623d8fc7eb2da68c064706726a1d63
+PODFILE CHECKSUM: 1cf60df8863535244d3adc58ced1d5807f22b772
 
 COCOAPODS: 1.9.3

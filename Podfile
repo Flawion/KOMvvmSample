@@ -27,7 +27,7 @@ abstract_target 'KOMvvmSampleBase' do
   abstract_target 'UI' do
     pod 'SDWebImage', '~> 5.0'
     pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
-    pod 'KOControls', '~> 1.2.3'
+    pod 'KOControls', '~> 1.2.4'
     
     # Pods for KOMvvmSample
     target 'KOMvvmSample' do
