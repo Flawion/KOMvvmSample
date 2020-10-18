@@ -22,7 +22,7 @@ final class SearchGamesUseCaseTests: XCTestCase {
     override func setUp() {
         serviceLocator = ServiceLocator()
         mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator)
-        giantBombMockClient = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator).client
+        giantBombMockClient = mockGiantBombClientServiceConfigurator.client
         searchGamesUseCase = SearchGamesUseCase(giantBombClient: giantBombMockClient)
         super.setUp()
     }

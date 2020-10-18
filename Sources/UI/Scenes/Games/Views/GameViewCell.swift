@@ -7,65 +7,75 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
+import RxCocoa
 import KOMvvmSampleLogic
 
 final class GameViewCell: BaseCollectionViewCell {
     // MARK: Variables
-    private var refreshedLayoutForWidth: CGFloat = 0
+    private let disposeBag = DisposeBag()
+    private let minListLayoutCellWidth: CGFloat = 300
+    private var layoutRefreshedForWidth: CGFloat = 0
     
     //controls
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: CellTitleLabel!
     @IBOutlet weak var collectionTitleLabel: CellSmallTitleLabel!
     @IBOutlet weak var descLabel: BaseLabel!
-
+    
     @IBOutlet weak var collectionContentView: UIView!
     @IBOutlet weak var listContentView: UIView!
-
+    
     //constraints
     @IBOutlet weak var imageWidthConst: NSLayoutConstraint!
     @IBOutlet weak var imageTrailingToContentConst: NSLayoutConstraint!
     @IBOutlet weak var imageTrailingToCellConst: NSLayoutConstraint!
     @IBOutlet weak var contentLeadingToCellConst: NSLayoutConstraint!
-
-    static var prefferedListHeight: CGFloat {
-        return 96
-    }
-
-    static var prefferedCollectionWidth: CGFloat {
-        return 96
-    }
-
-    static var prefferedCollectionHeight: CGFloat {
-        return 136
-    }
-
-    var isListLayout: Bool = true {
+    
+    private var isListLayout: Bool = true {
         didSet {
             isListLayout ? changeLayoutToList() : changeLayoutToCollection()
             layoutIfNeeded()
-            refreshedLayoutForWidth = bounds.width
-        }
-    }
-
-    var game: GameModel? {
-        didSet {
-           refreshGame()
-        }
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        DispatchQueue.main.async { [weak self] in
-            self?.refreshLayout()
+            layoutRefreshedForWidth = bounds.width
         }
     }
     
-    private func refreshLayout() {
-        guard bounds.width != refreshedLayoutForWidth else {
-            return
+    static var prefferedListHeight: CGFloat {
+        return 96
+    }
+    
+    static var prefferedCollectionWidth: CGFloat {
+        return 118
+    }
+    
+    static var prefferedCollectionHeight: CGFloat {
+        return 158
+    }
+    
+    var game: GameModel? {
+        didSet {
+            refreshGame()
         }
-        isListLayout = bounds.width >= 300 // list layout can't have lower width than
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        bindCellSize()
+    }
+    
+    private func bindCellSize() {
+        rx.observe(CGRect.self, "bounds")
+            .asDriver(onErrorJustReturn: nil).map({ $0?.size.width ?? 0 })
+            .filter({ [weak self] size -> Bool in
+                size != self?.layoutRefreshedForWidth
+            })
+            .drive(onNext: { [weak self] width in
+                self?.resizeCell(toWidth: width)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func resizeCell(toWidth width: CGFloat) {
+        isListLayout = width >= minListLayoutCellWidth
     }
     
     private func changeLayoutToList() {

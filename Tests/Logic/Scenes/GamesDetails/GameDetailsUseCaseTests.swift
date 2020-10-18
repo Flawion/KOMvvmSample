@@ -26,7 +26,7 @@ final class GameDetailsUseCaseTests: XCTestCase {
         let gameDetailsGuid = mockGiantBombClientServiceConfigurator.gameDetailsGuid
         let gameDetailsName = mockGiantBombClientServiceConfigurator.gameDetailsName
         testGame = GameModel(testModelWithGuid: gameDetailsGuid, name: gameDetailsName, description: "test")
-        giantBombMockClient = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator).client
+        giantBombMockClient = mockGiantBombClientServiceConfigurator.client
         gameDetailsUseCase = GameDetailsUseCase(game: testGame, giantBombClient: giantBombMockClient)
         super.setUp()
     }

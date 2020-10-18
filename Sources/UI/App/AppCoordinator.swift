@@ -29,7 +29,7 @@ final class AppCoordinator: BaseAppCoordinator {
     
     private func createMainNavigationController() -> UINavigationController {
         let mainSceneViewController = createMainSceneViewController()
-        let mainNavigationController = UINavigationController(rootViewController: mainSceneViewController)
+        let mainNavigationController = NavigationController(rootViewController: mainSceneViewController)
         mainNavigationController.navigationBar.tintColor = UIColor.Theme.barTint
         mainNavigationController.navigationBar.backgroundColor = UIColor.Theme.barBackground
         return mainNavigationController

@@ -43,6 +43,7 @@
 		057814BC24D59ED100154FBE /* XCTestCase+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057814BB24D59ED100154FBE /* XCTestCase+Logic.swift */; };
 		057814BE24D5A83700154FBE /* GiantBombClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057814BD24D5A83700154FBE /* GiantBombClientServiceTests.swift */; };
 		057814C124D5B0C600154FBE /* MockGiantBombClientServiceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057814BF24D5B0C600154FBE /* MockGiantBombClientServiceConfigurator.swift */; };
+		05845A91253CF21900DFE730 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05845A90253CF21900DFE730 /* NavigationController.swift */; };
 		058A8DA924E9BBF300A10E2C /* URLBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A8DA824E9BBF300A10E2C /* URLBuilderTests.swift */; };
 		058A8DAB24E9C09000A10E2C /* ApiDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A8DAA24E9C09000A10E2C /* ApiDataMapperTests.swift */; };
 		058A8DAE24E9C56D00A10E2C /* SearchGamesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A8DAD24E9C56D00A10E2C /* SearchGamesUseCaseTests.swift */; };
@@ -286,6 +287,7 @@
 		057D55E822328419008D0CEE /* moreplatforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moreplatforms.json; sourceTree = "<group>"; };
 		057D55EA22328511008D0CEE /* filteredgames.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = filteredgames.json; sourceTree = "<group>"; };
 		057D55EE22328729008D0CEE /* gamedetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gamedetails.json; sourceTree = "<group>"; };
+		05845A90253CF21900DFE730 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		05858DF92492794C0015BB60 /* AppSceneTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSceneTransitions.swift; sourceTree = "<group>"; };
 		05858DFC24927E440015BB60 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		05858DFE2492809F0015BB60 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -1000,6 +1002,7 @@
 				05A1CDC4220885920010A223 /* Views */,
 				05B421C821FEF6F8009439A6 /* BaseViewController.swift */,
 				05BF6972228458B700FA77C4 /* BaseViewController+Messages.swift */,
+				05845A90253CF21900DFE730 /* NavigationController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1463,6 +1466,7 @@
 				05B6A03822203969006ED7D4 /* GameImagesView.swift in Sources */,
 				0505605F221E0AE20093871D /* UIFont+Resources.swift in Sources */,
 				05DCCB0722170930001AD52B /* BaseTableViewCell.swift in Sources */,
+				05845A91253CF21900DFE730 /* NavigationController.swift in Sources */,
 				05B421C921FEF6F8009439A6 /* BaseViewController.swift in Sources */,
 				0546474F221C305000121E49 /* GameDetailsHeaderInfoView.swift in Sources */,
 				05938808220AE7FE00F67F44 /* GamesFiltersViewControllerProtocol.swift in Sources */,
@@ -1822,7 +1826,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A75D9E661363DFA30A764377 /* Pods-KOMvvmSampleBase-Logic-KOMvvmSampleLogic.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1839,6 +1843,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSampleLogic;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
@@ -1852,7 +1857,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33115AA053AEEA2EAC5BAF2A /* Pods-KOMvvmSampleBase-Logic-KOMvvmSampleLogic.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1869,6 +1874,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.KO.KOMvvmSampleLogic;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;

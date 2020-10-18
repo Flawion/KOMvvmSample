@@ -21,7 +21,7 @@ final class GamesView: UIView {
     private weak var gamesCollectionRefreshControl: UIRefreshControl!
 
     private let gameCellReuseIdentifier: String = "GameViewCell"
-    private var gamesCollectionViewSize: CGSize = CGSize(width: 0, height: 0)
+    private var gamesCollectionResizedForWidth: CGFloat = 0
     private var isGamesListLayout: Bool = true
 
     private let disposeBag: DisposeBag = DisposeBag()
@@ -107,8 +107,12 @@ final class GamesView: UIView {
     
     private func bindGamesCollectionSize() {
         gamesCollectionView.rx.observe(CGRect.self, "bounds")
-            .asDriver(onErrorJustReturn: nil).map({ $0?.size ?? .zero }).drive(onNext: { [weak self] size in
-                self?.resizeGamesCollectionView(toSize: size)
+            .asDriver(onErrorJustReturn: nil).map({ $0?.size.width ?? 0 })
+            .filter({ [weak self] width -> Bool in
+                width != self?.gamesCollectionResizedForWidth
+            })
+            .drive(onNext: { [weak self] width in
+                self?.resizeGamesCollectionView(toWidth: width)
             }).disposed(by: disposeBag)
     }
     
@@ -135,7 +139,7 @@ final class GamesView: UIView {
                 return
             }
             self.gamesCollectionView.setNeedsLayout()
-            self.gamesCollectionView.layoutIfNeeded()
+            self.gamesCollectionView.layoutIfNeeded() // prevents from flash, when infinite scroll is hidding
             self.gamesCollectionView.finishInfiniteScroll()
         }).disposed(by: disposeBag)
     }
@@ -167,39 +171,33 @@ final class GamesView: UIView {
         gamesCollectionView.collectionViewLayout.invalidateLayout()
     }
     
-    private func resizeGamesCollectionView(toSize collectionSize: CGSize) {
-        guard collectionSize.width > 0 && collectionSize.height > 0 && collectionSize != gamesCollectionViewSize else {
-            return
-        }
-        resizeGamesListLayout(collectionSize: collectionSize)
-        resizeGamesCollectionLayout(collectionSize: collectionSize)
-        gamesCollectionViewSize = collectionSize
+    private func resizeGamesCollectionView(toWidth width: CGFloat) {
+        resizeGamesListLayout(toWidth: width)
+        resizeGamesCollectionLayout(toWidth: width)
+        gamesCollectionResizedForWidth = width
     }
 
-    private func resizeGamesListLayout(collectionSize size: CGSize) {
+    private func resizeGamesListLayout(toWidth width: CGFloat) {
         gamesListLayout.sectionInset = UIEdgeInsets.zero
         gamesListLayout.minimumLineSpacing = 0
-        gamesListLayout.itemSize = CGSize(width: size.width, height: GameViewCell.prefferedListHeight)
+        gamesListLayout.itemSize = CGSize(width: width, height: GameViewCell.prefferedListHeight)
         gamesListLayout.invalidateLayout()
     }
 
-    private func resizeGamesCollectionLayout(collectionSize size: CGSize) {
+    private func resizeGamesCollectionLayout(toWidth width: CGFloat) {
         let itemMinWidth = GameViewCell.prefferedCollectionWidth
         let itemMargin: CGFloat = 4
-        let inset: CGFloat = 2
-        let parentWidth = size.width - inset * 2
-        let divider = max(2.0, parentWidth / (itemMinWidth + itemMargin))
+        let inset: CGFloat = 4
+        let parentWidth = width - inset * 2
+        let divider = max(2.0, parentWidth / (itemMinWidth + (itemMargin * 0.5)))
         let column = floor(divider)
-        var itemSize = (parentWidth / column)
-        if column > 1 {
-            itemSize -= itemMargin
-        }
-        let allMargin = (itemMargin * (column - 1))
-        let lineSpacing = max(4.0, ((parentWidth - allMargin) - (column * itemSize)) / column)
+        let allMargins = itemMargin * (column - 1)
+        let marginedParentWidth = parentWidth - allMargins
+        let itemSize = marginedParentWidth / column
         let itemAdditionalHeight = GameViewCell.prefferedCollectionHeight - GameViewCell.prefferedCollectionWidth
         
         gamesCollectionLayout.minimumInteritemSpacing = itemMargin
-        gamesCollectionLayout.minimumLineSpacing = lineSpacing
+        gamesCollectionLayout.minimumLineSpacing = itemMargin
         gamesCollectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + itemAdditionalHeight)
         gamesCollectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         gamesCollectionLayout.invalidateLayout()

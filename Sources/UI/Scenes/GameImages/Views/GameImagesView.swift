@@ -14,8 +14,8 @@ final class GameImagesView: UIView {
     private weak var controllerProtocol: GameImagesViewControllerProtocol?
 
     private let cellReuseIdentifier: String = "GameImageViewCell"
-    private var collectionViewSize: CGSize = CGSize(width: 0, height: 0)
     private weak var collectionView: UICollectionView!
+    private var collectionResizedForWidth: CGFloat = 0
 
     private let disposeBag = DisposeBag()
 
@@ -50,6 +50,7 @@ final class GameImagesView: UIView {
     private func bindCollection() {
         bindCollectionData()
         bindCollectionItemSelected()
+        bindCollectionSize()
     }
 
     private func bindCollectionData() {
@@ -76,35 +77,41 @@ final class GameImagesView: UIView {
         controllerProtocol.goToImageViewer(forImage: image)
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        resizeGamesCollectionView()
+    private func bindCollectionSize() {
+        collectionView.rx.observe(CGRect.self, "bounds")
+            .asDriver(onErrorJustReturn: nil).map({ $0?.size.width ?? 0 })
+            .filter({ [weak self] width -> Bool in
+                width != self?.collectionResizedForWidth
+            })
+            .drive(onNext: { [weak self] width in
+                self?.resizeCollection(toWidth: width)
+            }).disposed(by: disposeBag)
     }
-
-    private func resizeGamesCollectionView() {
-        let size = collectionView.bounds.size
-
-        guard let collectionLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout, size.width > 0, size.height > 0, size != collectionViewSize else {
+    
+    private func resizeCollection(toWidth width: CGFloat) {
+        guard let collectionLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }
-
-        //resizes collection layout
-        let itemMinWidth: Double = Double(GameImageViewCell.prefferedCollectionWidth)
+        
+        let itemMinWidth = GameImageViewCell.prefferedCollectionWidth
+        let itemMargin: CGFloat = 4
         let inset: CGFloat = 4
-        let itemMargin = 2.0
-        let parentWidth = Double((size.width) - inset * 2)
-        let divider = max(2.0, (Double(parentWidth)) / itemMinWidth)
+        let parentWidth = width - inset * 2
+        let divider = max(2.0, parentWidth / (itemMinWidth + (itemMargin * 0.5)))
         let column = floor(divider)
-        let allMargin = (itemMargin * (column - 1))
-        let itemSize = (Double(parentWidth) / column) - allMargin
-        let lineSpacing = max(4.0, ((Double(parentWidth) - allMargin) - (column * itemSize)) / column)
-
-        collectionLayout.minimumInteritemSpacing = CGFloat(itemMargin) * 2
-        collectionLayout.minimumLineSpacing = CGFloat(lineSpacing)
-        collectionLayout.itemSize = CGSize(width: itemSize, height: itemSize + Double(GameImageViewCell.prefferedCollectionHeight - GameImageViewCell.prefferedCollectionWidth))
+        let allMargins = itemMargin * (column - 1)
+        let marginedParentWidth = parentWidth - allMargins
+        let itemSize = marginedParentWidth / column
+     
+        collectionLayout.minimumInteritemSpacing = itemMargin
+        collectionLayout.minimumLineSpacing = itemMargin
+        collectionLayout.itemSize = CGSize(width: itemSize, height: itemSize)
         collectionLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         collectionLayout.invalidateLayout()
-
-        collectionViewSize = size
+        collectionResizedForWidth = width
+    }
+    
+    func invalidateCollectionLayout() {
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }

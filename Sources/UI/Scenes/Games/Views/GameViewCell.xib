@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,7 +64,6 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ip8-mu-PV2" customClass="BaseImageView" customModule="KOMvvmSample" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="80" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="USz-qs-epO"/>
                             <constraint firstAttribute="width" secondItem="ip8-mu-PV2" secondAttribute="height" multiplier="1:1" id="jE7-Lb-pyj"/>
                             <constraint firstAttribute="width" priority="999" constant="80" id="rTg-Ni-2MC"/>
                         </constraints>
@@ -77,6 +76,7 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Hv4-ub-9lV" secondAttribute="trailing" constant="8" id="7pp-Er-y2s"/>
@@ -95,7 +95,6 @@
                 <constraint firstItem="Sa5-4Y-FZ8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" priority="999" constant="2" id="iCQ-bL-21D"/>
                 <constraint firstAttribute="trailing" secondItem="Xum-TG-mMy" secondAttribute="trailing" constant="8" id="n4P-s1-Lgc"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="477" height="132"/>
             <connections>
                 <outlet property="collectionContentView" destination="Xum-TG-mMy" id="Cxr-h4-U7d"/>
