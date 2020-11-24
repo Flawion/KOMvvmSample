@@ -61,15 +61,15 @@ extension GamesViewModel: GamesViewModelProtocol {
     
     // MARK: Navigation
     func goToGameDetail(_ game: GameModel, navigationController: UINavigationController?) {
-        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GameDetailsSceneBuilder(game: game))
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), toScene: GameDetailsSceneResolver(game: game))
     }
     
     func goToGamesFilter(navigationController: UINavigationController?) {
-        guard let viewControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GamesFiltersSceneBuilder(currentFilters: filters)) as? ViewControllerProtocol, let viewModel = viewControllerProtocol.viewModelInstance as? GamesFiltersViewModelProtocol else {
+        guard let viewControllerProtocol = appCoordinator?.transition(.push(onNavigationController: navigationController), toScene: GamesFiltersSceneResolver(currentFilters: filters)) as? GamesFiltersViewControllerProtocol else {
             fatalError("cast failed GamesFiltersViewControllerProtocol")
         }
-        viewModel.savedFiltersObservable.subscribe(onNext: { [weak self] savedFilters in
+        viewControllerProtocol.viewModel.savedFiltersObservable.subscribe(onNext: { [weak self] savedFilters in
             self?.change(filters: savedFilters)
-        }).disposed(by: viewModel.disposeBag)
+        }).disposed(by: viewControllerProtocol.viewModel.disposeBag)
     }
 }

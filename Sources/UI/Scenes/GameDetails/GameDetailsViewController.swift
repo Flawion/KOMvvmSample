@@ -49,8 +49,8 @@ final class GameDetailsViewController: BaseViewController<GameDetailsViewModelPr
     }
 }
 
-// MARK: - GameDetailsViewControllerProtocol
-extension GameDetailsViewController: GameDetailsViewControllerProtocol {
+// MARK: - UIGameDetailsViewControllerProtocol
+extension GameDetailsViewController: UIGameDetailsViewControllerProtocol {
 
     func goToDetailsItem(_ detailsItem: GameDetailsItemModel) {
         switch detailsItem.item {

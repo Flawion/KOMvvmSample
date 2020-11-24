@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseSceneTransition {
+public class BaseSceneTransition {
     func transition(toScenesViewControllers scenesViewControllers: [UIViewController]) -> Any? {
         fatalError("to override")
     }

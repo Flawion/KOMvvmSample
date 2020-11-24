@@ -7,16 +7,6 @@
 
 import Foundation
 
-struct DataStoreServiceBuilder: ServiceBuilderProtocol {
-    var type: ServiceTypes {
-        return .dataStore
-    }
-
-    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
-        return DataStoreService()
-    }
-}
-
 protocol DataStoreServiceProtocol: NSObject {
     var platforms: [PlatformModel]? {get set}
     var savePlatformsDate: Date? { get }

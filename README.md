@@ -60,13 +60,13 @@ This component needs to be the most stable part of the app so it should be indep
     1. Private - Part not available outside Logic. All stuff connected with the application settings or navigation over the scenes.
     2. Public - Types that should be used to create app.
         1. BaseAppCoordinator - Class that creates scenes and manages transitions between them, it should be overridden by the app. App needs to register own view controllers that will be connected to the logic.
-        2. ViewControllerProtocol - Basic set of funcs that need to be implemented in all ViewControllers.
+        2. ViewControllerProtocols - Basic set of funcs that need to be implemented in all ViewControllers.
         3. ViewModelProtocol - Basic set of funcs that need to be implemented in all ViewModels.
 2. Extensions - Extensions of common used types like String.
 3. Logger
-4. Services - Services used in the app to do some specific actions. Each of them should have only one responsibility like: managing the data files, managing the api connections etc. They are managed by ServiceLocator that is stored in AppCoordinator. UseCases, scenes can have the references to the services by dependency injection in the initialization in SceneBuilder.
+4. Services - Services used in the app to do some specific actions. Each of them should have only one responsibility like: managing the data files, managing the api connections etc. They are managed by IoC container that is stored in AppCoordinator. UseCases, scenes can have the references to the services by dependency injection in the initialization in ViewModelRegister.
 5. Scenes - Logic part of scene. Each part needs to have:
-    1. SceneBuilder - Class that builds the whole scene, creates the viewModel with the references to the use cases and passes it to the registered sceneViewController.
+    1. ViewModelRegister - Registers the viewModel with passed use cases.
     2. ViewModel - Facade, connection layer between input / output data and use cases. View models can be used to change current scene.
     3. ViewModelProtocol - Public viewModel abstraction layer that will be passed to registered scene viewController.
     4. UseCase - Separated logic for specific case.
@@ -77,7 +77,8 @@ That component should be flexible to client needs :)
 1. Components - Buttons, labels and different kinds of views, used in code by different scenes. Creating the defaults types of views are key to create easily application themes mechanism. All defaults views should use theme colors and fonts from "Resources" part of architecture.
 2. Extensions - Extensions of common used UI types like UIView, UIImage etc.
 3. Scenes - UI part of scene. Each scene should be constructed from:
-    1. ViewController - Controller of scene, that makes available scene logic and some actions to the views by protocol.
+    1. ViewControllerRegister - Registers the viewController, appropriate viewModel should be resolved from the container and passed to the controller.
+    2. ViewController - Controller of scene, that makes available scene logic and some actions to the views by protocol.
     2. ViewControllerProtocol - Logic and list of controller actions that can be used from views in scene.
     3. View - Views that can use logic and some actions from the controller by protocol.
 4. Resources - Theme and localizations files. Files can be assigned to the app target to create specific skin per app (white label).

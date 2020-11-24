@@ -11,7 +11,7 @@ import RxCocoa
 import KOMvvmSampleLogic
 
 final class GamesFiltersView: UIView {
-    private weak var controllerProtocol: GamesFiltersViewControllerProtocol?
+    private weak var controllerProtocol: UIGamesFiltersViewControllerProtocol?
 
     private weak var saveView: UIView!
     private weak var filtersTableView: UITableView!
@@ -20,7 +20,7 @@ final class GamesFiltersView: UIView {
     private let disposeBag: DisposeBag = DisposeBag()
 
     // MARK: Initialization
-    init(controllerProtocol: GamesFiltersViewControllerProtocol) {
+    init(controllerProtocol: UIGamesFiltersViewControllerProtocol) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

@@ -6,25 +6,26 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
+import KOInject
 
 @testable import KOMvvmSampleLogic
 
 final class GiantBombClientServiceTests: XCTestCase {
     
-    private var serviceLocator: ServiceLocator!
+    private var container: KOIContainer!
     private var mockGiantBombClientServiceConfigurator: MockGiantBombClientServiceConfigurator!
     private var giantBombMockClient: GiantBombMockClientService!
     
     override func setUp() {
-        serviceLocator = ServiceLocator()
-        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator)
-        giantBombMockClient = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator).client
+        container = KOIContainer()
+        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(container: container)
+        giantBombMockClient = MockGiantBombClientServiceConfigurator(container: container).client
         super.setUp()
     }
     
     override func tearDown() {
         super.tearDown()
-        serviceLocator = nil
+        container = nil
         mockGiantBombClientServiceConfigurator = nil
         giantBombMockClient = nil
     }

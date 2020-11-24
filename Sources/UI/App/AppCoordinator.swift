@@ -6,6 +6,7 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import UIKit
+import KOInject
 import KOMvvmSampleLogic
 
 /// Class that navigate between different scenes and contains all services in local instance of ServiceLocator.
@@ -18,13 +19,13 @@ final class AppCoordinator: BaseAppCoordinator {
         window.rootViewController = createMainNavigationController()
     }
  
-    override func registerViewControllers(builder: ScenesViewControllerBuilder) {
-        builder.register(viewControllerType: GamesViewController.self, forType: .games)
-        builder.register(viewControllerType: GameDetailsViewController.self, forType: .gameDetails)
-        builder.register(viewControllerType: GamesFiltersViewController.self, forType: .gamesFilters)
-        builder.register(viewControllerType: GameImagesViewController.self, forType: .gameImages)
-        builder.register(viewControllerType: WebViewController.self, forType: .web)
-        builder.register(viewControllerType: ImageViewerViewController.self, forType: .imageViewer)
+    override func registerViewControllers(register: KOIRegisterProtocol) {
+        GamesViewControllerRegister().register(register: register)
+        GameDetailsViewControllerRegister().register(register: register)
+        GamesFiltersViewControllerRegister().register(register: register)
+        GameImagesViewControllerRegister().register(register: register)
+        WebViewControllerRegister().register(register: register)
+        ImageViewerViewControllerRegister().register(register: register)
     }
     
     private func createMainNavigationController() -> UINavigationController {

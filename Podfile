@@ -8,6 +8,7 @@ abstract_target 'KOMvvmSampleBase' do
   pod 'SwiftLint', '~> 0.34'
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
+  pod 'KOInject', '~> 1.0'
   
   abstract_target 'Logic' do
     pod 'Alamofire', '~> 4.8'

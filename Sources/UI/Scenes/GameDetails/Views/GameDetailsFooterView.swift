@@ -12,11 +12,11 @@ import KOMvvmSampleLogic
 
 final class GameDetailsFooterView: UIView {
     // MARK: Variables
-    private weak var controllerProtocol: GameDetailsViewControllerProtocol?
+    private weak var controllerProtocol: UIGameDetailsViewControllerProtocol?
     private let disposeBag: DisposeBag = DisposeBag()
 
     // MARK: Initialization functions
-    init(controllerProtocol: GameDetailsViewControllerProtocol?) {
+    init(controllerProtocol: UIGameDetailsViewControllerProtocol?) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

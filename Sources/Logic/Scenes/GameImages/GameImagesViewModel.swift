@@ -32,6 +32,6 @@ extension GameImagesViewModel: GameImagesViewModelProtocol {
     }
     
     func goToImageViewer(forImage image: ImageModel, navigationController: UINavigationController?) {
-        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: ImageViewerSceneBuilder(image: image))
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), toScene: ImageViewerSceneResolver(image: image))
     }
 }

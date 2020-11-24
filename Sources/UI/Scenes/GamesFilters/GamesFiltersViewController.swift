@@ -55,8 +55,8 @@ final class GamesFiltersViewController: BaseViewController<GamesFiltersViewModel
     }
 }
 
-// MARK: - GamesFiltersViewControllerProtocol
-extension GamesFiltersViewController: GamesFiltersViewControllerProtocol {
+// MARK: - UIGamesFiltersViewControllerProtocol
+extension GamesFiltersViewController: UIGamesFiltersViewControllerProtocol {
     func goBack() {
         navigationController?.popViewController(animated: true)
     }

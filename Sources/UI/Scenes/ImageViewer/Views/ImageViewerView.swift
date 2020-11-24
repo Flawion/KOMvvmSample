@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageViewerView: UIView {
     // MARK: Variables
-    private weak var controllerProtocol: ImageViewerViewControllerProtocol?
+    private weak var controllerProtocol: UIImageViewerViewControllerProtocol?
     
     private weak var scrollView: UIScrollView!
     private weak var imageView: UIImageView!
@@ -21,7 +21,7 @@ final class ImageViewerView: UIView {
     private var imageToDocumentSizeRatio: CGFloat = 0
     
     // MARK: Initialization
-    init(controllerProtocol: ImageViewerViewControllerProtocol) {
+    init(controllerProtocol: UIImageViewerViewControllerProtocol) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

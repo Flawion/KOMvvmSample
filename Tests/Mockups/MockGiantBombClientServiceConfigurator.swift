@@ -6,6 +6,7 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import Foundation
+import KOInject
 
 @testable import KOMvvmSampleLogic
 
@@ -75,29 +76,33 @@ final class MockGiantBombClientServiceConfigurator {
         return client.parametersForGameDetails(forGuid: gameDetailsGuid)
     }
     
-    init(serviceLocator: ServiceLocator) {
-        registerClientIfNeed(serviceLocator: serviceLocator)
-        initializeClient(serviceLocator: serviceLocator)
-        registerMockData()
+    init(container: KOIContainer) {
+        registerService(register: container)
+        initializeAfterRegister(resolver: container)
+    }
+    
+    init(register: KOIRegisterProtocol) {
+        registerService(register: register)
     }
     
     deinit {
         client = nil
     }
     
-    private func registerClientIfNeed(serviceLocator: ServiceLocator) {
-        let giantBombMockClient: GiantBombClientServiceProtocol? = serviceLocator.get(type: .giantBombApiClient)
-        if giantBombMockClient == nil {
-            serviceLocator.register(withBuilder: GiantBombMockClientServiceBuilder())
-        }
+    private func registerService(register: KOIRegisterProtocol) {
+        register.register(forType: GiantBombClientServiceProtocol.self, scope: .shared, fabric: { _ in
+            GiantBombMockClientService()
+        })
     }
     
-    private func initializeClient(serviceLocator: ServiceLocator) {
-        guard let giantBombMockClient: GiantBombMockClientService = serviceLocator.get(type: .giantBombApiClient) else {
+    func initializeAfterRegister(resolver: KOIResolverProtocol) {
+        guard let giantBombClientService: GiantBombClientServiceProtocol = resolver.resolve(),
+              let giantBombMockClient = giantBombClientService as? GiantBombMockClientService else {
             fatalError("MockedServices can't get giantBombApiClient service")
         }
         giantBombMockClient.mockDataContainer.loadDataFromBundleIdentifier = Bundle(for: type(of: self)).bundleIdentifier
         self.client = giantBombMockClient
+        registerMockData()
     }
     
     // MARK: Register mock data

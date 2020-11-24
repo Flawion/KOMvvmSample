@@ -6,6 +6,7 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
+import KOInject
 import RxSwift
 import RxCocoa
 import RxTest
@@ -14,15 +15,15 @@ import RxBlocking
 @testable import KOMvvmSampleLogic
 
 final class GameDetailsUseCaseTests: XCTestCase {
-    private var serviceLocator: ServiceLocator!
+    private var container: KOIContainer!
     private var mockGiantBombClientServiceConfigurator: MockGiantBombClientServiceConfigurator!
     private var testGame: GameModel!
     private var giantBombMockClient: GiantBombMockClientService!
     private var gameDetailsUseCase: GameDetailsUseCase!
     
     override func setUp() {
-        serviceLocator = ServiceLocator()
-        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(serviceLocator: serviceLocator)
+        container = KOIContainer()
+        mockGiantBombClientServiceConfigurator = MockGiantBombClientServiceConfigurator(container: container)
         let gameDetailsGuid = mockGiantBombClientServiceConfigurator.gameDetailsGuid
         let gameDetailsName = mockGiantBombClientServiceConfigurator.gameDetailsName
         testGame = GameModel(testModelWithGuid: gameDetailsGuid, name: gameDetailsName, description: "test")
@@ -33,7 +34,7 @@ final class GameDetailsUseCaseTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        serviceLocator = nil
+        container = nil
         mockGiantBombClientServiceConfigurator = nil
         testGame = nil
         giantBombMockClient = nil

@@ -12,7 +12,7 @@ import KOMvvmSampleLogic
 
 final class GameDetailsHeaderInfoView: UIView {
     // MARK: Variables
-    private weak var controllerProtocol: GameDetailsViewControllerProtocol?
+    private weak var controllerProtocol: UIGameDetailsViewControllerProtocol?
 
     //info panel content
     private weak var releaseDateLabel: BaseLabel!
@@ -22,7 +22,7 @@ final class GameDetailsHeaderInfoView: UIView {
     private let disposeBag: DisposeBag = DisposeBag()
 
     // MARK: Initialization functions
-    init(controllerProtocol: GameDetailsViewControllerProtocol?) {
+    init(controllerProtocol: UIGameDetailsViewControllerProtocol?) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

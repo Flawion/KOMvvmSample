@@ -10,16 +10,6 @@ import Alamofire
 import RxSwift
 import RxAlamofire
 
-final class GiantBombClientServiceBuilder: ServiceBuilderProtocol {
-    var type: ServiceTypes {
-        return .giantBombApiClient
-    }
-
-    func createService(withServiceLocator serviceLocator: ServiceLocator) -> Any {
-        return GiantBombClientService()
-    }
-}
-
 final class GiantBombClientService: BaseGiantBombClient {
     
 }

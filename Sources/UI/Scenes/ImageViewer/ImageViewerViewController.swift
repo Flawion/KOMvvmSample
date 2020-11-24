@@ -49,8 +49,8 @@ final class ImageViewerViewController: BaseViewController<ImageViewerViewModelPr
     }
 }
 
-// MARK: - ImageViewerViewControllerProtocol
-extension ImageViewerViewController: ImageViewerViewControllerProtocol {
+// MARK: - UIImageViewerViewControllerProtocol
+extension ImageViewerViewController: UIImageViewerViewControllerProtocol {
     func turnOnPhotoMode() {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }

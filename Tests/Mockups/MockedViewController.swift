@@ -9,15 +9,33 @@ import UIKit
 
 @testable import KOMvvmSampleLogic
 
-final class MockedViewController: UIViewController, ViewControllerProtocol {
-    let viewModelInstance: Any
+final class MockedViewController<ViewModelProtocol>: UIViewController, KOMvvmSampleLogic.ViewControllerProtocol {
+    let viewModel: ViewModelProtocol
       
     init(viewModel: ViewModelProtocol) {
-        viewModelInstance = viewModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension MockedViewController: GamesViewControllerProtocol where ViewModelProtocol == GamesViewModelProtocol {
+}
+
+extension MockedViewController: GameDetailsViewControllerProtocol where ViewModelProtocol == GameDetailsViewModelProtocol {
+}
+
+extension MockedViewController: GamesFiltersViewControllerProtocol where ViewModelProtocol == GamesFiltersViewModelProtocol {
+}
+
+extension MockedViewController: GameImagesViewControllerProtocol where ViewModelProtocol == GameImagesViewModelProtocol {
+}
+
+extension MockedViewController: WebViewControllerProtocol where ViewModelProtocol == WebViewModelProtocol {
+}
+
+extension MockedViewController: ImageViewerViewControllerProtocol where ViewModelProtocol == ImageViewerViewModelProtocol {
 }

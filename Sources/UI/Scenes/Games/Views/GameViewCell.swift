@@ -40,16 +40,12 @@ final class GameViewCell: BaseCollectionViewCell {
         }
     }
     
-    static var prefferedListHeight: CGFloat {
+    static var preferredListHeight: CGFloat {
         return 96
     }
     
-    static var prefferedCollectionWidth: CGFloat {
-        return 118
-    }
-    
-    static var prefferedCollectionHeight: CGFloat {
-        return 158
+    static var preferredCollectionSize: CGSize {
+        return CGSize(width: 118, height: 158)
     }
     
     var game: GameModel? {

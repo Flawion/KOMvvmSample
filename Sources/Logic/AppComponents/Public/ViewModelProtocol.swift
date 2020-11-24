@@ -15,3 +15,5 @@ public protocol ViewModelProtocol {
     
     func raise(error: Error)
 }
+
+// All others viewModelProtocol are in the Scenes folders

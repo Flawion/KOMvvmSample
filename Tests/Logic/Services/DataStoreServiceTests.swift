@@ -6,25 +6,21 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import Foundation
-
 import XCTest
 
 @testable import KOMvvmSampleLogic
 
 final class DataStoreServiceTests: XCTestCase {
     
-    private var serviceLocator: ServiceLocator!
     private var dataStore: DataStoreServiceProtocol!
     
     override func setUp() {
-        serviceLocator = ServiceLocator()
-        dataStore = DataStoreServiceBuilder().createService(withServiceLocator: serviceLocator) as? DataStoreServiceProtocol
+        dataStore = DataStoreService()
         super.setUp()
     }
     
     override func tearDown() {
         super.tearDown()
-        serviceLocator = nil
         dataStore.platforms = nil
         dataStore = nil
         guard let testDataStore = (dataStore as? TestDataStoreServiceProtocol) else {
@@ -32,16 +28,6 @@ final class DataStoreServiceTests: XCTestCase {
         }
         testDataStore.testUserDefaultObject = nil
         testDataStore.testUserDefaultBool = nil
-    }
-    
-    func testCeateDataService() {
-        let serviceLocator = ServiceLocator()
-        
-        XCTAssertNotNil(DataStoreServiceBuilder().createService(withServiceLocator: serviceLocator) as? DataStoreServiceProtocol)
-    }
-    
-    func testBuilderType() {
-        XCTAssertEqual(DataStoreServiceBuilder().type, .dataStore)
     }
     
     func testSavePlatforms() {

@@ -9,14 +9,10 @@ import UIKit
 import RxSwift
 import KOMvvmSampleLogic
 
-class BaseViewController<ViewModelType>: UIViewController, ViewControllerProtocol {
+class BaseViewController<ViewModelType>: UIViewController {
     // MARK: Variables
     let viewModel: ViewModelType
     let disposeBag: DisposeBag = DisposeBag()
-    
-    var viewModelInstance: Any {
-        return viewModel
-    }
     
     //additional controls
     lazy var loadingView: BaseStateView = {
@@ -31,10 +27,7 @@ class BaseViewController<ViewModelType>: UIViewController, ViewControllerProtoco
         return initializeErrorView()
     }()
     
-    required init(viewModel: ViewModelProtocol) {
-        guard let viewModel = viewModel as? ViewModelType else {
-            fatalError("cast failed \(ViewModelType.self)")
-        }
+    required init(viewModel: ViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

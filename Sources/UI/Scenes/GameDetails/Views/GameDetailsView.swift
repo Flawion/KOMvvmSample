@@ -11,7 +11,7 @@ import RxCocoa
 
 final class GameDetailsView: UIView {
     // MARK: Variables
-    private weak var controllerProtocol: GameDetailsViewControllerProtocol?
+    private weak var controllerProtocol: UIGameDetailsViewControllerProtocol?
 
     private let detailsItemCellReuseIdentifier: String = "GameDetailsItemViewCell"
    
@@ -26,7 +26,7 @@ final class GameDetailsView: UIView {
     private let disposeBag: DisposeBag = DisposeBag()
     
     // MARK: Initialization functions
-    init(controllerProtocol: GameDetailsViewControllerProtocol) {
+    init(controllerProtocol: UIGameDetailsViewControllerProtocol) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

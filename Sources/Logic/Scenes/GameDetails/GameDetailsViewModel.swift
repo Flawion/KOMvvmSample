@@ -57,13 +57,13 @@ extension GameDetailsViewModel: GameDetailsViewModelProtocol {
     
     // MARK: Navigation
     func goToOverviewDetailsItem(_ detailsItem: GameDetailsItemModel, navigationController: UINavigationController?) {
-        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: WebViewSceneBuilder(barTitle: detailsItem.localizedName, html: game.description ?? ""))
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), toScene: WebSceneResolver(barTitle: detailsItem.localizedName, html: game.description ?? ""))
     }
     
     func goToImagesDetailsItem(navigationController: UINavigationController?) {
         guard let images = gameDetails?.images else {
             return
         }
-        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), scene: GameImagesSceneBuilder(images: images))
+        _ = appCoordinator?.transition(.push(onNavigationController: navigationController), toScene: GameImagesSceneResolver(images: images))
     }
 }

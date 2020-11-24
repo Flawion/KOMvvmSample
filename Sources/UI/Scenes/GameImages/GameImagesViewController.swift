@@ -28,17 +28,9 @@ final class GameImagesViewController: BaseViewController<GameImagesViewModelProt
     private func initialize() {
         prepareNavigationBar(withTitle: "game_images_bar_title".localized)
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        coordinator.animate(alongsideTransition: { [weak self] _ in
-            self?.gameImagesView.invalidateCollectionLayout()
-        }, completion: nil)
-    }
 }
 
-extension GameImagesViewController: GameImagesViewControllerProtocol {
+extension GameImagesViewController: UIGameImagesViewControllerProtocol {
     func goToImageViewer(forImage image: ImageModel) {
         viewModel.goToImageViewer(forImage: image, navigationController: navigationController)
     }

@@ -6,6 +6,7 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 import XCTest
+import KOInject
 import UIKit
 
 @testable import KOMvvmSampleLogic
@@ -25,9 +26,8 @@ final class BaseAppCoordinatorTests: XCTestCase {
     
     func testRegisterViewControllerRuns() {
         appCoordinator.initializeScene()
-        let testViewModel = TestViewModel(appCoordinator: appCoordinator)
         
-        let testViewController = appCoordinator.getSceneViewController(forViewModel: testViewModel, type: .games)
+        let testViewController: TestViewControllerProtocol? = appCoordinator.resolve()
         
         XCTAssertTrue(testViewController is TestViewController)
     }
@@ -42,7 +42,7 @@ final class BaseAppCoordinatorTests: XCTestCase {
     func testTransitionToViewController() {
         appCoordinator.initializeScene()
         
-        let pushedViewController = appCoordinator.transition(.push(onNavigationController: appCoordinator.masterViewController, animated: false), scene: TestSceneBuilder2())
+        let pushedViewController = appCoordinator.transition(.push(onNavigationController: appCoordinator.masterViewController!, animated: false), toScene: TestSceneResolver2())
         
         XCTAssertTrue(pushedViewController is TestViewController2)
         XCTAssertTrue(appCoordinator.masterViewController?.topViewController is TestViewController2)
@@ -52,7 +52,7 @@ final class BaseAppCoordinatorTests: XCTestCase {
     func testTransitionViewControllers() {
         appCoordinator.initializeScene()
         
-        guard let setViewControllers = appCoordinator.transition(.set(onNavigationController: appCoordinator.masterViewController, animated: false), scenes: [TestSceneBuilder2(), TestSceneBuilder()]) as? [UIViewController] else {
+        guard let setViewControllers = appCoordinator.transition(.set(onNavigationController: appCoordinator.masterViewController!, animated: false), toScenes: [TestSceneResolver2(), TestSceneResolver()]) as? [UIViewController] else {
             XCTAssertTrue(false, "did not return viewControllers")
             return
         }
@@ -82,10 +82,34 @@ final class BaseAppCoordinatorTests: XCTestCase {
 
 // MARK: - TestAppCoordinator
 private final class TestAppCoordinator: BaseAppCoordinator {
+    private let iocContainer: KOIContainer = KOIContainer()
     var masterViewController: UINavigationController?
     
-    override func registerViewControllers(builder: ScenesViewControllerBuilder) {
-        builder.register(viewControllerType: TestViewController.self, forType: .games)
+    override init() {
+        super.init(iocContainer: iocContainer)
+    }
+    
+    override func registerViewControllers(register: KOIRegisterProtocol) {
+        register.register(forType: ViewModelProtocol.self, scope: .separate) { [weak self] _ -> ViewModelProtocol in
+            guard let self = self else {
+                fatalError()
+            }
+            return TestViewModel(appCoordinator: self)
+        }
+        
+        register.register(forType: TestViewControllerProtocol.self, scope: .separate) { container -> TestViewControllerProtocol in
+            guard let viewModel: ViewModelProtocol = container.resolve() else {
+                fatalError()
+            }
+            return TestViewController(viewModel: viewModel)
+        }
+        
+        register.register(forType: TestViewControllerProtocol2.self, scope: .separate) { container -> TestViewControllerProtocol2 in
+            guard let viewModel: ViewModelProtocol = container.resolve() else {
+                fatalError()
+            }
+            return TestViewController2(viewModel: viewModel)
+        }
     }
     
     override func setWindowRootViewController() {
@@ -93,14 +117,28 @@ private final class TestAppCoordinator: BaseAppCoordinator {
         masterViewController = UINavigationController(rootViewController: mainSceneViewController)
         window?.rootViewController = masterViewController
     }
+    
+    override func createMainSceneViewController() -> UIViewController {
+        return UIViewController()
+    }
+    
+    func resolve<Type>() -> Type? {
+        return iocContainer.resolve()
+    }
 }
 
 // MARK: - TestViewControllers
-private final class TestViewController: UIViewController, ViewControllerProtocol {
-    var viewModelInstance: Any
+private protocol TestViewControllerProtocol: ViewControllerProtocol {
+    var viewModel: ViewModelProtocol { get }
+    
+    init(viewModel: ViewModelProtocol)
+}
+
+private final class TestViewController: UIViewController, TestViewControllerProtocol {
+    let viewModel: ViewModelProtocol
     
     required init(viewModel: ViewModelProtocol) {
-        self.viewModelInstance = viewModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -109,32 +147,39 @@ private final class TestViewController: UIViewController, ViewControllerProtocol
     }
 }
 
-private final class TestViewController2: UIViewController, ViewControllerProtocol {
-    var viewModelInstance: Any
+private final class TestSceneResolver: SceneResolverProtocol {
+    func resolve(withAppCoordinator appCoordinator: AppCoordinatorProtocol, resolver: KOIResolverProtocol) -> UIViewController {
+        let testViewController: TestViewControllerProtocol = resolver.resolve()!
+        return testViewController
+    }
+}
+
+private protocol TestViewControllerProtocol2: ViewControllerProtocol {
+    var viewModel: ViewModelProtocol { get }
+    
+    init(viewModel: ViewModelProtocol)
+}
+
+private final class TestViewController2: UIViewController, TestViewControllerProtocol2 {
+    let viewModel: ViewModelProtocol
     
     required init(viewModel: ViewModelProtocol) {
-        self.viewModelInstance = viewModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private final class TestSceneResolver2: SceneResolverProtocol {
+    func resolve(withAppCoordinator appCoordinator: AppCoordinatorProtocol, resolver: KOIResolverProtocol) -> UIViewController {
+        let testViewController: TestViewControllerProtocol2 = resolver.resolve()!
+        return testViewController
     }
 }
 
 // MARK: - TestViewModel
 private final class TestViewModel: BaseViewModel {
-}
-
-// MARK: - TestSceneBuilders
-private final class TestSceneBuilder: SceneBuilderProtocol {
-    func createScene(withAppCoordinator appCoordinator: (AppCoordinatorProtocol & AppCoordinatorResouresProtocol)) -> UIViewController {
-        return TestViewController(viewModel: TestViewModel(appCoordinator: appCoordinator))
-    }
-}
-
-private final class TestSceneBuilder2: SceneBuilderProtocol {
-    func createScene(withAppCoordinator appCoordinator: (AppCoordinatorProtocol & AppCoordinatorResouresProtocol)) -> UIViewController {
-        return TestViewController2(viewModel: TestViewModel(appCoordinator: appCoordinator))
-    }
 }

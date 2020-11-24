@@ -11,7 +11,7 @@ import RxCocoa
 import KOMvvmSampleLogic
 
 // MARK: - Class methods and intializations
-final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
+final class GamesViewController: BaseViewController<GamesViewModelProtocol>, GamesViewControllerProtocol {
     // MARK: Variables
     private weak var gamesView: GamesView!
     private weak var searchController: UISearchController!
@@ -102,18 +102,10 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol> {
             showError(message: "error_api_key".localized)
         }
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        coordinator.animate(alongsideTransition: { [weak self] _ in
-            self?.gamesView.invalidateGamesCollectionLayout()
-        }, completion: nil)
-    }
 }
 
-// MARK: - GamesViewControllerProtocol
-extension GamesViewController: GamesViewControllerProtocol {
+// MARK: - UIGamesViewControllerProtocol
+extension GamesViewController: UIGamesViewControllerProtocol {
     func addBarListLayoutButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "list")?.withRenderingMode(.alwaysTemplate), style: .plain, target: gamesView, action: #selector(gamesView.swipeGamesCollectionLayout))
     }

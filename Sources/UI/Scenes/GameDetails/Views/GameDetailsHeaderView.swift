@@ -11,7 +11,7 @@ import RxCocoa
 
 final class GameDetailsHeaderView: UIView {
     // MARK: Variables
-    private weak var controllerProtocol: GameDetailsViewControllerProtocol?
+    private weak var controllerProtocol: UIGameDetailsViewControllerProtocol?
 
     private let imageLogoWidth: CGFloat = 100
 
@@ -24,7 +24,7 @@ final class GameDetailsHeaderView: UIView {
     var needToResizeHeaderSubject: PublishSubject<Void> = PublishSubject<Void>()
 
     // MARK: Initialization functions
-    init(controllerProtocol: GameDetailsViewControllerProtocol?) {
+    init(controllerProtocol: UIGameDetailsViewControllerProtocol?) {
         self.controllerProtocol = controllerProtocol
         super.init(frame: CGRect.zero)
         initialize()

@@ -10,13 +10,9 @@ import KOMvvmSampleLogic
 
 final class GameImageViewCell: BaseCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-
-    static var prefferedCollectionWidth: CGFloat {
-        return 160
-    }
-
-    static var prefferedCollectionHeight: CGFloat {
-        return 160
+    
+    static var preferredCollectionSize: CGSize {
+        return CGSize(width: 160, height: 160)
     }
 
     var image: ImageModel? {
