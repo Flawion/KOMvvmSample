@@ -13,7 +13,7 @@ final class WebViewModel: BaseViewModel {
     let url: URL?
     
     private static var appendingHTML: String {
-        //will be added to properly scale viewport
+        // will be added to properly scale viewport
         return "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
     }
     

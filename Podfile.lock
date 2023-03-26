@@ -1,39 +1,39 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.6.4)
   - KOControls (1.2.4)
   - KOInject (1.0.1)
-  - RxAlamofire (5.1.0):
-    - RxAlamofire/Core (= 5.1.0)
-  - RxAlamofire/Core (5.1.0):
-    - Alamofire (~> 4.8)
-    - RxSwift (~> 5.0)
-  - RxBlocking (5.1.1):
-    - RxSwift (~> 5)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
-  - RxTest (5.1.1):
-    - RxSwift (~> 5)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
-  - SwiftLint (0.39.2)
+  - SwiftLint (0.50.3)
   - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.8)
+  - Alamofire (~> 5.6)
   - KOControls (~> 1.2.4)
   - KOInject (~> 1.0)
-  - RxAlamofire (~> 5.0)
-  - RxBlocking (~> 5.0)
-  - RxCocoa (~> 5.0)
-  - RxSwift (~> 5.0)
-  - RxTest (~> 5.0)
+  - RxAlamofire (~> 6.1)
+  - RxBlocking (~> 6.5)
+  - RxCocoa (~> 6.5)
+  - RxSwift (~> 6.5)
+  - RxTest (~> 6.5)
   - SDWebImage (~> 5.0)
-  - SwiftLint (~> 0.34)
+  - SwiftLint (~> 0.50)
   - UIScrollView-InfiniteScroll (~> 1.1.0)
 
 SPEC REPOS:
@@ -52,19 +52,19 @@ SPEC REPOS:
     - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   KOControls: 491c8edbcae3c7edd3b3964782697e664b42351f
   KOInject: 1a90225fb8a0a88be1c14aa6ac2dc3bd6bf47f2e
-  RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
-  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
-  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 12fa55a3e4191c18a275b310f6708be850815b1f
+PODFILE CHECKSUM: 356ceae26e9123e4383832b486f9071a122c04fc
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.12.0

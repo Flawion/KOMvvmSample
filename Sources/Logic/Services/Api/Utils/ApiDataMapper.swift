@@ -47,11 +47,11 @@ final class ApiDataToJsonMapper: ApiDataMapperProtocol {
     }()
     
     func mapTo<MapTo: Codable>(data: Data) throws -> MapTo? {
-        //create docoder
+        // create docoder
         let jsonDecoder = JSONDecoder()
         jsonDecoder.dateDecodingStrategy = dateFormatStrategy
         
-        //try decode data
+        // try decode data
         var mappedData: MapTo
         do {
             mappedData = try jsonDecoder.decode(MapTo.self, from: data)

@@ -17,7 +17,7 @@ final class GameViewCell: BaseCollectionViewCell {
     private let minListLayoutCellWidth: CGFloat = 300
     private var layoutRefreshedForWidth: CGFloat = 0
     
-    //controls
+    // controls
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: CellTitleLabel!
     @IBOutlet weak var collectionTitleLabel: CellSmallTitleLabel!
@@ -26,7 +26,7 @@ final class GameViewCell: BaseCollectionViewCell {
     @IBOutlet weak var collectionContentView: UIView!
     @IBOutlet weak var listContentView: UIView!
     
-    //constraints
+    // constraints
     @IBOutlet weak var imageWidthConst: NSLayoutConstraint!
     @IBOutlet weak var imageTrailingToContentConst: NSLayoutConstraint!
     @IBOutlet weak var imageTrailingToCellConst: NSLayoutConstraint!
@@ -34,7 +34,11 @@ final class GameViewCell: BaseCollectionViewCell {
     
     private var isListLayout: Bool = true {
         didSet {
-            isListLayout ? changeLayoutToList() : changeLayoutToCollection()
+            if isListLayout {
+                changeLayoutToList()
+            } else {
+                changeLayoutToCollection()
+            }
             layoutIfNeeded()
             layoutRefreshedForWidth = bounds.width
         }

@@ -14,7 +14,7 @@ class BaseViewController<ViewModelType>: UIViewController {
     let viewModel: ViewModelType
     let disposeBag: DisposeBag = DisposeBag()
     
-    //additional controls
+    // additional controls
     lazy var loadingView: BaseStateView = {
         return initializeLoadingView()
     }()

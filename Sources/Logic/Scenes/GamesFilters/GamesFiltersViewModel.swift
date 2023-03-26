@@ -128,7 +128,7 @@ extension GamesFiltersViewModel: GamesFiltersViewModelProtocol {
             return
         }
         
-        //refreshes filter value
+        // refreshes filter value
         var value: String = ""
         for index in indexes where index.row < platformsUseCase.platforms.count {
             if !value.isEmpty {

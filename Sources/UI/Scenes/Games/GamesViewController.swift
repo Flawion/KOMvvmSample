@@ -97,7 +97,7 @@ final class GamesViewController: BaseViewController<GamesViewModelProtocol>, Gam
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //checks api key
+        // checks api key
         if !viewModel.isApiKeyValid {
             showError(message: "error_api_key".localized)
         }

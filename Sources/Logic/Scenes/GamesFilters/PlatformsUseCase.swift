@@ -73,7 +73,7 @@ final class PlatformsUseCase: BaseDataController {
     }
     
     private func downloadPlatformsUntilAll(startOffset: Int, limit: Int) -> Observable<Void> {
-        //gets a part of platforms from one request
+        // gets a part of platforms from one request
         return giantBombClient.platforms(offset: startOffset, limit: limit)
             .flatMapLatest({ [weak self](result, data) -> Observable<Void>  in
                 guard let self = self, let responseData = data else {

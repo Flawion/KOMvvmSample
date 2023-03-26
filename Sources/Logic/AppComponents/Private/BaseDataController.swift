@@ -15,7 +15,7 @@ class BaseDataController {
     private var raiseErrorSubject: PublishSubject<Error> = PublishSubject<Error>()
     let disposeBag = DisposeBag()
     
-    //public
+    // public
     var dataActionState: DataActionStates {
         get {
             return dataActionStateRelay.value

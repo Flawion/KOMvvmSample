@@ -5,14 +5,14 @@ abstract_target 'KOMvvmSampleBase' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'SwiftLint', '~> 0.34'
-  pod 'RxSwift', '~> 5.0'
-  pod 'RxCocoa', '~> 5.0'
+  pod 'SwiftLint', '~> 0.50'
+  pod 'RxSwift', '~> 6.5'
+  pod 'RxCocoa', '~> 6.5'
   pod 'KOInject', '~> 1.0'
   
   abstract_target 'Logic' do
-    pod 'Alamofire', '~> 4.8'
-    pod 'RxAlamofire', '~> 5.0'
+    pod 'Alamofire', '~> 5.6'
+    pod 'RxAlamofire', '~> 6.1'
     
     # Pods for KOMvvmSampleLogic
     target 'KOMvvmSampleLogic' do
@@ -20,8 +20,8 @@ abstract_target 'KOMvvmSampleBase' do
     
     # Pods for KOMvvmSampleLogic
     target 'KOMvvmSampleLogicTests' do
-      pod 'RxBlocking', '~> 5.0'
-      pod 'RxTest', '~> 5.0'
+      pod 'RxBlocking', '~> 6.5'
+      pod 'RxTest', '~> 6.5'
     end
   end
   
@@ -36,4 +36,12 @@ abstract_target 'KOMvvmSampleBase' do
     
   end
 
+end
+
+post_install do |installer|
+ installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |config|
+   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+  end
+ end
 end

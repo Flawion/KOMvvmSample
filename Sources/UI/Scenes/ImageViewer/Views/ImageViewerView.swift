@@ -143,7 +143,11 @@ final class ImageViewerView: UIView {
         guard imageToDocumentSizeRatio > 0 else {
             return
         }
-        scrollView.zoomScale <= imageToDocumentSizeRatio ? turnOffPhotoMode() : turnOnPhotoMode()
+        if scrollView.zoomScale <= imageToDocumentSizeRatio {
+            turnOffPhotoMode()
+        } else {
+            turnOnPhotoMode()
+        }
     }
 
     private func turnOnPhotoMode() {

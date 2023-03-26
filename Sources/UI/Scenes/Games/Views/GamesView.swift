@@ -44,7 +44,7 @@ final class GamesView: UIView {
         gamesListLayout = ListLayout(preferredCellHeight: GameViewCell.preferredListHeight)
         gamesCollectionLayout = CollectionLayout(preferredCellSize: GameViewCell.preferredCollectionSize)
 
-        //creates collection view
+        // creates collection view
         let gamesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: gamesListLayout)
         gamesCollectionView.register(UINib(nibName: "GameViewCell", bundle: nil), forCellWithReuseIdentifier: gameCellReuseIdentifier)
         gamesCollectionView.backgroundColor = UIColor.Theme.gamesCollectionBackground
@@ -154,7 +154,11 @@ final class GamesView: UIView {
         guard let gamesViewController = controllerProtocol else {
             return
         }
-        isGamesListLayout ? gamesViewController.addBarCollectionLayoutButton() : gamesViewController.addBarListLayoutButton()
+        if isGamesListLayout {
+            gamesViewController.addBarCollectionLayoutButton()
+        } else {
+            gamesViewController.addBarListLayoutButton()
+        }
     }
 
     @objc func swipeGamesCollectionLayout() {

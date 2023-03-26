@@ -13,7 +13,7 @@ class BaseStateView: UIView {
     // MARK: Variables
     private let disposeBag = DisposeBag()
     
-    //public
+    // public
     var isActiveRelay: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
 
     var isActiveDriver: Driver<Bool> {

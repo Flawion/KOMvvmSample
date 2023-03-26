@@ -1,4 +1,6 @@
-# KOMvvmSample
+# KOMvvmSample (deprecated)
+
+⚠️⚰️ This project was created in the era of monolithic architecture, it's outdated at the moment. It's strongly recommended to create a modular architecture that is not based on inheritance, to keep everything elastic and easy to maintan.
 
 KOMvvmSample is a proposition of mvvm architecture, that can be used in your own project. Example is based on [GiantBomb](https://www.giantbomb.com/api) api.
 

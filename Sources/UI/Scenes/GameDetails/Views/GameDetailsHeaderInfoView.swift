@@ -14,7 +14,7 @@ final class GameDetailsHeaderInfoView: UIView {
     // MARK: Variables
     private weak var controllerProtocol: UIGameDetailsViewControllerProtocol?
 
-    //info panel content
+    // info panel content
     private weak var releaseDateLabel: BaseLabel!
     private weak var infoSeparatorLine: SeparatorLineView!
     private weak var platformsScrollView: UIScrollView!

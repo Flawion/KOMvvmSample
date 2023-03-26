@@ -58,28 +58,28 @@ final class ApiMockDataContainer {
     private func checkIsMockData(_ mockData: ApiMockData, matchRequestParameters requestParameters: ApiRequestParameters) -> Bool {
         let allNeedToMach = mockData.matchOptions.contains(.all)
         
-        //checks equality of urls
+        // checks equality of urls
         if mockData.matchOptions.contains(.url) || allNeedToMach {
             if mockData.requestParameters.url != requestParameters.url {
                 return false
             }
         }
         
-        //checks equality of methods
+        // checks equality of methods
         if mockData.matchOptions.contains(.method) || allNeedToMach {
             if mockData.requestParameters.method != requestParameters.method {
                 return false
             }
         }
         
-        //checks equality of parameters
+        // checks equality of parameters
         if mockData.matchOptions.contains(.parameters) || allNeedToMach {
             if !checkEqualityOfParameters(mockData.requestParameters.parameters, withParameters: requestParameters.parameters) {
                 return false
             }
         }
         
-        //checks equality of headers
+        // checks equality of headers
         if mockData.matchOptions.contains(.headers) || allNeedToMach {
             if !checkEqualityOfHeaders(mockData.requestParameters.headers, withHeaders: requestParameters.headers) {
                 return false

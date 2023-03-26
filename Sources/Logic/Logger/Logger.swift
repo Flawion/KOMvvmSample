@@ -64,7 +64,7 @@ final class Logger {
             return
         }
 
-        //tries to get information from ApiErrorContainer
+        // tries to get information from ApiErrorContainer
         let appError = error as? AppError
         let response = response ?? appError?.userInfo[AppError.UserInfoKeys.apiResponse.rawValue] as? HTTPURLResponse
         let data = data ?? appError?.userInfo[AppError.UserInfoKeys.apiResponse.rawValue] as? Data

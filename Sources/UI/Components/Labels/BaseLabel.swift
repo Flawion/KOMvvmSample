@@ -23,7 +23,7 @@ class BaseLabel: UILabel {
         initialize()
     }
 
-    //to override
+    // to override
     func initialize() {
         textColor = UIColor.Theme.baseLabel
         font = UIFont.Theme.baseLabel

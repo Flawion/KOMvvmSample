@@ -91,7 +91,7 @@ extension BaseViewController {
             return Disposables.create {
                 alertController.dismiss(animated: false, completion: nil)
             }
-        }).observeOn(MainScheduler.instance)
+        }).observe(on: MainScheduler.instance)
         return (observable, alertController)
     }
 

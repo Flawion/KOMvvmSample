@@ -14,7 +14,7 @@ import RxAlamofire
 class BaseApiClient: NSObject {
     // MARK: Variables
     private(set) var urlBuilder: URLBuilder!
-    private(set) var sessionManager: SessionManager!
+    private(set) var sessionManager: Session!
     private(set) var mockDataContainer: ApiMockDataContainer = ApiMockDataContainer()
 
     // MARK: Variables that will be used for mock data responses
@@ -37,8 +37,8 @@ class BaseApiClient: NSObject {
         return nil
     }
     
-    func createSessionManager() -> SessionManager {
-        return SessionManager()
+    func createSessionManager() -> Session {
+        return Session()
     }
     
     /// Default headers that will be added to all requests, one of them can be an authorization token etc.
@@ -123,14 +123,14 @@ class BaseApiClient: NSObject {
     private func requestMockData(parameters: ApiRequestParameters, delayInMilliseconds: Int = 100) -> Observable<(HTTPURLResponse, Data)> {
         var responseStatusCode = mockErrorStatusCode
         
-        //tries to load data
+        // tries to load data
         var data: Data = mockErrorData
         if !mockSimulateFail, let loadedData = mockDataContainer.loadMockData(forRequestParameters: parameters) {
             data = loadedData
             responseStatusCode = 200
         }
         
-        //creates response
+        // creates response
         let response = HTTPURLResponse(url: parameters.url, statusCode: responseStatusCode, httpVersion: nil, headerFields: nil)!
         return Observable<(HTTPURLResponse, Data)>.just((response, data)).delay(.milliseconds(delayInMilliseconds), scheduler: MainScheduler.instance)
     }
@@ -169,24 +169,24 @@ class BaseApiClient: NSObject {
         let requestHeaders = createRequestHeaders(withHeaders: parameters.headers)
         let requestParameters = createRequestParameters(withParamters: parameters.parameters)
         
-        //gets properly encoding
+        // gets properly encoding
         let requestEncoding: ParameterEncoding = parameters.encoding ?? defaultEncoding(forMethod: parameters.method)
 
-        //makes a request
+        // makes a request
         return sessionManager.rx.request(parameters.method, parameters.url, parameters: requestParameters, encoding: requestEncoding, headers: requestHeaders).do(onNext: { (dataRequest) in
             Logger.shared.log(dataRequest)
         })
     }
     
-    private func createRequestHeaders(withHeaders headers: [String: String]?) -> [String: String] {
+    private func createRequestHeaders(withHeaders headers: [String: String]?) -> HTTPHeaders {
         var requestHeaders = createDefaultHeaders() ?? [:]
         guard let headers = headers else {
-            return requestHeaders
+            return HTTPHeaders(requestHeaders)
         }
         for header in headers {
             requestHeaders[header.key] = header.value
         }
-        return requestHeaders
+        return HTTPHeaders(requestHeaders)
     }
     
     private func createRequestParameters(withParamters parameters: [String: Any]?) -> [String: Any] {

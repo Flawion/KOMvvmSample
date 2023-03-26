@@ -124,7 +124,7 @@ final class GameDetailsView: UIView {
         view.setNeedsLayout()
         view.layoutIfNeeded()
 
-        //resize
+        // resize
         let height = view.systemLayoutSizeFitting(CGSize(width: view.bounds.width, height: UIView.layoutFittingCompressedSize.height)).height
         var frame = view.frame
         frame.size.height = height

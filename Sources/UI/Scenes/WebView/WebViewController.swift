@@ -63,7 +63,11 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.allow)
             return
         }
-        viewModel.tryToHandle(activatedUrl: requestUrl) ? decisionHandler(.cancel) : decisionHandler(.allow)
+        if viewModel.tryToHandle(activatedUrl: requestUrl) {
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

@@ -18,7 +18,7 @@ final class FiltersUtils {
     static func gamesFiltersString(fromFilters filters: [GamesFilters: String]) -> String {
         var filtersString = ""
         
-        //order is important to match the url in mockupDataContainer
+        // order is important to match the url in mockupDataContainer
         addGameFilterIfExsists(fromFilters: filters, filter: .name, toString: &filtersString)
         addGameFilterIfExsists(fromFilters: filters, filter: .platforms, toString: &filtersString)
         addGameFilterIfExsists(fromFilters: filters, filter: .originalReleaseDate, toString: &filtersString)

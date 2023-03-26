@@ -141,7 +141,7 @@ extension GamesFiltersViewController {
         waitForRefreshPlatformsRelay.accept(true)
         
         viewModel.refreshPlatformsIfNeedObservable
-            .catchError({ [weak self](error) -> Observable<Void> in
+            .catch({ [weak self](error) -> Observable<Void> in
                 self?.showError(message: error.localizedDescription)
                 return Observable<Void>.just(())
             })
@@ -196,7 +196,7 @@ extension GamesFiltersViewController {
     }
     
     private func bindPlatformsItemsSelected(fromItemsTablePicker itemsTablePicker: KOItemsTablePickerViewController) {
-        //checks if user select more than count limit, simply will deselect platform above the limit
+        // checks if user select more than count limit, simply will deselect platform above the limit
         itemsTablePicker.itemsTable.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
             guard let self = self, itemsTablePicker.itemsTable.indexPathsForSelectedRows?.count ?? 0 > self.platformsSelectedLimit else {
                 return

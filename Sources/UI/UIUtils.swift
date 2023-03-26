@@ -47,7 +47,7 @@ final class UIUtils {
         let viewToAdd = createViewAtIndex(index)
         _ = contentView.addAutoLayoutSubview(viewToAdd, toAddConstraints: [.top, .bottom])
 
-        //left
+        // left
         if let previousViewRightAnchor = previousViewRightAnchor {
             contentView.addConstraint(viewToAdd.leftAnchor.constraint(equalTo: previousViewRightAnchor, constant: spacer))
         } else {

@@ -72,11 +72,10 @@ final class ApiDataMapperTests: XCTestCase {
         let jsonToParse = "{\"date\":\"21-07-2019\"}"
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        guard let _: TestParseClass = try? apiDataMapper.mapTo(data: jsonToParse.data(using: .utf8)!) else {
-            return
-        }
-        
-        XCTAssertTrue(false)
+        do {
+            let _: TestParseClass? = try apiDataMapper.mapTo(data: jsonToParse.data(using: .utf8)!)
+            XCTFail("Mapping should fail")
+        } catch {}
     }
 }
 

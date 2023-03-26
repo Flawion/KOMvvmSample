@@ -30,7 +30,7 @@ class BaseButton: UIButton {
         initialize()
     }
 
-    //to override
+    // to override
     func initialize() {
 
     }

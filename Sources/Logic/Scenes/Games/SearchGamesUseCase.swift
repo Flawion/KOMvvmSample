@@ -11,7 +11,7 @@ import RxCocoa
 
 final class SearchGamesUseCase: BaseDataController {
     // MARK: Variables
-    //private
+    // private
     private var giantBombClient: GiantBombClientServiceProtocol!
     private var dataActionStateRelay: BehaviorRelay<DataActionStates> = BehaviorRelay<DataActionStates>(value: .none)
     private var raiseErrorSubject: PublishSubject<Error> = PublishSubject<Error>()
@@ -22,7 +22,7 @@ final class SearchGamesUseCase: BaseDataController {
     
     private var searchDisposeBag: DisposeBag!
     
-    //public
+    // public
     private(set) var filters: [GamesFilters: String] = AppSettings.Games.defaultFilters
     
     var games: [GameModel] {
@@ -101,7 +101,7 @@ final class SearchGamesUseCase: BaseDataController {
                     return
                 }
                 
-                //adds new games
+                // adds new games
                 if let data = event.element?.1, let newGames = data.results {
                     self.totalResultsCount = data.numberOfTotalResults
                     self.add(newGames: newGames)
@@ -111,10 +111,10 @@ final class SearchGamesUseCase: BaseDataController {
     }
     
     private func showSearch(error: Error) {
-        //if it's the first search block whole screen with refresh message
+        // if it's the first search block whole screen with refresh message
         if offset == 0 {
             dataActionState = .error
-        } else { //else show message only
+        } else { // else show message only
             raise(error: error)
             checkIsGameListEmpty()
         }
@@ -149,10 +149,8 @@ final class SearchGamesUseCase: BaseDataController {
     /// returns is need to refresh games
     private func update(filters: [GamesFilters: String?]) -> Bool {
         var updated: Bool = false
-        for filter in filters {
-            if update(filter: filter) {
-                updated = true
-            }
+        for filter in filters where update(filter: filter) {
+            updated = true
         }
         return updated
     }

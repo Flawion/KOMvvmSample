@@ -9,7 +9,6 @@ import Foundation
 
 public final class GamesFilterModel {
     // MARK: Variables
-    //public
     public var filter: GamesFilters
     public var value: String
     public var displayValue: String?
